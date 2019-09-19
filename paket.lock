@@ -1,0 +1,21 @@
+RESTRICTION: || (== net472) (== netcoreapp2.2) (== netstandard2.0)
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    Be.Vlaanderen.Basisregisters.Build.Pipeline (1.11.1)
+    FAKE (4.64.17)
+    Microsoft.NETCore.App (2.2.6)
+      Microsoft.NETCore.DotNetHostPolicy (>= 2.2.6) - restriction: || (&& (== net472) (>= netcoreapp2.2)) (== netcoreapp2.2) (&& (== netstandard2.0) (>= netcoreapp2.2))
+      Microsoft.NETCore.Platforms (>= 2.2.2) - restriction: || (&& (== net472) (>= netcoreapp2.2)) (== netcoreapp2.2) (&& (== netstandard2.0) (>= netcoreapp2.2))
+      Microsoft.NETCore.Targets (>= 2.0) - restriction: || (&& (== net472) (>= netcoreapp2.2)) (== netcoreapp2.2) (&& (== netstandard2.0) (>= netcoreapp2.2))
+      NETStandard.Library (>= 2.0.3) - restriction: || (&& (== net472) (>= netcoreapp2.2)) (== netcoreapp2.2) (&& (== netstandard2.0) (>= netcoreapp2.2))
+    Microsoft.NETCore.DotNetAppHost (2.2.6)
+    Microsoft.NETCore.DotNetHostPolicy (2.2.6)
+      Microsoft.NETCore.DotNetHostResolver (>= 2.2.6)
+    Microsoft.NETCore.DotNetHostResolver (2.2.6)
+      Microsoft.NETCore.DotNetAppHost (>= 2.2.6)
+    Microsoft.NETCore.Platforms (2.2.3)
+    Microsoft.NETCore.Targets (2.1) - restriction: || (&& (== net472) (>= netcoreapp2.2)) (== netcoreapp2.2) (&& (== netstandard2.0) (>= netcoreapp2.2))
+    NETStandard.Library (2.0.3)
+      Microsoft.NETCore.Platforms (>= 1.1)
+    SourceLink.Copy.PdbFiles (2.8.3) - copy_local: true
+    SourceLink.Embed.AllSourceFiles (2.8.3) - copy_local: true
