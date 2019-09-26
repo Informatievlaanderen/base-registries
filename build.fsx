@@ -1,6 +1,7 @@
 #load "packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/build-generic.fsx"
 
 open Fake
+open Fake.NpmHelper
 open ``Build-generic``
 
 // The buildserver passes in `BITBUCKET_BUILD_NUMBER` as an integer to version the results
@@ -58,20 +59,36 @@ let push = push dockerRepository
 
 // Solution -----------------------------------------------------------------------
 
+Target "Clean_Site" (fun _ ->
+  CleanDir buildDir
+  CleanDir ("site" @@ "dist")
+)
+
+Target "Build_Site" (fun _ ->
+  Npm (fun p ->
+    { p with
+        Command = (Run "build")
+    })
+)
+
 Target "Containerize_Site" (fun _ ->
-  CopyDir (buildDir @@ "BaseRegistries" @@ "linux") "src" allFiles
+  CopyDir (buildDir @@ "BaseRegistries" @@ "linux") "site" allFiles
   containerize "BaseRegistries" "site")
 
 Target "PushContainer_Site" (fun _ -> push "site")
 
 // --------------------------------------------------------------------------------
 
+Target "Build" DoNothing
 Target "Containerize" DoNothing
 Target "Push" DoNothing
 
-"NpmInstall"         ==> "Containerize"
-"Clean"              ==> "Containerize"
+"NpmInstall"         ==> "Build"
+"Clean"              ==> "Build"
+"Clean_Site"         ==> "Build"
+"Build_Site"         ==> "Build"
 
+"Build"              ==> "Containerize"
 "Containerize_Site"  ==> "Containerize"
 
 "Containerize"       ==> "Push"
@@ -79,4 +96,4 @@ Target "Push" DoNothing
 "PushContainer_Site" ==> "Push"
 
 // By default we build & test
-RunTargetOrDefault "Containerize"
+RunTargetOrDefault "Build"

@@ -1,8 +1,8 @@
 FROM nginx:1.17.3-alpine-perl
 
-COPY public_html /usr/share/nginx/html
+COPY dist /usr/share/nginx/html
 
-RUN rm -rf /etc/nginx/conf.d/*.conf 
+RUN rm -rf /etc/nginx/conf.d/*.conf
 
 COPY nginx.conf /etc/nginx/conf.d/basisregisters.vlaanderen.conf
 
