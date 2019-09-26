@@ -18,7 +18,10 @@ module.exports = {
       .clear()
       .add("./site/src/main.js")
       .end();
-    config.resolve.alias.set("@", path.join(__dirname, "./site/src"));
+
+    config.resolve.alias
+      .set("@", path.join(__dirname, "./site/src"))
+      .set("@vl", path.join(__dirname, "./deps/webuniversum/package"));
   },
   configureWebpack: config => {
     config.plugins.push(
