@@ -3,14 +3,18 @@
   "version": "1.0.1",
   "description": "Public site of the Base Registries.",
   "author": "Basisregisters Vlaanderen",
-  "license": "EUPL-1.2",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:informatievlaanderen/base-registries.git"
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --modern",
+    "lint": "vue-cli-service lint",
+    "commit": "git-cz",
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
+    "vue-i18n": "^8.0.0",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
   },
@@ -18,6 +22,7 @@
     "@commitlint/cli": "8.1.0",
     "@commitlint/config-conventional": "8.1.0",
     "@commitlint/prompt": "8.1.0",
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "@semantic-release/changelog": "3.0.4",
     "@semantic-release/commit-analyzer": "6.3.0",
     "@semantic-release/exec": "3.3.6",
@@ -43,30 +48,25 @@
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "semantic-release": "15.13.23",
+    "vue-cli-plugin-i18n": "^0.6.0",
     "vue-template-compiler": "^2.6.10"
-  },
-  "scripts": {
-    "commit": "git-cz",
-    "semantic-release": "semantic-release",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --modern",
-    "lint": "vue-cli-service lint"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "license": "EUPL-1.2",
   "release": {
     "branch": "master",
     "verifyConditions": [
@@ -170,5 +170,9 @@
       "@semantic-release/github"
     ],
     "fail": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:informatievlaanderen/base-registries.git"
   }
 }
