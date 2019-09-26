@@ -6,6 +6,9 @@ import store from "./store";
 import VlCore, { i18n } from "@vl/vl-ui-core/src/vue";
 import VlUtil from "@vl/vl-ui-util/src/vue";
 
+import { VlTitle } from "@vl/vl-ui-titles/src/vue";
+import { VlSpotlight } from "@vl/vl-ui-spotlight/src/vue";
+
 import {
   VlHeroNavigation,
   VlHeroNavigationItem
@@ -13,6 +16,8 @@ import {
 
 import App from "./App.vue";
 
+Vue.component("vl-title", VlTitle);
+Vue.component("vl-spotlight", VlSpotlight);
 Vue.component("vl-hero-navigation", VlHeroNavigation);
 Vue.component("vl-hero-navigation-item", VlHeroNavigationItem);
 
