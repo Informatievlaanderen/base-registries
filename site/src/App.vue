@@ -11,3 +11,7 @@
     </footer>
   </div>
 </template>
+
+<style lang="scss">
+  @import './vlaanderen.scss';
+</style>
