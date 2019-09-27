@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/informatievlaanderen/base-registries/compare/v1.4.0...v1.4.1) (2019-09-27)
+
+
+### Bug Fixes
+
+* use lowercase images ([7315cb9](https://github.com/informatievlaanderen/base-registries/commit/7315cb9))
+
 # [1.4.0](https://github.com/informatievlaanderen/base-registries/compare/v1.3.0...v1.4.0) (2019-09-27)
 
 
