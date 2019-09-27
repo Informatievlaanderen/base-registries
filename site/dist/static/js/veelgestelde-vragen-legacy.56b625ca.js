@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["veelgestelde-vragen"],{eb31:function(e,n,l){"use strict";l.r(n);var t=function(){var e=this,n=e.$createElement,l=e._self._c||n;return l("vl-page",[l("vl-main")],1)},a=[],r=l("2877"),s={},u=Object(r["a"])(s,t,a,!1,null,null,null);n["default"]=u.exports}}]);
-//# sourceMappingURL=veelgestelde-vragen-legacy.56b625ca.js.map

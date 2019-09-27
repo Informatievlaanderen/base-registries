@@ -38,6 +38,7 @@
 
                   <vl-typography>
                     <p>Bla</p>
+                    <p><vl-link to="/algemeen" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>
                   </vl-typography>
                 </vl-column>
 
@@ -46,6 +47,7 @@
 
                   <vl-typography>
                     <p>Bla</p>
+                    <p><vl-link to="/aanleiding" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>
                   </vl-typography>
                 </vl-column>
 
@@ -53,7 +55,8 @@
                   <vl-title tag-name="h2" id="visie">Visie op de basisregisters</vl-title>
 
                   <vl-typography>
-                    <p>Bla</p>
+                    <p>De basisregisters worden ontwikkeld in samenspraak met de belangrijkste stakeholders. De ontwikkeling van de registers bespreken we in werkgroepen. Daarbij houden we maximaal rekening met de relevante doelgroepen.</p>
+                    <p><vl-link to="/visie" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>
                   </vl-typography>
                 </vl-column>
 

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["municipality-registry"],{"7cc0":function(n,e,t){"use strict";t.r(e);var l=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("vl-page",[t("vl-main")],1)},c=[],i=t("2877"),a={},r=Object(i["a"])(a,l,c,!1,null,null,null);e["default"]=r.exports}}]);
+//# sourceMappingURL=municipality-registry-legacy.e51cdb1e.js.map
