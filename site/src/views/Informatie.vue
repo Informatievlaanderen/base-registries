@@ -4,7 +4,7 @@
       <vl-layout>
         <header class="wp-pt-heading">
           <div class="wp-pt-heading__parent">
-            <vl-link to="/informatie" mod-bold>Informatie</vl-link>
+            <vl-link to="/" mod-bold>Overzicht</vl-link>
           </div>
 
           <div class="wp-pt-heading__title-wrapper">
@@ -34,10 +34,10 @@
             <vl-column width="8" width-m="9" width-s="12">
               <vl-grid mod-stacked>
                 <vl-column width="12">
-                  <vl-title tag-name="h2" id="algemeen">Wat is een basisregisters?</vl-title>
+                  <vl-title tag-name="h2" id="algemeen">Wat zijn de basisregisters?</vl-title>
 
                   <vl-typography>
-                    <p>Bla</p>
+                    <p>Ter verbetering van haar beleidsvoering en dienstverlening trekt de Vlaamse overheid volop de kaart van de uitbouw van een geïntegreerd stelsel van authentieke gegevensbronnen.</p>
                     <p><vl-link to="/algemeen" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>
                   </vl-typography>
                 </vl-column>
@@ -46,7 +46,7 @@
                   <vl-title tag-name="h2" id="aanleiding">Aanleiding voor de basisregisters</vl-title>
 
                   <vl-typography>
-                    <p>Bla</p>
+                    <p>Informatie is zeer omvangrijk, maar ook zeer versnipperd. De basisregisters moeten zorgen voor een efficiëntere doorstroming van informatie naar alle betrokken partijen. </p>
                     <p><vl-link to="/aanleiding" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>
                   </vl-typography>
                 </vl-column>
@@ -147,6 +147,20 @@
                             text="de Vlaamse percelen"
                             tagName="router-link"
                             to="registers/percelen">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Wegen"
+                            subtitle="Authentieke bron"
+                            text="de Vlaamse wegen"
+                            tagName="router-link"
+                            to="registers/wegen">
                           </vl-spotlight>
                         </vl-link-list-item>
                       </vl-link-list>

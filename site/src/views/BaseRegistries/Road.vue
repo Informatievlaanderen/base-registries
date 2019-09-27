@@ -8,7 +8,7 @@
           </div>
 
           <div class="wp-pt-heading__title-wrapper">
-            <vl-title tag-name="h1" class="wp-pt-heading__title">Organisatieregister</vl-title>
+            <vl-title tag-name="h1" class="wp-pt-heading__title">Wegenregister</vl-title>
           </div>
 
           <vl-grid>
@@ -16,7 +16,7 @@
               <div class="wp-pt-heading__content">
                 <vl-typography>
                   <vl-introduction>
-                    Dit is een <strong>authentieke</strong> bron voor de Vlaamse organisaties en organen.
+                    Dit is een <strong>authentieke</strong> bron voor de Vlaamse wegen.
                   </vl-introduction>
                 </vl-typography>
               </div>
@@ -61,7 +61,7 @@
 
                   <vl-typography>
                     <p>Deze bron kan via een REST-API aangesproken worden, bekijk onze documentatie om deze te gebruiken.</p>
-                    <p><vl-link href="https://docs.basisregisters.vlaanderen/docs/api-documentation.html#tag/Organisaties" icon="arrow-right-fat" mod-block mod-icon-before>Documentatie</vl-link></p>
+                    <p><vl-link href="https://docs.basisregisters.vlaanderen/docs/api-documentation.html#tag/Wegen" icon="arrow-right-fat" mod-block mod-icon-before>Documentatie</vl-link></p>
                   </vl-typography>
                 </vl-column>
               </vl-grid>

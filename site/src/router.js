@@ -86,6 +86,12 @@ export default new Router({
         import(/* webpackChunkName: "parcel-registry" */ "./views/BaseRegistries/Parcel.vue")
     },
     {
+      path: "/registers/wegen",
+      name: "road-registry",
+      component: () =>
+        import(/* webpackChunkName: "road-registry" */ "./views/BaseRegistries/Road.vue")
+    },
+    {
       path: "/registers/organisaties",
       name: "organisation-registry",
       component: () =>
