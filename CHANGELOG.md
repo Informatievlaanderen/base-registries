@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/informatievlaanderen/base-registries/compare/v1.2.0...v1.3.0) (2019-09-27)
+
+
+### Features
+
+* add read more links ([7de3d18](https://github.com/informatievlaanderen/base-registries/commit/7de3d18))
+
 # [1.2.0](https://github.com/informatievlaanderen/base-registries/compare/v1.1.0...v1.2.0) (2019-09-27)
 
 
