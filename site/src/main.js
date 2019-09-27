@@ -18,6 +18,8 @@ import {
   VlHeroNavigationItem
 } from "@vl/vl-ui-hero-navigation/src/vue";
 
+import { VlLinkList, VlLinkListItem } from "@vl/vl-ui-link-list/src/vue";
+
 import {
   VlProperties,
   VlPropertiesList,
@@ -28,7 +30,7 @@ import {
 import {
   VlSideNavigation,
   VlSideNavigationList,
-  VlSideNavigationItem,
+  VlSideNavigationItem
 } from "@vl/vl-ui-side-navigation/src/vue";
 
 import App from "./App.vue";
@@ -42,6 +44,9 @@ Vue.component("vl-typography", VlTypography);
 
 Vue.component("vl-hero-navigation", VlHeroNavigation);
 Vue.component("vl-hero-navigation-item", VlHeroNavigationItem);
+
+Vue.component("vl-link-list", VlLinkList);
+Vue.component("vl-link-list-item", VlLinkListItem);
 
 Vue.component("vl-properties", VlProperties);
 Vue.component("vl-properties-list", VlPropertiesList);

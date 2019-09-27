@@ -60,9 +60,123 @@
                 <vl-column width="12">
                   <vl-title tag-name="h2" id="aanbod">Aanbod van gegevensbronnen</vl-title>
 
-                  <vl-typography>
-                    <p>Bla</p>
+                  <vl-typography class="vl-u-spacer--medium ">
+                    <p>Volgende gegevensbronnen maken momenteel deel uit van het stelsel:</p>
                   </vl-typography>
+
+                  <vl-grid mod-stacked>
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Gemeenten"
+                            subtitle="Referentie bron"
+                            text="de Belgische gemeenten"
+                            tagName="router-link"
+                            to="registers/gemeenten">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Postinformatie"
+                            subtitle="Referentie bron"
+                            text="de Belgische postcodes"
+                            tagName="router-link"
+                            to="registers/postinformatie">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Straatnamen"
+                            subtitle="Authentieke bron"
+                            text="de Vlaamse straatnamen"
+                            tagName="router-link"
+                            to="registers/straatnamen">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Adressen"
+                            subtitle="Authentieke bron"
+                            text="de Vlaamse adressen"
+                            tagName="router-link"
+                            to="registers/adressen">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Gebouwen"
+                            subtitle="Authentieke bron"
+                            text="de Vlaamse gebouwen en gebouweenheden"
+                            tagName="router-link"
+                            to="registers/gebouwen">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Percelen"
+                            subtitle="Referentie bron"
+                            text="de Vlaamse percelen"
+                            tagName="router-link"
+                            to="registers/percelen">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Organisaties"
+                            subtitle="Authentieke bron"
+                            text="de Vlaamse organisaties en organen"
+                            tagName="router-link"
+                            to="registers/organisaties">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+
+                    <vl-column width="4" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            title="Dienstverleningen"
+                            subtitle="Authentieke bron"
+                            text="de Vlaamse dienstverlening"
+                            tagName="router-link"
+                            to="registers/dienstverleningen">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+                  </vl-grid>
                 </vl-column>
               </vl-grid>
             </vl-column>
