@@ -61,26 +61,27 @@ let push = push dockerRepository
 
 Target "Clean_Site" (fun _ ->
   CleanDir buildDir
-  CleanDir ("site" @@ "dist")
+  // CleanDir ("site" @@ "dist")
 )
 
 Target "Build_Site" (fun _ ->
-  Npm (fun p ->
-  { p with
-      WorkingDirectory = ("deps" @@ "webuniversum")
-      Command = Install Standard
-  })
+  ()
+  // Npm (fun p ->
+  // { p with
+  //     WorkingDirectory = ("deps" @@ "webuniversum")
+  //     Command = Install Standard
+  // })
 
-  Npm (fun p ->
-  { p with
-      WorkingDirectory = ("deps" @@ "webuniversum")
-      Command = (Run "util:bootstrap")
-  })
+  // Npm (fun p ->
+  // { p with
+  //     WorkingDirectory = ("deps" @@ "webuniversum")
+  //     Command = (Run "util:bootstrap")
+  // })
 
-  Npm (fun p ->
-  { p with
-      Command = (Run "build")
-  })
+  // Npm (fun p ->
+  // { p with
+  //     Command = (Run "build")
+  // })
 )
 
 Target "Containerize_Site" (fun _ ->

@@ -14,4 +14,5 @@
 
 <style lang="scss">
   @import './vlaanderen.scss';
+  @import './vlaanderen-wp.scss';
 </style>

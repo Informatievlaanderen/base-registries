@@ -19,6 +19,8 @@ wwwroot/
 [Dd]ist/
 [Tt]est[Rr]esults/
 
+!site/dist
+
 *.suo
 *.user
 *.sln.docstates

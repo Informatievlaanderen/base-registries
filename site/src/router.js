@@ -12,15 +12,42 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home
+    },
+    {
+      path: "/informatie",
+      name: "informatie",
+      component: () =>
+        import(/* webpackChunkName: "informatie" */ "./views/Informatie.vue")
+    },
+    {
+      path: "/algemeen",
+      name: "algemeen",
+      component: () =>
+        import(/* webpackChunkName: "algemeen" */ "./views/Algemeen.vue")
+    },
+    {
+      path: "/aanleiding",
+      name: "aanleiding",
+      component: () =>
+        import(/* webpackChunkName: "aanleiding" */ "./views/Aanleiding.vue")
+    },
+    {
+      path: "/visie",
+      name: "visie",
+      component: () =>
+        import(/* webpackChunkName: "visie" */ "./views/Visie.vue")
+    },
+    {
+      path: "/release-notes",
+      name: "release-notes",
+      component: () =>
+        import(/* webpackChunkName: "release-notes" */ "./views/ReleaseNotes.vue")
+    },
+    {
+      path: "/veelgestelde-vragen",
+      name: "veelgestelde-vragen",
+      component: () =>
+        import(/* webpackChunkName: "veelgestelde-vragen" */ "./views/Faq.vue")
     }
-    // {
-    //   path: "/about",
-    //   name: "about",
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () =>
-    //     import(/* webpackChunkName: "about" */ "./views/About.vue")
-    // }
   ]
 });
