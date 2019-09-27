@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/informatievlaanderen/base-registries/compare/v1.3.0...v1.4.0) (2019-09-27)
+
+
+### Features
+
+* add intro sentences ([677fc87](https://github.com/informatievlaanderen/base-registries/commit/677fc87))
+
 # [1.3.0](https://github.com/informatievlaanderen/base-registries/compare/v1.2.0...v1.3.0) (2019-09-27)
 
 
