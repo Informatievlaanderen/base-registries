@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/informatievlaanderen/base-registries/compare/v1.4.1...v1.5.0) (2019-09-27)
+
+
+### Features
+
+* add services info ([82445ac](https://github.com/informatievlaanderen/base-registries/commit/82445ac))
+* enable gzip ([cec857e](https://github.com/informatievlaanderen/base-registries/commit/cec857e))
+
 ## [1.4.1](https://github.com/informatievlaanderen/base-registries/compare/v1.4.0...v1.4.1) (2019-09-27)
 
 
