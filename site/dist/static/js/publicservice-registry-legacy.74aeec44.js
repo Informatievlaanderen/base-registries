@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["publicservice-registry"],{5535:function(e,n,l){"use strict";l.r(n);var t=function(){var e=this,n=e.$createElement,l=e._self._c||n;return l("vl-page",[l("vl-main")],1)},r=[],c=l("2877"),i={},s=Object(c["a"])(i,t,r,!1,null,null,null);n["default"]=s.exports}}]);
+//# sourceMappingURL=publicservice-registry-legacy.74aeec44.js.map

@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["release-notes"],{"82e3":function(e,n,l){"use strict";l.r(n);var t=function(){var e=this,n=e.$createElement,l=e._self._c||n;return l("vl-page",[l("vl-main")],1)},a=[],s=l("2877"),r={},u=Object(s["a"])(r,t,a,!1,null,null,null);n["default"]=u.exports}}]);
-//# sourceMappingURL=release-notes-legacy.5e11cf52.js.map

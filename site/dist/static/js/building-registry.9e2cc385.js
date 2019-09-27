@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["building-registry"],{"3ef6":function(e,n,l){"use strict";l.r(n);var t=function(){var e=this,n=e.$createElement,l=e._self._c||n;return l("vl-page",[l("vl-main")],1)},i=[],r=l("2877"),u={},a=Object(r["a"])(u,t,i,!1,null,null,null);n["default"]=a.exports}}]);
+//# sourceMappingURL=building-registry.9e2cc385.js.map
