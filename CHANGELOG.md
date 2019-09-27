@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/informatievlaanderen/base-registries/compare/v1.1.0...v1.2.0) (2019-09-27)
+
+
+### Features
+
+* add base registry pages ([61b4d3d](https://github.com/informatievlaanderen/base-registries/commit/61b4d3d))
+* add images ([c8e2ba2](https://github.com/informatievlaanderen/base-registries/commit/c8e2ba2))
+
 # [1.1.0](https://github.com/informatievlaanderen/base-registries/compare/v1.0.1...v1.1.0) (2019-09-27)
 
 
