@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["aanleiding"],{7365:function(n,e,l){"use strict";l.r(e);var a=function(){var n=this,e=n.$createElement,l=n._self._c||e;return l("vl-page",[l("vl-main")],1)},t=[],i=l("2877"),u={},c=Object(i["a"])(u,a,t,!1,null,null,null);e["default"]=c.exports}}]);
-//# sourceMappingURL=aanleiding-legacy.711e46b7.js.map

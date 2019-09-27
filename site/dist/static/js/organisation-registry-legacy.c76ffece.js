@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["organisation-registry"],{"9a90":function(n,e,t){"use strict";t.r(e);var a=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("vl-page",[t("vl-main")],1)},l=[],r=t("2877"),i={},s=Object(r["a"])(i,a,l,!1,null,null,null);e["default"]=s.exports}}]);
-//# sourceMappingURL=organisation-registry-legacy.c76ffece.js.map

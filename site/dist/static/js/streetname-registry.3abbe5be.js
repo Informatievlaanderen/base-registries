@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["streetname-registry"],{d2cc:function(e,n,t){"use strict";t.r(n);var l=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("vl-page",[t("vl-main")],1)},r=[],a=t("2877"),c={},s=Object(a["a"])(c,l,r,!1,null,null,null);n["default"]=s.exports}}]);
-//# sourceMappingURL=streetname-registry.3abbe5be.js.map

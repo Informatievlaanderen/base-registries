@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["address-registry"],{e857:function(e,n,t){"use strict";t.r(n);var l=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("vl-page",[t("vl-main")],1)},r=[],s=t("2877"),a={},u=Object(s["a"])(a,l,r,!1,null,null,null);n["default"]=u.exports}}]);
-//# sourceMappingURL=address-registry.7c2e9b46.js.map
