@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["postal-registry"],{c883:function(e,n,t){"use strict";t.r(n);var l=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("vl-page",[t("vl-main")],1)},a=[],r=t("2877"),s={},c=Object(r["a"])(s,l,a,!1,null,null,null);n["default"]=c.exports}}]);
-//# sourceMappingURL=postal-registry-legacy.94e92c76.js.map
