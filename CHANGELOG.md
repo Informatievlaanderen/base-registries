@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/informatievlaanderen/base-registries/compare/v1.6.0...v1.7.0) (2019-09-30)
+
+
+### Bug Fixes
+
+* upgrade nginx ([c96afd7](https://github.com/informatievlaanderen/base-registries/commit/c96afd7))
+
+
+### Features
+
+* add footer and icons ([db3dd49](https://github.com/informatievlaanderen/base-registries/commit/db3dd49))
+* add header ([560e886](https://github.com/informatievlaanderen/base-registries/commit/560e886))
+
 # [1.6.0](https://github.com/informatievlaanderen/base-registries/compare/v1.5.0...v1.6.0) (2019-09-30)
 
 
