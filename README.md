@@ -11,8 +11,8 @@ git submodule update
 cd deps/webuniversum
 npm install
 
-git apply ../hero-fix.patch
-git apply ../map-fix.patch
+git apply ../01-vl-ui-hero-navigation-fix-link.patch
+git apply ../02-bootstrap-no-layer-map.patch
 
 npm run util:bootstrap
 ```
