@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/informatievlaanderen/base-registries/compare/v1.8.0...v1.8.1) (2019-09-30)
+
+
+### Bug Fixes
+
+* cache bust version number every time ([19f370d](https://github.com/informatievlaanderen/base-registries/commit/19f370d))
+
 # [1.8.0](https://github.com/informatievlaanderen/base-registries/compare/v1.7.0...v1.8.0) (2019-09-30)
 
 
