@@ -46,7 +46,7 @@
                   <vl-title tag-name="h2" id="aanleiding">Aanleiding voor de basisregisters</vl-title>
 
                   <vl-typography>
-                    <p>Informatie is zeer omvangrijk, maar ook zeer versnipperd. De basisregisters moeten zorgen voor een efficiëntere doorstroming van informatie naar alle betrokken partijen. </p>
+                    <p>Informatie is zeer omvangrijk, maar ook zeer versnipperd. De basisregisters moeten zorgen voor een efficiëntere doorstroming van informatie naar alle betrokken partijen.</p>
                     <p><vl-link to="/aanleiding" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>
                   </vl-typography>
                 </vl-column>
