@@ -8,6 +8,6 @@ RUN rm -rf /etc/nginx/conf.d/*.conf
 COPY nginx.conf /etc/nginx/conf.d/basisregisters.vlaanderen.conf
 
 COPY init.sh ./init.sh
-RUN chmod +x ./init.sh
+RUN chmod +x ./init.sh && dos2unix ./init.sh
 
 ENTRYPOINT ["./init.sh"]
