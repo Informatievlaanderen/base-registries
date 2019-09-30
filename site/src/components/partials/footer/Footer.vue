@@ -30,14 +30,14 @@
 
 <script>
 export default {
-  name: 'vl-footer',
+  name: "vl-footer",
   mounted() {
-    if(window.baseRegistriesVersion) {
-      document.getElementById("vbrVersion").innerHTML = ', versie ' + window.baseRegistriesVersion;
+    if (window.baseRegistriesVersion) {
+      document.getElementById("vbrVersion").innerHTML = ", versie " + window.baseRegistriesVersion;
     } else {
-      document.getElementById("vbrVersion").innerHTML = ', developer versie';
+      document.getElementById("vbrVersion").innerHTML = ", developer versie";
     }
-  },
+  }
 };
 </script>
 
@@ -59,8 +59,8 @@ export default {
 
     font-size: 18px;
     -webkit-text-size-adjust: none;
-    -webkit-font-smoothing: antialiased!important;
-    font-smoothing: antialiased!important;
+    -webkit-font-smoothing: antialiased !important;
+    font-smoothing: antialiased !important;
     text-rendering: optimizeLegibility;
   }
 
@@ -89,7 +89,7 @@ export default {
   }
 
   #vlaanderen-footer-logo:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     left: 24px;
@@ -158,8 +158,8 @@ export default {
 
   #vlaanderen-footer-info-publisher a {
     text-decoration: none;
-    -webkit-transition: all,0s;
-    transition: all,0s;
+    -webkit-transition: all, 0s;
+    transition: all, 0s;
     outline: 0;
     color: #06c;
   }
@@ -191,7 +191,7 @@ export default {
 
     #vlaanderen-footer-info-publisher {
       margin-top: 5px;
-      font-size: 13px
+      font-size: 13px;
     }
   }
 </style>
