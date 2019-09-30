@@ -33,6 +33,8 @@ import {
   VlSideNavigationItem
 } from "@vl/vl-ui-side-navigation/src/vue";
 
+import Header from "@/components/partials/header/Header.vue";
+
 import App from "./App.vue";
 
 Vue.component("vl-contact-data", VlContactData);
@@ -56,6 +58,8 @@ Vue.component("vl-properties-data", VlPropertiesData);
 Vue.component("vl-side-navigation", VlSideNavigation);
 Vue.component("vl-side-navigation-list", VlSideNavigationList);
 Vue.component("vl-side-navigation-item", VlSideNavigationItem);
+
+Vue.component("vl-header", Header);
 
 Vue.use(VlCore);
 Vue.use(VlUtil);

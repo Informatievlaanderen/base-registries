@@ -17,6 +17,12 @@ git apply ../02-bootstrap-no-layer-map.patch
 npm run util:bootstrap
 ```
 
+Fish Oneliner:
+
+```bash
+npm install; git submodule init; git submodule update; cd deps/webuniversum; npm install; git apply ../01-vl-ui-hero-navigation-fix-link.patch; git apply ../02-bootstrap-no-layer-map.patch; npm run util:bootstrap
+```
+
 ### Compiles and hot-reloads for development
 
 ```bash

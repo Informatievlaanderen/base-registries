@@ -103,5 +103,8 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "publicservice-registry" */ "./views/BaseRegistries/PublicService.vue")
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 });
