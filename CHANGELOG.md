@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/informatievlaanderen/base-registries/compare/v1.7.0...v1.8.0) (2019-09-30)
+
+
+### Bug Fixes
+
+* fix header on mobile ([3f4bf8b](https://github.com/informatievlaanderen/base-registries/commit/3f4bf8b))
+
+
+### Features
+
+* add placeholders for all pages ([0336830](https://github.com/informatievlaanderen/base-registries/commit/0336830))
+
 # [1.7.0](https://github.com/informatievlaanderen/base-registries/compare/v1.6.0...v1.7.0) (2019-09-30)
 
 
