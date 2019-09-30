@@ -34,6 +34,7 @@ import {
 } from "@vl/vl-ui-side-navigation/src/vue";
 
 import Header from "@/components/partials/header/Header.vue";
+import Footer from "@/components/partials/footer/Footer.vue";
 
 import App from "./App.vue";
 
@@ -60,6 +61,7 @@ Vue.component("vl-side-navigation-list", VlSideNavigationList);
 Vue.component("vl-side-navigation-item", VlSideNavigationItem);
 
 Vue.component("vl-header", Header);
+Vue.component("vl-footer", Footer);
 
 Vue.use(VlCore);
 Vue.use(VlUtil);

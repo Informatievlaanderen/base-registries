@@ -4,9 +4,7 @@
 
     <router-view />
 
-    <footer>
-      FOOTER HERE
-    </footer>
+    <vl-footer />
   </div>
 </template>
 
