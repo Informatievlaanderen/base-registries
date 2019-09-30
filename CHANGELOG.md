@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/informatievlaanderen/base-registries/compare/v1.8.2...v1.8.3) (2019-09-30)
+
+
+### Bug Fixes
+
+* upgrade http to https via csp ([d56f3cd](https://github.com/informatievlaanderen/base-registries/commit/d56f3cd))
+
 ## [1.8.2](https://github.com/informatievlaanderen/base-registries/compare/v1.8.1...v1.8.2) (2019-09-30)
 
 
