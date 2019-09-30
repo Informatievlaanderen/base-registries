@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/informatievlaanderen/base-registries/compare/v1.8.1...v1.8.2) (2019-09-30)
+
+
+### Bug Fixes
+
+* prevent http loading ([289e826](https://github.com/informatievlaanderen/base-registries/commit/289e826))
+
 ## [1.8.1](https://github.com/informatievlaanderen/base-registries/compare/v1.8.0...v1.8.1) (2019-09-30)
 
 
