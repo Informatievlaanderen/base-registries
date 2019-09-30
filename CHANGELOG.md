@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/informatievlaanderen/base-registries/compare/v1.5.0...v1.6.0) (2019-09-30)
+
+
+### Bug Fixes
+
+* render hero as router link ([34e92ee](https://github.com/informatievlaanderen/base-registries/commit/34e92ee))
+
+
+### Features
+
+* add submodule for header ([8f45644](https://github.com/informatievlaanderen/base-registries/commit/8f45644))
+
 # [1.5.0](https://github.com/informatievlaanderen/base-registries/compare/v1.4.1...v1.5.0) (2019-09-27)
 
 
