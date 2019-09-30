@@ -14,9 +14,6 @@ npm install
 git apply ../hero-fix.patch
 git apply ../map-fix.patch
 
-ln -s ../../global-header/ package/vl-ui-global-header
-mkdir package/vl-ui-global-header/node_modules
-
 npm run util:bootstrap
 ```
 
