@@ -1,3 +1,6 @@
 [submodule "deps/webuniversum"]
 	path = deps/webuniversum
 	url = git@bitbucket.org:vlaamseoverheid/vl-build.git
+[submodule "deps/global-header"]
+	path = deps/global-header
+	url = git@bitbucket.org:vlaamseoverheid/vl-global-header.git
