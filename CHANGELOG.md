@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/informatievlaanderen/base-registries/compare/v1.9.0...v1.9.1) (2019-10-01)
+
+
+### Bug Fixes
+
+* make api endpoint configurable ([32ba9ec](https://github.com/informatievlaanderen/base-registries/commit/32ba9ec))
+
 # [1.9.0](https://github.com/informatievlaanderen/base-registries/compare/v1.8.4...v1.9.0) (2019-10-01)
 
 
