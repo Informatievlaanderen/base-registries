@@ -24,6 +24,23 @@ module.exports = {
     config.resolve.alias
       .set("@", path.join(__dirname, "./site/src"))
       .set("@vl", path.join(__dirname, "./deps/webuniversum/package"));
+
+    const fontRule = config.module.rule('fonts');
+    fontRule.uses.clear();
+
+    fontRule
+      .use("file-loader")
+      .loader("file-loader")
+      .tap(options => {
+        const newOptions = {
+          options: {
+            name: "static/fonts/[name].[hash:8].[ext]".toLowerCase()
+          }
+        };
+
+        return { ...options, ...newOptions };
+      })
+      .end();
   },
 
   configureWebpack: config => {
