@@ -152,7 +152,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://api.basisregisters.vlaanderen/v1/versions')
+      .get(window.baseRegistriesApi + "/v1/versions")
       .then(response => {
         this.versions = response;
         this.loaded = true;
