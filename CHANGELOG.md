@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/informatievlaanderen/base-registries/compare/v1.8.3...v1.8.4) (2019-10-01)
+
+
+### Bug Fixes
+
+* dont depend on external font ([472a8cc](https://github.com/informatievlaanderen/base-registries/commit/472a8cc))
+
 ## [1.8.3](https://github.com/informatievlaanderen/base-registries/compare/v1.8.2...v1.8.3) (2019-09-30)
 
 
