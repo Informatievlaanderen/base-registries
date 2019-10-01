@@ -13,6 +13,7 @@ npm install
 
 git apply ../01-vl-ui-hero-navigation-fix-link.patch
 git apply ../02-bootstrap-no-layer-map.patch
+git apply ../03-vl-agenda-item-fix-link.patch
 
 npm run util:bootstrap
 ```
