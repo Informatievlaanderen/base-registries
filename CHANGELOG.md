@@ -1,3 +1,15 @@
+# [1.9.0](https://github.com/informatievlaanderen/base-registries/compare/v1.8.4...v1.9.0) (2019-10-01)
+
+
+### Bug Fixes
+
+* fix agenda item ([20f8918](https://github.com/informatievlaanderen/base-registries/commit/20f8918))
+
+
+### Features
+
+* add versions page ([188894d](https://github.com/informatievlaanderen/base-registries/commit/188894d))
+
 ## [1.8.4](https://github.com/informatievlaanderen/base-registries/compare/v1.8.3...v1.8.4) (2019-10-01)
 
 
