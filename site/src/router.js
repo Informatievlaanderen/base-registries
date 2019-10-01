@@ -38,6 +38,12 @@ export default new Router({
         import(/* webpackChunkName: "visie" */ "./views/Visie.vue")
     },
     {
+      path: "/versies",
+      name: "versies",
+      component: () =>
+        import(/* webpackChunkName: "versies" */ "./views/Versions.vue")
+    },
+    {
       path: "/release-notes",
       name: "release-notes",
       component: () =>

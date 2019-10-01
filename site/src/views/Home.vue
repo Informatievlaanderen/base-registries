@@ -43,6 +43,15 @@
           <vl-grid>
             <vl-column width="4" width-s="12">
               <vl-spotlight
+                title="Versies"
+                subtitle="Een overzicht van de huidige versies"
+                to="/versies"
+                tagName="router-link"
+                mod-small
+              />
+            </vl-column>
+            <vl-column width="4" width-s="12">
+              <vl-spotlight
                 title="Release notes"
                 subtitle="Documentatie bij huidige en vorige releases"
                 to="/release-notes"

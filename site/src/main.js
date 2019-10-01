@@ -6,9 +6,12 @@ import store from "./store";
 import VlCore, { i18n } from "@vl/vl-ui-core/src/vue";
 import VlUtil from "@vl/vl-ui-util/src/vue";
 
+import { VlAgendaItem } from "@vl/vl-ui-agenda-item/src/vue";
+import { VlAlert } from "@vl/vl-ui-alert/src/vue";
 import { VlContactData } from "@vl/vl-ui-contact-data/src/vue";
 import { VlIntroduction } from "@vl/vl-ui-introduction/src/vue";
 import { VlLink } from "@vl/vl-ui-link/src/vue";
+import { VlLoader } from "@vl/vl-ui-loader/src/vue";
 import { VlSpotlight } from "@vl/vl-ui-spotlight/src/vue";
 import { VlTitle } from "@vl/vl-ui-titles/src/vue";
 import { VlTypography } from "@vl/vl-ui-typography/src/vue";
@@ -38,9 +41,12 @@ import Footer from "@/components/partials/footer/Footer.vue";
 
 import App from "./App.vue";
 
+Vue.component("vl-agenda-item", VlAgendaItem);
+Vue.component("vl-alert", VlAlert);
 Vue.component("vl-contact-data", VlContactData);
 Vue.component("vl-introduction", VlIntroduction);
 Vue.component("vl-link", VlLink);
+Vue.component("vl-loader", VlLoader);
 Vue.component("vl-spotlight", VlSpotlight);
 Vue.component("vl-title", VlTitle);
 Vue.component("vl-typography", VlTypography);

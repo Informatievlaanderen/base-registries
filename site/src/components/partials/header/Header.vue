@@ -7,7 +7,7 @@
       </a>
       <div id="home-navigation">
         <vl-link id="home-link" to="/">
-          <span>Basisregisters</span><span class="home-link-vl"> Vlaanderen</span>
+          <span>Basisregisters Vlaanderen</span>
         </vl-link>
       </div>
     </div>
