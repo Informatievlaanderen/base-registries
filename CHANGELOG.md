@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/informatievlaanderen/base-registries/compare/v1.9.2...v1.9.3) (2019-10-02)
+
+
+### Bug Fixes
+
+* parse version data correctly ([aceae49](https://github.com/informatievlaanderen/base-registries/commit/aceae49))
+
 ## [1.9.2](https://github.com/informatievlaanderen/base-registries/compare/v1.9.1...v1.9.2) (2019-10-02)
 
 
