@@ -1,3 +1,11 @@
+## [1.9.2](https://github.com/informatievlaanderen/base-registries/compare/v1.9.1...v1.9.2) (2019-10-02)
+
+
+### Bug Fixes
+
+* use lowercase fonts ([bd1310f](https://github.com/informatievlaanderen/base-registries/commit/bd1310f))
+* use lowercase fonts ([9cc8b92](https://github.com/informatievlaanderen/base-registries/commit/9cc8b92))
+
 ## [1.9.1](https://github.com/informatievlaanderen/base-registries/compare/v1.9.0...v1.9.1) (2019-10-01)
 
 
