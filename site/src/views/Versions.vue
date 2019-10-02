@@ -154,7 +154,8 @@ export default {
     axios
       .get(window.baseRegistriesApi + "/v1/versions")
       .then(response => {
-        this.versions = response;
+        console.log(response);
+        this.versions = response.data;
         this.loaded = true;
       })
       .catch(error => {

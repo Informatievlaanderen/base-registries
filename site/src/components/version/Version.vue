@@ -23,6 +23,7 @@
 
   .vl-agenda-item__date {
     width: 5.5rem;
+    padding: 1.5rem .7rem;
   }
 
   .vl-agenda-item__date__day {
