@@ -31,14 +31,10 @@ module.exports = {
     fontRule
       .use("file-loader")
       .loader("file-loader")
-      .tap(options => {
-        const newOptions = {
-          options: {
-            name: "static/fonts/[name].[hash:8].[ext]".toLowerCase()
-          }
+      .tap(_ => {
+        return {
+          name: "static/fonts/[hash:8].[ext]"
         };
-
-        return { ...options, ...newOptions };
       })
       .end();
   },
