@@ -1,3 +1,10 @@
+## [1.9.4](https://github.com/informatievlaanderen/base-registries/compare/v1.9.3...v1.9.4) (2019-10-02)
+
+
+### Bug Fixes
+
+* remove unneeded console log ([1d9dcf2](https://github.com/informatievlaanderen/base-registries/commit/1d9dcf2))
+
 ## [1.9.3](https://github.com/informatievlaanderen/base-registries/compare/v1.9.2...v1.9.3) (2019-10-02)
 
 
