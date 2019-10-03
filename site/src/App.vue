@@ -14,7 +14,7 @@
 
   #app { padding-top: 30px; }
 
-  [id]::before {
+  .vl-title[id]::before {
     content: '';
     display: block;
     height: 45px;
