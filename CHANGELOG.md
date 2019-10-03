@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/informatievlaanderen/base-registries/compare/v1.10.0...v1.10.1) (2019-10-03)
+
+
+### Bug Fixes
+
+* fix anchor links ([c96b068](https://github.com/informatievlaanderen/base-registries/commit/c96b068))
+
 # [1.10.0](https://github.com/informatievlaanderen/base-registries/compare/v1.9.4...v1.10.0) (2019-10-03)
 
 
