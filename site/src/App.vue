@@ -14,6 +14,13 @@
 
   #app { padding-top: 30px; }
 
+  [id]::before {
+    content: '';
+    display: block;
+    height: 45px;
+    margin-top: -45px;
+    visibility: hidden;
+  }
 
   @media (max-width: 580px) {
     #app { padding-top: 45px; }
