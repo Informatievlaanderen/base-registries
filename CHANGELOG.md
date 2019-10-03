@@ -1,3 +1,15 @@
+# [1.10.0](https://github.com/informatievlaanderen/base-registries/compare/v1.9.4...v1.10.0) (2019-10-03)
+
+
+### Bug Fixes
+
+* fix anchor links ([15a81d7](https://github.com/informatievlaanderen/base-registries/commit/15a81d7))
+
+
+### Features
+
+* add applicationprofiles ([4abe58c](https://github.com/informatievlaanderen/base-registries/commit/4abe58c))
+
 ## [1.9.4](https://github.com/informatievlaanderen/base-registries/compare/v1.9.3...v1.9.4) (2019-10-02)
 
 
