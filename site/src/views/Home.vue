@@ -52,6 +52,15 @@
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
+                title="Applicatieprofiel"
+                subtitle="De specificatie voor gegevensuitwisseling"
+                to="/applicatieprofiel"
+                tagName="router-link"
+                mod-small
+              />
+            </vl-column>
+            <vl-column width="4" width-s="12">
+              <vl-spotlight
                 title="Release notes"
                 subtitle="Documentatie bij huidige en vorige releases"
                 to="/release-notes"
@@ -62,7 +71,7 @@
             <vl-column width="4" width-s="12">
               <vl-spotlight
                 title="Veelgestelde vragen"
-                subtitle="Veelgestelde vragen (en de bijhorende antwoorden) over de basisregisters"
+                subtitle="Vragen en antwoorden over de basisregisters"
                 to="/veelgestelde-vragen"
                 tagName="router-link"
                 mod-small

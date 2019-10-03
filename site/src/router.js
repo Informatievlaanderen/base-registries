@@ -44,6 +44,24 @@ export default new Router({
         import(/* webpackChunkName: "versies" */ "./views/Versions.vue")
     },
     {
+      path: "/applicatieprofiel",
+      name: "applicatieprofiel",
+      component: () =>
+        import(/* webpackChunkName: "applicatieprofiel" */ "./views/ApplicationProfile.vue")
+    },
+    {
+      path: "/applicatieprofiel/adressenregister",
+      name: "adressenregister",
+      component: () =>
+        import(/* webpackChunkName: "applicatieprofiel-adressenregister" */ "./views/ApplicationProfiles/Address.vue")
+    },
+    {
+      path: "/applicatieprofiel/gebouwenregister",
+      name: "gebouwenregister",
+      component: () =>
+        import(/* webpackChunkName: "applicatieprofiel-gebouwenregister" */ "./views/ApplicationProfiles/Building.vue")
+    },
+    {
       path: "/release-notes",
       name: "release-notes",
       component: () =>
@@ -59,55 +77,55 @@ export default new Router({
       path: "/registers/gemeenten",
       name: "municipality-registry",
       component: () =>
-        import(/* webpackChunkName: "municipality-registry" */ "./views/BaseRegistries/Municipality.vue")
+        import(/* webpackChunkName: "registers-municipality-registry" */ "./views/BaseRegistries/Municipality.vue")
     },
     {
       path: "/registers/postinformatie",
       name: "postal-registry",
       component: () =>
-        import(/* webpackChunkName: "postal-registry" */ "./views/BaseRegistries/PostalInformation.vue")
+        import(/* webpackChunkName: "registers-postal-registry" */ "./views/BaseRegistries/PostalInformation.vue")
     },
     {
       path: "/registers/straatnamen",
       name: "streetname-registry",
       component: () =>
-        import(/* webpackChunkName: "streetname-registry" */ "./views/BaseRegistries/StreetName.vue")
+        import(/* webpackChunkName: "registers-streetname-registry" */ "./views/BaseRegistries/StreetName.vue")
     },
     {
       path: "/registers/adressen",
       name: "address-registry",
       component: () =>
-        import(/* webpackChunkName: "address-registry" */ "./views/BaseRegistries/Address.vue")
+        import(/* webpackChunkName: "registers-address-registry" */ "./views/BaseRegistries/Address.vue")
     },
     {
       path: "/registers/gebouwen",
       name: "building-registry",
       component: () =>
-        import(/* webpackChunkName: "building-registry" */ "./views/BaseRegistries/Building.vue")
+        import(/* webpackChunkName: "registers-building-registry" */ "./views/BaseRegistries/Building.vue")
     },
     {
       path: "/registers/percelen",
       name: "parcel-registry",
       component: () =>
-        import(/* webpackChunkName: "parcel-registry" */ "./views/BaseRegistries/Parcel.vue")
+        import(/* webpackChunkName: "registers-parcel-registry" */ "./views/BaseRegistries/Parcel.vue")
     },
     {
       path: "/registers/wegen",
       name: "road-registry",
       component: () =>
-        import(/* webpackChunkName: "road-registry" */ "./views/BaseRegistries/Road.vue")
+        import(/* webpackChunkName: "registers-road-registry" */ "./views/BaseRegistries/Road.vue")
     },
     {
       path: "/registers/organisaties",
       name: "organisation-registry",
       component: () =>
-        import(/* webpackChunkName: "organisation-registry" */ "./views/BaseRegistries/Organisation.vue")
+        import(/* webpackChunkName: "registers-organisation-registry" */ "./views/BaseRegistries/Organisation.vue")
     },
     {
       path: "/registers/dienstverleningen",
       name: "publicservice-registry",
       component: () =>
-        import(/* webpackChunkName: "publicservice-registry" */ "./views/BaseRegistries/PublicService.vue")
+        import(/* webpackChunkName: "registers-publicservice-registry" */ "./views/BaseRegistries/PublicService.vue")
     }
   ],
   scrollBehavior(to, from, savedPosition) {
