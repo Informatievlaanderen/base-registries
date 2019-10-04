@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/informatievlaanderen/base-registries/compare/v1.10.1...v1.11.0) (2019-10-04)
+
+
+### Features
+
+* add .be name ([89d0352](https://github.com/informatievlaanderen/base-registries/commit/89d0352))
+
 ## [1.10.1](https://github.com/informatievlaanderen/base-registries/compare/v1.10.0...v1.10.1) (2019-10-03)
 
 
