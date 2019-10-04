@@ -44,22 +44,22 @@ export default new Router({
         import(/* webpackChunkName: "versies" */ "./views/Versions.vue")
     },
     {
-      path: "/applicatieprofiel",
-      name: "applicatieprofiel",
+      path: "/implementatiemodel",
+      name: "implementatiemodel",
       component: () =>
-        import(/* webpackChunkName: "applicatieprofiel" */ "./views/ApplicationProfile.vue")
+        import(/* webpackChunkName: "implementatiemodel" */ "./views/ImplementationModel.vue")
     },
     {
-      path: "/applicatieprofiel/adressenregister",
+      path: "/implementatiemodel/adressenregister",
       name: "adressenregister",
       component: () =>
-        import(/* webpackChunkName: "applicatieprofiel-adressenregister" */ "./views/ApplicationProfiles/Address.vue")
+        import(/* webpackChunkName: "implementatiemodel-adressenregister" */ "./views/ImplementationModels/Address.vue")
     },
     {
-      path: "/applicatieprofiel/gebouwenregister",
+      path: "/implementatiemodel/gebouwenregister",
       name: "gebouwenregister",
       component: () =>
-        import(/* webpackChunkName: "applicatieprofiel-gebouwenregister" */ "./views/ApplicationProfiles/Building.vue")
+        import(/* webpackChunkName: "implementatiemodel-gebouwenregister" */ "./views/ImplementationModels/Building.vue")
     },
     {
       path: "/release-notes",

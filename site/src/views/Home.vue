@@ -52,9 +52,9 @@
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
-                title="Applicatieprofiel"
+                title="implementatiemodel"
                 subtitle="De specificatie voor gegevensuitwisseling"
-                to="/applicatieprofiel"
+                to="/implementatiemodel"
                 tagName="router-link"
                 mod-small
               />

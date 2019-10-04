@@ -9,7 +9,7 @@
     <vl-hero-navigation-item
       title="Documentatie"
       linkText="Bekijken"
-      href="https://docs.basisregisters.vlaanderen"
+      href="https://docs.basisregisters.vlaanderen.be"
       background="#eee url('img/vlaams-parlement.jpg')"
     >Hoe gebruik ik ze in mijn systemen? Leer het hier.</vl-hero-navigation-item>
 
