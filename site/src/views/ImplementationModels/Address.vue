@@ -166,7 +166,7 @@
                       </vl-typography>
 
                       <div v-if="has_properties(oslo_thing)" class="vl-u-table-overflow">
-                        <vl-data-table>
+                        <vl-data-table mod-zebra>
                           <thead>
                             <tr>
                               <th>Eigenschap</th>
@@ -228,7 +228,7 @@
                       </vl-typography>
 
                       <div v-if="has_properties(oslo_thing)" class="vl-u-table-overflow">
-                        <vl-data-table>
+                        <vl-data-table mod-zebra>
                           <thead>
                             <tr>
                               <th>Eigenschap</th>
