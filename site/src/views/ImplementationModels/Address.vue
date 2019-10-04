@@ -261,6 +261,7 @@
 
                 <vl-column width="12" v-if="loaded">
                   <vl-title tag-name="h2" id="json-ld">JSON-LD context</vl-title>
+
                 </vl-column>
               </vl-grid>
             </vl-column>
