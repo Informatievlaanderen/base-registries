@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/informatievlaanderen/base-registries/compare/v1.12.0...v1.12.1) (2019-10-04)
+
+
+### Bug Fixes
+
+* use zebra table ([7fd1116](https://github.com/informatievlaanderen/base-registries/commit/7fd1116))
+
 # [1.12.0](https://github.com/informatievlaanderen/base-registries/compare/v1.11.0...v1.12.0) (2019-10-04)
 
 
