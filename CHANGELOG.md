@@ -1,3 +1,12 @@
+# [1.12.0](https://github.com/informatievlaanderen/base-registries/compare/v1.11.0...v1.12.0) (2019-10-04)
+
+
+### Features
+
+* add implementation model content ([351e07a](https://github.com/informatievlaanderen/base-registries/commit/351e07a))
+* add oslo datatypes ([ebdcb95](https://github.com/informatievlaanderen/base-registries/commit/ebdcb95))
+* add oslo properties ([c6b7a76](https://github.com/informatievlaanderen/base-registries/commit/c6b7a76))
+
 # [1.11.0](https://github.com/informatievlaanderen/base-registries/compare/v1.10.1...v1.11.0) (2019-10-04)
 
 
