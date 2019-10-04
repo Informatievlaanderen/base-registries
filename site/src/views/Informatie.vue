@@ -63,7 +63,7 @@
                 <vl-column width="12">
                   <vl-title tag-name="h2" id="aanbod">Aanbod van gegevensbronnen</vl-title>
 
-                  <vl-typography class="vl-u-spacer--medium ">
+                  <vl-typography class="vl-u-spacer--medium">
                     <p>Volgende gegevensbronnen maken momenteel deel uit van het stelsel:</p>
                   </vl-typography>
 

@@ -30,7 +30,7 @@
       <vl-region>
         <vl-layout>
           <vl-grid mod-stacked>
-            <vl-column width="12">
+            <vl-column width="12" v-if="!loaded">
               <vl-grid mod-stacked>
                 <vl-column width="12" v-if="!loaded && !error">
                   <div v-vl-align:center>
@@ -44,11 +44,173 @@
                     content="Er is iets fout gelopen tijdens het ophalen van het implementatiemodel. Probeer later opnieuw."
                     mod-error />
                 </vl-column>
+              </vl-grid>
+            </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
-                  Bla!
+            <vl-column width="8" width-m="9" width-s="12" v-if="loaded">
+              <vl-grid mod-stacked>
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="auteurs">Auteurs</vl-title>
+
+                  <dl>
+                    <dd v-for="person in authors" inlist="" rel="foaf:maker" class="p-author h-card vcard">
+                      <span typeof="foaf:Person">
+                        <span class="p-name fn" property="foaf:lastName">{{ person.last_name }}</span>,
+                        <span class="p-name fn" property="foaf:firstName">{{ person.first_name }}</span>
+                        - <vl-link :href="person.affiliation.website" class="p-org org h-org h-card" rel="foaf:workplaceHomepage">{{ person.affiliation.name }}</vl-link>
+                        - <span class="ed_mailto"><vl-link :href="`mailto:${person.email}`" rel="foaf:mbox" class="u-email email">{{ person.email }}</vl-link></span>
+                      </span>
+                    </dd>
+                  </dl>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="medewerkers">Medewerkers</vl-title>
+
+                  <dl>
+                    <dd v-for="person in contributors" inlist="" rel="foaf:maker" class="p-author h-card vcard">
+                      <span typeof="foaf:Person">
+                        <span class="p-name fn" property="foaf:lastName">{{ person.last_name }}</span>,
+                        <span class="p-name fn" property="foaf:firstName">{{ person.first_name }}</span>
+                        - <vl-link :href="person.affiliation.website" class="p-org org h-org h-card" rel="foaf:workplaceHomepage">{{ person.affiliation.name }}</vl-link>
+                        - <span class="ed_mailto"><vl-link :href="`mailto:${person.email}`" rel="foaf:mbox" class="u-email email">{{ person.email }}</vl-link></span>
+                      </span>
+                    </dd>
+                  </dl>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="samenvatting">Samenvatting</vl-title>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="status">Status van dit document</vl-title>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="licentie">Licentie</vl-title>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="conformiteit">Conformiteit</vl-title>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="overzicht">Overzicht</vl-title>
+
+                  <vl-typography class="vl-u-spacer--medium">
+                    <p>In dit document wordt correct gebruik van de volgende entiteiten toegelicht:</p>
+                  </vl-typography>
+
+                  <vl-grid mod-stacked>
+                    <vl-column v-for="oslo_class in oslo_classes" width="3" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            :title="oslo_class.name.nl"
+                            tagName="router-link"
+                            :href="`#class-${oslo_class.sort_nl}`">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+                  </vl-grid>
+
+                  <vl-typography class="vl-u-spacer--medium">
+                    <p>In dit document worden de volgende datatypes toegelicht:</p>
+                  </vl-typography>
+
+                  <vl-grid mod-stacked>
+                    <vl-column v-for="oslo_datatype in oslo_datatypes" width="3" width-m="6" width-s="12">
+                      <vl-link-list>
+                        <vl-link-list-item>
+                          <vl-spotlight
+                            :title="oslo_datatype.name.nl"
+                            tagName="router-link"
+                            :href="`#datatype-${oslo_datatype.sort_nl}`">
+                          </vl-spotlight>
+                        </vl-link-list-item>
+                      </vl-link-list>
+                    </vl-column>
+                  </vl-grid>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="entiteiten">Entiteiten</vl-title>
+
+                  <vl-grid mod-stacked>
+                    <vl-column v-for="oslo_class in oslo_classes" width="12">
+                      <vl-title tag-name="h3" :id="`class-${oslo_class.sort_nl}`">{{ oslo_class.name.nl }}</vl-title>
+
+                      <vl-title tag-name="h4" :id="`class-${oslo_class.sort_nl}-beschrijving`">Beschrijving</vl-title>
+
+                      <vl-typography class="vl-u-spacer--medium">
+                        <p>{{ oslo_class.description.nl }}</p>
+                      </vl-typography>
+
+                      <vl-title tag-name="h4" :id="`class-${oslo_class.sort_nl}-gebruik`">Gebruik</vl-title>
+
+                      <vl-typography v-bind:class="{ 'vl-u-spacer--medium': oslo_class.properties.length > 0 }" class="">
+                        <p>{{ oslo_class.usage.nl }}</p>
+                      </vl-typography>
+
+                      <vl-title v-if="oslo_class.properties.length > 0" tag-name="h4" :id="`class-${oslo_class.sort_nl}-eigenschappen`">Eigenschappen</vl-title>
+
+                      <vl-typography v-if="oslo_class.properties.length > 0">
+                        <p>
+                          Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
+                          <ul class="comma-list">
+                            <li v-for="oslo_property in sort_nl(oslo_class.properties)"><vl-link :href="`#class-${oslo_class.sort_nl}-eigenschap-${oslo_property.sort_nl}`">{{ oslo_property.name.nl }}</vl-link></li>
+                          </ul>
+                        </p>
+                      </vl-typography>
+
+                    </vl-column>
+                  </vl-grid>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="datatypes">Datatypes</vl-title>
+                </vl-column>
+
+                <vl-column width="12" v-if="loaded">
+                  <vl-title tag-name="h2" id="json-ld">JSON-LD context</vl-title>
                 </vl-column>
               </vl-grid>
+            </vl-column>
+
+            <vl-column
+              width="3"
+              push="1"
+              push-m="reset"
+              width-s="12"
+              class="wp-pt-side-navigation wp-pt-side-navigation--sticky-parent"
+              v-if="loaded"
+            >
+              <aside class="wp-pt-side-navigation--sticky" style="top: 120px;">
+                <vl-side-navigation title="Op deze pagina">
+                  <vl-side-navigation-list>
+                    <vl-side-navigation-item href="#auteurs" text="Auteurs" />
+                    <vl-side-navigation-item href="#medewerkers" text="Medewerkers" />
+                    <vl-side-navigation-item href="#samenvatting" text="Samenvatting" />
+                    <vl-side-navigation-item href="#status" text="Status van dit document" />
+                    <vl-side-navigation-item href="#licentie" text="Licentie" />
+                    <vl-side-navigation-item href="#conformiteit" text="Conformiteit" />
+                    <vl-side-navigation-item href="#overzicht" text="Overzicht" />
+                    <vl-side-navigation-item href="#entiteiten" text="Entiteiten">
+                      <vl-side-navigation-list>
+                        <vl-side-navigation-item v-for="oslo_class in oslo_classes" :href="`#class-${oslo_class.sort_nl}`" :text="oslo_class.name.nl"/>
+                      </vl-side-navigation-list>
+                    </vl-side-navigation-item>
+                    <vl-side-navigation-item href="#datatypes" text="Datatypes">
+                      <vl-side-navigation-list>
+                        <vl-side-navigation-item v-for="oslo_datatype in oslo_datatypes" :href="`#class-${oslo_datatype.sort_nl}`" :text="oslo_datatype.name.nl"/>
+                      </vl-side-navigation-list>
+                    </vl-side-navigation-item>
+                    <vl-side-navigation-item href="#json-ld" text="JSON-LD context" />
+                  </vl-side-navigation-list>
+                </vl-side-navigation>
+              </aside>
             </vl-column>
           </vl-grid>
         </vl-layout>
@@ -56,6 +218,28 @@
     </vl-main>
   </vl-page>
 </template>
+
+<style lang="scss">
+  .comma-list {
+    display: inline !important;;
+    list-style: none !important;
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+
+  .comma-list li {
+    display: inline !important;
+    margin: 0 !important;
+  }
+
+  .comma-list li::after {
+    content: ", ";
+  }
+
+  .comma-list li:last-child::after {
+      content: ".";
+  }
+</style>
 
 <script>
 import axios from "axios";
@@ -67,15 +251,43 @@ export default {
       loaded: false,
       error: false,
       profile: {
-        last_change: "?",
+        contributors: [],
+        classes: [],
+        datatypes: []
       }
+    }
+  },
+  computed: {
+    authors() {
+      return this.profile.contributors.filter(item => {
+        return item.role.toLowerCase() === "a";
+      });
+    },
+    contributors() {
+      return this.profile.contributors.filter(item => {
+        return item.role.toLowerCase() === "c";
+      });
+    },
+    oslo_classes() {
+      return this.sort_nl(this.profile.classes);
+    },
+    oslo_datatypes() {
+      return this.sort_nl(this.profile.datatypes);
+    }
+  },
+  methods: {
+    sort_nl(items) {
+      return [...items].sort((a, b) => {
+        return a.sort_nl.localeCompare(b.sort_nl);
+      });
     }
   },
   mounted () {
     axios
-      .get(window.baseRegistriesApi + "/v1/versions")
+      //.get(window.baseRegistriesApi + "/v1/versions")
+      .get("https://raw.githubusercontent.com/Informatievlaanderen/OSLO-Generated/test-feature-checkout/report/doc/applicatieprofiel/adresregister/ontwerpdocument/niet-bepaald/html-nj.json")
       .then(response => {
-        this.versions = response.data;
+        this.profile = response.data;
         this.loaded = true;
       })
       .catch(error => {
