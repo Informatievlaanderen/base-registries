@@ -22,6 +22,10 @@
     visibility: hidden;
   }
 
+  .vl-tooltip {
+    max-width: 100em !important;
+  }
+
   @media (max-width: 580px) {
     #app { padding-top: 45px; }
 

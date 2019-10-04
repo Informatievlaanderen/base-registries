@@ -9,12 +9,14 @@ import VlUtil from "@vl/vl-ui-util/src/vue";
 import { VlAgendaItem } from "@vl/vl-ui-agenda-item/src/vue";
 import { VlAlert } from "@vl/vl-ui-alert/src/vue";
 import { VlContactData } from "@vl/vl-ui-contact-data/src/vue";
+import { VlDataTable } from "@vl/vl-ui-data-table/src/vue";
 import { VlDoormat } from "@vl/vl-ui-doormat/src/vue";
 import { VlIntroduction } from "@vl/vl-ui-introduction/src/vue";
 import { VlLink } from "@vl/vl-ui-link/src/vue";
 import { VlLoader } from "@vl/vl-ui-loader/src/vue";
 import { VlSpotlight } from "@vl/vl-ui-spotlight/src/vue";
 import { VlTitle } from "@vl/vl-ui-titles/src/vue";
+import { VlTooltip } from "@vl/vl-ui-tooltip/src/vue";
 import { VlTypography } from "@vl/vl-ui-typography/src/vue";
 
 import {
@@ -44,6 +46,7 @@ import App from "./App.vue";
 
 Vue.component("vl-agenda-item", VlAgendaItem);
 Vue.component("vl-alert", VlAlert);
+Vue.component("vl-data-table", VlDataTable);
 Vue.component("vl-contact-data", VlContactData);
 Vue.component("vl-doormat", VlDoormat);
 Vue.component("vl-introduction", VlIntroduction);
@@ -51,6 +54,7 @@ Vue.component("vl-link", VlLink);
 Vue.component("vl-loader", VlLoader);
 Vue.component("vl-spotlight", VlSpotlight);
 Vue.component("vl-title", VlTitle);
+Vue.directive("vl-tooltip", VlTooltip);
 Vue.component("vl-typography", VlTypography);
 
 Vue.component("vl-hero-navigation", VlHeroNavigation);

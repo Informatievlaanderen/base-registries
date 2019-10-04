@@ -140,30 +140,59 @@
 
                   <vl-grid mod-stacked>
                     <vl-column v-for="oslo_class in oslo_classes" width="12">
-                      <vl-title tag-name="h3" :id="`class-${oslo_class.sort_nl}`">{{ oslo_class.name.nl }}</vl-title>
+                      <vl-title tag-name="h3" :id="`class-${oslo_class.sort_nl}`"><vl-link :href="oslo_class.uri" v-vl-tooltip.right="oslo_class.uri">{{ oslo_class.name.nl }}</vl-link></vl-title>
 
-                      <vl-title tag-name="h4" :id="`class-${oslo_class.sort_nl}-beschrijving`">Beschrijving</vl-title>
+                      <vl-title tag-name="h5" :id="`class-${oslo_class.sort_nl}-beschrijving`">Beschrijving</vl-title>
 
                       <vl-typography class="vl-u-spacer--medium">
                         <p>{{ oslo_class.description.nl }}</p>
                       </vl-typography>
 
-                      <vl-title tag-name="h4" :id="`class-${oslo_class.sort_nl}-gebruik`">Gebruik</vl-title>
+                      <vl-title tag-name="h5" :id="`class-${oslo_class.sort_nl}-gebruik`">Gebruik</vl-title>
 
-                      <vl-typography v-bind:class="{ 'vl-u-spacer--medium': oslo_class.properties.length > 0 }" class="">
+                      <vl-typography v-bind:class="{ 'vl-u-spacer--medium': has_properties(oslo_class) }" class="">
                         <p>{{ oslo_class.usage.nl }}</p>
                       </vl-typography>
 
-                      <vl-title v-if="oslo_class.properties.length > 0" tag-name="h4" :id="`class-${oslo_class.sort_nl}-eigenschappen`">Eigenschappen</vl-title>
+                      <vl-title v-if="has_properties(oslo_class)" tag-name="h5" :id="`class-${oslo_class.sort_nl}-eigenschappen`">Eigenschappen</vl-title>
 
-                      <vl-typography v-if="oslo_class.properties.length > 0">
+                      <vl-typography v-if="has_properties(oslo_class)" class="vl-u-spacer--medium">
                         <p>
                           Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
-                          <ul class="comma-list">
+                          <ul class="comma-list end-dot">
                             <li v-for="oslo_property in sort_nl(oslo_class.properties)"><vl-link :href="`#class-${oslo_class.sort_nl}-eigenschap-${oslo_property.sort_nl}`">{{ oslo_property.name.nl }}</vl-link></li>
                           </ul>
                         </p>
                       </vl-typography>
+
+                      <div v-if="has_properties(oslo_class)" class="vl-u-table-overflow">
+                        <vl-data-table>
+                          <thead>
+                            <tr>
+                              <th>Eigenschap</th>
+                              <th>Verwacht Type</th>
+                              <th>Kardinaliteit</th>
+                              <th>Beschrijving</th>
+                              <th>Gebruik</th>
+                              <th>Codelijst</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr v-for="oslo_property in sort_nl(oslo_class.properties)" class="oslo-property" :id="`class-${oslo_class.sort_nl}-eigenschap-${oslo_property.sort_nl}`">
+                              <td><vl-link :href="oslo_property.uri" v-vl-tooltip.right="oslo_property.uri">{{ oslo_property.name.nl }}</vl-link></td>
+                              <td>
+                                <ul class="comma-list">
+                                  <li v-for="property_range in oslo_property.range"><vl-link :href="property_range.range_uri" v-vl-tooltip.right="property_range.range_uri">{{ property_range.range_label }}</vl-link></li>
+                                </ul>
+                              </td>
+                              <td>{{ oslo_property.cardinality }}</td>
+                              <td>{{ oslo_property.description.nl }}</td>
+                              <td>{{ oslo_property.usage.nl }}</td>
+                              <td><vl-link v-if="oslo_property.codelist_uri" :href="oslo_property.codelist_uri">Link</vl-link></td>
+                            </tr>
+                          </tbody>
+                        </vl-data-table>
+                      </div>
 
                     </vl-column>
                   </vl-grid>
@@ -237,6 +266,10 @@
   }
 
   .comma-list li:last-child::after {
+      content: "";
+  }
+
+  .comma-list.end-dot li:last-child::after {
       content: ".";
   }
 </style>
@@ -280,6 +313,9 @@ export default {
       return [...items].sort((a, b) => {
         return a.sort_nl.localeCompare(b.sort_nl);
       });
+    },
+    has_properties(oslo) {
+      return oslo.properties.length > 0;
     }
   },
   mounted () {
