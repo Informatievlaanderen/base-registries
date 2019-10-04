@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
+import VueScrollTo from "vue-scrollto";
+
 import router from "./router";
 import store from "./store";
 
@@ -78,6 +80,7 @@ Vue.component("vl-footer", Footer);
 Vue.use(VlCore);
 Vue.use(VlUtil);
 Vue.use(VueI18n);
+Vue.use(VueScrollTo)
 
 const messages = i18n;
 const vlI18n = new VueI18n({
