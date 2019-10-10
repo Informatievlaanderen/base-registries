@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import IntroductionHero from "@/components/hero/IntroductionHero.vue";
+import IntroductionHero from "./IntroductionHero.vue";
 
 export default {
   name: "home",

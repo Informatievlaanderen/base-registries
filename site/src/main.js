@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
 import VueScrollTo from "vue-scrollto";
+import VueMarkdown from "vue-markdown";
 
 import router from "./router";
 import store from "./store";
@@ -80,7 +81,9 @@ Vue.component("vl-footer", Footer);
 Vue.use(VlCore);
 Vue.use(VlUtil);
 Vue.use(VueI18n);
-Vue.use(VueScrollTo)
+Vue.use(VueScrollTo);
+
+Vue.component("vue-markdown", VueMarkdown);
 
 const messages = i18n;
 const vlI18n = new VueI18n({

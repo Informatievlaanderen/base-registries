@@ -126,7 +126,7 @@
 </template>
 
 <script>
-import Version from "@/components/version/Version.vue";
+import Version from "./Version.vue";
 import axios from "axios";
 
 export default {

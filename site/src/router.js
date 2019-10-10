@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "./views/Home/Home.vue";
 
 Vue.use(Router);
 
@@ -41,7 +41,7 @@ export default new Router({
       path: "/versies",
       name: "versies",
       component: () =>
-        import(/* webpackChunkName: "versies" */ "./views/Versions.vue")
+        import(/* webpackChunkName: "versies" */ "./views/Versions/Versions.vue")
     },
     {
       path: "/implementatiemodel",
@@ -65,7 +65,13 @@ export default new Router({
       path: "/release-notes",
       name: "release-notes",
       component: () =>
-        import(/* webpackChunkName: "release-notes" */ "./views/ReleaseNotes.vue")
+        import(/* webpackChunkName: "release-notes" */ "./views/ReleaseNotes/ReleaseNotes.vue")
+    },
+    {
+      path: "/release-notes/:note",
+      name: "release-note",
+      component: () =>
+        import(/* webpackChunkName: "release-note" */ "./views/ReleaseNotes/ReleaseNote.vue")
     },
     {
       path: "/veelgestelde-vragen",
