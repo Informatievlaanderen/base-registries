@@ -47,7 +47,7 @@
 
                 <vl-column id="release-notes" width="12" v-if="loaded">
                   <vl-typography>
-                    <vue-markdown :source="notes" />
+                    <vue-markdown :source="notes" :breaks="false" />
                   </vl-typography>
                 </vl-column>
               </vl-grid>

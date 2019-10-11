@@ -51,7 +51,7 @@
                   <vl-typography>
                     <p>Momenteel zijn volgende releases gekend:</p>
 
-                    <vue-markdown :source="notes" />
+                    <component :is="note"></component>
                   </vl-typography>
                 </vl-column>
               </vl-grid>
@@ -65,10 +65,9 @@
 
 <script>
 import axios from "axios";
-
-function replaceAll(o, str1, str2, ignore) {
-  return o.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
-}
+import Vue from "vue";
+import Mode from "frontmatter-markdown-loader/mode";
+import fm from "frontmatter-markdown-loader?mode=meta";
 
 export default {
   name: "notes",
@@ -76,14 +75,29 @@ export default {
     return {
       loaded: false,
       error: false,
-      notes: ""
+      note: {}
     }
   },
   mounted () {
     axios
       .get("https://raw.githubusercontent.com/wiki/Informatievlaanderen/registry-documentation/Release-Notes.md")
       .then(response => {
-        this.notes = replaceAll(response.data, "https://github.com/Informatievlaanderen/registry-documentation/wiki/", "/release-notes/");
+        var markdown = response
+          .data
+          .replace(
+            /\[(.*)\]\(https:\/\/github\.com\/Informatievlaanderen\/registry-documentation\/wiki\/(.*)\)/gm,
+            "<vl-link to =\"/release-notes/$2\">$1</vl-link>");
+
+        var options = {
+          query: {
+            mode: [Mode.VUE_COMPONENT]
+          }
+        };
+        var parsedMarkdown = fm.bind(options)(markdown);
+        var noteObject = eval(parsedMarkdown);
+        var noteComponent = eval(noteObject.vue.component);
+
+        this.note = noteComponent;
         this.loaded = true;
       })
       .catch(error => {

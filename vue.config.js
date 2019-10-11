@@ -25,7 +25,7 @@ module.exports = {
       .set("@", path.join(__dirname, "./site/src"))
       .set("@vl", path.join(__dirname, "./deps/webuniversum/package"));
 
-    const fontRule = config.module.rule('fonts');
+    const fontRule = config.module.rule("fonts");
     fontRule.uses.clear();
 
     fontRule
