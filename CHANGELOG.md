@@ -1,3 +1,15 @@
+# [1.13.0](https://github.com/informatievlaanderen/base-registries/compare/v1.12.1...v1.13.0) (2019-10-11)
+
+
+### Bug Fixes
+
+* deploy to staging ([ed253b4](https://github.com/informatievlaanderen/base-registries/commit/ed253b4))
+
+
+### Features
+
+* add new release notes section ([ccd74e1](https://github.com/informatievlaanderen/base-registries/commit/ccd74e1))
+
 ## [1.12.1](https://github.com/informatievlaanderen/base-registries/compare/v1.12.0...v1.12.1) (2019-10-04)
 
 
