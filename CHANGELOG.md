@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/informatievlaanderen/base-registries/compare/v1.13.1...v1.13.2) (2019-10-14)
+
+
+### Bug Fixes
+
+* add title per page ([b49632f](https://github.com/informatievlaanderen/base-registries/commit/b49632f))
+
 ## [1.13.1](https://github.com/informatievlaanderen/base-registries/compare/v1.13.0...v1.13.1) (2019-10-11)
 
 
