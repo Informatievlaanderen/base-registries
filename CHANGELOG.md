@@ -1,3 +1,10 @@
+## [1.13.3](https://github.com/informatievlaanderen/base-registries/compare/v1.13.2...v1.13.3) (2019-10-15)
+
+
+### Bug Fixes
+
+* change dvr in manifest to basisregisters ([d984119](https://github.com/informatievlaanderen/base-registries/commit/d984119))
+
 ## [1.13.2](https://github.com/informatievlaanderen/base-registries/compare/v1.13.1...v1.13.2) (2019-10-14)
 
 
