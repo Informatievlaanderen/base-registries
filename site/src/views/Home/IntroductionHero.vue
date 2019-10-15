@@ -15,7 +15,7 @@
 
     <vl-hero-navigation-item
       title="Registratie"
-      href="https://www.vlaanderen.be/nl"
+      href="https://portal.basisregisters.vlaanderen.be"
       linkText="Registreren"
       background="#eee url('img/vlaamse-regering.jpg')"
     >Wie kan ze gebruiken? Hoe krijg ik toegang? Lees snel verder!</vl-hero-navigation-item>

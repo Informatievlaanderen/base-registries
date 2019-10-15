@@ -31,7 +31,7 @@
     font-size: 16px;
     font-family: "Flanders Art Sans", sans-serif;
     -webkit-text-size-adjust: none;
-    font-smoothing: antialiased!important;
+    font-smoothing: antialiased !important;
     text-rendering: optimizeLegibility;
   }
 
