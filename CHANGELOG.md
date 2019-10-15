@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/informatievlaanderen/base-registries/compare/v1.13.3...v1.14.0) (2019-10-15)
+
+
+### Features
+
+* add portal url ([4aac543](https://github.com/informatievlaanderen/base-registries/commit/4aac543))
+
 ## [1.13.3](https://github.com/informatievlaanderen/base-registries/compare/v1.13.2...v1.13.3) (2019-10-15)
 
 
