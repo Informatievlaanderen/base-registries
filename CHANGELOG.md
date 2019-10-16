@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/informatievlaanderen/base-registries/compare/v1.14.0...v1.14.1) (2019-10-16)
+
+
+### Bug Fixes
+
+* add vue to readme and force build ([8280e27](https://github.com/informatievlaanderen/base-registries/commit/8280e27))
+
 # [1.14.0](https://github.com/informatievlaanderen/base-registries/compare/v1.13.3...v1.14.0) (2019-10-15)
 
 
