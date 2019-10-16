@@ -68,6 +68,7 @@ The new version 1.2 of the European Union Public Licence (EUPL) is published in 
 * [Roslyn and C#](https://github.com/dotnet/roslyn/blob/master/License.txt) - _The Roslyn .NET compiler provides C# and Visual Basic languages with rich code analysis APIs._ - [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)
 * [F#](https://github.com/fsharp/fsharp/blob/master/LICENSE) - _The F# Compiler, Core Library & Tools_ - [MIT](https://choosealicense.com/licenses/mit/)
 * [F# and .NET Core](https://github.com/dotnet/netcorecli-fsc/blob/master/LICENSE) - _F# and .NET Core SDK working together._ - [MIT](https://choosealicense.com/licenses/mit/)
+* [Vue.js](https://github.com/vuejs/vue/blob/dev/LICENSE) - _Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web._ - [MIT](https://choosealicense.com/licenses/mit/)
 
 ### Libraries
 
