@@ -1,3 +1,11 @@
+## [1.14.2](https://github.com/informatievlaanderen/base-registries/compare/v1.14.1...v1.14.2) (2019-11-28)
+
+
+### Bug Fixes
+
+* push to docker prod registry on build ([dacb883](https://github.com/informatievlaanderen/base-registries/commit/dacb883))
+* redirect /help to docs ([06ca053](https://github.com/informatievlaanderen/base-registries/commit/06ca053))
+
 ## [1.14.1](https://github.com/informatievlaanderen/base-registries/compare/v1.14.0...v1.14.1) (2019-10-16)
 
 
