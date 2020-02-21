@@ -1,3 +1,10 @@
+## [1.14.3](https://github.com/informatievlaanderen/base-registries/compare/v1.14.2...v1.14.3) (2020-02-21)
+
+
+### Bug Fixes
+
+* redirect to beta for now ([43bc35a](https://github.com/informatievlaanderen/base-registries/commit/43bc35a))
+
 ## [1.14.2](https://github.com/informatievlaanderen/base-registries/compare/v1.14.1...v1.14.2) (2019-11-28)
 
 
