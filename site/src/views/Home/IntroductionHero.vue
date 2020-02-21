@@ -9,13 +9,13 @@
     <vl-hero-navigation-item
       title="Documentatie"
       linkText="Bekijken"
-      href="https://docs.basisregisters.vlaanderen.be"
+      href="https://docs.beta.basisregisters.vlaanderen.be"
       background="#eee url('img/vlaams-parlement.jpg')"
     >Hoe gebruik ik ze in mijn systemen? Leer het hier.</vl-hero-navigation-item>
 
     <vl-hero-navigation-item
       title="Registratie"
-      href="https://portal.basisregisters.vlaanderen.be"
+      href="https://portal.beta.basisregisters.vlaanderen.be"
       linkText="Registreren"
       background="#eee url('img/vlaamse-regering.jpg')"
     >Wie kan ze gebruiken? Hoe krijg ik toegang? Lees snel verder!</vl-hero-navigation-item>

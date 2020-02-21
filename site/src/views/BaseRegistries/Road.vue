@@ -61,7 +61,7 @@
 
                   <vl-typography>
                     <p>Deze bron kan via een REST-API aangesproken worden, bekijk onze documentatie om deze te gebruiken.</p>
-                    <p><vl-link href="https://docs.basisregisters.vlaanderen.be/docs/api-documentation.html#tag/Wegen" icon="arrow-right-fat" mod-block mod-icon-before>Documentatie</vl-link></p>
+                    <p><vl-link href="https://docs.beta.basisregisters.vlaanderen.be/docs/api-documentation.html#tag/Wegen" icon="arrow-right-fat" mod-block mod-icon-before>Documentatie</vl-link></p>
                   </vl-typography>
                 </vl-column>
               </vl-grid>
