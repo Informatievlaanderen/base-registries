@@ -1,3 +1,10 @@
+## [1.14.6](https://github.com/informatievlaanderen/base-registries/compare/v1.14.5...v1.14.6) (2020-03-20)
+
+
+### Bug Fixes
+
+* use correct build user ([30f1d93](https://github.com/informatievlaanderen/base-registries/commit/30f1d93))
+
 ## [1.14.5](https://github.com/informatievlaanderen/base-registries/compare/v1.14.4...v1.14.5) (2020-03-20)
 
 
