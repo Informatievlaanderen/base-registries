@@ -1,3 +1,12 @@
+## [1.14.5](https://github.com/informatievlaanderen/base-registries/compare/v1.14.4...v1.14.5) (2020-03-20)
+
+
+### Bug Fixes
+
+* add arguments for lowercasing ([1545964](https://github.com/informatievlaanderen/base-registries/commit/1545964))
+* dont break cased urls for api ([9f3d72e](https://github.com/informatievlaanderen/base-registries/commit/9f3d72e))
+* lowercase api calls again ([6cb570e](https://github.com/informatievlaanderen/base-registries/commit/6cb570e))
+
 ## [1.14.4](https://github.com/informatievlaanderen/base-registries/compare/v1.14.3...v1.14.4) (2020-02-21)
 
 
