@@ -1,3 +1,12 @@
+## [1.14.8](https://github.com/informatievlaanderen/base-registries/compare/v1.14.7...v1.14.8) (2020-03-21)
+
+
+### Bug Fixes
+
+* build UI ([2c89556](https://github.com/informatievlaanderen/base-registries/commit/2c89556))
+* inject alias_zone_name as env var ([fe6cd5a](https://github.com/informatievlaanderen/base-registries/commit/fe6cd5a))
+* redirect from UI ([d9d1df4](https://github.com/informatievlaanderen/base-registries/commit/d9d1df4))
+
 ## [1.14.7](https://github.com/informatievlaanderen/base-registries/compare/v1.14.6...v1.14.7) (2020-03-20)
 
 
