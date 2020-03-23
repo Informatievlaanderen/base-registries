@@ -1,3 +1,10 @@
+## [1.14.9](https://github.com/informatievlaanderen/base-registries/compare/v1.14.8...v1.14.9) (2020-03-23)
+
+
+### Bug Fixes
+
+* cleanup conf ([80bb552](https://github.com/informatievlaanderen/base-registries/commit/80bb552))
+
 ## [1.14.8](https://github.com/informatievlaanderen/base-registries/compare/v1.14.7...v1.14.8) (2020-03-21)
 
 
