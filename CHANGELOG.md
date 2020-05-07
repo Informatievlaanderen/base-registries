@@ -1,3 +1,10 @@
+## [1.14.10](https://github.com/informatievlaanderen/base-registries/compare/v1.14.9...v1.14.10) (2020-05-07)
+
+
+### Bug Fixes
+
+* remove Bla ([2ceda09](https://github.com/informatievlaanderen/base-registries/commit/2ceda09))
+
 ## [1.14.9](https://github.com/informatievlaanderen/base-registries/compare/v1.14.8...v1.14.9) (2020-03-23)
 
 
