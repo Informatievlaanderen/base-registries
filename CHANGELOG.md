@@ -1,3 +1,10 @@
+## [1.15.2](https://github.com/informatievlaanderen/base-registries/compare/v1.15.1...v1.15.2) (2020-05-07)
+
+
+### Bug Fixes
+
+* replace location by if ([f7a5bb7](https://github.com/informatievlaanderen/base-registries/commit/f7a5bb7))
+
 ## [1.15.1](https://github.com/informatievlaanderen/base-registries/compare/v1.15.0...v1.15.1) (2020-05-07)
 
 
