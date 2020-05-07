@@ -11,10 +11,44 @@
         </vl-link>
       </div>
     </div>
+
+    <div id="vlaanderen-in-progress" class="vl-alert vl-alert--warning vl-alert--naked">
+      <div class="vl-alert__icon">
+        <vl-icon icon="warning" />
+      </div>
+      Dit is een voorlopig ontwerp van de Basisregisters Vlaanderen webpagina
+    </div>
   </header>
 </template>
 
-<style scoped>
+<style>
+  #vlaanderen-in-progress {
+    border-top: 1px solid #cbd2da;
+    text-align: center;
+    background: #fef9e5;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #vlaanderen-in-progress .vl-alert__title {
+    display: none !important;
+  }
+
+  #vlaanderen-in-progress .vl-alert__message {
+    margin: 0;
+  }
+
+  #vlaanderen-in-progress .vl-alert__icon {
+    margin-right: 1rem;
+  }
+
+  #vlaanderen-in-progress .vl-icon.vl-vi.vl-vi-warning::before {
+    content: "\f27d";
+  }
+
   #vlaanderen-top {
     position: fixed;
     z-index: 10004;

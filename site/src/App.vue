@@ -26,9 +26,11 @@
     max-width: 100em !important;
   }
 
-  @media (max-width: 580px) {
-    #app { padding-top: 45px; }
+  .vl-page {
+    margin-top: 45px;
+  }
 
+  @media (max-width: 580px) {
     .vl-hero-navigation__list__listitem--active .vl-hero-navigation__title {
       text-decoration: none;
     }
