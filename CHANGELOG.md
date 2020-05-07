@@ -1,3 +1,10 @@
+## [1.15.5](https://github.com/informatievlaanderen/base-registries/compare/v1.15.4...v1.15.5) (2020-05-07)
+
+
+### Bug Fixes
+
+* redirect query string correctly ([b749ef3](https://github.com/informatievlaanderen/base-registries/commit/b749ef3))
+
 ## [1.15.4](https://github.com/informatievlaanderen/base-registries/compare/v1.15.3...v1.15.4) (2020-05-07)
 
 
