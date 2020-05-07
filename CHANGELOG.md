@@ -1,3 +1,10 @@
+## [1.15.4](https://github.com/informatievlaanderen/base-registries/compare/v1.15.3...v1.15.4) (2020-05-07)
+
+
+### Bug Fixes
+
+* reference config correctly ([d0b4a4f](https://github.com/informatievlaanderen/base-registries/commit/d0b4a4f))
+
 ## [1.15.3](https://github.com/informatievlaanderen/base-registries/compare/v1.15.2...v1.15.3) (2020-05-07)
 
 
