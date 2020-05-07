@@ -36,7 +36,21 @@
                   <vl-title tag-name="h2" id="doel">Wat is het doel?</vl-title>
 
                   <vl-typography>
-                    <p>Nog niet beschikbaar.</p>
+                    <p>Een bron vormen die
+                      <ul>
+                        <li>authentieke informatie biedt over structuren in de publieke sector in Vlaanderen, incl. beschrijvende informatie ervan zoals waar ze te vinden zijn en hoe je ze kan contacteren.</li>
+                        <li>een manier voorzien om alle organisatie-éénheden waarmee die publieke sector te maken heeft ook uniek te identificeren.</li>
+                      </ul>
+                    </p>
+
+                    <p>
+                      Binnen deze visie voorzien we maatschappij en beleid van een actueel en kwalitatief overzicht van die publieke sector.
+                      Daarnaast kan de Vlaamse administratie ook bij ons terecht voor up-to-date informatie om deze te gebruiken in hun eigen systemen en dienstverlening.
+                    </p>
+
+                    <p>
+                      Op die manier wordt het hele ecosysteem aan applicaties en toepassingen in de Vlaamse administratie rijker én geven we onze beleidsmakers betere info voor hun besluitvorming.
+                    </p>
                   </vl-typography>
                 </vl-column>
 
@@ -44,7 +58,9 @@
                   <vl-title tag-name="h2" id="status">Wat is de status?</vl-title>
 
                   <vl-typography>
-                    <p>Deze bron werd gepubliceerd als Kandidaat-standaard. Deze bron is bedoeld om uit te groeien tot een standaard.</p>
+                    <p>
+                      Het organisatieregister maakt deel uit van de Vlaamse Basisregisters en biedt autoritatieve informatie over publieke organisaties in Vlaanderen.
+                      Het is momenteel nog geen authentieke gegevensbron zoals bedoeld in <em>artikel III.66 van het Bestuursdecreet van 7/12/2018</em>, maar heeft wel deze ambitie.</p>
                   </vl-typography>
                 </vl-column>
 
