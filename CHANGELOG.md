@@ -1,3 +1,11 @@
+## [1.15.1](https://github.com/informatievlaanderen/base-registries/compare/v1.15.0...v1.15.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* generate site ([c749ef8](https://github.com/informatievlaanderen/base-registries/commit/c749ef8))
+* redirect correctly ([a54b28f](https://github.com/informatievlaanderen/base-registries/commit/a54b28f))
+
 # [1.15.0](https://github.com/informatievlaanderen/base-registries/compare/v1.14.10...v1.15.0) (2020-05-07)
 
 
