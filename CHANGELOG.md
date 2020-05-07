@@ -1,3 +1,11 @@
+# [1.15.0](https://github.com/informatievlaanderen/base-registries/compare/v1.14.10...v1.15.0) (2020-05-07)
+
+
+### Features
+
+* add in progress header ([9fb5c09](https://github.com/informatievlaanderen/base-registries/commit/9fb5c09))
+* document OR ([29df030](https://github.com/informatievlaanderen/base-registries/commit/29df030))
+
 ## [1.14.10](https://github.com/informatievlaanderen/base-registries/compare/v1.14.9...v1.14.10) (2020-05-07)
 
 
