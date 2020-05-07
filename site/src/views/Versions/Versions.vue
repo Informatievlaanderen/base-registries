@@ -106,7 +106,7 @@
                     title="Organisaties"
                     text="de Vlaamse organisaties en organen."
                     to="/registers/organisaties"
-                    version="N/A" />
+                    :version="versions.organisationRegistry" />
                 </vl-column>
 
                 <vl-column width="4" width-m="6" width-s="12" v-if="loaded">

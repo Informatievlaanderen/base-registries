@@ -36,7 +36,7 @@
                   <vl-title tag-name="h2" id="doel">Wat is het doel?</vl-title>
 
                   <vl-typography>
-                    <p>Bla.</p>
+                    <p>Nog niet beschikbaar.</p>
                   </vl-typography>
                 </vl-column>
 
@@ -44,7 +44,7 @@
                   <vl-title tag-name="h2" id="status">Wat is de status?</vl-title>
 
                   <vl-typography>
-                    <p>Bla.</p>
+                    <p>Nog niet beschikbaar.</p>
                   </vl-typography>
                 </vl-column>
 

@@ -52,18 +52,18 @@
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
-                title="Implementatiemodel"
-                subtitle="De specificatie voor gegevensuitwisseling"
-                to="/implementatiemodel"
+                title="Release notes"
+                subtitle="Documentatie bij huidige en vorige releases"
+                to="/release-notes"
                 tagName="router-link"
                 mod-small
               />
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
-                title="Release notes"
-                subtitle="Documentatie bij huidige en vorige releases"
-                to="/release-notes"
+                title="Implementatiemodel"
+                subtitle="De specificatie voor gegevensuitwisseling"
+                to="/implementatiemodel"
                 tagName="router-link"
                 mod-small
               />
