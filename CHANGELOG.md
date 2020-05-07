@@ -1,3 +1,10 @@
+## [1.15.3](https://github.com/informatievlaanderen/base-registries/compare/v1.15.2...v1.15.3) (2020-05-07)
+
+
+### Bug Fixes
+
+* update docs OR ([e3ae3b6](https://github.com/informatievlaanderen/base-registries/commit/e3ae3b6))
+
 ## [1.15.2](https://github.com/informatievlaanderen/base-registries/compare/v1.15.1...v1.15.2) (2020-05-07)
 
 
