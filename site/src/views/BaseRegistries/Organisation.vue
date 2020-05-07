@@ -77,7 +77,7 @@
 
                   <vl-typography>
                     <p>Deze bron kan via een REST-API aangesproken worden, bekijk onze documentatie om deze te gebruiken.</p>
-                    <p><vl-link href="/docs/Organisaties" icon="arrow-right-fat" mod-block mod-icon-before>Documentatie</vl-link></p>
+                    <p><vl-link href="https://overheid.vlaanderen.be/spelregels" icon="arrow-right-fat" mod-block mod-icon-before>Documentatie</vl-link></p>
                   </vl-typography>
                 </vl-column>
               </vl-grid>

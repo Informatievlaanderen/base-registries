@@ -44,7 +44,7 @@
                   <vl-title tag-name="h2" id="status">Wat is de status?</vl-title>
 
                   <vl-typography>
-                    <p>Deze bron werd gepubliceerd als Kandidaat-standaard. Deze bron is bedoeld om uit te groeien tot een standaard.</p>
+                    <p>Nog niet beschikbaar.</p>
                   </vl-typography>
                 </vl-column>
 
@@ -60,8 +60,7 @@
                   <vl-title tag-name="h2" id="documentatie">Hoe gebruik ik het?</vl-title>
 
                   <vl-typography>
-                    <p>Deze bron kan via een REST-API aangesproken worden, bekijk onze documentatie om deze te gebruiken.</p>
-                    <p><vl-link href="/docs/Dienstverleningen" icon="arrow-right-fat" mod-block mod-icon-before>Documentatie</vl-link></p>
+                    <p>Deze bron kan momenteel nog niet aangesproken worden.</p>
                   </vl-typography>
                 </vl-column>
               </vl-grid>
