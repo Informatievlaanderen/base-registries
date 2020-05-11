@@ -1,3 +1,10 @@
+## [1.15.6](https://github.com/informatievlaanderen/base-registries/compare/v1.15.5...v1.15.6) (2020-05-11)
+
+
+### Bug Fixes
+
+* allow OPTIONS on old urls ([128e07b](https://github.com/informatievlaanderen/base-registries/commit/128e07b))
+
 ## [1.15.5](https://github.com/informatievlaanderen/base-registries/compare/v1.15.4...v1.15.5) (2020-05-07)
 
 
