@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/informatievlaanderen/base-registries/compare/v1.15.7...v1.16.0) (2020-05-12)
+
+
+### Features
+
+* allow all origins cors ([2d6c531](https://github.com/informatievlaanderen/base-registries/commit/2d6c531))
+
 ## [1.15.7](https://github.com/informatievlaanderen/base-registries/compare/v1.15.6...v1.15.7) (2020-05-12)
 
 
