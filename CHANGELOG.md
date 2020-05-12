@@ -1,3 +1,10 @@
+## [1.15.7](https://github.com/informatievlaanderen/base-registries/compare/v1.15.6...v1.15.7) (2020-05-12)
+
+
+### Bug Fixes
+
+* redirect to https for lowercase ([f0a42cb](https://github.com/informatievlaanderen/base-registries/commit/f0a42cb))
+
 ## [1.15.6](https://github.com/informatievlaanderen/base-registries/compare/v1.15.5...v1.15.6) (2020-05-11)
 
 
