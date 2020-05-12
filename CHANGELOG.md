@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/informatievlaanderen/base-registries/compare/v1.16.0...v1.16.1) (2020-05-12)
+
+
+### Bug Fixes
+
+* fix nginx cors ([07d7a6a](https://github.com/informatievlaanderen/base-registries/commit/07d7a6a))
+
 # [1.16.0](https://github.com/informatievlaanderen/base-registries/compare/v1.15.7...v1.16.0) (2020-05-12)
 
 
