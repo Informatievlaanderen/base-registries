@@ -26,6 +26,7 @@ Target.create  "Clean_Site" (fun _ ->
 
 Target.create  "Build_Site" (fun _ ->
   ()
+  // TODO Apply patches
   // Npm (fun p ->
   // { p with
   //     WorkingDirectory = ("deps" @@ "webuniversum")
