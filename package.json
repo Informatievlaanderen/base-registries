@@ -3,6 +3,10 @@
   "version": "1.16.1",
   "description": "Public site of the Base Registries.",
   "author": "Basisregisters Vlaanderen",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:informatievlaanderen/base-registries.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
@@ -12,48 +16,47 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "axios": "^0.19.0",
-    "core-js": "^2.6.5",
-    "frontmatter-markdown-loader": "^2.1.0",
-    "vue": "^2.6.10",
-    "vue-i18n": "^8.0.0",
-    "vue-markdown": "^2.2.4",
-    "vue-router": "^3.0.3",
-    "vue-scrollto": "^2.17.1",
-    "vuex": "^3.0.1"
+    "axios": "0.19.2",
+    "core-js": "2.6.11",
+    "frontmatter-markdown-loader": "2.3.0",
+    "vue": "2.6.11",
+    "vue-i18n": "8.17.7",
+    "vue-markdown": "2.2.4",
+    "vue-router": "3.2.0",
+    "vue-scrollto": "2.18.1",
+    "vuex": "3.4.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "8.1.0",
-    "@commitlint/config-conventional": "8.1.0",
-    "@commitlint/prompt": "8.1.0",
-    "@kazupon/vue-i18n-loader": "^0.3.0",
-    "@semantic-release/changelog": "3.0.4",
-    "@semantic-release/commit-analyzer": "6.3.0",
-    "@semantic-release/exec": "3.3.6",
-    "@semantic-release/git": "7.0.16",
-    "@semantic-release/github": "5.4.3",
-    "@semantic-release/npm": "5.1.15",
-    "@semantic-release/release-notes-generator": "7.3.0",
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
-    "@vue/eslint-config-prettier": "^5.0.0",
-    "babel-eslint": "^10.0.1",
-    "commitizen": "4.0.3",
-    "cz-conventional-changelog": "3.0.2",
-    "eslint": "^5.16.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "form-data": "2.5.0",
-    "husky": "3.0.4",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@commitlint/prompt": "8.3.5",
+    "@kazupon/vue-i18n-loader": "0.5.0",
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/exec": "5.0.0",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/github": "7.0.6",
+    "@semantic-release/npm": "7.0.5",
+    "@semantic-release/release-notes-generator": "9.0.1",
+    "@vue/cli-plugin-babel": "3.12.1",
+    "@vue/cli-plugin-eslint": "3.12.1",
+    "@vue/cli-service": "3.12.1",
+    "babel-eslint": "10.1.0",
+    "commitizen": "4.1.2",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "7.0.0",
+    "eslint-config-vuetify": "0.6.1",
+    "eslint-plugin-babel": "5.3.0",
+    "eslint-plugin-vue": "6.2.2",
+    "form-data": "3.0.0",
+    "husky": "4.2.5",
     "lodash": "4.17.15",
     "merge": "1.2.1",
-    "prettier": "^1.18.2",
-    "sass": "^1.18.0",
-    "sass-loader": "^7.1.0",
-    "semantic-release": "15.13.23",
-    "vue-cli-plugin-i18n": "^0.6.0",
-    "vue-template-compiler": "^2.6.10"
+    "sass": "1.26.5",
+    "sass-loader": "8.0.2",
+    "semantic-release": "17.0.7",
+    "vue-cli-plugin-i18n": "1.0.1",
+    "vue-template-compiler": "2.6.11"
   },
   "commitlint": {
     "extends": [
@@ -137,15 +140,11 @@
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "mkdir -p workspace"
+        "cmd": "echo ${nextRelease.version} > semver"
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "echo ${nextRelease.version} > workspace/semver"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "BITBUCKET_BUILD_NUMBER=${nextRelease.version} ./build.sh Push"
+        "cmd": "CI_BUILD_NUMBER=${nextRelease.version} ./build.sh Containerize"
       },
       {
         "path": "@semantic-release/git",
@@ -157,26 +156,10 @@
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
-    "publish": [
-      {
-        "path": "@semantic-release/github"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-confluence.sh"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "JIRA_VERSION=${nextRelease.version} JIRA_PREFIX=Site JIRA_PROJECT=VBR ./packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-jira.sh"
-      }
-    ],
+    "publish": [],
     "success": [
       "@semantic-release/github"
     ],
     "fail": false
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:informatievlaanderen/base-registries.git"
   }
 }

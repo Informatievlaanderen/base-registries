@@ -15,24 +15,21 @@
                 title="Algemeen"
                 subtitle="Wat zijn de basisregisters?"
                 to="/algemeen"
-                tagName="router-link"
-              />
+                tag-name="router-link" />
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
                 title="Aanleiding"
                 subtitle="Waarom een stelsel van basisregisters?"
                 to="/aanleiding"
-                tagName="router-link"
-              />
+                tag-name="router-link" />
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
                 title="Visie"
                 subtitle="Wie werkt mee?"
                 to="/visie"
-                tagName="router-link"
-              />
+                tag-name="router-link" />
             </vl-column>
           </vl-grid>
         </vl-layout>
@@ -46,36 +43,32 @@
                 title="Versies"
                 subtitle="Een overzicht van de huidige versies"
                 to="/versies"
-                tagName="router-link"
-                mod-small
-              />
+                tag-name="router-link"
+                mod-small />
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
                 title="Release notes"
                 subtitle="Documentatie bij huidige en vorige releases"
                 to="/release-notes"
-                tagName="router-link"
-                mod-small
-              />
+                tag-name="router-link"
+                mod-small />
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
                 title="Implementatiemodel"
                 subtitle="De specificatie voor gegevensuitwisseling"
                 to="/implementatiemodel"
-                tagName="router-link"
-                mod-small
-              />
+                tag-name="router-link"
+                mod-small />
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
                 title="Veelgestelde vragen"
                 subtitle="Vragen en antwoorden over de basisregisters"
                 to="/veelgestelde-vragen"
-                tagName="router-link"
-                mod-small
-              />
+                tag-name="router-link"
+                mod-small />
             </vl-column>
           </vl-grid>
         </vl-layout>
@@ -107,8 +100,7 @@
                         <vl-properties-data>
                           <p>
                             <vl-link
-                              href="https://www.vlaanderen.be/nl/vlaamse-overheid/contact/stuur-een-e-mail"
-                            >Stuur een e-mail</vl-link>
+                              href="https://www.vlaanderen.be/nl/vlaamse-overheid/contact/stuur-een-e-mail">Stuur een e-mail</vl-link>
                           </p>
                           <p>Antwoord binnen 2 werkdagen</p>
                         </vl-properties-data>
@@ -128,11 +120,14 @@
                     <vl-grid mod-stacked>
                       <vl-column width="8" width-m="12">
                         <vl-typography>
-                          <p>Bent u niet tevreden over de werking van de Vlaamse overheid? Bent u het niet eens met een beslissing in een dossier? Neem contact op met de bevoegde dienst.</p>
+                          <p>
+                            Bent u niet tevreden over de werking van de Vlaamse overheid?
+                            Bent u het niet eens met een beslissing in een dossier?
+                            Neem contact op met de bevoegde dienst.
+                          </p>
                           <p>
                             <vl-link
-                              href="https://www.vlaanderen.be/een-klacht-over-een-vlaamse-overheidsdienst"
-                            >Meer over de klachtenprocedure</vl-link>
+                              href="https://www.vlaanderen.be/een-klacht-over-een-vlaamse-overheidsdienst">Meer over de klachtenprocedure</vl-link>
                           </p>
                         </vl-typography>
                       </vl-column>
@@ -149,12 +144,12 @@
 </template>
 
 <script>
-import IntroductionHero from "./IntroductionHero.vue";
+import IntroductionHero from './IntroductionHero.vue';
 
 export default {
-  name: "home",
+  name: 'Home',
   components: {
-    IntroductionHero
-  }
+    IntroductionHero,
+  },
 };
 </script>

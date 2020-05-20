@@ -1,39 +1,39 @@
-const path = require("path");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  publicPath: "/",
-  outputDir: "site/dist",
-  assetsDir: "static",
+  publicPath: '/',
+  outputDir: 'site/dist',
+  assetsDir: 'static',
 
   pages: {
     index: {
-      entry: "./site/src/main.js",
-      template: "site/public/index.html",
-      filename: "index.html"
-    }
+      entry: './site/src/main.js',
+      template: 'site/public/index.html',
+      filename: 'index.html',
+    },
   },
 
   chainWebpack: config => {
     config
-      .entry("app")
+      .entry('app')
       .clear()
-      .add("./site/src/main.js")
+      .add('./site/src/main.js')
       .end();
 
     config.resolve.alias
-      .set("@", path.join(__dirname, "./site/src"))
-      .set("@vl", path.join(__dirname, "./deps/webuniversum/package"));
+      .set('@', path.join(__dirname, './site/src'))
+      .set('@vl', path.join(__dirname, './deps/webuniversum/package'));
 
-    const fontRule = config.module.rule("fonts");
+    const fontRule = config.module.rule('fonts');
     fontRule.uses.clear();
 
     fontRule
-      .use("file-loader")
-      .loader("file-loader")
+      .use('file-loader')
+      .loader('file-loader')
       .tap(_ => {
         return {
-          name: "static/fonts/[hash:8].[ext]"
+          name: 'static/fonts/[hash:8].[ext]',
         };
       })
       .end();
@@ -43,24 +43,24 @@ module.exports = {
     config.plugins.push(
       new CopyWebpackPlugin([
         {
-          from: "site/public/",
-          to: ".",
-          ignore: ["index.html", ".DS_Store"]
-        }
+          from: 'site/public/',
+          to: '.',
+          ignore: ['index.html', '.DS_Store'],
+        },
       ])
     );
   },
 
   devServer: {
-    contentBase: path.join(__dirname, "./site/public")
+    contentBase: path.join(__dirname, './site/public'),
   },
 
   pluginOptions: {
     i18n: {
-      locale: "nl",
-      fallbackLocale: "nl",
-      localeDir: "locales",
-      enableInSFC: true
-    }
-  }
+      locale: 'nl',
+      fallbackLocale: 'nl',
+      localeDir: 'locales',
+      enableInSFC: true,
+    },
+  },
 };

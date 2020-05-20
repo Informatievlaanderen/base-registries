@@ -1,6 +1,6 @@
 <template>
   <vl-agenda-item
-    tagName="vl-link"
+    tag-name="vl-link"
     mod-no-class
     :title="title"
     :to="to"
@@ -40,24 +40,24 @@
 
 <script>
 export default {
-  name: "Version",
+  name: 'Version',
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     to: {
       type: String,
-      required: true
+      required: true,
     },
     text: {
       type: String,
-      required: true
+      required: true,
     },
     version: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>

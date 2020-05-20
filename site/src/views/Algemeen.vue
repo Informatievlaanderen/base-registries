@@ -33,7 +33,7 @@
             <vl-column width="8" width-m="9" width-s="12">
               <vl-grid mod-stacked>
                 <vl-column width="12">
-                  <vl-title tag-name="h2" id="algemeen">Wat zijn de basisregisters?</vl-title>
+                  <vl-title id="algemeen" tag-name="h2">Wat zijn de basisregisters?</vl-title>
 
                   <vl-typography>
                     <p>Ter verbetering van haar beleidsvoering en dienstverlening trekt de Vlaamse overheid volop de kaart van de uitbouw van een geïntegreerd stelsel van authentieke gegevensbronnen.</p>
@@ -42,7 +42,7 @@
                 </vl-column>
 
                 <vl-column width="12">
-                  <vl-title tag-name="h2" id="aanleiding">Aanleiding voor de basisregisters</vl-title>
+                  <vl-title id="aanleiding" tag-name="h2">Aanleiding voor de basisregisters</vl-title>
 
                   <vl-typography>
                     <p>Informatie is zeer omvangrijk, maar ook zeer versnipperd. De basisregisters moeten zorgen voor een efficiëntere doorstroming van informatie naar alle betrokken partijen.</p>
@@ -57,8 +57,7 @@
               push="1"
               push-m="reset"
               width-s="12"
-              class="wp-pt-side-navigation wp-pt-side-navigation--sticky-parent"
-            >
+              class="wp-pt-side-navigation wp-pt-side-navigation--sticky-parent">
               <aside class="wp-pt-side-navigation--sticky" style="top: 120px;">
                 <vl-side-navigation title="Op deze pagina">
                   <vl-side-navigation-list>

@@ -30,15 +30,15 @@
       <vl-region>
         <vl-layout>
           <vl-grid mod-stacked>
-            <vl-column width="12" v-if="!loaded">
+            <vl-column v-if="!loaded" width="12">
               <vl-grid mod-stacked>
-                <vl-column width="12" v-if="!loaded && !error">
+                <vl-column v-if="!loaded && !error" width="12">
                   <div v-vl-align:center>
                     <vl-loader message="Het implementatiemodel wordt opgevraagd" />
                   </div>
                 </vl-column>
 
-                <vl-column width="12" v-if="error">
+                <vl-column v-if="error" width="12">
                   <vl-alert
                     title="Implementatiemodel ophalen mislukt"
                     content="Er is iets fout gelopen tijdens het ophalen van het implementatiemodel. Probeer later opnieuw."
@@ -47,13 +47,13 @@
               </vl-grid>
             </vl-column>
 
-            <vl-column width="8" width-m="9" width-s="12" v-if="loaded">
+            <vl-column v-if="loaded" width="8" width-m="9" width-s="12">
               <vl-grid mod-stacked>
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="auteurs">Auteurs</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="auteurs" tag-name="h2">Auteurs</vl-title>
 
                   <dl>
-                    <dd v-for="person in authors" inlist="" rel="foaf:maker" class="p-author h-card vcard">
+                    <dd v-for="person in authors" :key="person.email" inlist="" rel="foaf:maker" class="p-author h-card vcard">
                       <span typeof="foaf:Person">
                         <span class="p-name fn" property="foaf:lastName">{{ person.last_name }}</span>,
                         <span class="p-name fn" property="foaf:firstName">{{ person.first_name }}</span>
@@ -64,11 +64,11 @@
                   </dl>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="medewerkers">Medewerkers</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="medewerkers" tag-name="h2">Medewerkers</vl-title>
 
                   <dl>
-                    <dd v-for="person in contributors" inlist="" rel="foaf:maker" class="p-author h-card vcard">
+                    <dd v-for="person in contributors" :key="person.email" inlist="" rel="foaf:maker" class="p-author h-card vcard">
                       <span typeof="foaf:Person">
                         <span class="p-name fn" property="foaf:lastName">{{ person.last_name }}</span>,
                         <span class="p-name fn" property="foaf:firstName">{{ person.first_name }}</span>
@@ -79,36 +79,36 @@
                   </dl>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="samenvatting">Samenvatting</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="samenvatting" tag-name="h2">Samenvatting</vl-title>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="status">Status van dit document</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="status" tag-name="h2">Status van dit document</vl-title>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="licentie">Licentie</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="licentie" tag-name="h2">Licentie</vl-title>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="conformiteit">Conformiteit</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="conformiteit" tag-name="h2">Conformiteit</vl-title>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="overzicht">Overzicht</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="overzicht" tag-name="h2">Overzicht</vl-title>
 
                   <vl-typography class="vl-u-spacer--medium">
                     <p>In dit document wordt correct gebruik van de volgende entiteiten toegelicht:</p>
                   </vl-typography>
 
                   <vl-grid mod-stacked>
-                    <vl-column v-for="oslo_thing in oslo_classes" width="3" width-m="6" width-s="12">
+                    <vl-column v-for="oslo_thing in oslo_classes" :key="oslo_thing.uri" width="3" width-m="6" width-s="12">
                       <vl-link-list>
                         <vl-link-list-item>
                           <vl-spotlight
                             :title="oslo_thing.name.nl"
-                            tagName="router-link"
+                            tag-name="router-link"
                             :href="idify(`#class-${oslo_thing.sort_nl}`)">
                           </vl-spotlight>
                         </vl-link-list-item>
@@ -121,12 +121,12 @@
                   </vl-typography>
 
                   <vl-grid mod-stacked>
-                    <vl-column v-for="oslo_thing in oslo_datatypes" width="3" width-m="6" width-s="12">
+                    <vl-column v-for="oslo_thing in oslo_datatypes" :key="oslo_thing.uri" width="3" width-m="6" width-s="12">
                       <vl-link-list>
                         <vl-link-list-item>
                           <vl-spotlight
                             :title="oslo_thing.name.nl"
-                            tagName="router-link"
+                            tag-name="router-link"
                             :href="idify(`#datatype-${oslo_thing.sort_nl}`)">
                           </vl-spotlight>
                         </vl-link-list-item>
@@ -135,32 +135,32 @@
                   </vl-grid>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="entiteiten">Entiteiten</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="entiteiten" tag-name="h2">Entiteiten</vl-title>
 
                   <vl-grid mod-stacked>
-                    <vl-column v-for="oslo_thing in oslo_classes" width="12">
-                      <vl-title tag-name="h3" :id="idify(`class-${oslo_thing.sort_nl}`)"><vl-link :href="oslo_thing.uri" v-vl-tooltip.right="oslo_thing.uri">{{ oslo_thing.name.nl }}</vl-link></vl-title>
+                    <vl-column v-for="oslo_thing in oslo_classes" :key="oslo_thing.uri" width="12">
+                      <vl-title :id="idify(`class-${oslo_thing.sort_nl}`)" tag-name="h3"><vl-link v-vl-tooltip.right="oslo_thing.uri" :href="oslo_thing.uri">{{ oslo_thing.name.nl }}</vl-link></vl-title>
 
-                      <vl-title tag-name="h5" :id="idify(`class-${oslo_thing.sort_nl}-beschrijving`)">Beschrijving</vl-title>
+                      <vl-title :id="idify(`class-${oslo_thing.sort_nl}-beschrijving`)" tag-name="h5">Beschrijving</vl-title>
 
-                      <vl-typography v-bind:class="{ 'vl-u-spacer--medium': oslo_thing.usage.nl || has_properties(oslo_thing) }">
+                      <vl-typography :class="{ 'vl-u-spacer--medium': oslo_thing.usage.nl || has_properties(oslo_thing) }">
                         <p>{{ oslo_thing.description.nl }}</p>
                       </vl-typography>
 
-                      <vl-title v-if="oslo_thing.usage.nl" tag-name="h5" :id="idify(`class-${oslo_thing.sort_nl}-gebruik`)">Gebruik</vl-title>
+                      <vl-title v-if="oslo_thing.usage.nl" :id="idify(`class-${oslo_thing.sort_nl}-gebruik`)" tag-name="h5">Gebruik</vl-title>
 
-                      <vl-typography v-if="oslo_thing.usage.nl" v-bind:class="{ 'vl-u-spacer--medium': has_properties(oslo_thing) }">
+                      <vl-typography v-if="oslo_thing.usage.nl" :class="{ 'vl-u-spacer--medium': has_properties(oslo_thing) }">
                         <p>{{ oslo_thing.usage.nl }}</p>
                       </vl-typography>
 
-                      <vl-title v-if="has_properties(oslo_thing)" tag-name="h5" :id="idify(`class-${oslo_thing.sort_nl}-eigenschappen`)">Eigenschappen</vl-title>
+                      <vl-title v-if="has_properties(oslo_thing)" :id="idify(`class-${oslo_thing.sort_nl}-eigenschappen`)" tag-name="h5">Eigenschappen</vl-title>
 
                       <vl-typography v-if="has_properties(oslo_thing)" class="vl-u-spacer--medium">
                         <p>
                           Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
                           <ul class="comma-list end-dot">
-                            <li v-for="oslo_property in sort_nl(oslo_thing.properties)"><vl-link :href="idify(`#class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)" v-scroll-to="{ el: idify(`#class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`), duration: 0, offset: -43 }">{{ oslo_property.name.nl }}</vl-link></li>
+                            <li v-for="oslo_property in sort_nl(oslo_thing.properties)" :key="oslo_property.uri"><vl-link v-scroll-to="{ el: idify(`#class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`), duration: 0, offset: -43 }" :href="idify(`#class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)">{{ oslo_property.name.nl }}</vl-link></li>
                           </ul>
                         </p>
                       </vl-typography>
@@ -178,11 +178,11 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="oslo_property in sort_nl(oslo_thing.properties)" class="oslo-property" :id="idify(`class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)">
-                              <td><vl-link :href="oslo_property.uri" v-vl-tooltip.right="oslo_property.uri">{{ oslo_property.name.nl }}</vl-link></td>
+                            <tr v-for="oslo_property in sort_nl(oslo_thing.properties)" :id="idify(`class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)" :key="oslo_property.uri" class="oslo-property">
+                              <td><vl-link v-vl-tooltip.right="oslo_property.uri" :href="oslo_property.uri">{{ oslo_property.name.nl }}</vl-link></td>
                               <td>
                                 <ul class="comma-list">
-                                  <li v-for="property_range in oslo_property.range"><vl-link :href="property_range.range_uri" v-vl-tooltip.right="property_range.range_uri">{{ property_range.range_label }}</vl-link></li>
+                                  <li v-for="property_range in oslo_property.range" :key="property_range.range_uri"><vl-link v-vl-tooltip.right="property_range.range_uri" :href="property_range.range_uri">{{ property_range.range_label }}</vl-link></li>
                                 </ul>
                               </td>
                               <td>{{ oslo_property.cardinality }}</td>
@@ -197,32 +197,32 @@
                   </vl-grid>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="datatypes">Datatypes</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="datatypes" tag-name="h2">Datatypes</vl-title>
 
                   <vl-grid mod-stacked>
-                    <vl-column v-for="oslo_thing in oslo_datatypes" width="12">
-                      <vl-title tag-name="h3" :id="idify(`datatype-${oslo_thing.sort_nl}`)"><vl-link :href="oslo_thing.uri" v-vl-tooltip.right="oslo_thing.uri">{{ oslo_thing.name.nl }}</vl-link></vl-title>
+                    <vl-column v-for="oslo_thing in oslo_datatypes" :key="oslo_thing.uri" width="12">
+                      <vl-title :id="idify(`datatype-${oslo_thing.sort_nl}`)" tag-name="h3"><vl-link v-vl-tooltip.right="oslo_thing.uri" :href="oslo_thing.uri">{{ oslo_thing.name.nl }}</vl-link></vl-title>
 
-                      <vl-title tag-name="h5" :id="idify(`datatype-${oslo_thing.sort_nl}-beschrijving`)">Beschrijving</vl-title>
+                      <vl-title :id="idify(`datatype-${oslo_thing.sort_nl}-beschrijving`)" tag-name="h5">Beschrijving</vl-title>
 
-                      <vl-typography v-bind:class="{ 'vl-u-spacer--medium': oslo_thing.usage.nl || has_properties(oslo_thing) }">
+                      <vl-typography :class="{ 'vl-u-spacer--medium': oslo_thing.usage.nl || has_properties(oslo_thing) }">
                         <p>{{ oslo_thing.description.nl }}</p>
                       </vl-typography>
 
-                      <vl-title v-if="oslo_thing.usage.nl" tag-name="h5" :id="idify(`datatype-${oslo_thing.sort_nl}-gebruik`)">Gebruik</vl-title>
+                      <vl-title v-if="oslo_thing.usage.nl" :id="idify(`datatype-${oslo_thing.sort_nl}-gebruik`)" tag-name="h5">Gebruik</vl-title>
 
-                      <vl-typography v-if="oslo_thing.usage.nl" v-bind:class="{ 'vl-u-spacer--medium': has_properties(oslo_thing) }">
+                      <vl-typography v-if="oslo_thing.usage.nl" :class="{ 'vl-u-spacer--medium': has_properties(oslo_thing) }">
                         <p>{{ oslo_thing.usage.nl }}</p>
                       </vl-typography>
 
-                      <vl-title v-if="has_properties(oslo_thing)" tag-name="h5" :id="idify(`datatype-${oslo_thing.sort_nl}-eigenschappen`)">Eigenschappen</vl-title>
+                      <vl-title v-if="has_properties(oslo_thing)" :id="idify(`datatype-${oslo_thing.sort_nl}-eigenschappen`)" tag-name="h5">Eigenschappen</vl-title>
 
                       <vl-typography v-if="has_properties(oslo_thing)" class="vl-u-spacer--medium">
                         <p>
                           Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
                           <ul class="comma-list end-dot">
-                            <li v-for="oslo_property in sort_nl(oslo_thing.properties)"><vl-link :href="idify(`#datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)" v-scroll-to="{ el: idify(`#datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`), duration: 0, offset: -43 }">{{ oslo_property.name.nl }}</vl-link></li>
+                            <li v-for="oslo_property in sort_nl(oslo_thing.properties)" :key="oslo_property.uri"><vl-link v-scroll-to="{ el: idify(`#datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`), duration: 0, offset: -43 }" :href="idify(`#datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)">{{ oslo_property.name.nl }}</vl-link></li>
                           </ul>
                         </p>
                       </vl-typography>
@@ -240,11 +240,11 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="oslo_property in sort_nl(oslo_thing.properties)" class="oslo-property" :id="idify(`datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)">
-                              <td><vl-link :href="oslo_property.uri" v-vl-tooltip.right="oslo_property.uri">{{ oslo_property.name.nl }}</vl-link></td>
+                            <tr v-for="oslo_property in sort_nl(oslo_thing.properties)" :id="idify(`datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)" :key="oslo_property.uri" class="oslo-property">
+                              <td><vl-link v-vl-tooltip.right="oslo_property.uri" :href="oslo_property.uri">{{ oslo_property.name.nl }}</vl-link></td>
                               <td>
                                 <ul class="comma-list">
-                                  <li v-for="property_range in oslo_property.range"><vl-link :href="property_range.range_uri" v-vl-tooltip.right="property_range.range_uri">{{ property_range.range_label }}</vl-link></li>
+                                  <li v-for="property_range in oslo_property.range" :key="property_range.range_uri"><vl-link v-vl-tooltip.right="property_range.range_uri" :href="property_range.range_uri">{{ property_range.range_label }}</vl-link></li>
                                 </ul>
                               </td>
                               <td>{{ oslo_property.cardinality }}</td>
@@ -259,21 +259,20 @@
                   </vl-grid>
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
-                  <vl-title tag-name="h2" id="json-ld">JSON-LD context</vl-title>
+                <vl-column v-if="loaded" width="12">
+                  <vl-title id="json-ld" tag-name="h2">JSON-LD context</vl-title>
 
                 </vl-column>
               </vl-grid>
             </vl-column>
 
             <vl-column
+              v-if="loaded"
               width="3"
               push="1"
               push-m="reset"
               width-s="12"
-              class="wp-pt-side-navigation wp-pt-side-navigation--sticky-parent"
-              v-if="loaded"
-            >
+              class="wp-pt-side-navigation wp-pt-side-navigation--sticky-parent">
               <aside class="wp-pt-side-navigation--sticky" style="top: 120px;">
                 <vl-side-navigation title="Op deze pagina">
                   <vl-side-navigation-list>
@@ -286,12 +285,12 @@
                     <vl-side-navigation-item href="#overzicht" text="Overzicht" />
                     <vl-side-navigation-item href="#entiteiten" text="Entiteiten">
                       <vl-side-navigation-list>
-                        <vl-side-navigation-item v-for="oslo_class in oslo_classes" :href="idify(`#class-${oslo_class.sort_nl}`)" :text="oslo_class.name.nl"/>
+                        <vl-side-navigation-item v-for="oslo_thing in oslo_classes" :key="oslo_thing.uri" :href="idify(`#class-${oslo_thing.sort_nl}`)" :text="oslo_thing.name.nl" />
                       </vl-side-navigation-list>
                     </vl-side-navigation-item>
                     <vl-side-navigation-item href="#datatypes" text="Datatypes">
                       <vl-side-navigation-list>
-                        <vl-side-navigation-item v-for="oslo_datatype in oslo_datatypes" :href="idify(`#class-${oslo_datatype.sort_nl}`)" :text="oslo_datatype.name.nl"/>
+                        <vl-side-navigation-item v-for="oslo_thing in oslo_datatypes" :key="oslo_thing.uri" :href="idify(`#class-${oslo_thing.sort_nl}`)" :text="oslo_thing.name.nl" />
                       </vl-side-navigation-list>
                     </vl-side-navigation-item>
                     <vl-side-navigation-item href="#json-ld" text="JSON-LD context" />
@@ -333,10 +332,11 @@
 </style>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "applicationprofile-building",
+  name: 'ApplicationprofileBuilding',
+
   data () {
     return {
       loaded: false,
@@ -344,53 +344,61 @@ export default {
       profile: {
         contributors: [],
         classes: [],
-        datatypes: []
-      }
-    }
+        datatypes: [],
+      },
+    };
   },
+
   computed: {
     authors() {
       return this.profile.contributors.filter(item => {
-        return item.role.toLowerCase() === "a";
+        return item.role.toLowerCase() === 'a';
       });
     },
+
     contributors() {
       return this.profile.contributors.filter(item => {
-        return item.role.toLowerCase() === "c";
+        return item.role.toLowerCase() === 'c';
       });
     },
+
     oslo_classes() {
       return this.sort_nl(this.profile.classes);
     },
+
     oslo_datatypes() {
       return this.sort_nl(this.profile.datatypes);
-    }
-  },
-  methods: {
-    sort_nl(items) {
-      return [...items].sort((a, b) => {
-        return a.sort_nl.localeCompare(b.sort_nl);
-      });
     },
-    has_properties(oslo) {
-      return oslo.properties.length > 0;
-    },
-    idify(text) {
-      return text.toLowerCase().replace(/ /g, "-");
-    }
   },
+
   mounted () {
     axios
       //.get(window.baseRegistriesApi + "/v1/versions")
-      .get("https://raw.githubusercontent.com/Informatievlaanderen/OSLO-Generated/test-feature-checkout/report/doc/applicatieprofiel/adresregister/ontwerpdocument/niet-bepaald/html-nj.json")
+      .get('https://raw.githubusercontent.com/Informatievlaanderen/OSLO-Generated/test-feature-checkout/report/doc/applicatieprofiel/adressenregister/ontwerpdocument/niet-bepaald/html-nj.json')
       .then(response => {
         this.profile = response.data;
         this.loaded = true;
       })
       .catch(error => {
         this.error = true;
-        console.log("Could not get applicationprofile.", error);
+        console.log('Could not get applicationprofile.', error);
       });
-  }
+  },
+
+  methods: {
+    sort_nl(items) {
+      return [...items].sort((a, b) => {
+        return a.sort_nl.localeCompare(b.sort_nl);
+      });
+    },
+
+    has_properties(oslo) {
+      return oslo.properties.length > 0;
+    },
+
+    idify(text) {
+      return text.toLowerCase().replace(/ /g, '-');
+    },
+  },
 };
 </script>

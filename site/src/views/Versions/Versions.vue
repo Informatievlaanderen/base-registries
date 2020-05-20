@@ -32,20 +32,20 @@
           <vl-grid mod-stacked>
             <vl-column width="12">
               <vl-grid mod-stacked>
-                <vl-column width="12" v-if="!loaded && !error">
+                <vl-column v-if="!loaded && !error" width="12">
                   <div v-vl-align:center>
                     <vl-loader message="De versies worden opgevraagd" />
                   </div>
                 </vl-column>
 
-                <vl-column width="12" v-if="error">
+                <vl-column v-if="error" width="12">
                   <vl-alert
                     title="Versies ophalen mislukt"
                     content="Er is iets fout gelopen tijdens het ophalen van de versies. Probeer later opnieuw."
                     mod-error />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Gemeenten"
                     text="de Belgische gemeenten."
@@ -53,7 +53,7 @@
                     :version="versions.municipalityRegistry" />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Postinformatie"
                     text="de Belgische postcodes."
@@ -61,7 +61,7 @@
                     :version="versions.postalRegistry" />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Straatnamen"
                     text="de Vlaamse straatnamen."
@@ -69,7 +69,7 @@
                     :version="versions.streetNameRegistry" />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Adressen"
                     text="de Vlaamse adressen."
@@ -77,7 +77,7 @@
                     :version="versions.addressRegistry" />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Gebouwen"
                     text="de Vlaamse gebouwen en gebouweenheden."
@@ -85,7 +85,7 @@
                     :version="versions.buildingRegistry" />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Percelen"
                     text="de Vlaamse percelen."
@@ -93,7 +93,7 @@
                     :version="versions.parcelRegistry" />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Wegen"
                     text="de Vlaamse wegen."
@@ -101,7 +101,7 @@
                     version="N/A" />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Organisaties"
                     text="de Vlaamse organisaties en organen."
@@ -109,7 +109,7 @@
                     :version="versions.organisationRegistry" />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Dienstverleningen"
                     text="de Vlaamse dienstverlening."
@@ -126,41 +126,41 @@
 </template>
 
 <script>
-import Version from "./Version.vue";
-import axios from "axios";
+import Version from './Version.vue';
+import axios from 'axios';
 
 export default {
-  name: "versions",
+  name: 'Versions',
   components: {
-    Version
+    Version,
   },
   data () {
     return {
       loaded: false,
       error: false,
       versions: {
-        addressRegistry: "?",
-        buildingRegistry: "?",
-        municipalityRegistry: "?",
-        parcelRegistry: "?",
-        postalRegistry: "?",
-        publicApi: "?",
-        publicServiceRegistry: "?",
-        streetNameRegistry: "?"
-      }
-    }
+        addressRegistry: '?',
+        buildingRegistry: '?',
+        municipalityRegistry: '?',
+        parcelRegistry: '?',
+        postalRegistry: '?',
+        publicApi: '?',
+        publicServiceRegistry: '?',
+        streetNameRegistry: '?',
+      },
+    };
   },
   mounted () {
     axios
-      .get(window.baseRegistriesApi + "/v1/versions")
+      .get(window.baseRegistriesApi + '/v1/versions')
       .then(response => {
         this.versions = response.data;
         this.loaded = true;
       })
       .catch(error => {
         this.error = true;
-        console.log("Could not get versions.", error);
+        console.log('Could not get versions.', error);
       });
-  }
+  },
 };
 </script>

@@ -33,7 +33,7 @@
             <vl-column width="8" width-m="9" width-s="12">
               <vl-grid mod-stacked>
                 <vl-column width="12">
-                  <vl-title tag-name="h2" id="doel">Wat is het doel?</vl-title>
+                  <vl-title id="doel" tag-name="h2">Wat is het doel?</vl-title>
 
                   <vl-typography>
                     <p>Een bron vormen die
@@ -55,7 +55,7 @@
                 </vl-column>
 
                 <vl-column width="12">
-                  <vl-title tag-name="h2" id="status">Wat is de status?</vl-title>
+                  <vl-title id="status" tag-name="h2">Wat is de status?</vl-title>
 
                   <vl-typography>
                     <p>
@@ -65,7 +65,7 @@
                 </vl-column>
 
                 <vl-column width="12">
-                  <vl-title tag-name="h2" id="licentie">Welke licentie is van toepassing?</vl-title>
+                  <vl-title id="licentie" tag-name="h2">Welke licentie is van toepassing?</vl-title>
 
                   <vl-typography>
                     <p>Deze bron is gepubliceerd onder de <vl-link href="https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html">&#8220;Modellicentie Gratis Hergebruik - v1.0&#8221;</vl-link>.</p>
@@ -73,7 +73,7 @@
                 </vl-column>
 
                 <vl-column width="12">
-                  <vl-title tag-name="h2" id="documentatie">Hoe gebruik ik het?</vl-title>
+                  <vl-title id="documentatie" tag-name="h2">Hoe gebruik ik het?</vl-title>
 
                   <vl-typography>
                     <p>Deze bron kan via een REST-API aangesproken worden, bekijk onze documentatie om deze te gebruiken.</p>
@@ -88,8 +88,7 @@
               push="1"
               push-m="reset"
               width-s="12"
-              class="wp-pt-side-navigation wp-pt-side-navigation--sticky-parent"
-            >
+              class="wp-pt-side-navigation wp-pt-side-navigation--sticky-parent">
               <aside class="wp-pt-side-navigation--sticky" style="top: 120px;">
                 <vl-side-navigation title="Op deze pagina">
                   <vl-side-navigation-list>

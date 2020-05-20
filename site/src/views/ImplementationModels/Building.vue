@@ -32,20 +32,20 @@
           <vl-grid mod-stacked>
             <vl-column width="12">
               <vl-grid mod-stacked>
-                <vl-column width="12" v-if="!loaded && !error">
+                <vl-column v-if="!loaded && !error" width="12">
                   <div v-vl-align:center>
                     <vl-loader message="Het implementatiemodel wordt opgevraagd" />
                   </div>
                 </vl-column>
 
-                <vl-column width="12" v-if="error">
+                <vl-column v-if="error" width="12">
                   <vl-alert
                     title="Implementatiemodel ophalen mislukt"
                     content="Er is iets fout gelopen tijdens het ophalen van het implementatiemodel. Probeer later opnieuw."
                     mod-error />
                 </vl-column>
 
-                <vl-column width="4" width-m="6" width-s="12" v-if="loaded">
+                <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   Bla!
                 </vl-column>
               </vl-grid>
@@ -58,30 +58,30 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "applicationprofile-building",
+  name: 'ApplicationprofileBuilding',
   data () {
     return {
       loaded: false,
       error: false,
       profile: {
-        last_change: "?",
-      }
-    }
+        last_change: '?',
+      },
+    };
   },
   mounted () {
     axios
-      .get(window.baseRegistriesApi + "/v1/versions")
+      .get(window.baseRegistriesApi + '/v1/versions')
       .then(response => {
         this.versions = response.data;
         this.loaded = true;
       })
       .catch(error => {
         this.error = true;
-        console.log("Could not get applicationprofile.", error);
+        console.log('Could not get applicationprofile.', error);
       });
-  }
+  },
 };
 </script>

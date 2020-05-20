@@ -32,20 +32,20 @@
           <vl-grid mod-stacked>
             <vl-column width="12">
               <vl-grid mod-stacked>
-                <vl-column width="12" v-if="!loaded && !error">
+                <vl-column v-if="!loaded && !error" width="12">
                   <div v-vl-align:center>
                     <vl-loader message="De release notes worden opgevraagd" />
                   </div>
                 </vl-column>
 
-                <vl-column width="12" v-if="error">
+                <vl-column v-if="error" width="12">
                   <vl-alert
                     title="Release notes ophalen mislukt"
                     content="Er is iets fout gelopen tijdens het ophalen van de release notes. Probeer later opnieuw."
                     mod-error />
                 </vl-column>
 
-                <vl-column id="release-notes" width="12" v-if="loaded">
+                <vl-column v-if="loaded" id="release-notes" width="12">
                   <vl-typography>
                     <vue-markdown :source="notes" :breaks="false" />
                   </vl-typography>
@@ -121,32 +121,35 @@
 </style>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 function replaceAll(o, str1, str2, ignore) {
-  return o.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+  // eslint-disable-next-line no-useless-escape
+  return o.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,'\\$&'),(ignore?'gi':'g')),(typeof(str2)=='string')?str2.replace(/\$/g,'$$$$'):str2);
 }
 
 export default {
-  name: "notes",
+  name: 'Note',
+
   data () {
     return {
       loaded: false,
       error: false,
-      notes: ""
-    }
+      notes: '',
+    };
   },
+
   mounted () {
     axios
-      .get("https://raw.githubusercontent.com/wiki/Informatievlaanderen/registry-documentation/" + this.$route.params.note + ".md")
+      .get('https://raw.githubusercontent.com/wiki/Informatievlaanderen/registry-documentation/' + this.$route.params.note + '.md')
       .then(response => {
-        this.notes = replaceAll(response.data, "https://github.com/Informatievlaanderen/registry-documentation/wiki/", "/release-notes/");
+        this.notes = replaceAll(response.data, 'https://github.com/Informatievlaanderen/registry-documentation/wiki/', '/release-notes/');
         this.loaded = true;
       })
       .catch(error => {
         this.error = true;
-        console.log("Could not get release notes.", error);
+        console.log('Could not get release notes.', error);
       });
-  }
+  },
 };
 </script>

@@ -30,14 +30,14 @@
 
 <script>
 export default {
-  name: "vl-footer",
+  name: 'VlFooter',
   mounted() {
     if (window.baseRegistriesVersion) {
-      document.getElementById("vbrVersion").innerHTML = ", versie " + window.baseRegistriesVersion;
+      document.getElementById('vbrVersion').innerHTML = ', versie ' + window.baseRegistriesVersion;
     } else {
-      document.getElementById("vbrVersion").innerHTML = ", developer versie";
+      document.getElementById('vbrVersion').innerHTML = ', developer versie';
     }
-  }
+  },
 };
 </script>
 

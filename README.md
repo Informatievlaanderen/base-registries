@@ -1,14 +1,18 @@
-# Base Registries
+# Base Registries [![Build Status](https://github.com/Informatievlaanderen/base-registries/workflows/CI/badge.svg)](https://github.com/Informatievlaanderen/base-registries/actions)
 
 ## Project setup
 
 ```bash
+# Optionally:
+apt-get install python2 libpng-dev
+
 npm install
 
 git submodule init
 git submodule update
 
 cd deps/webuniversum
+git apply ../00-package-json.patch
 npm install
 
 git apply ../01-vl-ui-hero-navigation-fix-link.patch
@@ -22,7 +26,7 @@ npm run util:bootstrap
 Fish Oneliner:
 
 ```bash
-npm install; git submodule init; git submodule update; cd deps/webuniversum; npm install; git apply ../01-vl-ui-hero-navigation-fix-link.patch; git apply ../02-bootstrap-no-layer-map.patch; git apply ../03-vl-agenda-item-fix-link.patch; git apply ../04-vl-ui-doormat-fix-link-attrs.patch; npm run util:bootstrap
+npm install; git submodule init; git submodule update; cd deps/webuniversum; git apply ../00-package-json.patch; npm install; git apply ../01-vl-ui-hero-navigation-fix-link.patch; git apply ../02-bootstrap-no-layer-map.patch; git apply ../03-vl-agenda-item-fix-link.patch; git apply ../04-vl-ui-doormat-fix-link-attrs.patch; npm run util:bootstrap
 ```
 
 ### Compiles and hot-reloads for development

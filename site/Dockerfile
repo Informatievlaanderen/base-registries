@@ -1,4 +1,4 @@
-FROM nginx:1.17.4-alpine-perl
+FROM nginx:1.17.10-alpine-perl
 
 LABEL maintainer "agentschap Informatie Vlaanderen <informatie.vlaanderen@vlaanderen.be>"
 

@@ -32,20 +32,20 @@
           <vl-grid mod-stacked>
             <vl-column width="12">
               <vl-grid mod-stacked>
-                <vl-column width="12" v-if="!loaded && !error">
+                <vl-column v-if="!loaded && !error" width="12">
                   <div v-vl-align:center>
                     <vl-loader message="De release notes worden opgevraagd" />
                   </div>
                 </vl-column>
 
-                <vl-column width="12" v-if="error">
+                <vl-column v-if="error" width="12">
                   <vl-alert
                     title="Release notes ophalen mislukt"
                     content="Er is iets fout gelopen tijdens het ophalen van de release notes. Probeer later opnieuw."
                     mod-error />
                 </vl-column>
 
-                <vl-column width="12" v-if="loaded">
+                <vl-column v-if="loaded" width="12">
                   <vl-title tag-name="h2">Welke releases zijn er allemaal?</vl-title>
 
                   <vl-typography>
@@ -64,34 +64,35 @@
 </template>
 
 <script>
-import axios from "axios";
-import Vue from "vue";
-import Mode from "frontmatter-markdown-loader/mode";
-import fm from "frontmatter-markdown-loader?mode=meta";
+import axios from 'axios';
+import Mode from 'frontmatter-markdown-loader/mode';
+import fm from 'frontmatter-markdown-loader?mode=meta';
 
 export default {
-  name: "notes",
+  name: 'Notes',
+
   data () {
     return {
       loaded: false,
       error: false,
-      note: {}
-    }
+      note: {},
+    };
   },
+
   mounted () {
     axios
-      .get("https://raw.githubusercontent.com/wiki/Informatievlaanderen/registry-documentation/Release-Notes.md")
+      .get('https://raw.githubusercontent.com/wiki/Informatievlaanderen/registry-documentation/Release-Notes.md')
       .then(response => {
         var markdown = response
           .data
           .replace(
             /\[(.*)\]\(https:\/\/github\.com\/Informatievlaanderen\/registry-documentation\/wiki\/(.*)\)/gm,
-            "<vl-link to =\"/release-notes/$2\">$1</vl-link>");
+            '<vl-link to ="/release-notes/$2">$1</vl-link>');
 
         var options = {
           query: {
-            mode: [Mode.VUE_COMPONENT]
-          }
+            mode: [Mode.VUE_COMPONENT],
+          },
         };
         var parsedMarkdown = fm.bind(options)(markdown);
         var noteObject = eval(parsedMarkdown);
@@ -102,8 +103,8 @@ export default {
       })
       .catch(error => {
         this.error = true;
-        console.log("Could not get release notes.", error);
+        console.log('Could not get release notes.', error);
       });
-  }
+  },
 };
 </script>
