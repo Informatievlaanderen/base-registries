@@ -1,3 +1,12 @@
+## [1.16.2](https://github.com/informatievlaanderen/base-registries/compare/v1.16.1...v1.16.2) (2020-05-20)
+
+
+### Bug Fixes
+
+* containerize site ([1b35fab](https://github.com/informatievlaanderen/base-registries/commit/1b35fabb21c1fe06a4484abb69322437c0c50cf3))
+* force build ([25d1450](https://github.com/informatievlaanderen/base-registries/commit/25d145044b4912f4f64ffdf49a17253b5e47caab))
+* move to gh actions ([8587cdd](https://github.com/informatievlaanderen/base-registries/commit/8587cdd5c5a1a7a6c48254295c13317f9c8bb2d1))
+
 ## [1.16.1](https://github.com/informatievlaanderen/base-registries/compare/v1.16.0...v1.16.1) (2020-05-12)
 
 
