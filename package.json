@@ -144,7 +144,7 @@
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "CI_BUILD_NUMBER=${nextRelease.version} ./build.sh Containerize"
+        "cmd": "CI_BUILD_NUMBER=${nextRelease.version} ./build.sh BuildContainer"
       },
       {
         "path": "@semantic-release/git",
