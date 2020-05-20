@@ -46,7 +46,8 @@ Target.create  "Build_Site" (fun _ ->
 )
 
 Target.create  "BuildContainer" (fun _ ->
-  Shell.copyDir (buildDir @@ "BaseRegistries" @@ "linux") "site" allFiles
+  let filterAllFiles = (fun _ -> true)
+  Shell.copyDir (buildDir @@ "BaseRegistries" @@ "linux") "site" filterAllFiles
   containerize dockerRepository "BaseRegistries" "site")
 
 "NpmInstall"
