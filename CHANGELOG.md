@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/informatievlaanderen/base-registries/compare/v1.17.0...v1.17.1) (2020-06-02)
+
+
+### Bug Fixes
+
+* pass api version and site version to window ([6a590c1](https://github.com/informatievlaanderen/base-registries/commit/6a590c1c16b2e0e5cfc9be3d32904d321761d9c4))
+
 # [1.17.0](https://github.com/informatievlaanderen/base-registries/compare/v1.16.2...v1.17.0) (2020-06-02)
 
 
