@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/informatievlaanderen/base-registries/compare/v1.17.1...v1.17.2) (2020-06-02)
+
+
+### Bug Fixes
+
+* dont lowercase version ([2c31efe](https://github.com/informatievlaanderen/base-registries/commit/2c31efed13a638ae0ecbf35835171c859fa00567))
+
 ## [1.17.1](https://github.com/informatievlaanderen/base-registries/compare/v1.17.0...v1.17.1) (2020-06-02)
 
 
