@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/informatievlaanderen/base-registries/compare/v1.16.2...v1.17.0) (2020-06-02)
+
+
+### Features
+
+* add VERSION to root ([9d61448](https://github.com/informatievlaanderen/base-registries/commit/9d61448d5ac3170b32fdbf444325a5eb9bc5f547))
+
 ## [1.16.2](https://github.com/informatievlaanderen/base-registries/compare/v1.16.1...v1.16.2) (2020-05-20)
 
 
