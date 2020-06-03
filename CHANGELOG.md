@@ -1,3 +1,10 @@
+## [1.17.3](https://github.com/informatievlaanderen/base-registries/compare/v1.17.2...v1.17.3) (2020-06-03)
+
+
+### Bug Fixes
+
+* change versions call to use expanded response ([e2b1457](https://github.com/informatievlaanderen/base-registries/commit/e2b14574e0aac22fdfbec1a55c1ad508ba9e27f9))
+
 ## [1.17.2](https://github.com/informatievlaanderen/base-registries/compare/v1.17.1...v1.17.2) (2020-06-02)
 
 
