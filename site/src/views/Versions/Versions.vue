@@ -153,8 +153,8 @@ export default {
   mounted () {
     axios
       .get(window.baseRegistriesApi + '/v1/versions')
-      .then(response => {
-        this.versions = response.data;
+      .then(({ data: { components = {} } }) => {
+        this.versions = components;
         this.loaded = true;
       })
       .catch(error => {
