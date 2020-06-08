@@ -1,3 +1,10 @@
+## [1.17.4](https://github.com/informatievlaanderen/base-registries/compare/v1.17.3...v1.17.4) (2020-06-08)
+
+
+### Bug Fixes
+
+* update site versions page ([864e869](https://github.com/informatievlaanderen/base-registries/commit/864e869175dd87da45e6fddecb8df071c7e1a2dc))
+
 ## [1.17.3](https://github.com/informatievlaanderen/base-registries/compare/v1.17.2...v1.17.3) (2020-06-03)
 
 
