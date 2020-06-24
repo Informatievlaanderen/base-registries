@@ -347,10 +347,10 @@ footer {
   }
 }
 
+.layout-content.status.status-incident .custom-header-container,
 .layout-content.status .custom-header-container {
   margin-bottom: 120px;
 }
-
 
 #vlaanderen-in-progress {
   border-top: 1px solid #cbd2da;
