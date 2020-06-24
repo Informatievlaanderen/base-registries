@@ -881,3 +881,7 @@ select:focus {
   padding-bottom: 10px;
   color: white;
 }
+
+.status-day.no-incidents {
+  display: none;
+}
