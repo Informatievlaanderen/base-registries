@@ -674,9 +674,6 @@ footer {
 .page-status.status-major {
   background: #fef9e5 !important;
 }
-.page-status.status-critical {
-  background: #fbeaea !important;
-}
 .page-status .status {
   top: 0 !important;
 }
@@ -706,6 +703,13 @@ footer {
 .legend-item {
   color: #666 !important;
   opacity: 1 !important;
+}
+
+.page-footer a {
+  text-decoration: underline !important;
+}
+.page-footer a:hover, .page-footer a:focus {
+  text-decoration: none !important;
 }
 
 .previous-page,
@@ -833,8 +837,8 @@ select:focus {
 }
 
 .component-container {
-  border: 5 !important;
-  padding: 5 !important;
+  border: none !important;
+  padding: 0 !important;
   margin-bottom: 30px !important;
 }
 
