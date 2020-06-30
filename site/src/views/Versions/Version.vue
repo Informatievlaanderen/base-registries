@@ -14,7 +14,7 @@
 
 <style lang="scss">
   .vl-agenda-item {
-    padding-left: 7rem;
+    padding-left: 7.5rem;
   }
 
   .vl-agenda-item--no-link .vl-agenda-item__date {
@@ -22,7 +22,7 @@
   }
 
   .vl-agenda-item__date {
-    width: 5.5rem;
+    width: 6rem;
     padding: 1.5rem .7rem;
   }
 
