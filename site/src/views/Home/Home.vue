@@ -64,6 +64,22 @@
             </vl-column>
             <vl-column width="4" width-s="12">
               <vl-spotlight
+                title="Opensource applicaties"
+                subtitle="Overzicht van alle opensource applicaties"
+                to="/opensource-applicaties"
+                tag-name="router-link"
+                mod-small />
+            </vl-column>
+            <vl-column width="4" width-s="12">
+              <vl-spotlight
+                title="Opensource componenten"
+                subtitle="Overzicht van alle opensource componenten"
+                to="/opensource-componenten"
+                tag-name="router-link"
+                mod-small />
+            </vl-column>
+            <vl-column width="4" width-s="12">
+              <vl-spotlight
                 title="Veelgestelde vragen"
                 subtitle="Vragen en antwoorden over de basisregisters"
                 to="/veelgestelde-vragen"

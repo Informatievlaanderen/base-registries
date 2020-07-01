@@ -193,6 +193,42 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "registers-publicservice-registry" */ './views/BaseRegistries/PublicService.vue'),
     },
+    {
+      path: '/opensource-componenten',
+      name: 'opensource-components',
+      meta: {
+        title: 'Opensource componenten',
+      },
+      component: () =>
+        import(/* webpackChunkName: "opensource-components" */ './views/OpenSourceComponents/Repositories.vue'),
+    },
+    {
+      path: '/opensource-componenten/:repo',
+      name: 'opensource-component',
+      meta: {
+        title: 'Opensource componenten',
+      },
+      component: () =>
+        import(/* webpackChunkName: "opensource-components" */ './views/OpenSourceComponents/RepositoryDetail.vue'),
+    },
+    {
+      path: '/opensource-applicaties',
+      name: 'opensource-applications',
+      meta: {
+        title: 'Opensource applicaties',
+      },
+      component: () =>
+        import(/* webpackChunkName: "opensource-applications" */ './views/OpenSourceApplications/Repositories.vue'),
+    },
+    {
+      path: '/opensource-applicaties/:repo',
+      name: 'opensource-application',
+      meta: {
+        title: 'Opensource applicaties',
+      },
+      component: () =>
+        import(/* webpackChunkName: "opensource-applications" */ './views/OpenSourceApplications/RepositoryDetail.vue'),
+    },
   ],
   scrollBehavior() {
     return { x: 0, y: 0 };
