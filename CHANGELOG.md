@@ -1,3 +1,20 @@
+# [1.18.0](https://github.com/informatievlaanderen/base-registries/compare/v1.17.4...v1.18.0) (2020-07-01)
+
+
+### Bug Fixes
+
+* add space in footer ([bfa811a](https://github.com/informatievlaanderen/base-registries/commit/bfa811a98a6b3d651aa0a592f3efb14624a98bc8))
+* correct build ([ee7948f](https://github.com/informatievlaanderen/base-registries/commit/ee7948f0d7faae99ccfe57436d879096636fd476))
+* display long version numbers correctly ([1a08561](https://github.com/informatievlaanderen/base-registries/commit/1a085619936eb4927d6520db391c28ca9a0c8e63))
+* hide days without incidents ([c7f1d09](https://github.com/informatievlaanderen/base-registries/commit/c7f1d0979d9e57a4b9c4ea744bf560d2f67a4b06))
+* some styles were overriden by statuspage ([a43d0bf](https://github.com/informatievlaanderen/base-registries/commit/a43d0bf74f6e74511cdf790ddae635bd7b64a9b7))
+
+
+### Features
+
+* add opensource pages ([3be3666](https://github.com/informatievlaanderen/base-registries/commit/3be36669fb18305b3a8ae9ad135e8a1ae6b3540a))
+* statuspage static header and footer ([dc2b9f6](https://github.com/informatievlaanderen/base-registries/commit/dc2b9f6a9242d99fb3ff043b7dd083289d20aff2))
+
 ## [1.17.4](https://github.com/informatievlaanderen/base-registries/compare/v1.17.3...v1.17.4) (2020-06-08)
 
 
