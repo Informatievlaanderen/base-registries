@@ -16,7 +16,8 @@
               <div class="wp-pt-heading__content">
                 <vl-typography>
                   <vl-introduction>
-                    Informatie is zeer <strong>omvangrijk</strong>, maar ook zeer versnipperd. De basisregisters moeten zorgen voor een <strong>efficiëntere doorstroming</strong> van informatie naar alle betrokken partijen.
+                    Informatie is zeer <strong>omvangrijk</strong>, maar ook zeer versnipperd. 
+                    De basisregisters moeten zorgen voor een <strong>efficiëntere doorstroming</strong> van informatie naar alle betrokken partijen.
                   </vl-introduction>
                 </vl-typography>
               </div>

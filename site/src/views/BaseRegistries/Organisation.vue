@@ -38,7 +38,10 @@
                   <vl-typography>
                     <p>Een bron vormen die
                       <ul>
-                        <li>authentieke informatie biedt over structuren in de publieke sector in Vlaanderen, incl. beschrijvende informatie ervan zoals waar ze te vinden zijn en hoe je ze kan contacteren.</li>
+                        <li>
+                          authentieke informatie biedt over structuren in de publieke sector in Vlaanderen, 
+                          incl. beschrijvende informatie ervan zoals waar ze te vinden zijn en hoe je ze kan contacteren.
+                        </li>
                         <li>een manier voorzien om alle organisatie-éénheden waarmee die publieke sector te maken heeft ook uniek te identificeren.</li>
                       </ul>
                     </p>
