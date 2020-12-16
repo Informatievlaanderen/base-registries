@@ -59,6 +59,15 @@ export default new Router({
         import(/* webpackChunkName: "versies" */ './views/Versions/Versions.vue'),
     },
     {
+      path: '/foutmeldingen/:fout',
+      name: 'foutmelding',
+      meta: {
+        title: 'Foutmelding',
+      },
+      component: () =>
+        import(/* webpackChunkName: "foutmelding" */ './views/ErrorDetails/ErrorDetail.vue')
+    },
+    {
       path: '/implementatiemodel',
       name: 'implementatiemodel',
       meta: {
