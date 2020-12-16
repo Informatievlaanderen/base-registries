@@ -36,7 +36,10 @@
                   <vl-title id="algemeen" tag-name="h2">Wat zijn de basisregisters?</vl-title>
 
                   <vl-typography>
-                    <p>Ter verbetering van haar beleidsvoering en dienstverlening trekt de Vlaamse overheid volop de kaart van de uitbouw van een geïntegreerd stelsel van authentieke gegevensbronnen.</p>
+                    <p>
+                      Ter verbetering van haar beleidsvoering en dienstverlening trekt de Vlaamse overheid volop 
+                      de kaart van de uitbouw van een geïntegreerd stelsel van authentieke gegevensbronnen.
+                    </p>
                     <p><vl-link to="/algemeen" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>
                   </vl-typography>
                 </vl-column>

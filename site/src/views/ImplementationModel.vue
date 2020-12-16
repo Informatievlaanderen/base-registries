@@ -36,15 +36,22 @@
                   <vl-title id="waarom" tag-name="h2">Waarom maken we dit?</vl-title>
 
                   <vl-typography>
-                    <p>Semantische afstemming zorgt er voor dat informatiemodellen gebruik maken van eenduidige termen waar een bijbehorende definitie kan voor opgezocht worden. Dit komt interoperabiliteit tussen toepassingen ten goede door dubbelzinnigheid en onduidelijkheid te elimineren. Daarnaast zorgt het voor breder gedragen informatiemodellen door silodenken te vermijden.</p>
+                    <p>
+                      Semantische afstemming zorgt er voor dat informatiemodellen gebruik maken van eenduidige termen waar een bijbehorende definitie kan voor opgezocht worden. 
+                      Dit komt interoperabiliteit tussen toepassingen ten goede door dubbelzinnigheid en onduidelijkheid te elimineren. 
+                      Daarnaast zorgt het voor breder gedragen informatiemodellen door silodenken te vermijden.
+                    </p>
                   </vl-typography>
                 </vl-column>
 
                 <vl-column width="12">
                   <vl-title id="wat" tag-name="h2">Wat is een implementatiemodel precies?</vl-title>
-
                   <vl-typography>
-                    <p>Een implementatiemodel is een specificatie voor gegevensuitwisseling voor applicaties die een bepaalde use case vervullen. Het laat toe om naast een gedeelde semantiek ook bijkomende restricties op te leggen, zoals het vastleggen van kardinaliteiten of het gebruik van bepaalde codelijsten. Een implementatiemodel kan dienen als documentatie voor analisten en ontwikkelaars.</p>
+                    <p>
+                      Een implementatiemodel is een specificatie voor gegevensuitwisseling voor applicaties die een bepaalde use case vervullen. 
+                      Het laat toe om naast een gedeelde semantiek ook bijkomende restricties op te leggen, zoals het vastleggen van kardinaliteiten of het gebruik van bepaalde codelijsten. 
+                      Een implementatiemodel kan dienen als documentatie voor analisten en ontwikkelaars.
+                    </p>
                   </vl-typography>
                 </vl-column>
 
