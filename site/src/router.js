@@ -65,7 +65,16 @@ export default new Router({
         title: 'Foutmelding',
       },
       component: () =>
-        import(/* webpackChunkName: "foutmelding" */ './views/ErrorDetails/ErrorDetail.vue')
+        import(/* webpackChunkName: "foutmelding" */ './views/ErrorDetails/ErrorDetail.vue'),
+    },
+    {
+      path: '/status',
+      name: 'status',
+      meta: {
+        title: 'Status',
+      },
+      component: () =>
+        import(/* webpackChunkName: "status" */ './views/Status/Statuses.vue'),
     },
     {
       path: '/implementatiemodel',

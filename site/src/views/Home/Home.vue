@@ -40,6 +40,14 @@
           <vl-grid>
             <vl-column width="4" width-s="12">
               <vl-spotlight
+                title="Status"
+                subtitle="Status van de registers"
+                to="/status"
+                tag-name="router-link"
+                mod-small />
+            </vl-column>
+            <vl-column width="4" width-s="12">
+              <vl-spotlight
                 title="Versies"
                 subtitle="Een overzicht van de huidige versies"
                 to="/versies"
