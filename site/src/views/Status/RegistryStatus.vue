@@ -1,9 +1,9 @@
 <template>
   <div>
     <h3 itemprop="name" class="vl-registry-status-item__title">{{ title }}</h3>
-    <projection-status>{{ status.projections }}</projection-status>
-    <cache-status>{{ status.cache }}</cache-status>
-    <import-status>{{ status.import }}</import-status>
+    <projection-status :status="status.projections" />
+    <!-- <cache-status>{{ status.cache }}</cache-status> -->
+    <!-- <import-status>{{ status.import }}</import-status> -->
   </div>
 </template>
 
@@ -13,16 +13,8 @@
     font-weight: 500;
   }
 
-  .todo-status-dashboard {
-    border: 1px solid red;
-
-    :before {
-      color: red;
-      content: 'Todo:';
-      text-transform: uppercase;
-      padding: 5px;
-      font-weight: 600;
-    }
+  .vl-registry-status-item__type {
+    margin-top: 0.5em;
   }
 </style>
 

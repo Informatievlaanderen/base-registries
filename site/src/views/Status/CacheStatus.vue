@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-status-dashboard">
+  <div class=" vl-registry-status-item__type todo-status-dashboard">
     <h3 itemprop="name">Cache - placeholder</h3>
     <slot />
   </div>
@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'CacheStatus',
-  components: [],
+  components: {},
   props: {
   },
 };
