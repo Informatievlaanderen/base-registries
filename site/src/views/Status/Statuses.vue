@@ -34,7 +34,7 @@
                     title="Gemeenten"
                     text="de Belgische gemeenten."
                     to="/registers/gemeenten"
-                    :version="versions.municipalityRegistry"
+                    :version="municipalityRegistry"
                     :status="municipalityRegistry" />
                 </vl-column>
 
@@ -43,7 +43,7 @@
                     title="Postinformatie"
                     text="de Belgische postcodes."
                     to="/registers/postinformatie"
-                    :version="versions.postalRegistry"
+                    :version="postalRegistry"
                     :status="postalRegistry" />
                 </vl-column>
 
@@ -52,7 +52,7 @@
                     title="Straatnamen"
                     text="de Vlaamse straatnamen."
                     to="/registers/straatnamen"
-                    :version="versions.streetNameRegistry"
+                    :version="streetNameRegistry"
                     :status="streetNameRegistry" />
                 </vl-column>
 
@@ -61,7 +61,7 @@
                     title="Adressen"
                     text="de Vlaamse adressen."
                     to="/registers/adressen"
-                    :version="versions.addressRegistry"
+                    :version="addressRegistry"
                     :status="addressRegistry" />
                 </vl-column>
 
@@ -70,7 +70,7 @@
                     title="Gebouwen"
                     text="de Vlaamse gebouwen en gebouweenheden."
                     to="/registers/gebouwen"
-                    :version="versions.buildingRegistry"
+                    :version="buildingRegistry"
                     :status="buildingRegistry" />
                 </vl-column>
 
@@ -79,36 +79,12 @@
                     title="Percelen"
                     text="de Vlaamse percelen."
                     to="/registers/percelen"
-                    :version="versions.parcelRegistry"
+                    :version="parcelRegistry"
                     :status="parcelRegistry" />
                 </vl-column>
 
-                <vl-column width="12" width-m="6" width-s="12">
-                  <registry-status
-                    title="Wegen"
-                    text="de Vlaamse wegen."
-                    to="/registers/wegen"
-                    version="N/A"
-                    :status="roadRegistry" />
-                </vl-column>
+                <!-- <debug /> -->
 
-                <vl-column width="12" width-m="6" width-s="12">
-                  <registry-status
-                    title="Organisaties"
-                    text="de Vlaamse organisaties en organen."
-                    to="/registers/organisaties"
-                    :version="versions.organisationRegistry"
-                    :status="organisationRegistry" />
-                </vl-column>
-
-                <vl-column width="12" width-m="6" width-s="12">
-                  <registry-status
-                    title="Dienstverleningen"
-                    text="de Vlaamse dienstverlening."
-                    to="/registers/dienstverleningen"
-                    :version="versions.publicServiceRegistry"
-                    :status="publicServiceRegistry" />
-                </vl-column>
               </vl-grid>
             </vl-column>
           </vl-grid>
@@ -120,13 +96,14 @@
 
 <script>
 import RegistryStatus from './RegistryStatus.vue';
+import Debug from './Debug.vue';
 import axios from 'axios';
-///import vlArrowNavigationVue from '../../../../deps/webuniversum/vue/docs/vl-arrow-navigation/vl-arrow-navigation.vue';
 
 export default {
   name: 'Statuses',
   components: {
     RegistryStatus,
+    Debug,
   },
   data () {
     return {
@@ -135,11 +112,7 @@ export default {
       municipalityRegistry: {},
       parcelRegistry: {},
       postalRegistry: {},
-      publicApi: {},
-      publicServiceRegistry: {},
       streetNameRegistry: {},
-      organisationRegistry: {},
-      roadRegistry: {},
     };
   },
   mounted () {
