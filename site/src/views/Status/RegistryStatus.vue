@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 itemprop="name" class="vl-registry-status-item__title">{{ title }}</h3>
-    <projection-status :status="status.projections" />
+    <projection-status :status="status.projections" :is-loading="status.isLoading.includes('projections')" />
     <!-- <cache-status>{{ status.cache }}</cache-status> -->
     <!-- <import-status>{{ status.import }}</import-status> -->
   </div>
@@ -20,15 +20,15 @@
 
 <script>
 import ProjectionStatus from './ProjectionStatus.vue';
-import CacheStatus from './CacheStatus.vue';
-import ImportStatus from './ImportStatus.vue';
+// import CacheStatus from './CacheStatus.vue';
+// import ImportStatus from './ImportStatus.vue';
 
 export default {
   name: 'RegistryStatus',
   components: { 
     ProjectionStatus, 
-    CacheStatus, 
-    ImportStatus,
+    // CacheStatus, 
+    // ImportStatus,
   },
   props: {
     title: {
