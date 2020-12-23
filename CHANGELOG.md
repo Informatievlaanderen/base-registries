@@ -1,3 +1,12 @@
+## [1.18.1](https://github.com/informatievlaanderen/base-registries/compare/v1.18.0...v1.18.1) (2020-12-23)
+
+
+### Bug Fixes
+
+* add template for error details GRAR-400 ([b45c785](https://github.com/informatievlaanderen/base-registries/commit/b45c785cb6621362051a1263fbd0d1318b2d053b))
+* move to 5.0.1 ([ca3796c](https://github.com/informatievlaanderen/base-registries/commit/ca3796cf6bea9d4055b877f6d00ea624a83102b0))
+* remove set-env usage in gh-actions ([87417d4](https://github.com/informatievlaanderen/base-registries/commit/87417d4963e4ccb61b4e2a726f7eec5e3c7bd325))
+
 # [1.18.0](https://github.com/informatievlaanderen/base-registries/compare/v1.17.4...v1.18.0) (2020-07-01)
 
 
