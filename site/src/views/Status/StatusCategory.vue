@@ -2,7 +2,7 @@
   <div class="vl-status__catergory">
    <div :class="`vl-status__title vl-alert vl-alert--${alertLevel}`">
       <div>{{ title }}</div>
-      <div class="vl-alert__icon">
+      <div v-if="alertLevel!='none'" class="vl-alert__icon">
           <span aria-hidden="true" :class="`vl-icon vl-vi vl-vi-${alertLevel}`"></span>
       </div>
     </div>
@@ -37,15 +37,15 @@
     content: "\F21F";
 }
 
-.vl-status__catergory .vl-icon.vl-vi-success::before {
+.vl-status__catergory .vl-icon.vl-vi-success:before {
     content: "\F144";
 }
 
-.vl-status__catergory .vl-icon.vl-vi-warning::before {
+.vl-status__catergory .vl-icon.vl-vi-warning:before {
     content: "\F107";
 }
 
-.vl-status__catergory .vl-icon.vl-vi-error::before {
+.vl-status__catergory .vl-icon.vl-vi-error:before {
     content: "\F109";
 }
 </style>

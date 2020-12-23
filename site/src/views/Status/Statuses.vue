@@ -34,7 +34,6 @@
                     title="Gemeenten"
                     text="de Belgische gemeenten."
                     to="/registers/gemeenten"
-                    :version="municipalityRegistry"
                     :status="municipalityRegistry" />
                 </vl-column>
 
@@ -43,7 +42,6 @@
                     title="Postinformatie"
                     text="de Belgische postcodes."
                     to="/registers/postinformatie"
-                    :version="postalRegistry"
                     :status="postalRegistry" />
                 </vl-column>
 
@@ -52,7 +50,6 @@
                     title="Straatnamen"
                     text="de Vlaamse straatnamen."
                     to="/registers/straatnamen"
-                    :version="streetNameRegistry"
                     :status="streetNameRegistry" />
                 </vl-column>
 
@@ -61,7 +58,6 @@
                     title="Adressen"
                     text="de Vlaamse adressen."
                     to="/registers/adressen"
-                    :version="addressRegistry"
                     :status="addressRegistry" />
                 </vl-column>
 
@@ -70,7 +66,6 @@
                     title="Gebouwen"
                     text="de Vlaamse gebouwen en gebouweenheden."
                     to="/registers/gebouwen"
-                    :version="buildingRegistry"
                     :status="buildingRegistry" />
                 </vl-column>
 
@@ -79,7 +74,6 @@
                     title="Percelen"
                     text="de Vlaamse percelen."
                     to="/registers/percelen"
-                    :version="parcelRegistry"
                     :status="parcelRegistry" />
                 </vl-column>
 
@@ -96,23 +90,35 @@
 
 <script>
 import RegistryStatus from './RegistryStatus.vue';
-import Debug from './Debug.vue';
+// import Debug from './Debug.vue';
 import axios from 'axios';
 
 export default {
   name: 'Statuses',
   components: {
     RegistryStatus,
-    Debug,
+    // Debug,
   },
   data () {
     return {
-      addressRegistry: {},
-      buildingRegistry: {},
-      municipalityRegistry: {},
-      parcelRegistry: {},
-      postalRegistry: {},
-      streetNameRegistry: {},
+      addressRegistry: {
+        isLoading: [],
+      },
+      buildingRegistry: {
+        isLoading: [],
+      },
+      municipalityRegistry: {
+        isLoading: [],
+      },
+      parcelRegistry: {
+        isLoading: [],
+      },
+      postalRegistry: {
+        isLoading: [],
+      },
+      streetNameRegistry: {
+        isLoading: [],
+      },
     };
   },
   mounted () {
@@ -124,24 +130,46 @@ export default {
     }
     /* END TODO*/
 
-    function setStatusFor(self, category, statusData){
+    function setStatusFor(vueInstance, category, statusData){
       for(const registry in statusData){
-        if(!self[registry][category]){
-          self.$set(self[registry], category, statusData[registry]);
+        const data = statusData[registry] || [];
+        if(!vueInstance[registry][category]){
+          vueInstance.$set(vueInstance[registry], category, data);
         } else {
-          self[registry][category] = statusData[registry];
+          vueInstance[registry][category] = data;
         }
       }
     }
 
-    function fetchStatus(self, category, path){
+    function beginLoading(vueInstance, category) {
+      for(const property in vueInstance) {
+        const registryProperty = vueInstance[property] || {};
+        if (typeof registryProperty === 'object'  && 'isLoading' in registryProperty) {
+          registryProperty.isLoading.push(category);
+        }
+      }
+    }
+
+    function loadingStopped(vueInstance, category) {
+      for(const property in vueInstance) {
+        const registryProperty = vueInstance[property] || {};
+        if (typeof registryProperty === 'object'  && 'isLoading' in registryProperty) {
+          registryProperty.isLoading = registryProperty.isLoading.filter(c => c !== category);
+        }
+      }
+    }
+
+    function fetchStatus(vueInstance, category, path){
+      beginLoading(vueInstance, category);
       axios
         .get(window.baseRegistriesApi + path)
-        .then(({ data }) => { 
-          setStatusFor(self, category, data); 
+        .then(({ data }) => {
+          setStatusFor(vueInstance, category, data);
+          loadingStopped(vueInstance, category);
         })
         .catch(error => {
           console.log(`Could not fetch status data from ${window.baseRegistriesApi + path}.`, error); 
+          loadingStopped(vueInstance, category);
         });
     }
 
