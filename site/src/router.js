@@ -74,7 +74,7 @@ export default new Router({
         title: 'Status',
       },
       component: () =>
-        import(/* webpackChunkName: "status" */ './views/Status/Statuses.vue'),
+        import(/* webpackChunkName: "status" */ './views/Status/StatusOverview.vue'),
     },
     {
       path: '/implementatiemodel',

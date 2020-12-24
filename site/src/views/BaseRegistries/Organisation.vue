@@ -52,7 +52,8 @@
                     </p>
 
                     <p>
-                      Op die manier wordt het hele ecosysteem aan applicaties en toepassingen in de Vlaamse administratie rijker én geven we onze beleidsmakers betere info voor hun besluitvorming.
+                      Op die manier wordt het hele ecosysteem aan applicaties en toepassingen in de Vlaamse administratie rijker
+                      én geven we onze beleidsmakers betere info voor hun besluitvorming.
                     </p>
                   </vl-typography>
                 </vl-column>
@@ -63,7 +64,9 @@
                   <vl-typography>
                     <p>
                       Het organisatieregister maakt deel uit van de Vlaamse Basisregisters en biedt autoritatieve informatie over publieke organisaties in Vlaanderen.
-                      Het is momenteel nog geen authentieke gegevensbron zoals bedoeld in <em>artikel III.66 van het Bestuursdecreet van 7/12/2018</em>, maar heeft wel deze ambitie.</p>
+                      Het is momenteel nog geen authentieke gegevensbron zoals bedoeld in <em>artikel III.66 van het Bestuursdecreet van 7/12/2018</em>,
+                      maar heeft wel deze ambitie.
+                    </p>
                   </vl-typography>
                 </vl-column>
 

@@ -94,7 +94,7 @@ import RegistryStatus from './RegistryStatus.vue';
 import axios from 'axios';
 
 export default {
-  name: 'Statuses',
+  name: 'StatusOverview',
   components: {
     RegistryStatus,
     // Debug,

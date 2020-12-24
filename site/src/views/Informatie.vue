@@ -38,8 +38,8 @@
 
                   <vl-typography>
                     <p>
-                      Ter verbetering van haar beleidsvoering en dienstverlening trekt de Vlaamse overheid volop 
-                      de kaart van de uitbouw van een geïntegreerd stelsel van authentieke gegevensbronnen.
+                      Ter verbetering van haar beleidsvoering en dienstverlening trekt de Vlaamse overheid
+                      volop de kaart van de uitbouw van een geïntegreerd stelsel van authentieke gegevensbronnen.
                     </p>
                     <p><vl-link to="/algemeen" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>
                   </vl-typography>
@@ -50,7 +50,7 @@
 
                   <vl-typography>
                     <p>
-                      Informatie is zeer omvangrijk, maar ook zeer versnipperd. 
+                      Informatie is zeer omvangrijk, maar ook zeer versnipperd.
                       De basisregisters moeten zorgen voor een efficiëntere doorstroming van informatie naar alle betrokken partijen.
                     </p>
                     <p><vl-link to="/aanleiding" icon="arrow-right-fat" mod-block mod-icon-before>Lees verder</vl-link></p>

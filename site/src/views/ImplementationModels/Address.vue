@@ -140,7 +140,11 @@
 
                   <vl-grid mod-stacked>
                     <vl-column v-for="oslo_thing in oslo_classes" :key="oslo_thing.uri" width="12">
-                      <vl-title :id="idify(`class-${oslo_thing.sort_nl}`)" tag-name="h3"><vl-link v-vl-tooltip.right="oslo_thing.uri" :href="oslo_thing.uri">{{ oslo_thing.name.nl }}</vl-link></vl-title>
+                      <vl-title
+                        :id="idify(`class-${oslo_thing.sort_nl}`)"
+                        tag-name="h3">
+                        <vl-link v-vl-tooltip.right="oslo_thing.uri" :href="oslo_thing.uri">{{ oslo_thing.name.nl }}</vl-link>
+                      </vl-title>
 
                       <vl-title :id="idify(`class-${oslo_thing.sort_nl}-beschrijving`)" tag-name="h5">Beschrijving</vl-title>
 
@@ -160,7 +164,15 @@
                         <p>
                           Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
                           <ul class="comma-list end-dot">
-                            <li v-for="oslo_property in sort_nl(oslo_thing.properties)" :key="oslo_property.uri"><vl-link v-scroll-to="{ el: idify(`#class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`), duration: 0, offset: -43 }" :href="idify(`#class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)">{{ oslo_property.name.nl }}</vl-link></li>
+                            <li
+                              v-for="oslo_property in sort_nl(oslo_thing.properties)"
+                              :key="oslo_property.uri">
+                              <vl-link
+                                v-scroll-to="{ el: idify(`#class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`), duration: 0, offset: -43 }"
+                                :href="idify(`#class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)">
+                                {{ oslo_property.name.nl }}
+                              </vl-link>
+                            </li>
                           </ul>
                         </p>
                       </vl-typography>
@@ -178,11 +190,18 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="oslo_property in sort_nl(oslo_thing.properties)" :id="idify(`class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)" :key="oslo_property.uri" class="oslo-property">
+                            <tr
+                              v-for="oslo_property in sort_nl(oslo_thing.properties)"
+                              :id="idify(`class-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)"
+                              :key="oslo_property.uri"
+                              class="oslo-property">
                               <td><vl-link v-vl-tooltip.right="oslo_property.uri" :href="oslo_property.uri">{{ oslo_property.name.nl }}</vl-link></td>
                               <td>
                                 <ul class="comma-list">
-                                  <li v-for="property_range in oslo_property.range" :key="property_range.range_uri"><vl-link v-vl-tooltip.right="property_range.range_uri" :href="property_range.range_uri">{{ property_range.range_label }}</vl-link></li>
+                                  <li
+                                    v-for="property_range in oslo_property.range"
+                                    :key="property_range.range_uri">
+                                    <vl-link v-vl-tooltip.right="property_range.range_uri" :href="property_range.range_uri">{{ property_range.range_label }}</vl-link></li>
                                 </ul>
                               </td>
                               <td>{{ oslo_property.cardinality }}</td>
@@ -202,7 +221,11 @@
 
                   <vl-grid mod-stacked>
                     <vl-column v-for="oslo_thing in oslo_datatypes" :key="oslo_thing.uri" width="12">
-                      <vl-title :id="idify(`datatype-${oslo_thing.sort_nl}`)" tag-name="h3"><vl-link v-vl-tooltip.right="oslo_thing.uri" :href="oslo_thing.uri">{{ oslo_thing.name.nl }}</vl-link></vl-title>
+                      <vl-title 
+                        :id="idify(`datatype-${oslo_thing.sort_nl}`)"
+                        tag-name="h3">
+                        <vl-link v-vl-tooltip.right="oslo_thing.uri" :href="oslo_thing.uri">{{ oslo_thing.name.nl }}</vl-link>
+                      </vl-title>
 
                       <vl-title :id="idify(`datatype-${oslo_thing.sort_nl}-beschrijving`)" tag-name="h5">Beschrijving</vl-title>
 
@@ -222,7 +245,15 @@
                         <p>
                           Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
                           <ul class="comma-list end-dot">
-                            <li v-for="oslo_property in sort_nl(oslo_thing.properties)" :key="oslo_property.uri"><vl-link v-scroll-to="{ el: idify(`#datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`), duration: 0, offset: -43 }" :href="idify(`#datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)">{{ oslo_property.name.nl }}</vl-link></li>
+                            <li
+                              v-for="oslo_property in sort_nl(oslo_thing.properties)"
+                              :key="oslo_property.uri">
+                              <vl-link
+                                v-scroll-to="{ el: idify(`#datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`), duration: 0, offset: -43 }"
+                                :href="idify(`#datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)">
+                                {{ oslo_property.name.nl }}
+                              </vl-link>
+                            </li>
                           </ul>
                         </p>
                       </vl-typography>
@@ -240,11 +271,19 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="oslo_property in sort_nl(oslo_thing.properties)" :id="idify(`datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)" :key="oslo_property.uri" class="oslo-property">
+                            <tr
+                              v-for="oslo_property in sort_nl(oslo_thing.properties)"
+                              :id="idify(`datatype-${oslo_thing.sort_nl}-eigenschap-${oslo_property.sort_nl}`)"
+                              :key="oslo_property.uri"
+                              class="oslo-property">
                               <td><vl-link v-vl-tooltip.right="oslo_property.uri" :href="oslo_property.uri">{{ oslo_property.name.nl }}</vl-link></td>
                               <td>
                                 <ul class="comma-list">
-                                  <li v-for="property_range in oslo_property.range" :key="property_range.range_uri"><vl-link v-vl-tooltip.right="property_range.range_uri" :href="property_range.range_uri">{{ property_range.range_label }}</vl-link></li>
+                                  <li v-for="property_range in oslo_property.range" :key="property_range.range_uri">
+                                    <vl-link v-vl-tooltip.right="property_range.range_uri" :href="property_range.range_uri">
+                                      {{ property_range.range_label }}
+                                    </vl-link>
+                                  </li>
                                 </ul>
                               </td>
                               <td>{{ oslo_property.cardinality }}</td>
@@ -285,12 +324,20 @@
                     <vl-side-navigation-item href="#overzicht" text="Overzicht" />
                     <vl-side-navigation-item href="#entiteiten" text="Entiteiten">
                       <vl-side-navigation-list>
-                        <vl-side-navigation-item v-for="oslo_thing in oslo_classes" :key="oslo_thing.uri" :href="idify(`#class-${oslo_thing.sort_nl}`)" :text="oslo_thing.name.nl" />
+                        <vl-side-navigation-item
+                          v-for="oslo_thing in oslo_classes"
+                          :key="oslo_thing.uri"
+                          :href="idify(`#class-${oslo_thing.sort_nl}`)"
+                          :text="oslo_thing.name.nl" />
                       </vl-side-navigation-list>
                     </vl-side-navigation-item>
                     <vl-side-navigation-item href="#datatypes" text="Datatypes">
                       <vl-side-navigation-list>
-                        <vl-side-navigation-item v-for="oslo_thing in oslo_datatypes" :key="oslo_thing.uri" :href="idify(`#class-${oslo_thing.sort_nl}`)" :text="oslo_thing.name.nl" />
+                        <vl-side-navigation-item
+                          v-for="oslo_thing in oslo_datatypes"
+                          :key="oslo_thing.uri"
+                          :href="idify(`#class-${oslo_thing.sort_nl}`)"
+                          :text="oslo_thing.name.nl" />
                       </vl-side-navigation-list>
                     </vl-side-navigation-item>
                     <vl-side-navigation-item href="#json-ld" text="JSON-LD context" />
