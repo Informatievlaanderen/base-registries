@@ -57,6 +57,27 @@ import StatusCategory from './StatusCategory.vue';
 import StatusItem from './StatusItem.vue';
 import { createProjectionStatusModel, aggregateAlertLevel } from './transform.js';
 
+const formatName = (name = '') => {
+  const parts = name.split('.');
+  const projection = parts.pop();
+  parts.pop();
+  const catergory = parts.pop();
+  return `${catergory} - ${projection}`
+    .replace(/Projections/ig, '')
+    .replace(/^ - /, '');
+};
+
+const sortFormatedName = (a, b) => {
+  const displayNameA = formatName(a.name);
+  const displayNameB = formatName(b.name);
+  const a_hasCategory = displayNameA.split('-').length > 1;
+  const b_hasCategory = displayNameB.split('-').length > 1;
+
+  return a_hasCategory == b_hasCategory
+    ? displayNameA.localeCompare(displayNameB)
+    : a_hasCategory ? 1 : -1;
+};
+
 export default {
   name: 'RegistryStatus',
   components: {
@@ -86,11 +107,12 @@ export default {
       return !this.status ? [] : this
         .status
         .projections
-        .map(projection => createProjectionStatusModel(projection, this.status.streamPosition));
+        .map(projection => createProjectionStatusModel(projection, this.status.streamPosition))
+        .sort(sortFormatedName);
     },
   },
   methods: {
-    formatName: (name = '') => name.split('.').pop().replace(/Projections$/i, ''),
+    formatName,
     formatProgress: (progress = {}) => 
       progress.percentage > 95 
         ? `${progress.position}/${progress.streamPosition}` 
