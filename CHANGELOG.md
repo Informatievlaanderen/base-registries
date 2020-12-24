@@ -1,3 +1,11 @@
+## [1.19.2](https://github.com/informatievlaanderen/base-registries/compare/v1.19.1...v1.19.2) (2020-12-24)
+
+
+### Bug Fixes
+
+* build version with sorted projection status ([3b966d9](https://github.com/informatievlaanderen/base-registries/commit/3b966d9b46102b7903f8b1706efa84dcc1416c17))
+* sort projection states by displayed name ([82133e2](https://github.com/informatievlaanderen/base-registries/commit/82133e2e92cadec5318def008f8c0c77268dde65))
+
 ## [1.19.1](https://github.com/informatievlaanderen/base-registries/compare/v1.19.0...v1.19.1) (2020-12-24)
 
 
