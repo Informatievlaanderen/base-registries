@@ -124,16 +124,16 @@ export default {
   mounted () {
 
     /* TODO: REMOVE - set debugging api*/
-    if(!window.baseRegistriesApi){
+    if (!window.baseRegistriesApi){
       window.baseRegistriesApi = 'https://api.basisregisters.dev-vlaanderen.be';
       console.log('setting baseRegistriesApi', window.baseRegistriesApi);
     }
     /* END TODO*/
 
-    function setStatusFor(vueInstance, category, statusData){
-      for(const registry in statusData){
+    function setStatusFor(vueInstance, category, statusData) {
+      for (const registry in statusData) {
         const data = statusData[registry] || [];
-        if(!vueInstance[registry][category]){
+        if (!vueInstance[registry][category]) {
           vueInstance.$set(vueInstance[registry], category, data);
         } else {
           vueInstance[registry][category] = data;
@@ -142,7 +142,7 @@ export default {
     }
 
     function beginLoading(vueInstance, category) {
-      for(const property in vueInstance) {
+      for (const property in vueInstance) {
         const registryProperty = vueInstance[property] || {};
         if (typeof registryProperty === 'object'  && 'isLoading' in registryProperty) {
           registryProperty.isLoading.push(category);
@@ -151,7 +151,7 @@ export default {
     }
 
     function loadingStopped(vueInstance, category) {
-      for(const property in vueInstance) {
+      for (const property in vueInstance) {
         const registryProperty = vueInstance[property] || {};
         if (typeof registryProperty === 'object'  && 'isLoading' in registryProperty) {
           registryProperty.isLoading = registryProperty.isLoading.filter(c => c !== category);
