@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/informatievlaanderen/base-registries/compare/v1.19.0...v1.19.1) (2020-12-24)
+
+
+### Bug Fixes
+
+* build new version ([50b4267](https://github.com/informatievlaanderen/base-registries/commit/50b4267e48f663d43ea204aaec4cebc60de2c2f5))
+
 # [1.19.0](https://github.com/informatievlaanderen/base-registries/compare/v1.18.1...v1.19.0) (2020-12-24)
 
 
