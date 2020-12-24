@@ -49,7 +49,8 @@
                   <vl-typography>
                     <p>
                       Een implementatiemodel is een specificatie voor gegevensuitwisseling voor applicaties die een bepaalde use case vervullen. 
-                      Het laat toe om naast een gedeelde semantiek ook bijkomende restricties op te leggen, zoals het vastleggen van kardinaliteiten of het gebruik van bepaalde codelijsten. 
+                      Het laat toe om naast een gedeelde semantiek ook bijkomende restricties op te leggen,
+                      zoals het vastleggen van kardinaliteiten of het gebruik van bepaalde codelijsten. 
                       Een implementatiemodel kan dienen als documentatie voor analisten en ontwikkelaars.
                     </p>
                   </vl-typography>
