@@ -1,3 +1,15 @@
+# [1.19.0](https://github.com/informatievlaanderen/base-registries/compare/v1.18.1...v1.19.0) (2020-12-24)
+
+
+### Bug Fixes
+
+* add projection status loading messages ([fdb5334](https://github.com/informatievlaanderen/base-registries/commit/fdb5334ccea1ef8e0bc784037b7885e7d60e1382))
+
+
+### Features
+
+* add projection status data ([14a1c8c](https://github.com/informatievlaanderen/base-registries/commit/14a1c8ced0ec8607642e3a8b0f78c8219a62b498))
+
 ## [1.18.1](https://github.com/informatievlaanderen/base-registries/compare/v1.18.0...v1.18.1) (2020-12-23)
 
 
