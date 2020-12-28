@@ -115,14 +115,16 @@
                     text="de Vlaamse dienstverlening."
                     to="/registers/dienstverleningen"
                     :version="versions.publicServiceRegistry" />
-
+                </vl-column>
+                
                 <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Api"
                     text="de Basisregisters Vlaanderen API."
                     to="/registers/api"
                     :version="versions.publicApi" />
-
+                </vl-column>
+                
                 <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
                     title="Website"
