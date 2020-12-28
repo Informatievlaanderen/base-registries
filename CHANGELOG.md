@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/informatievlaanderen/base-registries/compare/v1.19.2...v1.20.0) (2020-12-28)
+
+
+### Features
+
+* add site version GRAR-1308 ([220816c](https://github.com/informatievlaanderen/base-registries/commit/220816c08232e9f635102fd1c0449622d05bfecb))
+
 ## [1.19.2](https://github.com/informatievlaanderen/base-registries/compare/v1.19.1...v1.19.2) (2020-12-24)
 
 
