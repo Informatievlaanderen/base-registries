@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/informatievlaanderen/base-registries/compare/v1.20.0...v1.20.1) (2020-12-28)
+
+
+### Bug Fixes
+
+* build site ([d7ebc82](https://github.com/informatievlaanderen/base-registries/commit/d7ebc827dcb9d773bda8bfe92db26de04390d4fb))
+
 # [1.20.0](https://github.com/informatievlaanderen/base-registries/compare/v1.19.2...v1.20.0) (2020-12-28)
 
 
