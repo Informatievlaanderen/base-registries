@@ -34,7 +34,8 @@
                     title="Gemeenten"
                     text="de Belgische gemeenten."
                     to="/registers/gemeenten"
-                    :status="municipalityRegistry" />
+                    :status="municipalityRegistry"
+                    @refresh="fetch" />
                 </vl-column>
 
                 <vl-column width="12" width-m="6" width-s="12">
@@ -42,7 +43,8 @@
                     title="Postinformatie"
                     text="de Belgische postcodes."
                     to="/registers/postinformatie"
-                    :status="postalRegistry" />
+                    :status="postalRegistry"
+                    @refresh="fetch" />
                 </vl-column>
 
                 <vl-column width="12" width-m="6" width-s="12">
@@ -50,7 +52,8 @@
                     title="Straatnamen"
                     text="de Vlaamse straatnamen."
                     to="/registers/straatnamen"
-                    :status="streetNameRegistry" />
+                    :status="streetNameRegistry"
+                    @refresh="fetch" />
                 </vl-column>
 
                 <vl-column width="12" width-m="6" width-s="12">
@@ -58,7 +61,8 @@
                     title="Adressen"
                     text="de Vlaamse adressen."
                     to="/registers/adressen"
-                    :status="addressRegistry" />
+                    :status="addressRegistry"
+                    @refresh="fetch" />
                 </vl-column>
 
                 <vl-column width="12" width-m="6" width-s="12">
@@ -66,7 +70,8 @@
                     title="Gebouwen"
                     text="de Vlaamse gebouwen en gebouweenheden."
                     to="/registers/gebouwen"
-                    :status="buildingRegistry" />
+                    :status="buildingRegistry"
+                    @refresh="fetch" />
                 </vl-column>
 
                 <vl-column width="12" width-m="6" width-s="12">
@@ -74,10 +79,9 @@
                     title="Percelen"
                     text="de Vlaamse percelen."
                     to="/registers/percelen"
-                    :status="parcelRegistry" />
+                    :status="parcelRegistry"
+                    @refresh="fetch" />
                 </vl-column>
-
-                <!-- <debug /> -->
 
               </vl-grid>
             </vl-column>
@@ -90,53 +94,43 @@
 
 <script>
 import RegistryStatus from './RegistryStatus.vue';
-// import Debug from './Debug.vue';
 import axios from 'axios';
 
 export default {
   name: 'StatusOverview',
   components: {
     RegistryStatus,
-    // Debug,
   },
   data () {
     return {
       addressRegistry: {
-        hide: ['cache'],
+        hide: [],
         isLoading: [],
       },
       buildingRegistry: {
-        hide: ['cache'],
+        hide: [],
         isLoading: [],
       },
       municipalityRegistry: {
-        hide: ['cache'],
+        hide: [],
         isLoading: [],
       },
       parcelRegistry: {
-        hide: ['cache'],
+        hide: [],
         isLoading: [],
       },
       postalRegistry: {
-        hide: ['cache', 'import'],
+        hide: ['import'],
         isLoading: [],
       },
       streetNameRegistry: {
-        hide: ['cache'],
+        hide: [],
         isLoading: [],
       },
     };
   },
   mounted () {
-
-    /* TODO: REMOVE - set debugging api*/
-    if (!window.baseRegistriesApi){
-      window.baseRegistriesApi = 'https://api.basisregisters.dev-vlaanderen.be';
-      console.log('setting baseRegistriesApi', window.baseRegistriesApi);
-    }
-    /* END TODO*/
-
-    this.fetchAll();
+    this.fetch(['projections', 'cache', 'import']);
   },
   methods: {
     setStatusFor: function(category, statusData) {
@@ -181,10 +175,18 @@ export default {
           this.loadingStopped(category);
         });
     },
-    fetchAll: function() {
-      this.fetchStatus('projections', '/v1/status/projection');
-      this.fetchStatus('import', '/v1/status/import');
-      this.fetchStatus('cache', '/v1/status/cache');
+    fetch: function(catergories = []) {
+      const statusPaths = {
+        projections: '/v1/status/projection',
+        import: '/v1/status/import',
+        cache: '/v1/status/cache',
+      };
+
+      for(const category of catergories) {
+        if (statusPaths[category]) {
+          this.fetchStatus(category, statusPaths[category]);
+        }
+      }
     },
   },
 };

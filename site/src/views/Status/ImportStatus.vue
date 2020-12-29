@@ -2,7 +2,9 @@
   <status-category
     :title="'CRAB import'"
     :alert-level="alertLevel"
-    class="vl-registry-status-item__type">
+    :show-refresh="!isLoading"
+    @refreshCategory="refresh">
+
     <vl-column v-if="noData" width="12">
       <div v-if="isLoading" v-vl-align:center>
         <vl-loader message="De status van de import wordt opgevraagd" />
@@ -13,6 +15,7 @@
         content="Er is iets fout gelopen tijdens het ophalen van de status van de CRAB import. Probeer later opnieuw."
         mod-error />
     </vl-column>
+
     <status-item
       v-for="importStatus in imports"
       :key="importStatus.name"
@@ -21,6 +24,7 @@
       <div v-if="importStatus.state=='active'" class="import-period --right">import actief van {{ formatDate(importStatus.from) }} tot {{ formatDate(importStatus.to) }}</div>
       <div v-else class="import-period --right">ge&iuml;mporteerd tot {{ formatDate(importStatus.lastCompleted) }}</div>
     </status-item>
+
   </status-category>
 </template>
 
@@ -29,17 +33,17 @@
     padding-right: 0.5em;
   }
 
-  .import-state:before {
+  .import-state::before {
     font-family: "vlaanderen-icon";
     content: "\F21F";
     padding-right: 1rem;
   }
 
-  .import-state.stopped:before {
+  .import-state.stopped::before {
     content: "\F24e";
   }
 
-  .import-state.active:before {
+  .import-state.active::before {
     content: "\F214";
   }
 
@@ -94,6 +98,9 @@ export default {
         second: '2-digit',
       };
       return date ? date.toLocaleString('nl-BE', options) : '__/ __/ __ --:--:--';
+    },
+    refresh: function () {
+      this.$emit('refresh');
     },
   },
 };

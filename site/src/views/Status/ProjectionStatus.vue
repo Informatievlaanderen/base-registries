@@ -2,7 +2,8 @@
   <status-category
     :title="'Projecties'"
     :alert-level="alertLevel"
-    class="vl-registry-status-item__type">
+    :show-refresh="!isLoading"
+    @refreshCategory="refresh">
 
     <vl-column v-if="noData" width="12">
       <div v-if="isLoading" v-vl-align:center>
@@ -28,21 +29,21 @@
     padding-right: 0.5em;
   }
 
-  .projection-state:before {
+  .projection-state::before {
     font-family: "vlaanderen-icon";
     content: "\F21F";
     padding-right: 1rem;
   }
 
-  .projection-state.stopped:before {
+  .projection-state.stopped::before {
     content: "\F204";
   }
 
-  .projection-state.active:before {
+  .projection-state.active::before {
     content: "\F214";
   }
 
-  .projection-state.error:before {
+  .projection-state.error::before {
     content: "\F109";
   }
 
@@ -60,8 +61,8 @@ const formatName = (name = '') => {
   const parts = name.split('.');
   const projection = parts.pop();
   parts.pop();
-  const catergory = parts.pop();
-  return `${catergory} - ${projection}`
+  const category = parts.pop();
+  return `${category} - ${projection}`
     .replace(/Projections/ig, '')
     .replace(/^ - /, '');
 };
@@ -116,6 +117,9 @@ export default {
       progress.percentage > 95 
         ? `${progress.position}/${progress.streamPosition}` 
         : `${Number.parseFloat(progress.percentage).toFixed(2)}%`,
+    refresh: function () {
+      this.$emit('refresh');
+    },
   },
 };
 </script>

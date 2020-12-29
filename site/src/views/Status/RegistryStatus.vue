@@ -4,15 +4,18 @@
     <projection-status
       v-if="!status.hide.includes('projections')"
       :status="status.projections"
-      :is-loading="status.isLoading.includes('projections')" />
+      :is-loading="status.isLoading.includes('projections')"
+      @refresh="refresh('projections')" />
     <cache-status
       v-if="!status.hide.includes('cache')"
       :status="status.cache"
-      :is-loading="status.isLoading.includes('cache')" />
+      :is-loading="status.isLoading.includes('cache')"
+      @refresh="refresh('cache')" />
     <import-status
       v-if="!status.hide.includes('import')"
       :status="status.import"
-      :is-loading="status.isLoading.includes('import')" />
+      :is-loading="status.isLoading.includes('import')"
+       @refresh="refresh('import')" />
   </div>
 </template>
 
@@ -47,6 +50,11 @@ export default {
     status: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    refresh: function(category) {
+      this.$emit('refresh', [category]);
     },
   },
 };
