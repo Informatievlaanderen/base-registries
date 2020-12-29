@@ -15,7 +15,7 @@ const calculateProjectionProgress = (currentPosition = -1, streamPosition = -1) 
   };
 };
 
-const determineAlertLevel = (projectionstate = '', progress= {}) => {
+const determineProjectionAlertLevel = (projectionstate = '', progress= {}) => {
   if (projectionstate === 'error') {
     return 'error';
   }
@@ -28,16 +28,54 @@ const determineAlertLevel = (projectionstate = '', progress= {}) => {
   return 'unkown';
 };
 
-const createProjectionStatusModel = (projection = { }, streamPosition = -1) => {
+const createProjectionStatusModel = (projection = {}, streamPosition = -1) => {
   const { name , currentPosition = -1, state = 'unknown' } = projection;
   let progress = calculateProjectionProgress(currentPosition, streamPosition);
   
   const projectionState = projectionStateMapping[state.toLowerCase()] || 'unknown';
   return {
     name,
-    alertLevel: determineAlertLevel(projectionState, progress),
+    alertLevel: determineProjectionAlertLevel(projectionState, progress),
     state: projectionState,
     progress,
+  };
+};
+
+
+const determineImportAlertLevel = (lastCompleted, state) => {
+  if (!lastCompleted) {
+    return 'error';
+  }
+
+  if (lastCompleted >= new Date(Date.now() - 300000)) {
+    return 'success';
+  }
+
+  if (state === 'active' && lastCompleted < new Date(Date.now() - 360000)) {
+    return 'warning';
+  }
+
+  if (state === 'active' && lastCompleted < new Date(Date.now() - 3600000)) {
+    return 'error';
+  }
+
+  return 'unkown';
+};
+
+const createImportStatusModel = (importStatus = {}) => {
+
+  const state = importStatus.currentImport ? 'active' : 'stopped';
+  const from = state === 'active' ? new Date(importStatus.currentPosition.from) : null;
+  const to = state === 'active' ? new Date(importStatus.currentPosition.until) : null;
+  const lastCompleted =  importStatus.lastCompletedImport ? new Date(importStatus.lastCompletedImport.until) : null;
+
+  return {
+    name: importStatus.name,
+    state,
+    lastCompleted,
+    from,
+    to,
+    alertLevel: determineImportAlertLevel(lastCompleted, state),
   };
 };
 
@@ -59,5 +97,6 @@ const aggregateAlertLevel = (items = []) =>
 
 export {
   createProjectionStatusModel,
+  createImportStatusModel,
   aggregateAlertLevel,
 };

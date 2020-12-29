@@ -102,21 +102,27 @@ export default {
   data () {
     return {
       addressRegistry: {
+        hide: ['cache'],
         isLoading: [],
       },
       buildingRegistry: {
+        hide: ['cache'],
         isLoading: [],
       },
       municipalityRegistry: {
+        hide: ['cache'],
         isLoading: [],
       },
       parcelRegistry: {
+        hide: ['cache'],
         isLoading: [],
       },
       postalRegistry: {
+        hide: ['cache', 'import'],
         isLoading: [],
       },
       streetNameRegistry: {
+        hide: ['cache'],
         isLoading: [],
       },
     };
@@ -130,52 +136,56 @@ export default {
     }
     /* END TODO*/
 
-    function setStatusFor(vueInstance, category, statusData) {
+    this.fetchAll();
+  },
+  methods: {
+    setStatusFor: function(category, statusData) {
       for (const registry in statusData) {
         const data = statusData[registry] || [];
-        if (!vueInstance[registry][category]) {
-          vueInstance.$set(vueInstance[registry], category, data);
+        if (!this[registry][category]) {
+          this.$set(this[registry], category, data);
         } else {
-          vueInstance[registry][category] = data;
+          this[registry][category] = data;
         }
       }
-    }
-
-    function beginLoading(vueInstance, category) {
-      for (const property in vueInstance) {
-        const registryProperty = vueInstance[property] || {};
+    },
+    beginLoading: function(category) {
+      for (const property in this) {
+        const registryProperty = this[property] || {};
         if (typeof registryProperty === 'object'  && 'isLoading' in registryProperty) {
           registryProperty.isLoading.push(category);
+          if (registryProperty[category]) {
+            registryProperty[category] = null;
+          }
         }
       }
-    }
-
-    function loadingStopped(vueInstance, category) {
-      for (const property in vueInstance) {
-        const registryProperty = vueInstance[property] || {};
+    },
+    loadingStopped: function(category) {
+      for (const property in this) {
+        const registryProperty = this[property] || {};
         if (typeof registryProperty === 'object'  && 'isLoading' in registryProperty) {
           registryProperty.isLoading = registryProperty.isLoading.filter(c => c !== category);
         }
       }
-    }
-
-    function fetchStatus(vueInstance, category, path){
-      beginLoading(vueInstance, category);
+    },
+    fetchStatus: function(category, path) {
+      this.beginLoading(category);
       axios
         .get(window.baseRegistriesApi + path)
         .then(({ data }) => {
-          setStatusFor(vueInstance, category, data);
-          loadingStopped(vueInstance, category);
+          this.setStatusFor(category, data);
+          this.loadingStopped(category);
         })
         .catch(error => {
           console.log(`Could not fetch status data from ${window.baseRegistriesApi + path}.`, error); 
-          loadingStopped(vueInstance, category);
+          this.loadingStopped(category);
         });
-    }
-
-    fetchStatus(this, 'projections', '/v1/status/projection');
-    fetchStatus(this, 'import', '/v1/status/import');
-    fetchStatus(this, 'cache', '/v1/status/cache');
+    },
+    fetchAll: function() {
+      this.fetchStatus('projections', '/v1/status/projection');
+      this.fetchStatus('import', '/v1/status/import');
+      this.fetchStatus('cache', '/v1/status/cache');
+    },
   },
 };
 </script>
