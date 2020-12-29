@@ -79,6 +79,24 @@ const createImportStatusModel = (importStatus = {}) => {
   };
 };
 
+const determineCacheAlertLevel = numberOfRecordsToProcess => {
+  if (numberOfRecordsToProcess === 0) {
+    return 'success';
+  }
+
+  return numberOfRecordsToProcess ? 'warning' : 'error';
+};
+
+const createCachestatusModel = (cache = {}) => {
+  const { name = '', numberOfRecordsToProcess = null } = cache;
+  return {
+    name,
+    numberOfRecordsToProcess,
+    alertLevel: determineCacheAlertLevel(numberOfRecordsToProcess),
+    debug: cache,
+  };
+};
+
 const aggregateAlertLevel = (items = []) => 
   items.reduce(
     (level, { alertLevel = 'unknown' }) => {
@@ -98,5 +116,6 @@ const aggregateAlertLevel = (items = []) =>
 export {
   createProjectionStatusModel,
   createImportStatusModel,
+  createCachestatusModel,
   aggregateAlertLevel,
 };
