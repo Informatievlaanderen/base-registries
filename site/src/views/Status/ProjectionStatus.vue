@@ -26,7 +26,6 @@
 <style lang="scss">
   .projection-name {
     padding-right: 0.5em;
-    overflow-wrap: break-word;
   }
 
   .projection-state:before {

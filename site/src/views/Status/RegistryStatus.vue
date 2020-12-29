@@ -1,9 +1,18 @@
 <template>
   <div>
     <h3 itemprop="name" class="vl-registry-status-item__title">{{ title }}</h3>
-    <projection-status :status="status.projections" :is-loading="status.isLoading.includes('projections')" />
-    <!-- <cache-status>{{ status.cache }}</cache-status> -->
-    <!-- <import-status>{{ status.import }}</import-status> -->
+    <projection-status
+      v-if="!status.hide.includes('projections')"
+      :status="status.projections"
+      :is-loading="status.isLoading.includes('projections')" />
+    <cache-status
+      v-if="!status.hide.includes('cache')"
+      :status="status.cache"
+      :is-loading="status.isLoading.includes('cache')" />
+    <import-status
+      v-if="!status.hide.includes('import')"
+      :status="status.import"
+      :is-loading="status.isLoading.includes('import')" />
   </div>
 </template>
 
@@ -20,15 +29,15 @@
 
 <script>
 import ProjectionStatus from './ProjectionStatus.vue';
-// import CacheStatus from './CacheStatus.vue';
-// import ImportStatus from './ImportStatus.vue';
+import CacheStatus from './CacheStatus.vue';
+import ImportStatus from './ImportStatus.vue';
 
 export default {
   name: 'RegistryStatus',
   components: { 
-    ProjectionStatus, 
-    // CacheStatus, 
-    // ImportStatus,
+    ProjectionStatus,
+    CacheStatus,
+    ImportStatus,
   },
   props: {
     title: {
