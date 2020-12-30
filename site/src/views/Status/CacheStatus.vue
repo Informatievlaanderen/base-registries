@@ -11,7 +11,7 @@
       </div>
       <vl-alert
         v-else
-        title="Status caches is ophalen mislukt"
+        title="Status caches ophalen is mislukt"
         content="Er is iets fout gelopen tijdens het ophalen van de status van de caches. Probeer later opnieuw."
         mod-error />
     </vl-column>
@@ -33,7 +33,7 @@
 <script>
 import StatusCategory from './StatusCategory.vue';
 import StatusItem from './StatusItem.vue';
-import { createCachestatusModel, aggregateAlertLevel } from './transform.js';
+import { createCacheStatusModel, aggregateAlertLevel } from './transform.js';
 
 export default {
   name: 'CacheStatus',
@@ -61,7 +61,7 @@ export default {
       return this.noData ? 'none' : aggregateAlertLevel(this.caches);
     },
     caches : function () {
-      return (this.status || []).map(createCachestatusModel);
+      return (this.status || []).map(createCacheStatusModel);
     },
   },
   methods: {

@@ -94,7 +94,7 @@ export default {
     },
   },
   methods: {
-    refreshCategory: function(){
+    refreshCategory: function() {
       this.$emit('refreshCategory');
     },
   },
