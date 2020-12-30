@@ -182,7 +182,7 @@ export default {
         cache: '/v1/status/cache',
       };
 
-      for(const category of catergories) {
+      for (const category of catergories) {
         if (statusPaths[category]) {
           this.fetchStatus(category, statusPaths[category]);
         }
