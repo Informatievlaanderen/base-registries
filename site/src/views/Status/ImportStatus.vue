@@ -11,7 +11,7 @@
       </div>
       <vl-alert
         v-else
-        title="Status van de CRAB import is ophalen mislukt"
+        title="Status van de import ophalen is mislukt"
         content="Er is iets fout gelopen tijdens het ophalen van de status van de CRAB import. Probeer later opnieuw."
         mod-error />
     </vl-column>
@@ -105,4 +105,3 @@ export default {
   },
 };
 </script>
-

@@ -41,7 +41,6 @@ const createProjectionStatusModel = (projection = {}, streamPosition = -1) => {
   };
 };
 
-
 const determineImportAlertLevel = (lastCompleted, state) => {
   if (!lastCompleted) {
     return 'error';
@@ -63,7 +62,6 @@ const determineImportAlertLevel = (lastCompleted, state) => {
 };
 
 const createImportStatusModel = (importStatus = {}) => {
-
   const state = importStatus.currentImport ? 'active' : 'stopped';
   const from = state === 'active' ? new Date(importStatus.currentPosition.from) : null;
   const to = state === 'active' ? new Date(importStatus.currentPosition.until) : null;
@@ -87,7 +85,7 @@ const determineCacheAlertLevel = numberOfRecordsToProcess => {
   return numberOfRecordsToProcess ? 'warning' : 'error';
 };
 
-const createCachestatusModel = (cache = {}) => {
+const createCacheStatusModel = (cache = {}) => {
   const { name = '', numberOfRecordsToProcess = null } = cache;
   return {
     name,
@@ -116,6 +114,6 @@ const aggregateAlertLevel = (items = []) =>
 export {
   createProjectionStatusModel,
   createImportStatusModel,
-  createCachestatusModel,
+  createCacheStatusModel,
   aggregateAlertLevel,
 };
