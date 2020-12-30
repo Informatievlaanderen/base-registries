@@ -1,3 +1,19 @@
+# [1.21.0](https://github.com/informatievlaanderen/base-registries/compare/v1.20.3...v1.21.0) (2020-12-30)
+
+
+### Bug Fixes
+
+* build site ([bb51366](https://github.com/informatievlaanderen/base-registries/commit/bb51366587d4f5a6122bdb4555d5acfbb19f4c8c))
+* build version with import status ([b5e0581](https://github.com/informatievlaanderen/base-registries/commit/b5e05817b8243a15ff46945c82d677dfc4a959f8))
+* build with cache status ([5a181d0](https://github.com/informatievlaanderen/base-registries/commit/5a181d0cd23244a9f5b9850970bea990351187f9))
+* build without debug status url ([665c13a](https://github.com/informatievlaanderen/base-registries/commit/665c13a9e7c06233e129340d7a93be8104bee1eb))
+
+
+### Features
+
+* add cache status ([cb2f887](https://github.com/informatievlaanderen/base-registries/commit/cb2f887dfc154e9a02c915f91f1943ded4899bc0))
+* add CRAB import status ([ddfdbef](https://github.com/informatievlaanderen/base-registries/commit/ddfdbefbf18618ee5dbea7268fdedbb67dbb03f9))
+
 ## [1.20.3](https://github.com/informatievlaanderen/base-registries/compare/v1.20.2...v1.20.3) (2020-12-28)
 
 
