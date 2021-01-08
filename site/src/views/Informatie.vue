@@ -95,11 +95,11 @@
                       <vl-link-list>
                         <vl-link-list-item>
                           <vl-spotlight
-                            title="Postinformatie"
+                            title="Postinfo"
                             subtitle="Referentie bron"
                             text="de Belgische postcodes"
                             tag-name="router-link"
-                            to="registers/postinformatie">
+                            to="registers/postinfo">
                           </vl-spotlight>
                         </vl-link-list-item>
                       </vl-link-list>

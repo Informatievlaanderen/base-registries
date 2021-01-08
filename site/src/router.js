@@ -140,7 +140,7 @@ export default new Router({
         import(/* webpackChunkName: "registers-municipality-registry" */ './views/BaseRegistries/Municipality.vue'),
     },
     {
-      path: '/registers/postinformatie',
+      path: '/registers/postinfo',
       name: 'postal-registry',
       meta: {
         title: 'Gegevensbronnen - Postinformatieregister',

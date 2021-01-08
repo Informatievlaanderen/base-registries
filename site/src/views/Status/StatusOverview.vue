@@ -33,16 +33,14 @@
                   <registry-status
                     title="Gemeenten"
                     text="de Belgische gemeenten."
-                    to="/registers/gemeenten"
                     :status="municipalityRegistry"
                     @refresh="fetch" />
                 </vl-column>
 
                 <vl-column width="12" width-m="6" width-s="12">
                   <registry-status
-                    title="Postinformatie"
+                    title="Postinfo"
                     text="de Belgische postcodes."
-                    to="/registers/postinformatie"
                     :status="postalRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -51,7 +49,6 @@
                   <registry-status
                     title="Straatnamen"
                     text="de Vlaamse straatnamen."
-                    to="/registers/straatnamen"
                     :status="streetNameRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -60,7 +57,6 @@
                   <registry-status
                     title="Adressen"
                     text="de Vlaamse adressen."
-                    to="/registers/adressen"
                     :status="addressRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -69,7 +65,6 @@
                   <registry-status
                     title="Gebouwen"
                     text="de Vlaamse gebouwen en gebouweenheden."
-                    to="/registers/gebouwen"
                     :status="buildingRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -78,7 +73,6 @@
                   <registry-status
                     title="Percelen"
                     text="de Vlaamse percelen."
-                    to="/registers/percelen"
                     :status="parcelRegistry"
                     @refresh="fetch" />
                 </vl-column>
