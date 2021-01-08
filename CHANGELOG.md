@@ -1,3 +1,14 @@
+## [1.21.1](https://github.com/informatievlaanderen/base-registries/compare/v1.21.0...v1.21.1) (2021-01-08)
+
+
+### Bug Fixes
+
+* add details for import status GRAR-1729 ([7b0e10a](https://github.com/informatievlaanderen/base-registries/commit/7b0e10aa954e529a13bb0a189875a4e00a6d9dba))
+* add tooltips for projection state GRAR-1730 ([50bc155](https://github.com/informatievlaanderen/base-registries/commit/50bc155e8add9934910810ea157bb956de158ee6))
+* build site ([86a554f](https://github.com/informatievlaanderen/base-registries/commit/86a554f84a0f018365c38d22192a339b5e4daade))
+* build site ([0bc35e1](https://github.com/informatievlaanderen/base-registries/commit/0bc35e13e7e90a73be1e94fe6c098257f7124c81))
+* remove debug css ([77d01d1](https://github.com/informatievlaanderen/base-registries/commit/77d01d1f20cef3a5bef31b51f1bcb3579ae25119))
+
 # [1.21.0](https://github.com/informatievlaanderen/base-registries/compare/v1.20.3...v1.21.0) (2020-12-30)
 
 
