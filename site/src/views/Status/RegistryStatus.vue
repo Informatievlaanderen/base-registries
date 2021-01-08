@@ -28,13 +28,6 @@
   .vl-registry-status-item__type {
     margin-top: 0.5em;
   }
-
-  .registry-status .tooltip:hover span {
-    visibility: visible;
-    left: 1rem;
-    top: 90%;
-    background-color: chocolate;
-  }
 </style>
 
 <script>
