@@ -55,9 +55,9 @@
 
                 <vl-column v-if="loaded" width="4" width-m="6" width-s="12">
                   <version
-                    title="Postinformatie"
+                    title="Postinfo"
                     text="de Belgische postcodes."
-                    to="/registers/postinformatie"
+                    to="/registers/postinfo"
                     :version="versions.postalRegistry" />
                 </vl-column>
 
