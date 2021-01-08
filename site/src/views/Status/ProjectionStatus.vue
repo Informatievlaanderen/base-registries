@@ -16,8 +16,11 @@
         mod-error />
     </vl-column>
 
+    
     <status-item v-for="projection in projections" :key="projection.name" :alert-level="projection.alertLevel">
-      <div :class="`projection-name projection-state ${projection.state}`">{{ formatName(projection.name) }}</div>
+      <div :class="`projection-name projection-state tooltip-on-hover ${projection.state}`">
+        <tooltip :text="stateTooltipDescriptionFor(projection.state)" />
+        {{ formatName(projection.name) }}</div>
       <div class="progress --right">{{ projection.progress.isBehind ? formatProgress(projection.progress) : '100%' }}</div>
     </status-item>
 
@@ -53,6 +56,7 @@
 </style>
 
 <script>
+import Tooltip from '../../components/Tooltip.vue';
 import StatusCategory from './StatusCategory.vue';
 import StatusItem from './StatusItem.vue';
 import { createProjectionStatusModel, aggregateAlertLevel } from './transform.js';
@@ -83,6 +87,7 @@ export default {
   components: {
     StatusItem,
     StatusCategory,
+    Tooltip,
   },
   props: {
     status: { 
@@ -119,6 +124,18 @@ export default {
         : `${Number.parseFloat(progress.percentage).toFixed(2)}%`,
     refresh: function () {
       this.$emit('refresh');
+    },
+    stateTooltipDescriptionFor: state => {
+      if (state === 'active') {
+        return 'actief';
+      }
+      if (state === 'stopped') {
+        return 'gepauseerd';
+      }
+      if (state === 'error') {
+        return 'fout';
+      }
+      return '';
     },
   },
 };
