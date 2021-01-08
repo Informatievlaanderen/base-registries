@@ -20,7 +20,8 @@
       v-for="importStatus in imports"
       :key="importStatus.name"
       :alert-level="importStatus.alertLevel">
-      <div :class="`import-name import-state tooltip ${importStatus.state}`">
+      <div :class="`import-name import-state tooltip-on-hover ${importStatus.state}`">
+        <tooltip :text="stateTooltipDescriptionFor(importStatus.state)" />
         {{ formatName(importStatus.name) }}
       </div>
       <div
@@ -57,20 +58,13 @@
     content: "\F214";
   }
 
-  .tooltip.active::after {
-    content: "actief";
-  }
-
-  .tooltip.stopped::after {
-    content: "geplanned";
-  }
-
   .import-period {
     margin-right: 0.5em;
   }
 </style>
 
 <script>
+import Tooltip from '../../components/Tooltip.vue';
 import StatusCategory from './StatusCategory.vue';
 import StatusItem from './StatusItem.vue';
 import { createImportStatusModel, aggregateAlertLevel } from './transform.js';
@@ -80,6 +74,7 @@ export default {
   components: {
     StatusCategory,
     StatusItem,
+    Tooltip,
   },
   props: {
     status: {
@@ -119,6 +114,15 @@ export default {
     },
     refresh: function () {
       this.$emit('refresh');
+    },
+    stateTooltipDescriptionFor: state => {
+      if (state === 'active') {
+        return 'actief';
+      }
+      if (state === 'stopped') {
+        return 'geplanned';
+      }
+      return '';
     },
   },
 };
