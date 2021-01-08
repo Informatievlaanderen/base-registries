@@ -7,12 +7,12 @@
 
     <vl-column v-if="noData" width="12">
       <div v-if="isLoading" v-vl-align:center>
-        <vl-loader message="De status van de import wordt opgevraagd" />
+        <vl-loader message="De status van de CRAB import wordt opgevraagd." />
       </div>
       <vl-alert
         v-else
-        title="Status van de import ophalen is mislukt"
-        content="Er is iets fout gelopen tijdens het ophalen van de status van de CRAB import. Probeer later opnieuw."
+        title="CRAB import status ophalen is mislukt"
+        content="Er is iets fout gelopen tijdens het ophalen van de status van de CRAB import. Probeer het later opnieuw."
         mod-error />
     </vl-column>
 
