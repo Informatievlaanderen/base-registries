@@ -46,10 +46,6 @@ const determineImportAlertLevel = (lastCompleted, state) => {
     return 'error';
   }
 
-  if (lastCompleted >= new Date(Date.now() - 300000)) {
-    return 'success';
-  }
-
   if (state === 'active' && lastCompleted < new Date(Date.now() - 360000)) {
     return 'warning';
   }
@@ -58,7 +54,7 @@ const determineImportAlertLevel = (lastCompleted, state) => {
     return 'error';
   }
 
-  return 'unkown';
+  return 'success';
 };
 
 const createImportStatusModel = (importStatus = {}) => {

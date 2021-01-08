@@ -20,9 +20,19 @@
       v-for="importStatus in imports"
       :key="importStatus.name"
       :alert-level="importStatus.alertLevel">
-      <div :class="`import-name import-state ${importStatus.state}`">{{ formatName(importStatus.name) }}</div>
-      <div v-if="importStatus.state=='active'" class="import-period --right">import actief van {{ formatDate(importStatus.from) }} tot {{ formatDate(importStatus.to) }}</div>
-      <div v-else class="import-period --right">ge&iuml;mporteerd tot {{ formatDate(importStatus.lastCompleted) }}</div>
+      <div :class="`import-name import-state tooltip ${importStatus.state}`">
+        {{ formatName(importStatus.name) }}
+      </div>
+      <div
+        v-if="importStatus.state=='active'"
+        class="import-period --right">
+        Wijzingen van {{ formatDate(importStatus.from) }} tot {{ formatDate(importStatus.to) }} aan het importeren
+      </div>
+      <div
+        v-else
+        class="import-period --right">
+        Laatste wijziging: {{ formatDate(importStatus.lastCompleted) }}
+      </div>
     </status-item>
 
   </status-category>
@@ -45,6 +55,14 @@
 
   .import-state.active::before {
     content: "\F214";
+  }
+
+  .tooltip.active::after {
+    content: "actief";
+  }
+
+  .tooltip.stopped::after {
+    content: "geplanned";
   }
 
   .import-period {

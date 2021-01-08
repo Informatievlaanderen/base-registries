@@ -1,6 +1,11 @@
 <template>
-  <div>
+  <div class="registry-status">
     <h3 itemprop="name" class="vl-registry-status-item__title">{{ title }}</h3>
+    <import-status
+      v-if="!status.hide.includes('import')"
+      :status="status.import"
+      :is-loading="status.isLoading.includes('import')"
+       @refresh="refresh('import')" />
     <projection-status
       v-if="!status.hide.includes('projections')"
       :status="status.projections"
@@ -11,11 +16,6 @@
       :status="status.cache"
       :is-loading="status.isLoading.includes('cache')"
       @refresh="refresh('cache')" />
-    <import-status
-      v-if="!status.hide.includes('import')"
-      :status="status.import"
-      :is-loading="status.isLoading.includes('import')"
-       @refresh="refresh('import')" />
   </div>
 </template>
 
@@ -27,6 +27,30 @@
 
   .vl-registry-status-item__type {
     margin-top: 0.5em;
+  }
+
+  .registry-status .tooltip::after {
+    visibility: hidden;
+    background-color:  #fff;
+    color: #333332;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px dotted;
+    padding: 0 0.5rem;
+    font-size: 0.8em;
+
+    /* Position the tooltip */
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+  }
+
+  .tooltip::after {
+    content: "?";
+  }
+
+  .tooltip:hover::after {
+    visibility: visible;
   }
 </style>
 
