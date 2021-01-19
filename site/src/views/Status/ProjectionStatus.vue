@@ -127,13 +127,13 @@ export default {
     },
     stateTooltipDescriptionFor: state => {
       if (state === 'active') {
-        return 'actief';
+        return 'Actief';
       }
       if (state === 'stopped') {
-        return 'gepauseerd';
+        return 'Gepauseerd';
       }
       if (state === 'error') {
-        return 'fout';
+        return 'Fout';
       }
       return '';
     },
