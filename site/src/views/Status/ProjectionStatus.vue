@@ -120,7 +120,7 @@ export default {
     formatName,
     formatProgress: (progress = {}) => 
       progress.percentage > 95 
-        ? `${progress.position}/${progress.streamPosition}` 
+        ? `${progress.position.toLocaleString('nl-BE')}/${progress.streamPosition.toLocaleString('nl-BE')}`
         : `${Number.parseFloat(progress.percentage).toFixed(2)}%`,
     refresh: function () {
       this.$emit('refresh');
