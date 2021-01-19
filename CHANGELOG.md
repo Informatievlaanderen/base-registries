@@ -1,3 +1,11 @@
+## [1.21.2](https://github.com/informatievlaanderen/base-registries/compare/v1.21.1...v1.21.2) (2021-01-19)
+
+
+### Bug Fixes
+
+* correct tooptip texts GRAR-1739 ([e4921b9](https://github.com/informatievlaanderen/base-registries/commit/e4921b986b46aa4d8f2206596a35fc938a8c8b39))
+* format number of events GRAR-1739 ([fde212c](https://github.com/informatievlaanderen/base-registries/commit/fde212cb40942cc9e11370d2d1a304f961ccf07e))
+
 ## [1.21.1](https://github.com/informatievlaanderen/base-registries/compare/v1.21.0...v1.21.1) (2021-01-08)
 
 
