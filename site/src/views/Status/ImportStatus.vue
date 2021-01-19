@@ -117,10 +117,10 @@ export default {
     },
     stateTooltipDescriptionFor: state => {
       if (state === 'active') {
-        return 'actief';
+        return 'Actief';
       }
       if (state === 'stopped') {
-        return 'geplanned';
+        return 'Gepland';
       }
       return '';
     },
