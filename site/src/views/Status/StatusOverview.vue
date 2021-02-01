@@ -123,7 +123,7 @@ export default {
   methods: {
     setStatusFor: function(category, statusData) {
       for (const registry in statusData) {
-        const data = statusData[registry] || [];
+        const data = statusData[registry];
         if (!this[registry][category]) {
           this.$set(this[registry], category, data);
         } else {
