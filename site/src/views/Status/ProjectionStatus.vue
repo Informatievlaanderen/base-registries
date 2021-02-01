@@ -20,7 +20,8 @@
     <status-item v-for="projection in projections" :key="projection.name" :alert-level="projection.alertLevel">
       <div :class="`projection-name projection-state tooltip-on-hover ${projection.state}`">
         <tooltip :text="stateTooltipDescriptionFor(projection.state)" />
-        {{ formatName(projection.name) }}</div>
+        {{ formatName(projection.name) }}
+      </div>
       <div class="progress --right">{{ projection.progress.isBehind ? formatProgress(projection.progress) : '100%' }}</div>
     </status-item>
 
@@ -130,7 +131,7 @@ export default {
         return 'Actief';
       }
       if (state === 'stopped') {
-        return 'Gepauseerd';
+        return 'Gepauzeerd';
       }
       if (state === 'error') {
         return 'Fout';
