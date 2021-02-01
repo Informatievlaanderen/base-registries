@@ -1,3 +1,12 @@
+## [1.21.3](https://github.com/informatievlaanderen/base-registries/compare/v1.21.2...v1.21.3) (2021-02-01)
+
+
+### Bug Fixes
+
+* build site ([58c3f57](https://github.com/informatievlaanderen/base-registries/commit/58c3f57f26d127a6795719967d764452dc9388ea))
+* correct typo GRAR-1799 ([e68b89b](https://github.com/informatievlaanderen/base-registries/commit/e68b89b1f2c6227987b22ef97544d42df4a3d351))
+* show error when projection data is missing GRAR-1764 ([e5ad713](https://github.com/informatievlaanderen/base-registries/commit/e5ad713d4cda4dd2b107d0df3afab3e49f53000f))
+
 ## [1.21.2](https://github.com/informatievlaanderen/base-registries/compare/v1.21.1...v1.21.2) (2021-01-19)
 
 
