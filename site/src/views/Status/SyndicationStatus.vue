@@ -19,7 +19,7 @@
     <status-item v-for="syndication in syndications" :key="syndication.name" :alert-level="syndication.alertLevel">
       <div class="syndication-name">{{ formatName(syndication.name) }}</div>
       <div v-if="syndication.progress" class="progress --right">
-        {{ syndication.progress.isBehind && syndication.progress.relativePosition < -1 ? formatProgress(syndication.progress) : '100%' }}
+        {{ isStillProcessing(syndication.progress) ? formatProgress(syndication.progress) : '100%' }}
       </div>
       <div v-else class="progress vl-alert vl-alert--error --right ">Er is iets fout gelopen tijdens het ophalen van de syndication-bron status.</div>
     </status-item>
@@ -47,7 +47,6 @@
 </style>
 
 <script>
-import Tooltip from '../../components/Tooltip.vue';
 import StatusCategory from './StatusCategory.vue';
 import StatusItem from './StatusItem.vue';
 import {
@@ -70,7 +69,6 @@ export default {
   components: {
     StatusItem,
     StatusCategory,
-    Tooltip,
   },
   props: {
     status: { 
@@ -81,7 +79,7 @@ export default {
     streamPositions: {
       type: Object,
       required: false,
-      default:  {},
+      default: null,
     },
     isLoading: {
       type: Boolean,
@@ -125,13 +123,21 @@ export default {
       }
       return '';
     },
-    getStreamPositionFor: function (syndicationSourceName = '') {
+    getStreamPositionFor: function(syndicationSourceName = '') {
+      if (!this.streamPositions) {
+        return NaN;
+      }
+
       const sourceName =  syndicationSourceName
         .replace(/addresslink$/i, '')
         .replace(/buildingunit/i, 'building')
         .replace(/postalinfo/i, 'postal');
-        console.log(this.streamPositions);
+
       return this.streamPositions[sourceName  + 'Registry'] || NaN;
+    },
+    isStillProcessing: function (progress) {
+      // last event will almost always be a CRAB event which is not exposed, so 1 event behind is considered caught up.
+      return progress && progress.isBehind && progress.relativePosition < -1;
     },
   },
 };
