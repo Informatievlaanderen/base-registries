@@ -1,3 +1,10 @@
+## [1.21.4](https://github.com/informatievlaanderen/base-registries/compare/v1.21.3...v1.21.4) (2021-02-03)
+
+
+### Bug Fixes
+
+* move to 5.0.2 ([27d1796](https://github.com/informatievlaanderen/base-registries/commit/27d179641052ed6c5a7ca12c742794de88d67197))
+
 ## [1.21.3](https://github.com/informatievlaanderen/base-registries/compare/v1.21.2...v1.21.3) (2021-02-01)
 
 
