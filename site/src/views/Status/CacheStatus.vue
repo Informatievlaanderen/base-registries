@@ -21,7 +21,7 @@
       :key="cache.name"
       :alert-level="cache.alertLevel">
       <div class="cache-name cache-state">{{ cache.name }}</div>
-      <div v-if="cache.numberOfRecordsToProcess > 0" class="--right">aantal niet gecachte objecten: {{ cache.numberOfRecordsToProcess }}</div>
+      <div v-if="cache.numberOfRecordsToProcess > 0" class="--right">Aantal niet gecachte objecten: {{ cache.numberOfRecordsToProcess }}</div>
     </status-item>
 
   </status-category>
