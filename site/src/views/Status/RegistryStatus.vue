@@ -11,6 +11,12 @@
       :status="status.projections"
       :is-loading="status.isLoading.includes('projections')"
       @refresh="refresh('projections')" />
+    <syndication-status
+      v-if="!status.hide.includes('syndication')"
+      :status="status.syndication"
+      :stream-positions="status.streamPositions"
+      :is-loading="status.isLoading.includes('syndication')"
+      @refresh="refresh('syndication')" />
     <cache-status
       v-if="!status.hide.includes('cache')"
       :status="status.cache"
@@ -34,6 +40,7 @@
 import ProjectionStatus from './ProjectionStatus.vue';
 import CacheStatus from './CacheStatus.vue';
 import ImportStatus from './ImportStatus.vue';
+import SyndicationStatus from './SyndicationStatus.vue';
 
 export default {
   name: 'RegistryStatus',
@@ -41,6 +48,7 @@ export default {
     ProjectionStatus,
     CacheStatus,
     ImportStatus,
+    SyndicationStatus,
   },
   props: {
     title: {

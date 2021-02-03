@@ -67,7 +67,11 @@
 import Tooltip from '../../components/Tooltip.vue';
 import StatusCategory from './StatusCategory.vue';
 import StatusItem from './StatusItem.vue';
-import { createImportStatusModel, aggregateAlertLevel } from './transform.js';
+import {
+  createImportStatusModel,
+  aggregateAlertLevel,
+  capitalizeFirstCharacter,
+} from './transform.js';
 
 export default {
   name: 'ImportStatus',
@@ -100,7 +104,7 @@ export default {
     },
   },
   methods: {
-    formatName: (name = '') => name.replace(/^.+\.importer\.?/i, ''),
+    formatName: (name = '') => capitalizeFirstCharacter(name.replace(/^.+\.importer\.?/i, '')),
     formatDate: date => {
       const options = {
         year: '2-digit',
