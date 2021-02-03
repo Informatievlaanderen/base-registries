@@ -5,23 +5,23 @@
       v-if="!status.hide.includes('import')"
       :status="status.import"
       :is-loading="status.isLoading.includes('import')"
-       @refresh="refresh('import')" />
+       @refresh="refresh(['import'])" />
     <projection-status
       v-if="!status.hide.includes('projections')"
       :status="status.projections"
       :is-loading="status.isLoading.includes('projections')"
-      @refresh="refresh('projections')" />
+      @refresh="refresh(['projections'])" />
     <syndication-status
       v-if="!status.hide.includes('syndication')"
       :status="status.syndication"
       :stream-positions="status.streamPositions"
       :is-loading="status.isLoading.includes('syndication')"
-      @refresh="refresh('syndication')" />
+      @refresh="refresh(['projections', 'syndication'])" />
     <cache-status
       v-if="!status.hide.includes('cache')"
       :status="status.cache"
       :is-loading="status.isLoading.includes('cache')"
-      @refresh="refresh('cache')" />
+      @refresh="refresh(['cache'])" />
   </div>
 </template>
 
@@ -61,8 +61,8 @@ export default {
     },
   },
   methods: {
-    refresh: function(category) {
-      this.$emit('refresh', [category]);
+    refresh: function(categories) {
+      this.$emit('refresh', categories || []);
     },
   },
 };
