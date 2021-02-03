@@ -1,3 +1,17 @@
+# [1.22.0](https://github.com/informatievlaanderen/base-registries/compare/v1.21.4...v1.22.0) (2021-02-03)
+
+
+### Bug Fixes
+
+* build site ([71c778c](https://github.com/informatievlaanderen/base-registries/commit/71c778cd571a47cc38c47e3215c50e7adbe40dc0))
+* correct text casing GRAR-1806 ([3f5012b](https://github.com/informatievlaanderen/base-registries/commit/3f5012b15609d29d893079967c6ab36b1a105624))
+* refresh projections too for syndication GRAR-1758 ([ae342d6](https://github.com/informatievlaanderen/base-registries/commit/ae342d6786d6f7b4db8a2f0a100fd0fdf4aee0ac))
+
+
+### Features
+
+* add syndication status GRAR-1758 ([1787ecb](https://github.com/informatievlaanderen/base-registries/commit/1787ecb860a6297603671a99707aafd33ca8a9ef))
+
 ## [1.21.4](https://github.com/informatievlaanderen/base-registries/compare/v1.21.3...v1.21.4) (2021-02-03)
 
 
