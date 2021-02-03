@@ -91,7 +91,7 @@ const createCacheStatusModel = (cache = {}) => {
   };
 };
 
-const determineSyndicationAlertLevel = (progress) => {
+const determineSyndicationAlertLevel = progress => {
   const { relativePosition } = progress || {};
   if (relativePosition) {
     return relativePosition < -50 ? 'warning' : 'success';
@@ -128,10 +128,10 @@ const aggregateAlertLevel = (items = []) =>
     },
     'unknown');
 
-const capitalizeFirstCharacter = (value) => {
+const capitalizeFirstCharacter = value => {
   const val = value || '';
   return val.length <= 1 ? val.toUpperCase() : val[0].toUpperCase() + val.slice(1) ;
-}
+};
 
 export {
   createProjectionStatusModel,
