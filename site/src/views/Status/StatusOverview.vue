@@ -94,33 +94,57 @@ export default {
       addressRegistry: {
         hide: [],
         isLoading: [],
+        streamPositions: {},
       },
       buildingRegistry: {
         hide: [],
         isLoading: [],
+        streamPositions: {},
       },
       municipalityRegistry: {
-        hide: [],
+        hide: ['syndication'],
         isLoading: [],
+        streamPositions: {},
       },
       parcelRegistry: {
         hide: [],
         isLoading: [],
+        streamPositions: {},
       },
       postalRegistry: {
         hide: ['import'],
         isLoading: [],
+        streamPositions: {},
       },
       streetNameRegistry: {
         hide: [],
         isLoading: [],
+        streamPositions: {},
       },
     };
   },
   mounted () {
-    this.fetch(['projections', 'cache', 'import']);
+    this.fetch(['projections', 'cache', 'import', 'syndication']);
   },
   methods: {
+    setStreamPositions: function() {
+      const streamPositions = {};
+      for (const registry in this) {
+        const registryProperty = this[registry] || {};
+        if (typeof registryProperty === 'object'  && 'projections' in registryProperty) {
+          const { streamPosition } = registryProperty.projections || {};
+          if (Number.isInteger(streamPosition)) {
+            streamPositions[registry] = Number(streamPosition);
+          }
+        }
+      }
+      for (const registry in this) {
+        const registryProperty = this[registry] || {};
+        if (typeof registryProperty === 'object'  && 'streamPositions' in registryProperty) {
+          registryProperty.streamPositions = streamPositions;
+        }
+      }
+    },
     setStatusFor: function(category, statusData) {
       for (const registry in statusData) {
         const data = statusData[registry];
@@ -129,6 +153,9 @@ export default {
         } else {
           this[registry][category] = data;
         }
+      }
+      if (category === 'projections') {
+        this.setStreamPositions();
       }
     },
     beginLoading: function(category) {
@@ -168,6 +195,7 @@ export default {
         projections: '/v1/status/projection',
         import: '/v1/status/import',
         cache: '/v1/status/cache',
+        syndication: '/v1/status/syndication',
       };
 
       for (const category of catergories) {

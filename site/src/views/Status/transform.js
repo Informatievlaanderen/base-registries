@@ -8,7 +8,7 @@ const projectionStateMapping = {
 const calculateProjectionProgress = (currentPosition = -1, streamPosition = -1) => {
   return {
     position: currentPosition,
-    relativePostion: currentPosition - streamPosition,
+    relativePosition: currentPosition - streamPosition,
     percentage: streamPosition < 0 ? 100 : (currentPosition + 1) / (streamPosition + 1) * 100,
     streamPosition,
     isBehind: currentPosition < streamPosition,
@@ -23,7 +23,7 @@ const determineProjectionAlertLevel = (projectionstate = '', progress= {}) => {
     return 'warning';
   }
   if (projectionstate === 'active') {
-    return progress.relativePostion < -50 ? 'warning' : 'success';
+    return progress.relativePosition < -50 ? 'warning' : 'success';
   }
   return 'unkown';
 };
@@ -91,6 +91,27 @@ const createCacheStatusModel = (cache = {}) => {
   };
 };
 
+const determineSyndicationAlertLevel = (progress) => {
+  const { relativePosition } = progress || {};
+  if (relativePosition) {
+    return relativePosition < -50 ? 'warning' : 'success';
+  }
+
+  return 'unkown';
+};
+
+const createSyndicationStatusModel = (syndication = {}, getStreamPositionFor = () => -1) => {
+  const { name , currentPosition = -1 } = syndication;
+  const streamPosition = getStreamPositionFor(name);
+  let progress = Number.isNaN(streamPosition) ? null : calculateProjectionProgress(currentPosition, streamPosition);
+
+  return {
+    name,
+    alertLevel: determineSyndicationAlertLevel(progress),
+    progress,
+  };
+};
+
 const aggregateAlertLevel = (items = []) => 
   items.reduce(
     (level, { alertLevel = 'unknown' }) => {
@@ -107,9 +128,16 @@ const aggregateAlertLevel = (items = []) =>
     },
     'unknown');
 
+const capitalizeFirstCharacter = (value) => {
+  const val = value || '';
+  return val.length <= 1 ? val.toUpperCase() : val[0].toUpperCase() + val.slice(1) ;
+}
+
 export {
   createProjectionStatusModel,
   createImportStatusModel,
   createCacheStatusModel,
+  createSyndicationStatusModel,
   aggregateAlertLevel,
+  capitalizeFirstCharacter,
 };

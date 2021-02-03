@@ -84,7 +84,7 @@ const sortFormatedName = (a, b) => {
 };
 
 export default {
-  name: 'RegistryStatus',
+  name: 'ProjectionStatus',
   components: {
     StatusItem,
     StatusCategory,
@@ -104,13 +104,13 @@ export default {
   },
   computed: {
     noData: function() {
-      return !this.status || this.status.length == 0;
+      return !this.status || !this.status.projections || this.status.projections.length == 0;
     },
     alertLevel: function() {
       return this.noData ? 'none' : aggregateAlertLevel(this.projections);
     },
     projections: function() {
-      return !this.status ? [] : this
+      return this.noData ? [] : this
         .status
         .projections
         .map(projection => createProjectionStatusModel(projection, this.status.streamPosition))
