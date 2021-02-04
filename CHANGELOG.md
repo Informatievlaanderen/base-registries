@@ -1,3 +1,10 @@
+## [1.22.1](https://github.com/informatievlaanderen/base-registries/compare/v1.22.0...v1.22.1) (2021-02-04)
+
+
+### Bug Fixes
+
+* transform currentImport data correct ([87e2ab9](https://github.com/informatievlaanderen/base-registries/commit/87e2ab925bc0163eb1b9ae2efd6f1f2df5a92112))
+
 # [1.22.0](https://github.com/informatievlaanderen/base-registries/compare/v1.21.4...v1.22.0) (2021-02-03)
 
 
