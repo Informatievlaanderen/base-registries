@@ -58,17 +58,15 @@ const determineImportAlertLevel = (lastCompleted, state) => {
 };
 
 const createImportStatusModel = (importStatus = {}) => {
-  const state = importStatus.currentImport ? 'active' : 'stopped';
-  const from = state === 'active' ? new Date(importStatus.currentPosition.from) : null;
-  const to = state === 'active' ? new Date(importStatus.currentPosition.until) : null;
-  const lastCompleted =  importStatus.lastCompletedImport ? new Date(importStatus.lastCompletedImport.until) : null;
+  const { currentImport, lastCompletedImport } = importStatus || {};
+  const state = currentImport ? 'active' : 'stopped';
 
   return {
     name: importStatus.name,
     state,
-    lastCompleted,
-    from,
-    to,
+    lastCompleted: lastCompletedImport ? new Date(lastCompletedImport.until) : null,
+    from: state === 'active' ? new Date(currentImport.from) : null,
+    to: state === 'active' ? new Date(currentImport.until) : null,
     alertLevel: determineImportAlertLevel(lastCompleted, state),
   };
 };
