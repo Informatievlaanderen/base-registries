@@ -67,7 +67,7 @@ const createImportStatusModel = (importStatus = {}) => {
     lastCompleted: lastCompletedImport ? new Date(lastCompletedImport.until) : null,
     from: state === 'active' ? new Date(currentImport.from) : null,
     to: state === 'active' ? new Date(currentImport.until) : null,
-    alertLevel: determineImportAlertLevel(lastCompleted, state),
+    alertLevel: determineImportAlertLevel(lastCompletedImport, state),
   };
 };
 
