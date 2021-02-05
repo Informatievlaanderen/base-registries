@@ -1,18 +1,18 @@
 <template>
   <status-category
-    :title="'CRAB import'"
+    :title="'Import'"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
 
     <vl-column v-if="noData" width="12">
       <div v-if="isLoading" v-vl-align:center>
-        <vl-loader message="De status van de CRAB import wordt opgevraagd." />
+        <vl-loader message="De status van de import wordt opgevraagd." />
       </div>
       <vl-alert
         v-else
-        title="CRAB import status ophalen is mislukt"
-        content="Er is iets fout gelopen tijdens het ophalen van de status van de CRAB import. Probeer het later opnieuw."
+        title="Import status ophalen is mislukt"
+        content="Er is iets fout gelopen tijdens het ophalen van de import status. Probeer het later opnieuw."
         mod-error />
     </vl-column>
 
@@ -104,7 +104,12 @@ export default {
     },
   },
   methods: {
-    formatName: (name = '') => capitalizeFirstCharacter(name.replace(/^.+\.importer\.?/i, '')),
+    formatName: (name = '') => {
+      const importer = capitalizeFirstCharacter(name.replace(/^.+\.importer\.?/i, ''))
+      return importer.length > 0
+        ? `CRAB import - ${importer}`
+        : 'CRAB import'
+    },
     formatDate: date => {
       const options = {
         year: '2-digit',
