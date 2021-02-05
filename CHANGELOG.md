@@ -1,3 +1,11 @@
+## [1.22.3](https://github.com/informatievlaanderen/base-registries/compare/v1.22.2...v1.22.3) (2021-02-05)
+
+
+### Bug Fixes
+
+* change labels for crab import status GRAR-1765 ([73dcb6d](https://github.com/informatievlaanderen/base-registries/commit/73dcb6d3197109974d9c015811f9c583fab8ea0d))
+* correct typo GRAR-1817 ([85be52d](https://github.com/informatievlaanderen/base-registries/commit/85be52d762cc6eebcc8f7c0ecc1a9ca1ed8b28e2))
+
 ## [1.22.2](https://github.com/informatievlaanderen/base-registries/compare/v1.22.1...v1.22.2) (2021-02-05)
 
 
