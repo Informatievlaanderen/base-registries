@@ -27,7 +27,7 @@
       <div
         v-if="importStatus.state=='active'"
         class="import-period --right">
-        Wijzingen van {{ formatDate(importStatus.from) }} tot {{ formatDate(importStatus.to) }} aan het importeren
+        Wijzigingen van {{ formatDate(importStatus.from) }} tot {{ formatDate(importStatus.to) }} aan het importeren
       </div>
       <div
         v-else
