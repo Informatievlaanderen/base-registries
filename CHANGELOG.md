@@ -1,3 +1,10 @@
+## [1.22.2](https://github.com/informatievlaanderen/base-registries/compare/v1.22.1...v1.22.2) (2021-02-05)
+
+
+### Bug Fixes
+
+* use correct object for imprort state ([1f88c96](https://github.com/informatievlaanderen/base-registries/commit/1f88c9645f9e02a5eeb65c816648dba235786456))
+
 ## [1.22.1](https://github.com/informatievlaanderen/base-registries/compare/v1.22.0...v1.22.1) (2021-02-04)
 
 
