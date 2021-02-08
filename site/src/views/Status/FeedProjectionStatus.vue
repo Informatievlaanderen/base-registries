@@ -1,39 +1,39 @@
 <template>
   <status-category
-    title="Projecties"
+    title="Feed"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
 
     <vl-column v-if="noData" width="12">
       <div v-if="isLoading" v-vl-align:center>
-        <vl-loader message="De status van de projecties wordt opgevraagd. " />
+        <vl-loader message="De status van de feed wordt opgevraagd. " />
       </div>
       <vl-alert
         v-else
-        title="Projecties status ophalen is mislukt"
-        content="Er is iets fout gelopen tijdens het ophalen van de status van de projecties. Probeer het later opnieuw."
+        title="feed status ophalen is mislukt"
+        content="Er is iets fout gelopen tijdens het ophalen van de status van de feed. Probeer het later opnieuw."
         mod-error />
     </vl-column>
 
     
     <status-item
-      v-for="projection in projections"
-      :key="projection.name"
-      :alert-level="projection.alertLevel"
-      class="projection">
-      <div :class="`name state tooltip-on-hover ${projection.state}`">
-        <tooltip :text="stateTooltipDescriptionFor(projection.state)" />
-        {{ formatName(projection.name) }}
+      v-for="feedProjection in feedProjections"
+      :key="feedProjection.name"
+      :alert-level="feedProjection.alertLevel"
+      class="feedprojection">
+      <div :class="`name state tooltip-on-hover ${feedProjection.state}`">
+        <tooltip :text="stateTooltipDescriptionFor(feedProjection.state)" />
+        {{ formatName(feedProjection.name) }}
       </div>
-      <div class="progress --right">{{ projection.progress.isBehind ? formatProgress(projection.progress) : '100%' }}</div>
+      <div class="progress --right">{{ feedProjection.progress.isBehind ? formatProgress(feedProjection.progress) : '100%' }}</div>
     </status-item>
 
   </status-category>
 </template>
 
 <style lang="scss">
-  .vl-status__item.projection {
+  .vl-status__item.feedprojection {
     .name {
       padding-right: 0.5em;
     }
@@ -58,7 +58,7 @@
 
     .progress {
       margin-right: 0.5em;
-    }
+    }   
   }
 </style>
 
@@ -90,7 +90,7 @@ const sortFormatedName = (a, b) => {
 };
 
 export default {
-  name: 'ProjectionStatus',
+  name: 'FeedProjectionStatus',
   components: {
     StatusItem,
     StatusCategory,
@@ -110,10 +110,10 @@ export default {
   },
   computed: {
     noData: function() {
-      return !this.filteredProjections.length === 0;
+      return this.filteredProjections.length === 0;
     },
     alertLevel: function() {
-      return this.noData ? 'none' : aggregateAlertLevel(this.projections);
+      return this.noData ? 'none' : aggregateAlertLevel(this.feedProjections);
     },
     filteredProjections: function() {
       return !this.status || !this.status.projections || !Number.isInteger(this.status.projections.length)
@@ -121,9 +121,9 @@ export default {
         : this
           .status
           .projections
-          .filter(projection => !/syndication/i.test(projection.name));
+          .filter(projection => /syndication/i.test(projection.name));
     },
-    projections: function() {
+    feedProjections: function() {
       return this
         .filteredProjections
         .map(projection => createProjectionStatusModel(projection, this.status.streamPosition))
