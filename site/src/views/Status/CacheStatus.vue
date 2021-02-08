@@ -1,6 +1,6 @@
 <template>
   <status-category
-    :title="'Cache'"
+    title="Cache"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
@@ -19,8 +19,9 @@
     <status-item
       v-for="cache in caches"
       :key="cache.name"
-      :alert-level="cache.alertLevel">
-      <div class="cache-name cache-state">{{ cache.name }}</div>
+      :alert-level="cache.alertLevel"
+      class="cache">
+      <div class="name state">{{ cache.name }}</div>
       <div v-if="cache.numberOfRecordsToProcess > 0" class="--right">Aantal niet gecachte objecten: {{ cache.numberOfRecordsToProcess }}</div>
     </status-item>
 

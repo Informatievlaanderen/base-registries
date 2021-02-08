@@ -1,6 +1,6 @@
 <template>
   <status-category
-    :title="'Syndication'"
+    title="Register synchronisatie"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
@@ -16,8 +16,12 @@
         mod-error />
     </vl-column>
     
-    <status-item v-for="syndication in syndications" :key="syndication.name" :alert-level="syndication.alertLevel">
-      <div class="syndication-name">{{ formatName(syndication.name) }}</div>
+    <status-item
+      v-for="syndication in syndications"
+      :key="syndication.name"
+      :alert-level="syndication.alertLevel"
+      class="syndication">
+      <div class="name">{{ formatName(syndication.name) }}</div>
       <div v-if="syndication.progress" class="progress --right">
         {{ isStillProcessing(syndication.progress) ? formatProgress(syndication.progress) : '100%' }}
       </div>
@@ -27,22 +31,24 @@
 </template>
 
 <style lang="scss">
-  .syndication-name {
-    padding-right: 0.5em;
-  }
+  .vl-status__item.syndication {
+    .name {
+      padding-right: 0.5em;
+    }
 
-  .syndication-state::before {
-    font-family: "vlaanderen-icon";
-    content: "\F21F";
-    padding-right: 1rem;
-  }
+    .state::before {
+      font-family: "vlaanderen-icon";
+      content: "\F21F";
+      padding-right: 1rem;
+    }
 
-  .progress {
-    margin-right: 0.5em;
-  }
+    .progress {
+      margin-right: 0.5em;
+    }
 
-  .progress.vl-alert {
-    padding: 0.2em 0.5em;
+    .progress.vl-alert {
+      padding: 0.2em 0.5em;
+    }
   }
 </style>
 
