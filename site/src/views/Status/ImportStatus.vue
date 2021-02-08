@@ -1,6 +1,6 @@
 <template>
   <status-category
-    :title="'Import'"
+    title="Import"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
@@ -19,19 +19,20 @@
     <status-item
       v-for="importStatus in imports"
       :key="importStatus.name"
-      :alert-level="importStatus.alertLevel">
-      <div :class="`import-name import-state tooltip-on-hover ${importStatus.state}`">
+      :alert-level="importStatus.alertLevel"
+      class="import">
+      <div :class="`name state tooltip-on-hover ${importStatus.state}`">
         <tooltip :text="stateTooltipDescriptionFor(importStatus.state)" />
         {{ formatName(importStatus.name) }}
       </div>
       <div
         v-if="importStatus.state=='active'"
-        class="import-period --right">
+        class="period --right">
         Wijzigingen van {{ formatDate(importStatus.from) }} tot {{ formatDate(importStatus.to) }} aan het importeren
       </div>
       <div
         v-else
-        class="import-period --right">
+        class="period --right">
         Laatste wijziging: {{ formatDate(importStatus.lastCompleted) }}
       </div>
     </status-item>
@@ -40,26 +41,28 @@
 </template>
 
 <style lang="scss">
-  .import-name {
-    padding-right: 0.5em;
-  }
+  .import.vl-status__item {
+    .name {
+      padding-right: 0.5em;
+    }
 
-  .import-state::before {
-    font-family: "vlaanderen-icon";
-    content: "\F21F";
-    padding-right: 1rem;
-  }
+    .state::before {
+      font-family: "vlaanderen-icon";
+      content: "\F21F";
+      padding-right: 1rem;
+    }
 
-  .import-state.stopped::before {
-    content: "\F24e";
-  }
+    .state.stopped::before {
+      content: "\F24e";
+    }
 
-  .import-state.active::before {
-    content: "\F214";
-  }
+    .state.active::before {
+      content: "\F214";
+    }
 
-  .import-period {
-    margin-right: 0.5em;
+    .period {
+      margin-right: 0.5em;
+    }
   }
 </style>
 
@@ -105,10 +108,10 @@ export default {
   },
   methods: {
     formatName: (name = '') => {
-      const importer = capitalizeFirstCharacter(name.replace(/^.+\.importer\.?/i, ''))
+      const importer = capitalizeFirstCharacter(name.replace(/^.+\.importer\.?/i, ''));
       return importer.length > 0
         ? `CRAB import - ${importer}`
-        : 'CRAB import'
+        : 'CRAB import';
     },
     formatDate: date => {
       const options = {
