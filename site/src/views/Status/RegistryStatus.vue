@@ -11,6 +11,11 @@
       :status="status.projections"
       :is-loading="status.isLoading.includes('projections')"
       @refresh="refresh(['projections'])" />
+    <feed-projection-status
+      v-if="!status.hide.includes('feed')"
+      :status="status.projections"
+      :is-loading="status.isLoading.includes('projections')"
+      @refresh="refresh(['projections'])" />
     <syndication-status
       v-if="!status.hide.includes('syndication')"
       :status="status.syndication"
@@ -38,6 +43,7 @@
 
 <script>
 import ProjectionStatus from './ProjectionStatus.vue';
+import FeedProjectionStatus from './FeedProjectionStatus.vue';
 import CacheStatus from './CacheStatus.vue';
 import ImportStatus from './ImportStatus.vue';
 import SyndicationStatus from './SyndicationStatus.vue';
@@ -46,6 +52,7 @@ export default {
   name: 'RegistryStatus',
   components: { 
     ProjectionStatus,
+    FeedProjectionStatus,
     CacheStatus,
     ImportStatus,
     SyndicationStatus,
