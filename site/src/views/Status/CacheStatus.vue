@@ -1,6 +1,7 @@
 <template>
   <status-category
     title="Cache"
+    :category-id="categoryId"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
@@ -19,6 +20,7 @@
     <status-item
       v-for="cache in caches"
       :key="cache.name"
+      :item-id="createItemId(cache.name)"
       :alert-level="cache.alertLevel"
       class="cache">
       <div class="name state">{{ cache.name }}</div>
@@ -43,6 +45,10 @@ export default {
     StatusItem,
   },
   props: {
+    registeryId: {
+      type: String,
+      required: true,
+    },
     status: {
       type: Array,
       required: false,
@@ -55,6 +61,9 @@ export default {
     },
   },
   computed: {
+    categoryId: function() {
+      return `${this.registeryId}_cache`.toLocaleLowerCase();
+    },
     noData: function() {
       return !this.status || this.status.length == 0;
     },
@@ -68,6 +77,11 @@ export default {
   methods: {
     refresh: function () {
       this.$emit('refresh');
+    },
+    createItemId: function(itemId) {
+      return `${this.categoryId}_${itemId}`
+        .replace(/\./g, '-')
+        .toLocaleLowerCase();
     },
   },
 };

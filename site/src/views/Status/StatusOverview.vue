@@ -32,6 +32,7 @@
                 <vl-column width="12" width-m="6" width-s="12">
                   <registry-status
                     title="Gemeenten"
+                    registery-id="municipality"
                     :status="municipalityRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -39,6 +40,7 @@
                 <vl-column width="12" width-m="6" width-s="12">
                   <registry-status
                     title="Postinfo"
+                    registery-id="postal"
                     :status="postalRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -46,6 +48,7 @@
                 <vl-column width="12" width-m="6" width-s="12">
                   <registry-status
                     title="Straatnamen"
+                    registery-id="streetname"
                     :status="streetNameRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -53,6 +56,7 @@
                 <vl-column width="12" width-m="6" width-s="12">
                   <registry-status
                     title="Adressen"
+                    registery-id="address"
                     :status="addressRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -60,6 +64,7 @@
                 <vl-column width="12" width-m="6" width-s="12">
                   <registry-status
                     title="Gebouwen &amp; gebouweenheden"
+                    registery-id="building"
                     :status="buildingRegistry"
                     @refresh="fetch" />
                 </vl-column>
@@ -67,6 +72,7 @@
                 <vl-column width="12" width-m="6" width-s="12">
                   <registry-status
                     title="Percelen"
+                    registery-id="parcel"
                     :status="parcelRegistry"
                     @refresh="fetch" />
                 </vl-column>

@@ -1,5 +1,7 @@
 <template>
-  <div :class="`vl-status__item vl-alert vl-alert--${alertLevel}`">
+  <div
+    :id="itemId"
+    :class="`vl-status__item vl-alert vl-alert--${alertLevel}`">
     <slot /> 
     <div class="vl-alert__icon">
         <span aria-hidden="true" :class="`vl-icon vl-vi vl-vi-${alertLevel}`"></span>
@@ -51,6 +53,10 @@ export default {
   name: 'StatusItem',
   components: {},
   props: {
+    itemId: {
+      type: String,
+      required: true,
+    },
     alertLevel: {
       type: String,
       required: true,
