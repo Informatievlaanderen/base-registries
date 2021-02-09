@@ -1,3 +1,12 @@
+## [1.22.5](https://github.com/informatievlaanderen/base-registries/compare/v1.22.4...v1.22.5) (2021-02-09)
+
+
+### Bug Fixes
+
+* add ids to status elements ([3f32f29](https://github.com/informatievlaanderen/base-registries/commit/3f32f29839af26155936d72002bb025dbe18bb43))
+* adjust importing message GRAR-1817 ([da42dd8](https://github.com/informatievlaanderen/base-registries/commit/da42dd82fc0e44e3da15595d507d95656fe44978))
+* scroll status page to hash ([d6ac121](https://github.com/informatievlaanderen/base-registries/commit/d6ac121491554c428850e87f3a95fc7316ed958b))
+
 ## [1.22.4](https://github.com/informatievlaanderen/base-registries/compare/v1.22.3...v1.22.4) (2021-02-09)
 
 
