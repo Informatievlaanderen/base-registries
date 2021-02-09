@@ -1,5 +1,5 @@
 <template>
-  <div class="vl-status__category">
+  <div :id="categoryId" class="vl-status__category">
    <div :class="`vl-status__title vl-alert vl-alert--${alertLevel}`">
       <div>{{ title }}</div>
       <div v-if="alertLevel!='none'" class="vl-alert__icon">
@@ -79,6 +79,10 @@ export default {
   name: 'StatusCategory',
   components: {},
   props: {
+    categoryId: {
+      type: String,
+      required: true,
+    },
     alertLevel: {
       type: String,
       required: true,

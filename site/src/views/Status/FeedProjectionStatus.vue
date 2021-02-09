@@ -1,6 +1,7 @@
 <template>
   <status-category
     title="Feed"
+    :category-id="categoryId"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
@@ -20,6 +21,7 @@
     <status-item
       v-for="feedProjection in feedProjections"
       :key="feedProjection.name"
+      :item-id="createItemId(feedProjection.name)"
       :alert-level="feedProjection.alertLevel"
       class="feedprojection">
       <div :class="`name state tooltip-on-hover ${feedProjection.state}`">
@@ -97,6 +99,10 @@ export default {
     Tooltip,
   },
   props: {
+    registeryId: {
+      type: String,
+      required: true,
+    },
     status: { 
       type: Object, 
       required: false,
@@ -109,6 +115,9 @@ export default {
     },
   },
   computed: {
+    categoryId: function() {
+      return `${this.registeryId}_feed`.toLocaleLowerCase();
+    },
     noData: function() {
       return this.filteredProjections.length === 0;
     },
@@ -150,6 +159,11 @@ export default {
         return 'Fout';
       }
       return '';
+    },
+    createItemId: function(itemId) {
+      return `${this.categoryId}_${itemId}`
+        .replace(/\./g, '-')
+        .toLocaleLowerCase();
     },
   },
 };

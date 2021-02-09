@@ -1,6 +1,7 @@
 <template>
   <status-category
     title="Projecties"
+    :category-id="categoryId"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
@@ -20,6 +21,7 @@
     <status-item
       v-for="projection in projections"
       :key="projection.name"
+      :item-id="createItemId(projection.name)"
       :alert-level="projection.alertLevel"
       class="projection">
       <div :class="`name state tooltip-on-hover ${projection.state}`">
@@ -97,6 +99,10 @@ export default {
     Tooltip,
   },
   props: {
+    registeryId: {
+      type: String,
+      required: true,
+    },
     status: { 
       type: Object, 
       required: false,
@@ -109,6 +115,9 @@ export default {
     },
   },
   computed: {
+    categoryId: function() {
+      return `${this.registeryId}_projections`.toLocaleLowerCase();
+    },
     noData: function() {
       return !this.filteredProjections.length === 0;
     },
@@ -150,6 +159,11 @@ export default {
         return 'Fout';
       }
       return '';
+    },
+    createItemId: function(itemId) {
+      return `${this.categoryId}_${itemId}`
+        .replace(/\./g, '-')
+        .toLocaleLowerCase();
     },
   },
 };

@@ -1,6 +1,7 @@
 <template>
   <status-category
     title="Register synchronisatie"
+    :category-id="categoryId"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
@@ -19,6 +20,7 @@
     <status-item
       v-for="syndication in syndications"
       :key="syndication.name"
+      :item-id="createItemId(syndication.name)"
       :alert-level="syndication.alertLevel"
       class="syndication">
       <div class="name">{{ formatName(syndication.name) }}</div>
@@ -77,6 +79,10 @@ export default {
     StatusCategory,
   },
   props: {
+    registeryId: {
+      type: String,
+      required: true,
+    },
     status: { 
       type: Object, 
       required: false,
@@ -94,6 +100,9 @@ export default {
     },
   },
   computed: {
+    categoryId: function() {
+      return `${this.registeryId}_syndication`.toLocaleLowerCase();
+    },
     noData: function() {
       return !this.status || !this.status.syndications || this.status.syndications.length == 0;
     },
@@ -144,6 +153,11 @@ export default {
     isStillProcessing: function (progress) {
       // last event will almost always be a CRAB event which is not exposed, so 1 event behind is considered caught up.
       return progress && progress.isBehind && progress.relativePosition < -1;
+    },
+    createItemId: function(itemId) {
+      return `${this.categoryId}_${itemId}`
+        .replace(/\./g, '-')
+        .toLocaleLowerCase();
     },
   },
 };

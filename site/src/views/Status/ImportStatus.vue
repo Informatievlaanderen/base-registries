@@ -1,6 +1,7 @@
 <template>
   <status-category
     title="Import"
+    :category-id="categoryId"
     :alert-level="alertLevel"
     :show-refresh="!isLoading"
     @refreshCategory="refresh">
@@ -19,6 +20,7 @@
     <status-item
       v-for="importStatus in imports"
       :key="importStatus.name"
+      :item-id="createItemId(importStatus.name)"
       :alert-level="importStatus.alertLevel"
       class="import">
       <div :class="`name state tooltip-on-hover ${importStatus.state}`">
@@ -84,6 +86,10 @@ export default {
     Tooltip,
   },
   props: {
+    registeryId: {
+      type: String,
+      required: true,
+    },
     status: {
       type: Array,
       required: false,
@@ -96,6 +102,9 @@ export default {
     },
   },
   computed: {
+    categoryId: function() {
+      return `${this.registeryId}_import`.toLocaleLowerCase();
+    },
     noData: function() {
       return !this.status || this.status.length == 0;
     },
@@ -135,6 +144,11 @@ export default {
         return 'Gepland';
       }
       return '';
+    },
+    createItemId: function(itemId) {
+      return `${this.categoryId}_${itemId}`
+        .replace(/\./g, '-')
+        .toLocaleLowerCase();
     },
   },
 };
