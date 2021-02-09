@@ -131,6 +131,7 @@ export default {
   },
   mounted () {
     this.fetch(['projections', 'cache', 'import', 'syndication']);
+    this.scrollToHash();
   },
   methods: {
     setStreamPositions: function() {
@@ -209,6 +210,14 @@ export default {
           this.fetchStatus(category, statusPaths[category]);
         }
       }
+    },
+    scrollToHash: function() {
+      this.$nextTick(() => {
+        if (this.$route.hash) {
+          const el = document.querySelector(this.$route.hash);
+          el && el.scrollIntoView();
+        }
+      });
     },
   },
 };
