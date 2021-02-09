@@ -1,3 +1,10 @@
+## [1.22.4](https://github.com/informatievlaanderen/base-registries/compare/v1.22.3...v1.22.4) (2021-02-09)
+
+
+### Bug Fixes
+
+* create sperate feed block GRAR-1822 ([53700ca](https://github.com/informatievlaanderen/base-registries/commit/53700ca73d3cd745fb93ba8162ca042dfd62df94))
+
 ## [1.22.3](https://github.com/informatievlaanderen/base-registries/compare/v1.22.2...v1.22.3) (2021-02-05)
 
 
