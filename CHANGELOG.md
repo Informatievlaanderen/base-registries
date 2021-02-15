@@ -1,3 +1,10 @@
+## [1.22.7](https://github.com/informatievlaanderen/base-registries/compare/v1.22.6...v1.22.7) (2021-02-15)
+
+
+### Bug Fixes
+
+* build site for pull-requests ([70bd205](https://github.com/informatievlaanderen/base-registries/commit/70bd205b6d0dba4fee97eed3d107337995dd7ca3))
+
 ## [1.22.6](https://github.com/informatievlaanderen/base-registries/compare/v1.22.5...v1.22.6) (2021-02-15)
 
 
