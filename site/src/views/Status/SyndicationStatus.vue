@@ -8,12 +8,12 @@
 
     <vl-column v-if="noData" width="12">
       <div v-if="isLoading" v-vl-align:center>
-        <vl-loader message="De status van de syndication wordt opgevraagd. " />
+        <vl-loader message="De status van de register synchronisatie wordt opgevraagd. " />
       </div>
       <vl-alert
         v-else
         title="Syndication status ophalen is mislukt"
-        content="Er is iets fout gelopen tijdens het ophalen van de status van de syndication. Probeer het later opnieuw."
+        content="Er is iets fout gelopen tijdens het ophalen van de status van de register synchronisatie. Probeer het later opnieuw."
         mod-error />
     </vl-column>
     
