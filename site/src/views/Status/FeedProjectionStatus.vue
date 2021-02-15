@@ -12,7 +12,7 @@
       </div>
       <vl-alert
         v-else
-        title="feed status ophalen is mislukt"
+        title="Feed status ophalen is mislukt"
         content="Er is iets fout gelopen tijdens het ophalen van de status van de feed. Probeer het later opnieuw."
         mod-error />
     </vl-column>
