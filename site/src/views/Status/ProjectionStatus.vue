@@ -119,7 +119,7 @@ export default {
       return `${this.registeryId}_projections`.toLocaleLowerCase();
     },
     noData: function() {
-      return !this.filteredProjections.length === 0;
+      return this.filteredProjections.length === 0;
     },
     alertLevel: function() {
       return this.noData ? 'none' : aggregateAlertLevel(this.projections);
