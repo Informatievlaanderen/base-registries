@@ -27,7 +27,7 @@
       <div v-if="syndication.progress" class="progress --right">
         {{ isStillProcessing(syndication.progress) ? formatProgress(syndication.progress) : '100%' }}
       </div>
-      <div v-else class="progress vl-alert vl-alert--error --right ">Er is iets fout gelopen tijdens het ophalen van de syndication-bron status.</div>
+      <div v-else class="progress vl-alert vl-alert--error --right ">Er is iets fout gelopen tijdens het ophalen van de synchronisatie-bron status.</div>
     </status-item>
   </status-category>
 </template>
