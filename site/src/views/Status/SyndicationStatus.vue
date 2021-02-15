@@ -12,7 +12,7 @@
       </div>
       <vl-alert
         v-else
-        title="Syndication status ophalen is mislukt"
+        title="Register synchronisatie status ophalen is mislukt"
         content="Er is iets fout gelopen tijdens het ophalen van de status van de register synchronisatie. Probeer het later opnieuw."
         mod-error />
     </vl-column>
