@@ -1,3 +1,10 @@
+## [1.22.6](https://github.com/informatievlaanderen/base-registries/compare/v1.22.5...v1.22.6) (2021-02-15)
+
+
+### Bug Fixes
+
+* show projection status error when no data found GRAR-1842 ([ad45025](https://github.com/informatievlaanderen/base-registries/commit/ad45025f8700154a44de38dbddd93cab48c6c53b))
+
 ## [1.22.5](https://github.com/informatievlaanderen/base-registries/compare/v1.22.4...v1.22.5) (2021-02-09)
 
 
