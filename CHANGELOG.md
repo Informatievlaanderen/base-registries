@@ -1,3 +1,10 @@
+## [1.22.8](https://github.com/informatievlaanderen/base-registries/compare/v1.22.7...v1.22.8) (2021-02-15)
+
+
+### Bug Fixes
+
+* change error text on status page ([3646cb8](https://github.com/informatievlaanderen/base-registries/commit/3646cb83d81f1c4a5a4357da25f273e696287d8f))
+
 ## [1.22.7](https://github.com/informatievlaanderen/base-registries/compare/v1.22.6...v1.22.7) (2021-02-15)
 
 
