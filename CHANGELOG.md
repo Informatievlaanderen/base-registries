@@ -1,3 +1,10 @@
+## [1.22.9](https://github.com/informatievlaanderen/base-registries/compare/v1.22.8...v1.22.9) (2021-02-17)
+
+
+### Bug Fixes
+
+* rebuild site ([6e1b72b](https://github.com/informatievlaanderen/base-registries/commit/6e1b72b5aeae51ec86a1defb803932f777370410))
+
 ## [1.22.8](https://github.com/informatievlaanderen/base-registries/compare/v1.22.7...v1.22.8) (2021-02-15)
 
 
