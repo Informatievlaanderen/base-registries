@@ -13,7 +13,7 @@
       <vl-alert
         v-else
         title="Import status ophalen is mislukt"
-        content="Er is iets fout gelopen tijdens het ophalen van de import status. Probeer het later opnieuw."
+        content="Er is iets fout gelopen tijdens het ophalen van de status van de import. Probeer het later opnieuw."
         mod-error />
     </vl-column>
 
