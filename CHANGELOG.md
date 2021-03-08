@@ -1,3 +1,10 @@
+## [1.22.11](https://github.com/informatievlaanderen/base-registries/compare/v1.22.10...v1.22.11) (2021-03-08)
+
+
+### Bug Fixes
+
+* only format projection name if it contains the key ([6f758a2](https://github.com/informatievlaanderen/base-registries/commit/6f758a2436f88a973368c86ce1c251f4c76b92fa))
+
 ## [1.22.10](https://github.com/informatievlaanderen/base-registries/compare/v1.22.9...v1.22.10) (2021-03-08)
 
 
