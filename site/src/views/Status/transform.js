@@ -25,7 +25,7 @@ const determineProjectionAlertLevel = (projectionstate = '', progress= {}) => {
   if (projectionstate === 'active') {
     return progress.relativePosition < -50 ? 'warning' : 'success';
   }
-  return 'unkown';
+  return 'unknown';
 };
 
 const createProjectionStatusModel = (projection = {}, streamPosition = -1) => {
@@ -95,7 +95,7 @@ const determineSyndicationAlertLevel = progress => {
     return relativePosition < -50 ? 'warning' : 'success';
   }
 
-  return 'unkown';
+  return 'unknown';
 };
 
 const createSyndicationStatusModel = (syndication = {}, getStreamPositionFor = () => -1) => {
