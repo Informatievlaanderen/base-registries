@@ -185,15 +185,16 @@ export default {
       }
     },
     fetchStatus: function(category, path) {
+      const statusUrl = (window.baseRegistriesApi || '[baseregistries-api-url-not-set]').replace(/\/$/, '') + path;
       this.beginLoading(category);
       axios
-        .get(window.baseRegistriesApi + path)
+        .get(statusUrl)
         .then(({ data }) => {
           this.setStatusFor(category, data);
           this.loadingStopped(category);
         })
         .catch(error => {
-          console.log(`Could not fetch status data from ${window.baseRegistriesApi + path}.`, error); 
+          console.log(`Could not fetch status data from ${statusUrl}.`, error);
           this.loadingStopped(category);
         });
     },
