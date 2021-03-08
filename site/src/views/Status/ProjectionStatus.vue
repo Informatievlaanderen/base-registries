@@ -20,13 +20,13 @@
     
     <status-item
       v-for="projection in projections"
-      :key="projection.name"
-      :item-id="createItemId(projection.name)"
+      :key="projection.key"
+      :item-id="createItemId(projection.key)"
       :alert-level="projection.alertLevel"
       class="projection">
       <div :class="`name state tooltip-on-hover ${projection.state}`">
         <tooltip :text="stateTooltipDescriptionFor(projection.state)" />
-        {{ formatName(projection.name) }}
+        {{ formatName(projection.name, projection.key) }}
       </div>
       <div class="progress --right">{{ projection.progress.isBehind ? formatProgress(projection.progress) : '100%' }}</div>
     </status-item>
@@ -70,7 +70,12 @@ import StatusCategory from './StatusCategory.vue';
 import StatusItem from './StatusItem.vue';
 import { createProjectionStatusModel, aggregateAlertLevel } from './transform.js';
 
-const formatName = (name = '') => {
+const formatName = (name = '', key = '') => {
+  if (key && name !== key) {
+    return name;
+  }
+
+  // name still contains the projection key: clean up the key
   const parts = name.split('.');
   const projection = parts.pop();
   parts.pop();
@@ -81,8 +86,8 @@ const formatName = (name = '') => {
 };
 
 const sortFormatedName = (a, b) => {
-  const displayNameA = formatName(a.name);
-  const displayNameB = formatName(b.name);
+  const displayNameA = formatName(a.name, a.key);
+  const displayNameB = formatName(b.name, b.key);
   const a_hasCategory = displayNameA.split('-').length > 1;
   const b_hasCategory = displayNameB.split('-').length > 1;
 
