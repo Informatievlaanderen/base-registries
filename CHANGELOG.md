@@ -1,3 +1,10 @@
+## [1.22.10](https://github.com/informatievlaanderen/base-registries/compare/v1.22.9...v1.22.10) (2021-03-08)
+
+
+### Bug Fixes
+
+* correct typo ([e606fba](https://github.com/informatievlaanderen/base-registries/commit/e606fbaf48731d3dc2ad3c9bcd7d92394ff76a4f))
+
 ## [1.22.9](https://github.com/informatievlaanderen/base-registries/compare/v1.22.8...v1.22.9) (2021-02-17)
 
 
