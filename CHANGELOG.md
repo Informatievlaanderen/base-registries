@@ -1,3 +1,10 @@
+## [1.22.12](https://github.com/informatievlaanderen/base-registries/compare/v1.22.11...v1.22.12) (2021-03-09)
+
+
+### Bug Fixes
+
+* syndaction alert level is success on 100% GRAR-1880 ([6ffc5f4](https://github.com/informatievlaanderen/base-registries/commit/6ffc5f42951f579f077bbc7139dc8090891c069b))
+
 ## [1.22.11](https://github.com/informatievlaanderen/base-registries/compare/v1.22.10...v1.22.11) (2021-03-08)
 
 
