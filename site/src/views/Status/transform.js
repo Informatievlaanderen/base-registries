@@ -92,11 +92,9 @@ const createCacheStatusModel = (cache = {}) => {
 
 const determineSyndicationAlertLevel = progress => {
   const { relativePosition } = progress || {};
-  if (relativePosition) {
-    return relativePosition < -50 ? 'warning' : 'success';
-  }
-
-  return 'unknown';
+  return isNaN(relativePosition)
+    ? 'unknown'
+    : relativePosition < -50 ? 'warning' : 'success';
 };
 
 const createSyndicationStatusModel = (syndication = {}, getStreamPositionFor = () => -1) => {
