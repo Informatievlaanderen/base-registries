@@ -1,3 +1,10 @@
+## [1.22.13](https://github.com/informatievlaanderen/base-registries/compare/v1.22.12...v1.22.13) (2021-04-01)
+
+
+### Bug Fixes
+
+* change filter on feed instead of syndication ([a06c8e0](https://github.com/informatievlaanderen/base-registries/commit/a06c8e0044e1c06ffe258cc7ce81b2e4134aa0b4))
+
 ## [1.22.12](https://github.com/informatievlaanderen/base-registries/compare/v1.22.11...v1.22.12) (2021-03-09)
 
 
