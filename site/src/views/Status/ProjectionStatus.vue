@@ -135,7 +135,7 @@ export default {
         : this
           .status
           .projections
-          .filter(projection => !/syndication/i.test(projection.name));
+          .filter(projection => !/feed/i.test(projection.name));
     },
     projections: function() {
       return this
