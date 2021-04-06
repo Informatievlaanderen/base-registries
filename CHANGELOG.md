@@ -1,3 +1,10 @@
+## [1.22.14](https://github.com/informatievlaanderen/base-registries/compare/v1.22.13...v1.22.14) (2021-04-06)
+
+
+### Bug Fixes
+
+* filter out feeds from projections on statuspage ([0cc8d27](https://github.com/informatievlaanderen/base-registries/commit/0cc8d2798a77022389550c547a2f8bb564de1acd))
+
 ## [1.22.13](https://github.com/informatievlaanderen/base-registries/compare/v1.22.12...v1.22.13) (2021-04-01)
 
 
