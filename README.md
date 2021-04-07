@@ -53,6 +53,11 @@ npm run serve
 npm run build
 ```
 
+If it fails with javascript heap out of memory try with
+```bash
+NODE_OPTIONS=--max_old_space_size=4096 npm run build
+```
+
 ### Run your tests
 
 ```bash
