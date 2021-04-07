@@ -1,3 +1,10 @@
+## [1.22.16](https://github.com/informatievlaanderen/base-registries/compare/v1.22.15...v1.22.16) (2021-04-07)
+
+
+### Bug Fixes
+
+* dist ([11c4651](https://github.com/informatievlaanderen/base-registries/commit/11c4651db442802b9a7295a80aebe6715a352f9a))
+
 ## [1.22.15](https://github.com/informatievlaanderen/base-registries/compare/v1.22.14...v1.22.15) (2021-04-07)
 
 
