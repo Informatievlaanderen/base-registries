@@ -2,6 +2,18 @@
 
 ## Project setup
 
+In Windows
+Install Python2, rename or copy the exe to `python2.exe` and add a PATH variable.
+
+Install all the required tools and configurations using Microsoft's windows-build-tools by running `npm install -g windows-build-tools` from an elevated PowerShell (run as Administrator).
+
+It takes a while.
+
+Then run `npm config set msvs_version 2015 -g`
+https://github.com/sass/node-sass/issues/2074#issuecomment-344813506
+
+In addition installing https://go.microsoft.com/fwlink/?LinkId=691126 worked.
+
 ```bash
 # Optionally:
 apt-get install python2 libpng-dev
