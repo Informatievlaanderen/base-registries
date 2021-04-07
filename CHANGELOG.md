@@ -1,3 +1,10 @@
+## [1.22.15](https://github.com/informatievlaanderen/base-registries/compare/v1.22.14...v1.22.15) (2021-04-07)
+
+
+### Bug Fixes
+
+* change dist to reflect src changes until build works ([5263d28](https://github.com/informatievlaanderen/base-registries/commit/5263d280eb4ac8c52019a39c49835912d8ddccf1))
+
 ## [1.22.14](https://github.com/informatievlaanderen/base-registries/compare/v1.22.13...v1.22.14) (2021-04-06)
 
 
