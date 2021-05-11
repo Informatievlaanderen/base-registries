@@ -1,3 +1,10 @@
+## [1.22.17](https://github.com/informatievlaanderen/base-registries/compare/v1.22.16...v1.22.17) (2021-05-11)
+
+
+### Bug Fixes
+
+* build site, downgrade npm package ([ee12395](https://github.com/informatievlaanderen/base-registries/commit/ee12395c9a8c3a9694869005ce6198b013678e30))
+
 ## [1.22.16](https://github.com/informatievlaanderen/base-registries/compare/v1.22.15...v1.22.16) (2021-04-07)
 
 
