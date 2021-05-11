@@ -2,7 +2,11 @@
 
 ## Project setup
 
-In Windows
+### Node (LTS) & NPM Versions
+Node.js 14.16.1 
+npm 6.14.12
+
+### In Windows
 Install Python2, rename or copy the exe to `python2.exe` and add a PATH variable.
 
 Install all the required tools and configurations using Microsoft's windows-build-tools by running `npm install -g windows-build-tools` from an elevated PowerShell (run as Administrator).
@@ -15,8 +19,11 @@ https://github.com/sass/node-sass/issues/2074#issuecomment-344813506
 In addition installing https://go.microsoft.com/fwlink/?LinkId=691126 worked.
 
 ```bash
-# Optionally:
-apt-get install python2 libpng-dev
+# Optionally Debian based:
+apt-get install python2 libpng-dev autoconf
+
+# Optional Fedora
+sudo dnf install libpng-devel autoconf
 
 npm install
 
