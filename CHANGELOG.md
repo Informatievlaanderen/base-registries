@@ -1,3 +1,10 @@
+## [1.22.18](https://github.com/informatievlaanderen/base-registries/compare/v1.22.17...v1.22.18) (2021-05-25)
+
+
+### Bug Fixes
+
+*  rename informatie to digitaal ([1773155](https://github.com/informatievlaanderen/base-registries/commit/17731553cb20d839f38f4f4687e5451c2ce8e8fb))
+
 ## [1.22.17](https://github.com/informatievlaanderen/base-registries/compare/v1.22.16...v1.22.17) (2021-05-11)
 
 
