@@ -17,7 +17,7 @@
                 <vl-typography>
                   <vl-introduction>
                     Bent u op zoek naar authentieke gegevensbronnen? Dan bent u bij
-                    <strong>Informatie Vlaanderen</strong> aan het juiste adres.
+                    <strong>Digitaal Vlaanderen</strong> aan het juiste adres.
                   </vl-introduction>
                 </vl-typography>
               </div>
