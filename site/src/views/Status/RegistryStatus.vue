@@ -27,7 +27,7 @@
       :is-loading="status.isLoading.includes('syndication')"
       @refresh="refresh(['projections', 'syndication'])" />
     <cache-status
-      v-if="!status.hide.includes('cache')"
+      v-if="!status.hide.includes('cache') && registeryId !== 'building'"
       :registery-id="registeryId"
       :status="status.cache"
       :is-loading="status.isLoading.includes('cache')"
