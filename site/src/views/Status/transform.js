@@ -29,13 +29,14 @@ const determineProjectionAlertLevel = (projectionstate = '', progress= {}) => {
 };
 
 const createProjectionStatusModel = (projection = {}, streamPosition = -1) => {
-  const { key, name , currentPosition = -1, state = 'unknown' } = projection;
+  const { key, name , currentPosition = -1, state = 'unknown', description = '' } = projection;
   let progress = calculateProjectionProgress(currentPosition, streamPosition);
   
   const projectionState = projectionStateMapping[state.toLowerCase()] || 'unknown';
   return {
     key,
     name,
+    description,
     alertLevel: determineProjectionAlertLevel(projectionState, progress),
     state: projectionState,
     progress,

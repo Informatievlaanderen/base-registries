@@ -23,9 +23,15 @@
       :key="projection.key"
       :item-id="createItemId(projection.key)"
       :alert-level="projection.alertLevel"
-      class="projection">
-      <div :class="`name state tooltip-on-hover ${projection.state}`">
-        <tooltip :text="stateTooltipDescriptionFor(projection.state)" />
+      >
+      
+      <div class="projection">
+        <div :class="`state tooltip-on-hover ${projection.state}`">
+           <tooltip :text="stateTooltipDescriptionFor(projection.state)" />
+        </div>
+      </div>
+      <div :class="`tooltip-on-hover description`">
+        <tooltip :text="projection.description" />
         {{ formatName(projection.name, projection.key) }}
       </div>
       <div class="progress --right">{{ projection.progress.isBehind ? formatProgress(projection.progress) : '100%' }}</div>
@@ -34,10 +40,18 @@
   </status-category>
 </template>
 
-<style lang="scss">
-  .vl-status__item.projection {
+<style lang="scss" scoped>
+  
+  div.tooltip-on-hover.description {
+    margin: 0;
+  }
+
+  .projection {
+    div {
+      margin-right: -0.5rem;
+    }
     .name {
-      padding-right: 0.5em;
+      margin: 0 0.5rem;
     }
 
     .state::before {
@@ -142,6 +156,7 @@ export default {
         .filteredProjections
         .map(projection => createProjectionStatusModel(projection, this.status.streamPosition))
         .sort(sortFormatedName);
+      return ret;
     },
   },
   methods: {

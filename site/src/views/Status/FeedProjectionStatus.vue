@@ -22,10 +22,16 @@
       v-for="feedProjection in feedProjections"
       :key="feedProjection.key"
       :item-id="createItemId(feedProjection.key)"
-      :alert-level="feedProjection.alertLevel"
-      class="feedprojection">
-      <div :class="`name state tooltip-on-hover ${feedProjection.state}`">
-        <tooltip :text="stateTooltipDescriptionFor(feedProjection.state)" />
+      :alert-level="feedProjection.alertLevel">
+
+      <div class="feedprojection">
+        <div :class="`state tooltip-on-hover ${feedProjection.state}`">
+           <tooltip :text="stateTooltipDescriptionFor(feedProjection.state)" />
+        </div>
+      </div>
+
+      <div :class="`tooltip-on-hover description`">
+        <tooltip :text="feedProjection.description" />
         {{ formatName(feedProjection.name, feedProjection.key) }}
       </div>
       <div class="progress --right">{{ feedProjection.progress.isBehind ? formatProgress(feedProjection.progress) : '100%' }}</div>
@@ -34,8 +40,16 @@
   </status-category>
 </template>
 
-<style lang="scss">
-  .vl-status__item.feedprojection {
+<style lang="scss" scoped>
+
+  div.tooltip-on-hover.description {
+    margin: 0;
+  }
+
+  .feedprojection {
+    div {
+      margin-right: -0.5rem;
+    }
     .name {
       padding-right: 0.5em;
     }
