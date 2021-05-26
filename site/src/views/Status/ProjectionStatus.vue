@@ -22,9 +22,7 @@
       v-for="projection in projections"
       :key="projection.key"
       :item-id="createItemId(projection.key)"
-      :alert-level="projection.alertLevel"
-      >
-      
+      :alert-level="projection.alertLevel">
       <div class="projection">
         <div :class="`state tooltip-on-hover ${projection.state}`">
            <tooltip :text="stateTooltipDescriptionFor(projection.state)" />
@@ -39,44 +37,6 @@
 
   </status-category>
 </template>
-
-<style lang="scss" scoped>
-  
-  div.tooltip-on-hover.description {
-    margin: 0;
-  }
-
-  .projection {
-    div {
-      margin-right: -0.5rem;
-    }
-    .name {
-      margin: 0 0.5rem;
-    }
-
-    .state::before {
-      font-family: "vlaanderen-icon";
-      content: "\F21F";
-      padding-right: 1rem;
-    }
-
-    .state.stopped::before {
-      content: "\F204";
-    }
-
-    .state.active::before {
-      content: "\F214";
-    }
-
-    .state.error::before {
-      content: "\F109";
-    }
-
-    .progress {
-      margin-right: 0.5em;
-    }
-  }
-</style>
 
 <script>
 import Tooltip from '../../components/Tooltip.vue';
@@ -156,7 +116,6 @@ export default {
         .filteredProjections
         .map(projection => createProjectionStatusModel(projection, this.status.streamPosition))
         .sort(sortFormatedName);
-      return ret;
     },
   },
   methods: {
@@ -188,3 +147,41 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  
+  div.tooltip-on-hover.description {
+    margin: 0;
+  }
+
+  .projection {
+    div {
+      margin-right: -0.5rem;
+    }
+    .name {
+      margin: 0 0.5rem;
+    }
+
+    .state::before {
+      font-family: "vlaanderen-icon";
+      content: "\F21F";
+      padding-right: 1rem;
+    }
+
+    .state.stopped::before {
+      content: "\F204";
+    }
+
+    .state.active::before {
+      content: "\F214";
+    }
+
+    .state.error::before {
+      content: "\F109";
+    }
+
+    .progress {
+      margin-right: 0.5em;
+    }
+  }
+</style>
