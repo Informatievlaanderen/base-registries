@@ -1,3 +1,10 @@
+## [1.22.19](https://github.com/informatievlaanderen/base-registries/compare/v1.22.18...v1.22.19) (2021-05-26)
+
+
+### Bug Fixes
+
+*  remove building cache & show description on hover on the status page ([05c07a3](https://github.com/informatievlaanderen/base-registries/commit/05c07a30eb2bad8e6d4265606c0a0d1b2589a0f5))
+
 ## [1.22.18](https://github.com/informatievlaanderen/base-registries/compare/v1.22.17...v1.22.18) (2021-05-25)
 
 
