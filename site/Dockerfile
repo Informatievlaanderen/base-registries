@@ -1,6 +1,6 @@
 FROM nginx:1.17.10-alpine-perl
 
-LABEL maintainer "agentschap Digitaal Vlaanderen <digitaal.vlaanderen@vlaanderen.be>"
+LABEL maintainer "Digitaal Vlaanderen <digitaal.vlaanderen@vlaanderen.be>"
 
 COPY dist /usr/share/nginx/html
 
