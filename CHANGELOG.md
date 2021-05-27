@@ -1,3 +1,10 @@
+## [1.22.20](https://github.com/informatievlaanderen/base-registries/compare/v1.22.19...v1.22.20) (2021-05-27)
+
+
+### Bug Fixes
+
+*  remove agentschap text, build dist and fix lint issues ([56cc15e](https://github.com/informatievlaanderen/base-registries/commit/56cc15e11e2480db3c56adfa55e2c3307d824205))
+
 ## [1.22.19](https://github.com/informatievlaanderen/base-registries/compare/v1.22.18...v1.22.19) (2021-05-26)
 
 
