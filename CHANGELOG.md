@@ -1,3 +1,11 @@
+## [1.22.21](https://github.com/informatievlaanderen/base-registries/compare/v1.22.20...v1.22.21) (2021-10-08)
+
+
+### Bug Fixes
+
+* add push to Test ECR ([540b351](https://github.com/informatievlaanderen/base-registries/commit/540b35100d40a5a7c60d83736d4394bf2bc04049))
+* update global json ([45432a1](https://github.com/informatievlaanderen/base-registries/commit/45432a172c9dafff702a7c229199b73adb3b2947))
+
 ## [1.22.20](https://github.com/informatievlaanderen/base-registries/compare/v1.22.19...v1.22.20) (2021-05-27)
 
 
