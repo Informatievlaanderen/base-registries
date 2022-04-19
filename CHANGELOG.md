@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/informatievlaanderen/base-registries/compare/v1.22.21...v2.0.0) (2022-04-19)
+
+
+### Bug Fixes
+
+* build production ui ([e847765](https://github.com/informatievlaanderen/base-registries/commit/e847765ac577e475ce5885b039d5497a93a8afa8))
+
+
+### Features
+
+* move to dotnet 6.0.3 ([c9548ca](https://github.com/informatievlaanderen/base-registries/commit/c9548cac482bdae4132d0215d7fc9cdc46a3b2a6))
+
+
+### BREAKING CHANGES
+
+* move to dotnet 6.0.3
+
 ## [1.22.21](https://github.com/informatievlaanderen/base-registries/compare/v1.22.20...v1.22.21) (2021-10-08)
 
 
