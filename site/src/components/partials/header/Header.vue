@@ -11,13 +11,6 @@
         </vl-link>
       </div>
     </div>
-
-    <div id="vlaanderen-in-progress" class="vl-alert vl-alert--warning vl-alert--naked">
-      <div class="vl-alert__icon">
-        <vl-icon icon="warning" />
-      </div>
-      Dit is een voorlopig ontwerp van de Basisregisters Vlaanderen webpagina
-    </div>
   </header>
 </template>
 
