@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+$vl-link-visited-state: true;
+$vl-pswp-assets-path: '~@govflanders/vl-ui-core/dist/img/lightbox/';
+$vl-font-location: '~@govflanders/vl-ui-core/dist/font/flanders/';
+$vl-icon-font-location: '~@govflanders/vl-ui-core/dist/font/iconfont/';
+
+html {
+    scroll-behavior: smooth;
+}
+
+.vl-region {
+    a:focus,
+    a:active,
+    a:visited {
+        color: #05c !important;
+    }
+}
+
+@import './base.scss';
+@import './tooltip.scss';
+@import './spacing-margin.scss';
+@import './spacing-padding.scss';

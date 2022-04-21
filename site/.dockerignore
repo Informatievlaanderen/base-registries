@@ -1,0 +1,12 @@
+Dockerfile
+prebuild.Dockerfile
+./node_modules/
+./dist/
+./.vscode/
+./.env.staging
+./.env.test
+./.nvmrc
+./package-lock.json
+./README.me
+./nginx.conf
+./docker-compose.yml

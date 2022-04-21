@@ -1,80 +1,140 @@
+# Basisregister site
+
 # Base Registries [![Build Status](https://github.com/Informatievlaanderen/base-registries/workflows/CI/badge.svg)](https://github.com/Informatievlaanderen/base-registries/actions)
 
-## Project setup
+## Prerequisites
 
-### Node (LTS) & NPM Versions
-Node.js 14.16.1 
-npm 6.14.12
+NVM: ([Windows][1], [unix, macOS, windows WSL](2))
 
-### In Windows
-Install Python2, rename or copy the exe to `python2.exe` and add a PATH variable.
+Node: **v16.15.0** *(do this with nvm)*
 
-Install all the required tools and configurations using Microsoft's windows-build-tools by running `npm install -g windows-build-tools` from an elevated PowerShell (run as Administrator).
+NPM: **v8.5.5** *(nvm handles this too)*
 
-It takes a while.
-
-Then run `npm config set msvs_version 2015 -g`
-https://github.com/sass/node-sass/issues/2074#issuecomment-344813506
-
-In addition installing https://go.microsoft.com/fwlink/?LinkId=691126 worked.
-
-```bash
-# Optionally Debian based:
-apt-get install python2 libpng-dev autoconf
-
-# Optional Fedora
-sudo dnf install libpng-devel autoconf
-
-npm install
-
-git submodule init
-git submodule update
-
-cd deps/webuniversum
-git apply ../00-package-json.patch
-npm install
-
-git apply ../01-vl-ui-hero-navigation-fix-link.patch
-git apply ../02-bootstrap-no-layer-map.patch
-git apply ../03-vl-agenda-item-fix-link.patch
-git apply ../04-vl-ui-doormat-fix-link-attrs.patch
-
-npm run util:bootstrap
+``` bash
+nvm install 16.15.0 
 ```
 
-Fish Oneliner:
+[1]:(https://github.com/coreybutler/nvm-windows)
+[2]:(https://github.com/nvm-sh/nvm/tree/master.1#installing-and-updating)
 
-```bash
-npm install; git submodule init; git submodule update; cd deps/webuniversum; git apply ../00-package-json.patch; npm install; git apply ../01-vl-ui-hero-navigation-fix-link.patch; git apply ../02-bootstrap-no-layer-map.patch; git apply ../03-vl-agenda-item-fix-link.patch; git apply ../04-vl-ui-doormat-fix-link-attrs.patch; npm run util:bootstrap
+## Common mistakes and solutions
+
+``` bash
+npm WARN old lockfile 
+npm WARN old lockfile The package-lock.json file was created with an old version of npm,
+npm WARN old lockfile so supplemental metadata must be fetched from the registry.
+npm WARN old lockfile 
+npm WARN old lockfile This is a one-time fix-up, please be patient...
+npm WARN old lockfile 
+```
+
+When seeing this output than it means you're not using the correct node version.
+`package-lock.json` file will version bump itself (`"lockfileVersion": ...`).
+Instead of that what we is to do these steps.
+
+1. Delete `node_modules` directory.
+2. Revert `package-lock.json` changes.
+3. Exec `nvm use`
+4. Exec `npm i`
+
+
+## Project setup
+``` bash
+cd #YOUR_PROJECT_PATH/base-registries/site
+nvm use
+npm i
 ```
 
 ### Compiles and hot-reloads for development
-
-```bash
+``` bash
+# env dev
 npm run serve
+
+# OR
+
+# env test
+npm run serve-tst
+
+# OR
+
+# env staging
+npm run serve-stg
+
+# OR
+
+# env production
+npm run serve-prd
 ```
 
 ### Compiles and minifies for production
-
-```bash
+``` bash
+# env production
 npm run build
 ```
-
 If it fails with javascript heap out of memory try with
 ```bash
 NODE_OPTIONS=--max_old_space_size=4096 npm run build
 ```
 
-### Run your tests
-
-```bash
-npm run test
-```
 
 ### Lints and fixes files
-
-```bash
+``` bash
 npm run lint
+```
+
+### Project Configurations
+
+| Environment Variable | Description |
+|----------------------|-------------|
+| API_VERSION | Basisregistry [public-api][3] version |
+| SITE_VERSION | Version of this base-registry site |
+| API_ENDPOINT | Basisregistry [public-api][3] endpoint |
+| BRANCH_CONTENT | Git branch name of [markdown content](https://github.com/Informatievlaanderen/base-registries-content) [`main`, `tst`, `stg`, `prd`]
+
+| Build args | Description |
+|----------------------|-------------|
+| NPM_TOKEN | Only required when using `./Dockerfile` |
+
+
+[3]:https://github.com/Informatievlaanderen/public-api
+
+### Docker Compose
+
+``` bash
+    #run all env at once
+    docker-compose up --build --remove-orphans
+
+    #port 8081 -> dev
+    #port 8082 -> tst
+    #port 8083 -> stg
+    #port 8084 -> prd
+```
+OR create own docker compose file
+``` yaml
+version: '3.9'
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        NPM_TOKEN: #NPM_TOKEN
+    environment:
+      API_VERSION: 9.9.9-dev
+      SITE_VERSION: 0.0.0-dev
+      API_ENDPOINT: https://api.basisregisters.vlaanderen.be
+      REPLACE_ALIAS_ZONE_NAME: basisregisters.vlaanderen.be
+      REPLACE_ALIAS_BRANCH_CONTENT: main
+    ports:
+      - "8081:80"
+```
+
+OR
+
+``` bash
+# build without compose
+docker build -t test:0.0.1-dev --build-arg NPM_TOKEN=$NPM_TOKEN -f ./Dockerfile ./
+docker run test:0.0.1-dev -p 8080:80 -e API_VERSION='9.9.9-dev' -e SITE_VERSION='0.0.0-dev' -e API_ENDPOINT='https://api.basisregisters.vlaanderen.be' -e REPLACE_ALIAS_ZONE_NAME='basisregisters.vlaanderen.be' -e REPLACE_ALIAS_BRANCH_CONTENT='main'
 ```
 
 ## License
