@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/informatievlaanderen/base-registries/compare/v2.0.0...v2.0.1) (2022-04-21)
+
+
+### Bug Fixes
+
+* style formatting + build changes ([3c5df74](https://github.com/informatievlaanderen/base-registries/commit/3c5df749bd4194b06e77be9dec85e117cd418a7f))
+
 # [2.0.0](https://github.com/informatievlaanderen/base-registries/compare/v1.22.21...v2.0.0) (2022-04-19)
 
 
