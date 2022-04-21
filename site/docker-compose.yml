@@ -1,0 +1,61 @@
+version: '3.9'
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: ./prebuild.Dockerfile
+      args:
+        NPM_TOKEN: #NPM_TOKEN
+    environment:
+      API_VERSION: 9.9.9-dev
+      SITE_VERSION: 0.0.0-dev
+      API_ENDPOINT: https://api.basisregisters.vlaanderen.be
+      REPLACE_ALIAS_ZONE_NAME: basisregisters.vlaanderen.be
+      REPLACE_ALIAS_BRANCH_CONTENT: main
+    ports:
+      - "8081:80"
+
+  tst:
+    build:
+      context: .
+      dockerfile: ./prebuild.Dockerfile
+      args:
+        NPM_TOKEN: #NPM_TOKEN
+    environment:
+      API_VERSION: 9.9.9-tst
+      SITE_VERSION: 0.0.0-tst
+      API_ENDPOINT: https://api.basisregisters.dev-vlaanderen.be
+      REPLACE_ALIAS_ZONE_NAME: basisregisters.vlaanderen.be
+      REPLACE_ALIAS_BRANCH_CONTENT: tst
+    ports:
+      - "8082:80"
+
+  stg:
+    build:
+      context: .
+      dockerfile: ./prebuild.Dockerfile
+      args:
+        NPM_TOKEN: #NPM_TOKEN
+    environment:
+      API_VERSION: 9.9.9-stg
+      SITE_VERSION: 0.0.0-stg
+      API_ENDPOINT: https://api.basisregisters.staging-vlaanderen.be
+      REPLACE_ALIAS_ZONE_NAME: basisregisters.vlaanderen.be
+      REPLACE_ALIAS_BRANCH_CONTENT: stg
+    ports:
+      - "8083:80"
+
+  prd:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        NPM_TOKEN: #NPM_TOKEN
+    environment:
+      API_VERSION: 9.9.9-prd
+      SITE_VERSION: 0.0.0-prd
+      API_ENDPOINT: https://api.basisregisters.vlaanderen.be
+      REPLACE_ALIAS_ZONE_NAME: basisregisters.vlaanderen.be
+      REPLACE_ALIAS_BRANCH_CONTENT: prd
+    ports:
+      - "8084:80"

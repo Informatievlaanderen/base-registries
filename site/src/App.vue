@@ -1,38 +1,40 @@
 <template>
-  <div id="app">
-    <vl-header />
-
-    <router-view />
-
-    <vl-footer />
-  </div>
+  <transition name="fade">
+    <div v-show="loaded">
+      <vl-header/>
+      <router-view @updateStatus="updateStatus" />
+      <vl-footer/>
+    </div>
+  </transition>
 </template>
 
-<style lang="scss">
-  @import './vlaanderen.scss';
-  @import './vlaanderen-wp.scss';
+<script lang="ts">
+import { Vue } from "vue-property-decorator";
 
-  #app { padding-top: 30px; }
-
-  .vl-title[id]::before {
-    content: '';
-    display: block;
-    height: 45px;
-    margin-top: -45px;
-    visibility: hidden;
-  }
-
-  .vl-tooltip {
-    max-width: 100em !important;
-  }
-
-  .vl-page {
-    margin-top: 45px;
-  }
-
-  @media (max-width: 580px) {
-    .vl-hero-navigation__list__listitem--active .vl-hero-navigation__title {
-      text-decoration: none;
+export default Vue.extend({
+  data() {
+    return {
+      loaded: false,
+    }
+  },
+  methods: {
+    updateStatus(e: boolean): void {
+      this.loaded = e;
     }
   }
+});
+</script>
+
+<style lang="scss">
+@import "./scss/theme.scss";
+</style>
+
+<style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.125s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
