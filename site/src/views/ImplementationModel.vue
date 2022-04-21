@@ -19,9 +19,9 @@
       <vl-region>
         <vl-layout>
           <vl-grid mod-stacked>
-            <vl-column width="8" width-m="9" width-s="12">
+            <vl-column width="8" width-m="9" width-s="15">
               <vl-grid mod-stacked>
-                <vl-column width="12">
+                <vl-column width="15">
                   <vl-typography>
                     <p>
                       Een implementatiemodel is een specificatie voor gegevensuitwisseling voor applicaties die een bepaalde use case vervullen.
@@ -33,23 +33,23 @@
                     Het implementatiemodel bouwt voort op een reeks bestaande standaarden waaronder:
                       <ul>
                         <li>
-                          <a href="https://data.vlaanderen.be/standaarden/kandidaat-standaard/applicatieprofiel-adresregister.html">
+                          <a href="https://data.vlaanderen.be/standaarden/kandidaat-standaard/applicatieprofiel-adresregister.html" target="_blank" rel="noopener noreferrer">>
                             Applicatieprofiel adressenregister
                           </a>
                         </li>
                         <li>
-                          <a href="https://data.vlaanderen.be/standaarden/erkende-standaard/vocabularium-adres.html">
+                          <a href="https://data.vlaanderen.be/standaarden/erkende-standaard/vocabularium-adres.html" target="_blank" rel="noopener noreferrer">>
                             Vocabularium adressenregister
                           </a>
                         </li>
                         <li>
-                          <a href="https://data.vlaanderen.be/standaarden/kandidaat-standaard/applicatieprofiel-gebouwenregister.html">
+                          <a href="https://data.vlaanderen.be/standaarden/kandidaat-standaard/applicatieprofiel-gebouwenregister.html" target="_blank" rel="noopener noreferrer">>
                             Applicatieprofiel gebouwenregister
                           </a>
                         </li>
                         <li>
-                          <a href="https://data.vlaanderen.be/standaarden/kandidaat-standaard/vocabularium-gebouw.html">
-                            Vocabilarium gebouwenregister
+                          <a href="https://data.vlaanderen.be/standaarden/kandidaat-standaard/vocabularium-gebouw.html" target="_blank" rel="noopener noreferrer">>
+                            Vocabularium gebouwenregister
                           </a>
                         </li>
                       </ul>
@@ -57,14 +57,14 @@
                   </vl-typography>
 
                     <vl-grid mod-stacked>
-                    <vl-column width="6" width-s="12">
+                    <vl-column width="7" width-s="15">
                       <vl-doormat
                         title="Adressenregister"
                         tag-name="router-link"
                         to="implementatiemodel/adressenregister" />
                     </vl-column>
 
-                    <vl-column width="6" width-s="12">
+                    <vl-column width="7" width-s="15">
                       <vl-doormat
                         title="Gebouwenregister"
                         tag-name="router-link"
