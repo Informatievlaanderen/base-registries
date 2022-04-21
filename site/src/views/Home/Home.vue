@@ -12,7 +12,7 @@
           <vl-grid>
             <vl-column width="4" width-s="12">
               <vl-spotlight
-                title="Algemeen"
+                title="Z"
                 subtitle="Wat zijn de basisregisters?"
                 to="/algemeen"
                 tag-name="router-link" />
