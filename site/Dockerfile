@@ -3,8 +3,8 @@ LABEL maintainer "Digitaal Vlaanderen <digitaal.vlaanderen@vlaanderen.be>"
 ARG NPM_TOKEN
 WORKDIR /app
 COPY . /app
-RUN npm i
-RUN npm run build
+RUN npm i --loglevel verbose
+RUN npm run build --loglevel verbose
 
 FROM nginx:1.17.10-alpine-perl as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html

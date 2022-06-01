@@ -7,10 +7,15 @@ nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 6.0.5 //"
 #load "packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/build-generic.fsx"
 
 open System
+open System.IO
+
 open Fake.Core
 open Fake.Core.TargetOperators
+open Fake.DotNet
 open Fake.IO
 open Fake.IO.FileSystemOperators
+open Fake.JavaScript
+
 open ``Build-generic``
 
 let product = "Basisregisters Vlaanderen"
@@ -19,7 +24,6 @@ let company = "Vlaamse overheid"
 
 let dockerRepository = "basisregisters"
 let assemblyVersionNumber = (sprintf "2.%s")
-let npmtoken = (Environment.GetEnvironmentVariable "NPM_TOKEN")
 let buildNumber = Environment.environVarOrDefault "CI_BUILD_NUMBER" "0.0.0"
 
 let containerizeWithCustomBuildArgs dockerRepository project containerName buildargs dockerfile =
@@ -41,6 +45,8 @@ let containerizeWithCustomBuildArgs dockerRepository project containerName build
   if result2.ExitCode <> 0 then failwith "Failed result from Docker Tag"
 
 Target.create  "BuildContainer" (fun _ ->
+  let npmtoken = Environment.environVarOrDefault "NPM_TOKEN" ""
+  if System.String.IsNullOrWhiteSpace npmtoken then failwith "NPM_TOKEN missing"
   let filterAllFiles = (fun _ -> true)
   Shell.copyDir (buildDir @@ "BaseRegistries" @@ "linux") "site" filterAllFiles
   containerizeWithCustomBuildArgs dockerRepository "BaseRegistries" "site" $"--build-arg build_number={buildNumber} --build-arg NPM_TOKEN={npmtoken}" "Dockerfile"
