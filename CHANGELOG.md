@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/informatievlaanderen/base-registries/compare/v2.1.1...v2.1.2) (2022-06-01)
+
+
+### Bug Fixes
+
+* enforce npm version check ([a262c8d](https://github.com/informatievlaanderen/base-registries/commit/a262c8dc01c52fd69932342cec2f9796c81035fd))
+
 ## [2.1.1](https://github.com/informatievlaanderen/base-registries/compare/v2.1.0...v2.1.1) (2022-06-01)
 
 
