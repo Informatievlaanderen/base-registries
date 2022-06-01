@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/informatievlaanderen/base-registries/compare/v2.0.1...v2.1.0) (2022-06-01)
+
+
+### Bug Fixes
+
+* adding CI logging for troubleshouting ([a26b11a](https://github.com/informatievlaanderen/base-registries/commit/a26b11aaebf6895a91ca66a3bf0577578d21d196))
+
+
+### Features
+
+* rewrite site ([cf30e57](https://github.com/informatievlaanderen/base-registries/commit/cf30e5736ce091a4cd98f4464fae14b87a6cd19a))
+
 ## [2.0.1](https://github.com/informatievlaanderen/base-registries/compare/v2.0.0...v2.0.1) (2022-04-21)
 
 
