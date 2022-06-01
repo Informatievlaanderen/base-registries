@@ -63,7 +63,7 @@ const proxyLocale = {
 }
 
 const proxyApi = {
-  "/basisregisters/api/v1/": {
+  "/basisregisters-api/v1/": {
     target: "https://api.basisregisters.vlaanderen",
     ws: false,
     https: true,
@@ -72,13 +72,13 @@ const proxyApi = {
       'Cache-Control': 'no-store',
     },
     pathRewrite: {
-      "/basisregisters/api/v1/": `/v1/`
+      "/basisregisters-api/v1/": `/v1/`
     }
   },
 }
 
 const proxyApiV2 = {
-  "/basisregisters/api/v2/": {
+  "/basisregisters-api/v2/": {
     target: "https://api.basisregisters.vlaanderen",
     ws: false,
     https: true,
@@ -87,7 +87,7 @@ const proxyApiV2 = {
       'Cache-Control': 'no-store',
     },
     pathRewrite: {
-      "/basisregisters/api/v2/": `/v2/`
+      "/basisregisters-api/v2/": `/v2/`
     }
   },
 }
