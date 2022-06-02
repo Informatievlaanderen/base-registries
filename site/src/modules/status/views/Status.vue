@@ -24,18 +24,16 @@
                   <h3 class="vl-title vl-title--h3 ma-0 py-4" :style="{ color: '#05c' }">
                     {{ $l(`status.registries.${registry}.title`) }}
                   </h3>
-                  <div v-for="statusType in statusTypes" :key="statusType">
+                  <div v-for="statusType in statusTypes" :key="statusType.name">
                     <vl-status-category
                       v-if="
-                        loaded &&
-                        $l(`status.registries.${registry}.${statusType}`) &&
-                        transformedStatusItems[registry] &&
-                        transformedStatusItems[registry][statusType]
+                        $l(`status.registries.${registry}.${statusType.name}`)
                       "
-                      :title="statusType"
-                      :items="transformedStatusItems[registry][statusType]"
+                      :loading="!statusType.loaded"
+                      :title="statusType.name"
+                      :items="transformedStatusItems && transformedStatusItems[registry] && transformedStatusItems[registry] && transformedStatusItems[registry][statusType.name] || []"
                       class="ma-0 pa-0"
-                      @refresh="refresh(statusType)"
+                      @refresh="refresh(statusType.name)"
                     />
                   </div>
                 </div>
@@ -66,17 +64,39 @@ export default Vue.extend({
       content: "" as string,
       statusItems: {} as { [registry: string]: RegistryItem<any> },
       transformedStatusItems: {} as { [registry: string]: RegistryItem<StatusItem[]> },
-      statusTypes: ["projections", "feed", "cache", "import", "syndication"] as StatusType[],
+      statusTypes: [
+        {
+          name:"projections",
+          loaded:false 
+        },
+        {
+          name:"feed",
+          loaded:false 
+        },
+        {
+          name:"cache",
+          loaded:false 
+        },
+        {
+          name:"import",
+          loaded:false 
+        },
+        {
+          name:"syndication",
+          loaded:false 
+        }
+      ] as Array<{name:StatusType, loaded: boolean}>,
+
     };
   },
   created() {
     this.$emit("updateStatus", false);
   },
   async mounted() {
+    this.init();
     this.loaded = false;
     //  this.header = await TranslationClient.getPageMarkdownHeader("nl", "status") || "";
     //  this.content = await TranslationClient.getPageMarkdownContent("nl", "status") || "";
-    await this.init();
     this.loaded = true;
     this.$emit("updateStatus", true);
   },
@@ -100,6 +120,8 @@ export default Vue.extend({
       await this.refresh("syndication");
     },
     async refresh(statusType: StatusType) {
+      const type = this.statusTypes.find((i: {name:StatusType, loaded: boolean}) => i.name == statusType);
+      type!.loaded = false;
       let data = {} as any;
       switch (statusType) {
         case "projections":
@@ -124,6 +146,7 @@ export default Vue.extend({
           [statusType]: d,
         });
       });
+      type!.loaded = true;
     },
     getItems(statusType: StatusType, data: any): StatusItem[] {
       const ret = [] as StatusItem[];
