@@ -1,22 +1,33 @@
 <template>
-  <div class="status my-1">
+  <div v-if="loaded" class="status my-1">
     <div class="status-header pa-2">
       <div class="vl-title vl-title--h6 ma-0 pa-0 status-header-title">
-        <span>{{ title }} <vl-icon :icon="prepandIcon" mod-small /></span>
+        <span>{{ title }} <vl-icon v-if="content" :icon="prepandIcon" mod-small /></span>
       </div>
       <div class="status-header-actions"><vl-button icon="synchronize" mod-icon @click="$emit('refresh')" /></div>
     </div>
     <div class="items pa-2">
-      <vl-status-item
-        v-for="(item, key) in getItems"
-        :key="key"
-        :play="item.play"
-        :planed="item.planed"
-        :paused="item.paused"
-        :success="item.success"
-        :text="item.text"
-        :right-text="item.rightText"
-      />
+      <template v-if="!contentLoading && content">
+        <vl-status-item
+          v-for="(item, key) in content.items"
+          :key="key"
+          :play="item.play"
+          :planed="item.planed"
+          :paused="item.paused"
+          :success="item.success"
+          :text="item.text"
+          :right-text="item.rightText"
+        />
+      </template>
+      <template v-else>
+        <div class="status-item pa-2 px-3">
+          <div>
+            <div v-vl-align:center>
+              <vl-loader message="Even geduld." />
+            </div>
+          </div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -39,28 +50,37 @@ export default Vue.extend({
       type: Array,
       required: false,
     },
+    loading: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  mounted() {
+    this.loaded = true;
+  },
+  data() {
+    return {
+      loaded: false,
+      contentLoading: true,
+      content: {
+        items: [] as Array<{
+          play: boolean;
+          paused: boolean;
+          planed: boolean;
+          text: string;
+          rightText: string;
+          success: boolean;
+        }>
+      }
+    }
   },
   computed: {
     prepandIcon(): string {
-      const hasIssues = this.items.map((i: any) => i.success).includes(false);
+      const hasIssues = this.content.items.map((i: any) => i.success).includes(false);
       return hasIssues ? "warning" : "calendar_check";
     },
-    getItems(): {
-      play: boolean;
-      paused: boolean;
-      planed: boolean;
-      text: string;
-      rightText: string;
-      success: boolean;
-    }[] {
-      return (this.items || []) as {
-        play: boolean;
-        paused: boolean;
-        planed: boolean;
-        text: string;
-        rightText: string;
-        success: boolean;
-      }[];
+    getItems(): Array<{play: boolean; paused: boolean; planed: boolean; text: string; rightText: string; success: boolean; }> {
+      return this.content.items;
     },
   },
   watch: {
@@ -68,9 +88,27 @@ export default Vue.extend({
       deep: true,
       immediate: true,
       handler(newVal) {
-        console.log(newVal);
+        if(this.content && newVal) {
+          const data = newVal as {
+            play: boolean;
+            paused: boolean;
+            planed: boolean;
+            text: string;
+            rightText: string;
+            success: boolean;
+          }[];
+          this.content.items.splice(0);
+          this.content.items.push(...data);
+        }
+        
       },
     },
+    loading: {
+      immediate: true,
+      handler(newVal) {
+        this.contentLoading = newVal;
+      }
+    }
   },
 });
 </script>
