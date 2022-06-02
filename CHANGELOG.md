@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/informatievlaanderen/base-registries/compare/v2.1.2...v2.1.3) (2022-06-02)
+
+
+### Bug Fixes
+
+* add loading to status page ([32b9bc4](https://github.com/informatievlaanderen/base-registries/commit/32b9bc4989fc8b09bc3a0496c9bec659cc7083ef))
+
 ## [2.1.2](https://github.com/informatievlaanderen/base-registries/compare/v2.1.1...v2.1.2) (2022-06-01)
 
 
