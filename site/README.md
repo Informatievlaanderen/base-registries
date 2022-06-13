@@ -89,7 +89,7 @@ npm run lint
 | API_VERSION | Basisregistry [public-api][3] version |
 | SITE_VERSION | Version of this base-registry site |
 | API_ENDPOINT | Basisregistry [public-api][3] endpoint |
-| BRANCH_CONTENT | Git branch name of [markdown content](https://github.com/Informatievlaanderen/base-registries-content) [`main`, `tst`, `stg`, `prd`]
+| BRANCH_CONTENT | Git branch name of [markdown content](https://github.com/Informatievlaanderen/base-registries-content) [`main`, `dev`, `stg`, `prd`]
 
 | Build args | Description |
 |----------------------|-------------|

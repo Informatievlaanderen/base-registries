@@ -1,5 +1,8 @@
 <template>
     <div>
-        <router-view @updateStatus="(args) => $emit('updateStatus', args)" />
+        <router-view
+            @pageLoaded="(args) => $emit('pageLoaded', args)"
+            @updateStatus="(args) => $emit('updateStatus', args)"
+        />
     </div>
 </template>

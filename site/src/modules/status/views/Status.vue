@@ -54,6 +54,8 @@ import StatusCategory from "../components/StatusCategory.vue";
 import { PublicApiClient } from "../../../services/public-api-client";
 
 export default Vue.extend({
+  localeName: "status",
+  hasMarkdown: false,
   components: {
     "vl-status-category": StatusCategory,
   },

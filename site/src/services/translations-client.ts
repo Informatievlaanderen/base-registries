@@ -27,8 +27,8 @@ export const TranslationClient = {
         const path = `/assets/locales/${lang}/faq/topics/${file}.md`;
         return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
     },
-    getImplementationModelMarkdown: async (register: ImplementationModelType) => {
-        const path = `/assets/oslo/doc/implementatiemodel/${register}/ontwerpstandaard/2022-05-31/index_nl.html`;
+    getImplementationModelMarkdown: async (register: ImplementationModelType, versionDate: String) => {
+        const path = `/assets/oslo/doc/implementatiemodel/${register}/ontwerpstandaard/${versionDate}/index_nl.html`;
         return (await apiClient.get<string>(path, undefined, { "Content-Type": "text/markdown", "Cache-Control": "no-store" })).data;
     },
     getGithubRepos: async (type: opensourceType) => {

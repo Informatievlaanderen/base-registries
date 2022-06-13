@@ -92,6 +92,17 @@ const proxyApiV2 = {
   },
 }
 
+const proxyDocs = {
+  "/docs": {
+    target: "https://docs.basisregisters.vlaanderen.be",
+    https: true,
+    changeOrigin: true,
+    Headers: {
+      'Cache-Control': 'no-store',
+    }
+  },
+}
+
 module.exports = defineConfig({
   lintOnSave: false,
   transpileDependencies: true,
@@ -114,7 +125,8 @@ module.exports = defineConfig({
       ...proxyApiV2,
       ...proxyWiki,
       ...osloBlobProxy,
-      ...proxyGithubApi
+      ...proxyGithubApi,
+      ...proxyDocs
     }
   }
 });

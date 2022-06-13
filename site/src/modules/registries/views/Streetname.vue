@@ -49,6 +49,10 @@ import { TranslationClient } from "../../../services/translations-client";
 
 export default Vue.extend({
   created() {
+    const redirectUrl = this.$l("registries.streetname.redirect.url");
+    if(redirectUrl) {
+      this.$router.push(redirectUrl);
+    }
     this.$emit("updateStatus", false);
   },
   async mounted() {

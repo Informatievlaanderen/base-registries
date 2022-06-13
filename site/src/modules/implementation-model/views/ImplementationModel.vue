@@ -7,29 +7,29 @@
             <vl-column width="9" width-s="12">
               <vl-link :to="$l('backButtons.home.url')" mod-bold v-l="`backButtons.home.text`" />
               <header>
-                <y-markdown v-if="loaded" :src="header" />
+                <y-markdown v-if="$data.markdownLoaded" :src="$data.header" />
               </header>
             </vl-column>
 
             <vl-column>
               <vl-grid mod-stacked>
-                <vl-column :width="`${sidebar.urls > 0 ? 8 : 12}`" width-s="12">
+                <vl-column :width="`${$data.sidebar.urls > 0 ? 8 : 12}`" width-s="12">
                   <vl-grid mod-stacked>
                     <vl-column>
                       <vl-typography>
-                        <y-markdown v-if="loaded" :src="content" />
+                        <y-markdown v-if="$data.markdownLoaded" :src="$data.content" />
                       </vl-typography>
                     </vl-column>
-                    <vl-column v-for="item in doormatItems" :key="item.url" width="6" width-s="12">
+                    <vl-column v-for="item in $data.doormatItems" :key="item.url" width="6" width-s="12">
                       <vl-doormat :title="item.title" :href="item.url" mod-alt />
                     </vl-column>
                   </vl-grid>
                 </vl-column>
-                <vl-column v-if="sidebar.urls > 0" width="3" push="1" push-m="reset" width-s="12">
+                <vl-column v-if="$data.sidebar.urls > 0" width="3" push="1" push-m="reset" width-s="12">
                   <aside v-vl-sticky="{ top: '120px', left: '0' }">
-                    <vl-side-navigation :title="$l(`implementationmodel.sidebar.title`)">
+                    <vl-side-navigation :title="$l(`${$options.localeName}.sidebar.title`)">
                       <vl-side-navigation-list>
-                        <template v-for="item in sidebar.urls">
+                        <template v-for="item in $data.sidebar.urls">
                           <vl-side-navigation-item :key="item.url" :href="item.url" :text="item.title" />
                         </template>
                       </vl-side-navigation-list>
@@ -48,37 +48,10 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { TranslationClient } from "../../../services/translations-client";
 
 export default Vue.extend({
-  created() {
-    this.$emit("updateStatus", false);
-  },
-  async mounted() {
-    this.loaded = false;
-    this.header = await TranslationClient.getPageMarkdownHeader("nl", "implementationmodel");
-    this.content = await TranslationClient.getPageMarkdownContent("nl", "implementationmodel");
-    this.loaded = true;
-    this.$emit("updateStatus", true);
-  },
-  data() {
-    return {
-      loaded: false as boolean,
-      header: "" as string,
-      content: "" as string,
-    };
-  },
-  computed: {
-    doormatItems(): { title: string; url: string }[] {
-      const items = this.$l("implementationmodel.doormatItems");
-      return items as { title: string; url: string }[];
-    },
-    sidebar(): { title: string; urls: { title: string; url: string }[] } | undefined {
-      const items = this.$l("implementationmodel.sidebar.items");
-      if (!items) return undefined;
-      return items as { title: string; urls: { title: string; url: string }[] };
-    },
-  },
+  localeName: "implementationmodel",
+  hasMarkdown: true
 });
 </script>
 

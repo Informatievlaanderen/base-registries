@@ -1,8 +1,9 @@
 <template>
   <transition name="fade">
     <div v-show="loaded">
-      <vl-header/>
-      <router-view @updateStatus="updateStatus" />
+      <vl-header :prefix="meta.prefix" :title="meta.title"/>
+      <vl-my-content-header :is-home-page="meta.isHomePage" :title="meta.title" :prefix="meta.prefix" />
+      <router-view @updateStatus="updateStatus" @pageLoaded="pageLoaded"/>
       <vl-footer/>
     </div>
   </transition>
@@ -15,11 +16,19 @@ export default Vue.extend({
   data() {
     return {
       loaded: false,
+      meta: {
+        isHomePage: false,
+        title: "",
+        prefix: ""
+      } as any
     }
   },
   methods: {
     updateStatus(e: boolean): void {
       this.loaded = e;
+    },
+    pageLoaded(meta: any) {
+      this.meta = meta;
     }
   }
 });

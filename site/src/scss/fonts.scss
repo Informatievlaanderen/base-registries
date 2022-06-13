@@ -1,0 +1,171 @@
+$vl-font-italic-location: '~@govflanders/vl-ui-core/dist/font/flanders/italic/';
+$vl-font-sans-location: '~@govflanders/vl-ui-core/dist/font/flanders/sans/';
+$vl-font-serif-location: '~@govflanders/vl-ui-core/dist/font/flanders/serif/';
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-sans-location + 'FlandersArtSans-Thin.woff2') format("woff2"),
+        url($vl-font-sans-location + 'FlandersArtSans-Thin.woff') format("woff");
+    font-weight: 100;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-sans-location + 'FlandersArtSans-Light.woff2') format("woff2"),
+        url($vl-font-sans-location + 'FlandersArtSans-Light.woff') format("woff");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-sans-location + 'FlandersArtSans-Regular.woff2') format("woff2"),
+        url($vl-font-sans-location + 'FlandersArtSans-Regular.woff') format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-sans-location + 'FlandersArtSans-Medium.woff2') format("woff2"),
+        url($vl-font-sans-location + 'FlandersArtSans-Medium.woff') format("woff");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-sans-location + 'FlandersArtSans-Bold.woff2') format("woff2"),
+        url($vl-font-sans-location + 'FlandersArtSans-Bold.woff') format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-sans-location + 'FlandersArtSans-Black.woff2') format("woff2"),
+        url($vl-font-sans-location + 'FlandersArtSans-Black.woff') format("woff");
+    font-weight: 800;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Serif';
+    src: url($vl-font-serif-location + 'FlandersArtSerif-Thin.woff2') format("woff2"),
+        url($vl-font-serif-location + 'FlandersArtSerif-Thin.woff') format("woff");
+    font-weight: 100;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Serif';
+    src: url($vl-font-serif-location + 'FlandersArtSerif-Light.woff2') format("woff2"),
+        url($vl-font-serif-location + 'FlandersArtSerif-Light.woff') format("woff");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Serif';
+    src: url($vl-font-serif-location + 'FlandersArtSerif-Regular.woff2') format("woff2"),
+        url($vl-font-serif-location + 'FlandersArtSerif-Regular.woff') format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Serif';
+    src: url($vl-font-serif-location + 'FlandersArtSerif-Medium.woff2') format("woff2"),
+        url($vl-font-serif-location + 'FlandersArtSerif-Medium.woff') format("woff");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Serif';
+    src: url($vl-font-serif-location + 'FlandersArtSerif-Bold.woff2') format("woff2"),
+        url($vl-font-serif-location + 'FlandersArtSerif-Bold.woff') format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Serif';
+    src: url($vl-font-serif-location + 'FlandersArtSerif-Black.woff2') format("woff2"),
+        url($vl-font-serif-location + 'FlandersArtSerif-Black.woff') format("woff");
+    font-weight: 800;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-italic-location + 'FlandersArtSans-Thin.woff2') format("woff2"),
+        url($vl-font-italic-location + 'FlandersArtSans-Thin.woff') format("woff");
+    font-weight: 100;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-italic-location + 'FlandersArtSans-Light.woff2') format("woff2"),
+        url($vl-font-italic-location + 'FlandersArtSans-Light.woff') format("woff");
+    font-weight: 300;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-italic-location + 'FlandersArtSans-Regular.woff2') format("woff2"),
+        url($vl-font-italic-location + 'FlandersArtSans-Regular.woff') format("woff");
+    font-weight: 400;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-italic-location + 'FlandersArtSans-Medium.woff2') format("woff2"),
+        url($vl-font-italic-location + 'FlandersArtSans-Medium.woff') format("woff");
+    font-weight: 500;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-italic-location + 'FlandersArtSans-Bold.woff2') format("woff2"),
+        url($vl-font-italic-location + 'FlandersArtSans-Bold.woff') format("woff");
+    font-weight: 700;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'Flanders Art Sans';
+    src: url($vl-font-italic-location + 'FlandersArtSans-Black.woff2') format("woff2"),
+        url($vl-font-italic-location + 'FlandersArtSans-Black.woff') format("woff");
+    font-weight: 800;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'vlaanderen-icon';
+    src:
+        url($vl-icon-font-location + 'vlaanderen-icon.ttf') format("ttf"),
+        url($vl-icon-font-location + 'vlaanderen-icon.woff2') format("woff2"),
+        url($vl-icon-font-location + 'vlaanderen-icon.woff') format("woff"),
+        url($vl-icon-font-location + 'vlaanderen-icon.eot') format("eot"),
+        url($vl-icon-font-location + 'vlaanderen-icon.svg') format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'vlaanderen-icon-classic';
+    src:
+        url($vl-icon-font-location + 'vlaanderen-icon-classic.ttf') format("ttf"),
+        url($vl-icon-font-location + 'vlaanderen-icon-classic.woff2') format("woff2"),
+        url($vl-icon-font-location + 'vlaanderen-icon-classic.woff') format("woff"),
+        url($vl-icon-font-location + 'vlaanderen-icon-classic.eot') format("eot"),
+        url($vl-icon-font-location + 'vlaanderen-icon-classic.svg') format("svg");
+    font-weight: normal;
+    font-style: normal;
+}

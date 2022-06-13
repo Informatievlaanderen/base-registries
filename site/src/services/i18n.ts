@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import TranslationClient, { Faq } from "./translations-client";
+import TranslationClient, { Faq, ImplementationModelType } from "./translations-client";
 import { DirectiveBinding } from "vue/types/options";
 import  Util from "./util";
 
@@ -54,11 +54,21 @@ Vue.directive("l", {
     update: (el, binding) => directive(el, binding) 
 });
 Vue.prototype.$l = translate;
+Vue.prototype.localeName = undefined as string | undefined;
+Vue.prototype.hasMarkdown = false;
 declare module "vue/types/vue" {
     interface Vue { 
         $l: (key: string, args?: any) => any;
+        
     }
 }
+declare module 'vue/types/options' {
+    interface ComponentOptions<V extends Vue> {
+      localeName?: string;
+      hasMarkdown?: boolean;
+      implementationModelRegistry?: ImplementationModelType;
+    }
+  }
 
 export default {
     init,

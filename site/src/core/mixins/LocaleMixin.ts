@@ -1,0 +1,152 @@
+import Vue from "vue";
+import { TranslationClient, ImplementationModelType } from "@/services/translations-client";
+import * as i18n from "@/services/i18n";
+
+interface LocalePropertyOptions {
+  title: string,
+  prefix: string,
+  version: string | undefined,
+  redirect: { url: string } | undefined;
+  sidebar: {
+    title: string | undefined;
+    urls: {
+      title: string;
+      url: string;
+    }[];
+  } | undefined,
+  doormatItems: {
+    title: string | undefined;
+    url: string | undefined;
+  }[] | undefined;
+  spotlightItems: {
+    title: string | undefined;
+    subtitle: string | undefined;
+    text: string | undefined;
+    url: string | undefined;
+  }[] | undefined;
+}
+
+export namespace LocaleData {
+  export interface Data {
+    header: string;
+    content: string;
+    markdownLoaded: boolean,
+    spotlightItems: SpotlightItem[];
+    sidebar: Sidebar;
+  }
+
+  export interface SpotlightItem {
+    title: string | undefined;
+    subtitle: string | undefined;
+    text: string | undefined;
+    url: string | undefined;
+  }
+
+  export interface DoormatItem {
+    title: string | undefined;
+    url: string | undefined;
+  }
+  
+  export interface Sidebar {
+    title: string | undefined;
+    urls: { title: string; url: string; }[];
+  }
+}
+
+Vue.mixin(Vue.extend({
+  async created() {
+    if (this.$options.localeName) {
+      this.$emit("updateStatus", false);
+      this.redirect();
+      this.getSpotlightItems();
+      this.getDoormatItems();
+      this.getSidebar();
+      await this.getImplementationModelMarkdown();
+      await this.getMarkdown();
+      this.$emit("updateStatus", true);
+
+      const options = this.getDefaultLocaleOptions();
+      
+      this.$emit("pageLoaded", {
+        isHomePage: this.$options.localeName === "home", 
+        prefix: options?.prefix || 'Basisregisters Vlaanderen', 
+        title: options?.title || this.$options.localeName
+      });
+    }
+  },
+  data() {
+    return {
+      header: "" as string,
+      content: "" as string,
+      implementationModelContent: "" as string,
+      markdownLoaded: false as boolean,
+      spotlightItems: [] as LocaleData.SpotlightItem[],
+      doormatItems: [] as LocaleData.DoormatItem[],
+      sidebar: {} as LocaleData.Sidebar
+    }
+  },
+  computed: {
+    nl() {
+      return i18n.default.translations.nl;
+    },
+  },
+  methods: {
+    async getMarkdown() {
+      if (this.$options.localeName && this.$options.hasMarkdown === true) {
+        TranslationClient.getPageMarkdownHeader("nl", this.$options.localeName)
+        .then(data => this.header = data)
+        .catch(e => this.header = "");
+        
+        TranslationClient.getPageMarkdownContent("nl", this.$options.localeName)
+        .then(data => this.content = data)
+        .catch(e => this.content = "");
+        
+        this.markdownLoaded = true;
+      }
+    },
+    async getImplementationModelMarkdown() {
+      if (this.$options.localeName && this.$options.implementationModelRegistry) {
+        const options = this.getDefaultLocaleOptions();
+        const registry = this.$options.implementationModelRegistry;
+        const version = options?.version || "";
+        TranslationClient.getImplementationModelMarkdown(registry, version)
+        .then(data => this.implementationModelContent = data)
+        .catch(e => this.implementationModelContent = "");
+        this.markdownLoaded = true;
+      }
+    },
+    getSpotlightItems() {
+      const options = this.getDefaultLocaleOptions();
+      if (options && options.spotlightItems) {
+        this.spotlightItems.splice(0);
+        this.spotlightItems.push(...options.spotlightItems);
+      }
+    },
+    getDoormatItems() {
+      const options = this.getDefaultLocaleOptions();
+      if (options && options.doormatItems) {
+        this.doormatItems.splice(0);
+        this.doormatItems.push(...options.doormatItems);
+      }
+    },
+    getSidebar() {
+      const options = this.getDefaultLocaleOptions();
+      if (options && options.sidebar) {
+        this.sidebar = options.sidebar as any;
+      }
+    },
+    getLocaleOptions<T>(): T | undefined {
+      return this.$options.localeName ? this.nl[this.$options.localeName] as T : undefined;
+    },
+    getDefaultLocaleOptions(): LocalePropertyOptions | undefined {
+      return this.getLocaleOptions<LocalePropertyOptions>();
+    },
+    redirect(): void {
+      const options = this.getDefaultLocaleOptions();
+      if (options?.redirect?.url) {
+        this.$router.push(options.redirect.url)
+      }
+    }
+  }
+}));
+
