@@ -1,3 +1,10 @@
+## [2.1.4](https://github.com/informatievlaanderen/base-registries/compare/v2.1.3...v2.1.4) (2022-06-15)
+
+
+### Bug Fixes
+
+* implementationmodel, vue config, fonts ([11fb2d1](https://github.com/informatievlaanderen/base-registries/commit/11fb2d1fafb1ba64ee75b4ab3448d235d7ad6dec))
+
 ## [2.1.3](https://github.com/informatievlaanderen/base-registries/compare/v2.1.2...v2.1.3) (2022-06-02)
 
 
