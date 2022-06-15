@@ -1,3 +1,10 @@
+## [2.1.6](https://github.com/informatievlaanderen/base-registries/compare/v2.1.5...v2.1.6) (2022-06-15)
+
+
+### Bug Fixes
+
+* redirect nginx ([05d0987](https://github.com/informatievlaanderen/base-registries/commit/05d0987627dc50f4666fb98bb1eb8f4014bee95c))
+
 ## [2.1.5](https://github.com/informatievlaanderen/base-registries/compare/v2.1.4...v2.1.5) (2022-06-15)
 
 
