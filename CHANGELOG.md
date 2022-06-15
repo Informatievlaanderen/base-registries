@@ -1,3 +1,10 @@
+## [2.1.9](https://github.com/informatievlaanderen/base-registries/compare/v2.1.8...v2.1.9) (2022-06-15)
+
+
+### Bug Fixes
+
+* status page icon colors ([5e4e0dc](https://github.com/informatievlaanderen/base-registries/commit/5e4e0dcdbc7517aa14ff4d415aa2b8d06a94f9d9))
+
 ## [2.1.8](https://github.com/informatievlaanderen/base-registries/compare/v2.1.7...v2.1.8) (2022-06-15)
 
 
