@@ -1,3 +1,10 @@
+## [2.1.5](https://github.com/informatievlaanderen/base-registries/compare/v2.1.4...v2.1.5) (2022-06-15)
+
+
+### Bug Fixes
+
+* build trigger ([322bbfe](https://github.com/informatievlaanderen/base-registries/commit/322bbfef66d095f47c48f044de7f79e4e448fa8f))
+
 ## [2.1.4](https://github.com/informatievlaanderen/base-registries/compare/v2.1.3...v2.1.4) (2022-06-15)
 
 
