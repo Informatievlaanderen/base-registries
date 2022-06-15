@@ -1,6 +1,7 @@
 import Vue from "vue";
 import { TranslationClient, ImplementationModelType } from "@/services/translations-client";
 import * as i18n from "@/services/i18n";
+import * as env from "@/environment";
 
 interface LocalePropertyOptions {
   title: string,
@@ -123,7 +124,8 @@ Vue.mixin(Vue.extend({
     },
     getSpotlightItems() {
       const options = this.getDefaultLocaleOptions();
-      const BRANCH_CONTENT = process.env.VUE_APP_BRANCH_CONTENT;
+      
+      console.log(env.BRANCH_CONTENT);
       if (options && options.spotlightItems) {
         this.spotlightItems.splice(0);
         options.spotlightItems.forEach(item => {
@@ -131,10 +133,11 @@ Vue.mixin(Vue.extend({
           if (isEnvVar) {
             let url = (<LocaleData.EnvVars>item.url).prd;
             if (
-              BRANCH_CONTENT == "main" ||
-              BRANCH_CONTENT == "dev") {
+              env.BRANCH_CONTENT == "main" ||
+              env.BRANCH_CONTENT == "tst" ||
+              env.BRANCH_CONTENT == "dev") {
               url = (<LocaleData.EnvVars>item.url).dev;
-            } else if (BRANCH_CONTENT == "stg") {
+            } else if (env.BRANCH_CONTENT == "stg") {
               url = (<LocaleData.EnvVars>item.url).stg;
             }
             item.url = url;

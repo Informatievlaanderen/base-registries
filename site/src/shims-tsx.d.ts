@@ -15,6 +15,7 @@ declare global {
     API_ENDPOINT: string;
     API_OLDENDPOINT:string;
     baseRegistriesVersion: string;
+    baseRegistriesBranchContent: string;
   }
 }
 
@@ -23,3 +24,4 @@ window.API_KEY = window.API_KEY || "";
 window.API_VERSION = window.API_VERSION || "";
 window.API_ENDPOINT = window.API_ENDPOINT || "";
 window.API_OLDENDPOINT = window.API_OLDENDPOINT || "";
+window.baseRegistriesBranchContent = window.baseRegistriesBranchContent || process.env.VUE_APP_BRANCH_CONTENT;
