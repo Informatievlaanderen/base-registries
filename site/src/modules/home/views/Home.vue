@@ -13,7 +13,7 @@
                   v-for="item in $data.spotlightItems"
                   :key="item.url"
                 >
-                  <vl-spotlight :title="item.title" :subtitle="item.subtitle" :text="item.text" :to="item.url" />
+                  <vl-spotlight :title="item.title" :subtitle="item.subtitle" :text="item.text" :to="item.url" target="_self" />
                 </vl-column>
                 <vl-column>
                   <vl-typography class="mt-12">

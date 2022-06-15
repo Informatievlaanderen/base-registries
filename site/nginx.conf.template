@@ -73,7 +73,7 @@ server {
     if (${DOLLAR}request_uri ~* "^(.*/)VERSION") {
       break;
     }
-
+    
     # Dont lowercase docs and redirect /docs/ to specific item
     if (${DOLLAR}request_uri ~* "^(.*/)docs/(.*)") {
       return 301 https://docs.${REPLACE_ALIAS_ZONE_NAME}/docs/api-documentation.html#tag/${DOLLAR}2;
@@ -97,10 +97,11 @@ server {
       return 301 https://docs.${REPLACE_ALIAS_ZONE_NAME}/;
     }
 
+    # This is the most stupidest thing I've ever seen
     # Enforce all lowercase
-    if (${DOLLAR}request_uri ~ "[A-Z]") {
-      return 301 https://${DOLLAR}host${DOLLAR}uri_lowercase;
-    }
+    # if (${DOLLAR}request_uri ~ "[A-Z]") {
+    #   return 301 https://${DOLLAR}host${DOLLAR}uri_lowercase;
+    # }
 
     # https://stackoverflow.com/questions/40810219/nginx-301-redirect-with-query-string
     if (${DOLLAR}request_uri ~* "^(.*/)api/(.*)") {
