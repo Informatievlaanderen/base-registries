@@ -1,3 +1,10 @@
+## [2.1.10](https://github.com/informatievlaanderen/base-registries/compare/v2.1.9...v2.1.10) (2022-06-15)
+
+
+### Bug Fixes
+
+* sort status page items asc ([a0eb0ca](https://github.com/informatievlaanderen/base-registries/commit/a0eb0ca4ea32114d2df7d425975e75c25a7cc484))
+
 ## [2.1.9](https://github.com/informatievlaanderen/base-registries/compare/v2.1.8...v2.1.9) (2022-06-15)
 
 
