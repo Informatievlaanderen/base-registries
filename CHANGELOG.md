@@ -1,3 +1,10 @@
+## [2.1.8](https://github.com/informatievlaanderen/base-registries/compare/v2.1.7...v2.1.8) (2022-06-15)
+
+
+### Bug Fixes
+
+* env branch content ([b137bcf](https://github.com/informatievlaanderen/base-registries/commit/b137bcf4d3b00552017db5eb4903f1596ec67c8d))
+
 ## [2.1.7](https://github.com/informatievlaanderen/base-registries/compare/v2.1.6...v2.1.7) (2022-06-15)
 
 
