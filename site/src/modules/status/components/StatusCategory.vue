@@ -9,7 +9,7 @@
     <div class="items pa-2">
       <template v-if="!contentLoading && content">
         <vl-status-item
-          v-for="(item, key) in content.items"
+          v-for="(item, key) in getItems"
           :key="key"
           :play="item.play"
           :planed="item.planed"
@@ -87,7 +87,7 @@ export default Vue.extend({
       return {color:"green"};
     },
     getItems(): Array<{play: boolean; paused: boolean; planed: boolean; text: string; rightText: string; success: boolean; }> {
-      return this.content.items;
+      return this.content.items.sort((a, b) => a.text.localeCompare(b.text));
     },
   },
   watch: {
