@@ -124,8 +124,6 @@ Vue.mixin(Vue.extend({
     },
     getSpotlightItems() {
       const options = this.getDefaultLocaleOptions();
-      
-      console.log(env.BRANCH_CONTENT);
       if (options && options.spotlightItems) {
         this.spotlightItems.splice(0);
         options.spotlightItems.forEach(item => {

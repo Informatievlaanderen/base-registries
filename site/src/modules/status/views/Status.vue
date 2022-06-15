@@ -9,14 +9,14 @@
                 <vl-link :to="$l('backButtons.home.url')" mod-bold v-l="`backButtons.home.text`" />
               </div>
               <header>
-                <y-markdown v-if="loaded" :src="header" />
+                <y-markdown v-if="$data.markdownLoaded" :src="$data.header" />
               </header>
             </div>
 
             <div class="ma-0 pa-0">
               <div class="ma-0 pa-0">
                 <vl-typography>
-                  <y-markdown v-if="loaded" :src="content" />
+                  <y-markdown v-if="$data.markdownLoaded" :src="$data.content" />
                 </vl-typography>
               </div>
               <div class="ma-0 pa-0">
@@ -61,9 +61,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      loaded: true as boolean,
-      header: "" as string,
-      content: "" as string,
       statusItems: {} as { [registry: string]: RegistryItem<any> },
       transformedStatusItems: {} as { [registry: string]: RegistryItem<StatusItem[]> },
       statusTypes: [
@@ -91,27 +88,14 @@ export default Vue.extend({
 
     };
   },
-  created() {
-    this.$emit("updateStatus", false);
-  },
   async mounted() {
     this.init();
-    this.loaded = false;
-    //  this.header = await TranslationClient.getPageMarkdownHeader("nl", "status") || "";
-    //  this.content = await TranslationClient.getPageMarkdownContent("nl", "status") || "";
-    this.loaded = true;
-    this.$emit("updateStatus", true);
   },
   computed: {
     getRegistryIds() {
       const status = this.$l("status.registries");
       return Object.keys(status);
-    },
-    sidebar(): { title: string; urls: { title: string; url: string }[] } | undefined {
-      const items = this.$l("status.sidebar");
-      if (!items) return undefined;
-      return items as { title: string; urls: { title: string; url: string }[] };
-    },
+    }
   },
   methods: {
     async init() {

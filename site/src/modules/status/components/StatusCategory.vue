@@ -2,7 +2,7 @@
   <div v-if="loaded" class="status my-1">
     <div class="status-header pa-2">
       <div class="vl-title vl-title--h6 ma-0 pa-0 status-header-title">
-        <span>{{ title }} <vl-icon v-if="content" :icon="prepandIcon" mod-small /></span>
+        <span>{{ title }} <vl-icon :style="prepandIconColor" mod-large v-if="content" :icon="prepandIcon" mod-small /></span>
       </div>
       <div class="status-header-actions"><vl-button icon="synchronize" mod-icon @click="$emit('refresh')" /></div>
     </div>
@@ -78,6 +78,13 @@ export default Vue.extend({
     prepandIcon(): string {
       const hasIssues = this.content.items.map((i: any) => i.success).includes(false);
       return hasIssues ? "warning" : "calendar_check";
+    },
+    prepandIconColor() {
+      const hasIssues = this.content.items.map((i: any) => i.success).includes(false);
+      if(hasIssues){
+        return {color:"orange"};
+      }
+      return {color:"green"};
     },
     getItems(): Array<{play: boolean; paused: boolean; planed: boolean; text: string; rightText: string; success: boolean; }> {
       return this.content.items;
