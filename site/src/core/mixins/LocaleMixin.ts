@@ -22,7 +22,7 @@ interface LocalePropertyOptions {
     title: string | undefined;
     subtitle: string | undefined;
     text: string | undefined;
-    url: string | undefined;
+    url: string | LocaleData.EnvVars | undefined;
   }[] | undefined;
 }
 
@@ -39,14 +39,20 @@ export namespace LocaleData {
     title: string | undefined;
     subtitle: string | undefined;
     text: string | undefined;
-    url: string | undefined;
+    url: string | EnvVars | undefined;
+  }
+
+  export interface EnvVars {
+    dev: string;
+    stg: string;
+    prd: string;
   }
 
   export interface DoormatItem {
     title: string | undefined;
     url: string | undefined;
   }
-  
+
   export interface Sidebar {
     title: string | undefined;
     urls: { title: string; url: string; }[];
@@ -66,10 +72,10 @@ Vue.mixin(Vue.extend({
       this.$emit("updateStatus", true);
 
       const options = this.getDefaultLocaleOptions();
-      
+
       this.$emit("pageLoaded", {
-        isHomePage: this.$options.localeName === "home", 
-        prefix: options?.prefix || 'Basisregisters Vlaanderen', 
+        isHomePage: this.$options.localeName === "home",
+        prefix: options?.prefix || 'Basisregisters Vlaanderen',
         title: options?.title || this.$options.localeName
       });
     }
@@ -94,13 +100,13 @@ Vue.mixin(Vue.extend({
     async getMarkdown() {
       if (this.$options.localeName && this.$options.hasMarkdown === true) {
         TranslationClient.getPageMarkdownHeader("nl", this.$options.localeName)
-        .then(data => this.header = data)
-        .catch(e => this.header = "");
-        
+          .then(data => this.header = data)
+          .catch(e => this.header = "");
+
         TranslationClient.getPageMarkdownContent("nl", this.$options.localeName)
-        .then(data => this.content = data)
-        .catch(e => this.content = "");
-        
+          .then(data => this.content = data)
+          .catch(e => this.content = "");
+
         this.markdownLoaded = true;
       }
     },
@@ -110,16 +116,31 @@ Vue.mixin(Vue.extend({
         const registry = this.$options.implementationModelRegistry;
         const version = options?.version || "";
         TranslationClient.getImplementationModelMarkdown(registry, version)
-        .then(data => this.implementationModelContent = data)
-        .catch(e => this.implementationModelContent = "");
+          .then(data => this.implementationModelContent = data)
+          .catch(e => this.implementationModelContent = "");
         this.markdownLoaded = true;
       }
     },
     getSpotlightItems() {
       const options = this.getDefaultLocaleOptions();
+      const BRANCH_CONTENT = process.env.VUE_APP_BRANCH_CONTENT;
       if (options && options.spotlightItems) {
         this.spotlightItems.splice(0);
-        this.spotlightItems.push(...options.spotlightItems);
+        options.spotlightItems.forEach(item => {
+          const isEnvVar = (<LocaleData.EnvVars>item.url)?.dev !== undefined;
+          if (isEnvVar) {
+            let url = (<LocaleData.EnvVars>item.url).prd;
+            if (
+              BRANCH_CONTENT == "main" ||
+              BRANCH_CONTENT == "dev") {
+              url = (<LocaleData.EnvVars>item.url).dev;
+            } else if (BRANCH_CONTENT == "stg") {
+              url = (<LocaleData.EnvVars>item.url).stg;
+            }
+            item.url = url;
+          }
+          this.spotlightItems.push(item);
+        });
       }
     },
     getDoormatItems() {
