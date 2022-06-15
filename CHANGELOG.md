@@ -1,3 +1,10 @@
+## [2.1.7](https://github.com/informatievlaanderen/base-registries/compare/v2.1.6...v2.1.7) (2022-06-15)
+
+
+### Bug Fixes
+
+* link to docs ([c07e8b7](https://github.com/informatievlaanderen/base-registries/commit/c07e8b7fa1d9a5a33d97f42a2c4ae62267893466))
+
 ## [2.1.6](https://github.com/informatievlaanderen/base-registries/compare/v2.1.5...v2.1.6) (2022-06-15)
 
 
