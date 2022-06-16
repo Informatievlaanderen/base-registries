@@ -14,6 +14,9 @@
           :play="item.play"
           :planed="item.planed"
           :paused="item.paused"
+          :stopped="item.stopped"
+          :hide-prepand-icon="item.hidePrepandIcon"
+          :hide-append-icon="item.hideAppendIcon"
           :success="item.success"
           :text="item.text"
           :right-text="item.rightText"
@@ -64,15 +67,7 @@ export default Vue.extend({
       loaded: false,
       contentLoading: true,
       content: {
-        items: [] as Array<{
-          play: boolean;
-          paused: boolean;
-          planed: boolean;
-          text: string;
-          rightText: string;
-          success: boolean;
-          error: { title:string, text:string, inline: boolean } | undefined;
-        }>
+        items: [] as Array<StatusItem>
       }
     }
   },
@@ -82,21 +77,17 @@ export default Vue.extend({
       return hasIssues ? "warning" : "calendar_check";
     },
     prepandIconColor() {
-      const hasIssues = this.content.items.map((i: any) => i.success).includes(false);
-      if(hasIssues){
+      const hasErrors = this.content.items.map((i: StatusItem) => i.error !== undefined && i.error.inline == false).includes(true);
+      const hasWarnings = this.content.items.map((i: any) => i.success).includes(false);
+      if(hasErrors) {
+        return {color:"#aa2729"};
+      }
+      if(hasWarnings){
         return {color:"orange"};
       }
       return {color:"green"};
     },
-    getItems(): Array<{
-      play: boolean; 
-      paused: boolean; 
-      planed: boolean; 
-      text: string; 
-      rightText: string; 
-      success: boolean; 
-      error: { title:string, text:string, inline: boolean } | undefined;
-    }> {
+    getItems(): Array<StatusItem> {
       return this.content.items.sort((a, b) => a.text.localeCompare(b.text));
     },
   },
@@ -106,15 +97,7 @@ export default Vue.extend({
       immediate: true,
       handler(newVal) {
         if(this.content && newVal) {
-          const data = newVal as {
-            play: boolean;
-            paused: boolean;
-            planed: boolean;
-            text: string;
-            rightText: string;
-            success: boolean;
-            error: { title:string, text:string, inline:boolean } | undefined;
-          }[];
+          const data = newVal as StatusItem[];
           this.content.items.splice(0);
           this.content.items.push(...data);
         }
@@ -129,6 +112,20 @@ export default Vue.extend({
     }
   },
 });
+
+interface StatusItem {
+  play: boolean;
+  paused: boolean;
+  planed: boolean;
+  stopped: boolean;
+  hideAppendIcon: boolean;
+  hidePrepandIcon: boolean;
+  text: string;
+  rightText: string;
+  success: boolean;
+  error: { title:string, text:string, inline: boolean } | undefined;
+}
+
 </script>
 
 <style lang="scss" scoped>

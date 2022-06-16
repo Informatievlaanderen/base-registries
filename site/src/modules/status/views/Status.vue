@@ -205,6 +205,8 @@ export default Vue.extend({
               planed: false,
               paused: false,
               play: false,
+              stopped: false,
+              hidePrepandIcon: true,
               text: i.name,
               success: false,
               error: {title: "", text: "Er is iets fout gelopen tijdens het ophalen van de synchronisatie-bron status.", inline: true},
@@ -216,6 +218,9 @@ export default Vue.extend({
           planed: false,
           paused: false,
           play: true,
+          stopped: false,
+          hideAppendIcon: false,
+          hidePrepandIcon: true,
           text: i.name,
           rightText: info.rightText,
           success: info.success,
@@ -246,6 +251,9 @@ export default Vue.extend({
           planed: false,
           paused: false,
           play: false,
+          stopped: !success,
+          hideAppendIcon: false,
+          hidePrepandIcon: true,
           text: i.name,
           rightText,
           success,
@@ -279,8 +287,11 @@ export default Vue.extend({
           const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
           const item: StatusItem = {
             planed: false,
-            paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
+            paused: i.state == "crashed" || i.state == "unknown",
             play: i.state == "catchingUp" || i.state == "subscribed",
+            stopped: i.state == "stopped",
+            hideAppendIcon: false,
+            hidePrepandIcon: false,
             text: i.name,
             rightText: info.rightText,
             success: info.success,
@@ -318,6 +329,9 @@ export default Vue.extend({
           planed: false,
           paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
           play: i.state == "catchingUp" || i.state == "subscribed",
+          stopped: false,
+          hideAppendIcon: false,
+          hidePrepandIcon: false,
           text: i.name,
           rightText: info.rightText,
           success: info.success,
@@ -351,6 +365,9 @@ export default Vue.extend({
           planed: true,
           paused: false,
           play: false,
+          stopped: false,
+          hideAppendIcon: false,
+          hidePrepandIcon: false,
           text: `CRAB import ${name.replace("importer", "")}`,
           rightText: `Laatste wijziging: ${datetime}`,
           success: true,
@@ -402,6 +419,9 @@ interface StatusItem {
   play: boolean;
   paused: boolean;
   planed: boolean;
+  stopped: boolean;
+  hideAppendIcon: boolean;
+  hidePrepandIcon: boolean;
   text: string;
   rightText: string;
   success: boolean;

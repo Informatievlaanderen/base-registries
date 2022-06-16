@@ -1,12 +1,12 @@
 <template>
   <div v-if="getError === undefined || getError.inline" class="status-item pa-2 px-3">
-    <div class="left"><vl-icon :icon="prepandIcon" mod-small /></div>
+    <div class="left"><vl-icon v-if="!hidePrepandIcon" :icon="prepandIcon" mod-small /></div>
     <div class="mid pl-3"><vl-typography>{{text}}</vl-typography></div>
     <div class="right">
       <span class="vl-alert--error pa-2 mr-1 inline-error" v-if="getError">
         {{ getError.text }}
       </span>
-      <span>{{rightText}} <vl-icon  :style="appendIconColor" :icon="appendIcon" mod-large/></span>
+      <span>{{rightText}} <vl-icon v-if="!hideAppendIcon" :style="appendIconColor" :icon="appendIcon" mod-large/></span>
     </div>
   </div>
   <div v-else>
@@ -30,6 +30,18 @@ export default Vue.extend({
       default: false,
     },
     paused: {
+      type: Boolean,
+      default: false,
+    },
+    stopped: {
+      type: Boolean,
+      default: false,
+    },
+    hideAppendIcon: {
+      type: Boolean,
+      default: false,
+    },
+    hidePrepandIcon: {
       type: Boolean,
       default: false,
     },
@@ -69,7 +81,7 @@ export default Vue.extend({
       if(this.success){
         return "calendar_check";
       }
-      if (this.play || this.planed) {
+      if (this.play || this.planed || this.stopped) {
         return "warning";
       }
       return "question-mark"
@@ -79,7 +91,7 @@ export default Vue.extend({
         return {color:"green"};
       }
       
-      if (this.play || this.planed) {
+      if (this.play || this.planed || this.stopped) {
         return {color:"orange"};
       }
 
