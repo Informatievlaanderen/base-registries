@@ -1,3 +1,10 @@
+## [2.1.11](https://github.com/informatievlaanderen/base-registries/compare/v2.1.10...v2.1.11) (2022-06-16)
+
+
+### Bug Fixes
+
+* status page add vl-alerts for errors ([b9c0c52](https://github.com/informatievlaanderen/base-registries/commit/b9c0c5204372c4c29df6b21b5d650b0c179fc5f4))
+
 ## [2.1.10](https://github.com/informatievlaanderen/base-registries/compare/v2.1.9...v2.1.10) (2022-06-15)
 
 
