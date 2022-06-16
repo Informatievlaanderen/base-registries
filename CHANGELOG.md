@@ -1,3 +1,10 @@
+## [2.1.15](https://github.com/informatievlaanderen/base-registries/compare/v2.1.14...v2.1.15) (2022-06-16)
+
+
+### Bug Fixes
+
+* add anchor margin ([70ea7a1](https://github.com/informatievlaanderen/base-registries/commit/70ea7a1b61ed596a5a6de96c57387a3223921167))
+
 ## [2.1.14](https://github.com/informatievlaanderen/base-registries/compare/v2.1.13...v2.1.14) (2022-06-16)
 
 
