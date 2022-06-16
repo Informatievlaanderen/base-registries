@@ -141,21 +141,41 @@ export default Vue.extend({
       }
 
       if (statusType === "feed") {
-        ret.push(...this.getFeedItems(statusType, data));
+        try {
+          ret.push(...this.getFeedItems(statusType, data));
+        } catch(e) {
+          ret.push({ success:false, error: e } as StatusItem);
+        }
       }
       if (statusType === "import") {
-        ret.push(...this.getImportItems(statusType, data));
+        try {
+          ret.push(...this.getImportItems(statusType, data));
+        } catch(e) {
+          ret.push({ success:false, error: e } as StatusItem);
+        }
       }
       if (statusType === "projections") {
-        ret.push(...this.getProjectionItems(statusType, data));
+        try {
+          ret.push(...this.getProjectionItems(statusType, data));
+        } catch(e) {
+          ret.push({ success:false, error: e } as StatusItem);
+        }
       }
       if (statusType === "cache") {
-        ret.push(...this.getCacheItems(statusType, data));
+        try {
+          ret.push(...this.getCacheItems(statusType, data));
+        } catch(e) {
+          ret.push({ success:false, error: e } as StatusItem);
+        }
       }
       if (statusType === "syndication") {
-        const syndication = this.getSyndicationItems(statusType, data);
-        if(syndication) {
-          ret.push(...syndication);
+        try {
+          const syndication = this.getSyndicationItems(statusType, data);
+          if(syndication) {
+            ret.push(...syndication);
+          }
+        } catch(e) {
+          ret.push({ success:false, error: e } as StatusItem);
         }
       }
       return ret;
@@ -168,11 +188,32 @@ export default Vue.extend({
         }>
       } | null | undefined;
 
+      if (!syndicationResponse) {
+        throw {
+          title:"Register synchronisatie status ophalen is mislukt",
+          text:"Er is iets fout gelopen tijdens het ophalen van de status van de register synchronisatie. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
+
       const projectionsResponse = this.statusItems;
       const items = syndicationResponse && syndicationResponse.syndications
       .map((i) => {
         const registry = i.name.toLowerCase().replace("addresslink","").replace("unit", "").replace("postalinfo", "postal");
-        const p = (projectionsResponse[registry] as any || {}) as {projections: {streamPosition: number } | undefined};
+        const p = (projectionsResponse[registry] as any) as {projections: {streamPosition: number } | undefined | null };
+        if(i.name=="parcelAddressLink"){
+          console.log(p);
+        }
+        if (!p.projections) {
+            return {
+              planed: false,
+              paused: false,
+              play: false,
+              text: i.name,
+              success: false,
+              error: {title: "", text: "Er is iets fout gelopen tijdens het ophalen van de synchronisatie-bron status.", inline: true},
+          }as StatusItem;
+        }
         let streamPosition = p.projections && p.projections.streamPosition;
         const percentage = i.currentPosition / (streamPosition || 0) * 100;
         const success = percentage.toFixed(5) == "100.00000";
@@ -183,18 +224,26 @@ export default Vue.extend({
           text: i.name,
           rightText: `${percentage.toLocaleString("nl-BE")}%`,
           success,
+          error: undefined,
         };
         return item;
       });
       return items;
     },
     getCacheItems(statusType: StatusType, data: any) {
-      const projectionResponse = (data[statusType] || []) as Array<{
+      const cacheResponse = (data[statusType]) as Array<{
           name: string,
           numberOfRecordsToProcess: number,
-        }>;
+        }> | null | undefined;
 
-      const items = projectionResponse
+      if (!cacheResponse) {
+        throw {
+          title: "Cache status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de cache. Probeer het later opnieuw.",
+          inline: false,
+        }
+      }
+      const items = cacheResponse
       .map((i) => {
         const success = i.numberOfRecordsToProcess == 0;
         const rightText = success ? "" : `Aantal niet gecachte objecten: ${i.numberOfRecordsToProcess}`
@@ -205,13 +254,14 @@ export default Vue.extend({
           text: i.name,
           rightText,
           success,
+          error: undefined,
         };
         return item;
       });
       return items;
     },
     getProjectionItems(statusType: StatusType, data: any) {
-      const projectionResponse = (data[statusType] || {}) as {
+      const projectionResponse = (data[statusType]) as {
         projections: Array<{
           key: string,
           name: string,
@@ -219,27 +269,35 @@ export default Vue.extend({
           currentPosition: number,
         }>,
         streamPosition: number,
-      };
-
-      const items = projectionResponse.projections
+      } | null | undefined;
+      if (projectionResponse === null || projectionResponse === undefined) {
+        throw {
+          title: "Projecties status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de projecties. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
+      
+      const items = projectionResponse?.projections
       .filter(i => !i.name.includes("Feed endpoint "))
       .map((i) => {
-        
-        const percentage = i.currentPosition / projectionResponse.streamPosition * 100;
-        const item: StatusItem = {
-          planed: false,
-          paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
-          play: i.state == "catchingUp" || i.state == "subscribed",
-          text: i.name,
-          rightText: `${percentage.toLocaleString("nl-BE")}%`,
-          success: percentage == 100,
-        };
-        return item;
-      });
+          const percentage = i.currentPosition / projectionResponse.streamPosition * 100;
+          const item: StatusItem = {
+            planed: false,
+            paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
+            play: i.state == "catchingUp" || i.state == "subscribed",
+            text: i.name,
+            rightText: `${percentage.toLocaleString("nl-BE")}%`,
+            success: percentage == 100,
+          error: undefined,
+          };
+          return item;
+        });
       return items;
     },
     getFeedItems(statusType: StatusType, data: any) {
-      const projectionResponse = (data[statusType] || {}) as {
+      const projectionResponse = (data[statusType]) as (
+      {
         projections: Array<{
           key: string,
           name: string,
@@ -247,7 +305,15 @@ export default Vue.extend({
           currentPosition: number,
         }>,
         streamPosition: number,
-      };
+      } | null | undefined );
+
+      if (!projectionResponse) {
+        throw {
+          title: "Feed status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de feed. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
 
       const items = projectionResponse.projections
       .filter(i => i.name.includes("Feed endpoint "))
@@ -261,17 +327,27 @@ export default Vue.extend({
           text: i.name,
           rightText: `${percentage.toLocaleString("nl-BE")}%`,
           success: percentage == 100,
+          error: undefined,
         };
         return item;
       });
       return items;
     },
     getImportItems(statusType: StatusType, data: any) {
-      const imports = (data[statusType] || {}) as Array<{
+      const imports = (data[statusType]) as Array<{
         currentImport: any;
         name: string;
         lastCompletedImport: { from: Date; until: string };
-      }>;
+      }> | null |  undefined;
+
+      if (!imports) {
+        throw {
+          title:"Import status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de import. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
+
       const items = imports.map((i) => {
         const fullname = i.name.split(".");
         const name = fullname[fullname.length - 1];
@@ -284,6 +360,7 @@ export default Vue.extend({
           text: `CRAB import ${name.replace("importer", "")}`,
           rightText: `Laatste wijziging: ${datetime}`,
           success: true,
+          error: undefined,
         };
         return item;
       });
@@ -309,5 +386,6 @@ interface StatusItem {
   text: string;
   rightText: string;
   success: boolean;
+  error: { title:string, text:string, inline: boolean } | undefined;
 }
 </script>

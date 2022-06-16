@@ -17,6 +17,7 @@
           :success="item.success"
           :text="item.text"
           :right-text="item.rightText"
+          :error="item.error"
         />
       </template>
       <template v-else>
@@ -70,6 +71,7 @@ export default Vue.extend({
           text: string;
           rightText: string;
           success: boolean;
+          error: { title:string, text:string, inline: boolean } | undefined;
         }>
       }
     }
@@ -86,7 +88,15 @@ export default Vue.extend({
       }
       return {color:"green"};
     },
-    getItems(): Array<{play: boolean; paused: boolean; planed: boolean; text: string; rightText: string; success: boolean; }> {
+    getItems(): Array<{
+      play: boolean; 
+      paused: boolean; 
+      planed: boolean; 
+      text: string; 
+      rightText: string; 
+      success: boolean; 
+      error: { title:string, text:string, inline: boolean } | undefined;
+    }> {
       return this.content.items.sort((a, b) => a.text.localeCompare(b.text));
     },
   },
@@ -103,6 +113,7 @@ export default Vue.extend({
             text: string;
             rightText: string;
             success: boolean;
+            error: { title:string, text:string, inline:boolean } | undefined;
           }[];
           this.content.items.splice(0);
           this.content.items.push(...data);

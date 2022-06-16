@@ -1,8 +1,21 @@
 <template>
-  <div class="status-item pa-2 px-3">
+  <div v-if="getError === undefined || getError.inline" class="status-item pa-2 px-3">
     <div class="left"><vl-icon :icon="prepandIcon" mod-small /></div>
     <div class="mid pl-3"><vl-typography>{{text}}</vl-typography></div>
-    <div class="right"><span>{{rightText}} <vl-icon  :style="appendIconColor" :icon="appendIcon" mod-large/></span></div>
+    <div class="right">
+      <span class="vl-alert--error pa-2 mr-1 inline-error" v-if="getError">
+        {{ getError.text }}
+      </span>
+      <span>{{rightText}} <vl-icon  :style="appendIconColor" :icon="appendIcon" mod-large/></span>
+    </div>
+  </div>
+  <div v-else>
+    <vl-alert
+        icon="warning"
+        :title="error.title"
+        :content="error.text"
+        mod-error
+        role="alertdialog" />
   </div>
 </template>
 
@@ -35,6 +48,11 @@ export default Vue.extend({
     success: {
       type: Boolean,
       default: false,
+    },
+    error: {
+      type: Object,
+      default: undefined,
+      required: false,
     }
   },
   computed: {
@@ -66,6 +84,9 @@ export default Vue.extend({
       }
 
       return {color:"red"};
+    },
+    getError(): {title:string, text:string, inline: boolean} | undefined {
+      return this.error as {title:string, text:string, inline: boolean} | undefined;
     }
   }
 });
@@ -91,6 +112,10 @@ export default Vue.extend({
   .right {
     flex-grow: 1;
     text-align: right;
+  }
+
+  .inline-error {
+    border: 1px solid #edafb1;
   }
 }
 
