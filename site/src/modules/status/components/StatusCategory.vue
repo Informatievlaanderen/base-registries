@@ -1,12 +1,12 @@
 <template>
   <div v-if="loaded" class="status my-1">
-    <div class="status-header pa-2">
+    <div class="status-header px-3 py-4">
       <div class="vl-title vl-title--h6 ma-0 pa-0 status-header-title">
         <span>{{ title }} <vl-icon :style="prepandIconColor" mod-large v-if="content" :icon="prepandIcon" mod-small /></span>
       </div>
       <div class="status-header-actions"><vl-button icon="synchronize" mod-icon @click="$emit('refresh')" /></div>
     </div>
-    <div class="items pa-2">
+    <div class="items px-3 py-4">
       <template v-if="!contentLoading && content">
         <vl-status-item
           v-for="(item, key) in getItems"
@@ -21,7 +21,7 @@
         />
       </template>
       <template v-else>
-        <div class="status-item pa-2 px-3">
+        <div class="status-item px-3 py-4 px-3">
           <div>
             <div v-vl-align:center>
               <vl-loader message="Even geduld." />

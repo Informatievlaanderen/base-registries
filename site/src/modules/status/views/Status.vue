@@ -30,7 +30,7 @@
                         $l(`status.registries.${registry}.${statusType.name}`)
                       "
                       :loading="!statusType.loaded"
-                      :title="statusType.name"
+                      :title="getCategoryTitle(statusType.name)"
                       :items="transformedStatusItems && transformedStatusItems[registry] && transformedStatusItems[registry] && transformedStatusItems[registry][statusType.name] || []"
                       class="ma-0 pa-0"
                       @refresh="refresh(statusType.name)"
@@ -363,6 +363,16 @@ export default Vue.extend({
       });
       return items;
     },
+    getCategoryTitle(statusType: StatusType): string {
+      const names = {
+        projections: "Projecties",
+        feed: "Feed",
+        cache: "Cache",
+        import: "Import",
+        syndication: "Register synchronisatie"
+      };
+      return (<string>(<any>names)[statusType]);
+    }
   },
 });
 
