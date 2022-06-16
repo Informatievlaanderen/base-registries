@@ -201,9 +201,6 @@ export default Vue.extend({
       .map((i) => {
         const registry = i.name.toLowerCase().replace("addresslink","").replace("unit", "").replace("postalinfo", "postal");
         const p = (projectionsResponse[registry] as any) as {projections: {streamPosition: number } | undefined | null };
-        if(i.name=="parcelAddressLink"){
-          console.log(p);
-        }
         if (!p.projections) {
             return {
               planed: false,

@@ -49,7 +49,6 @@ export const TranslationClient = {
                     page++;
                     cacheGithubApiReposResponse.push(...ret);
                 } catch (e) {
-                    console.log(e);
                     break;
                 }
             }
