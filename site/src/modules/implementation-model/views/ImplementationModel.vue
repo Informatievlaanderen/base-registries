@@ -57,7 +57,7 @@ export default Vue.extend({
 
 <style lang="scss">
 div.implementation-model {
-  h2 {
+  h2, a, p {
     scroll-margin: 60px;
   }
 }
