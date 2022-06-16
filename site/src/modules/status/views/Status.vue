@@ -49,7 +49,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-// import RegistryStatus from '../components/RegistryStatus.vue';
 import StatusCategory from "../components/StatusCategory.vue";
 import { PublicApiClient } from "../../../services/public-api-client";
 
@@ -212,15 +211,14 @@ export default Vue.extend({
           }as StatusItem;
         }
         let streamPosition = p.projections && p.projections.streamPosition;
-        const percentage = i.currentPosition / (streamPosition || 0) * 100;
-        const success = percentage.toFixed(5) == "100.00000";
+        const info = this.getRightTextInfo(i.currentPosition, (streamPosition || 0));
         const item: StatusItem = {
           planed: false,
           paused: false,
           play: true,
           text: i.name,
-          rightText: `${percentage.toLocaleString("nl-BE")}%`,
-          success,
+          rightText: info.rightText,
+          success: info.success,
           error: undefined,
         };
         return item;
@@ -278,14 +276,14 @@ export default Vue.extend({
       const items = projectionResponse?.projections
       .filter(i => !i.name.includes("Feed endpoint "))
       .map((i) => {
-          const percentage = i.currentPosition / projectionResponse.streamPosition * 100;
+          const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
           const item: StatusItem = {
             planed: false,
             paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
             play: i.state == "catchingUp" || i.state == "subscribed",
             text: i.name,
-            rightText: `${percentage.toLocaleString("nl-BE")}%`,
-            success: percentage == 100,
+            rightText: info.rightText,
+            success: info.success,
           error: undefined,
           };
           return item;
@@ -315,15 +313,15 @@ export default Vue.extend({
       const items = projectionResponse.projections
       .filter(i => i.name.includes("Feed endpoint "))
       .map((i) => {
-        
-        const percentage = i.currentPosition / projectionResponse.streamPosition * 100;
+        const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
+        console.log(i.state == "stopped" || i.state == "crashed" || i.state == "unknown")
         const item: StatusItem = {
           planed: false,
           paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
           play: i.state == "catchingUp" || i.state == "subscribed",
           text: i.name,
-          rightText: `${percentage.toLocaleString("nl-BE")}%`,
-          success: percentage == 100,
+          rightText: info.rightText,
+          success: info.success,
           error: undefined,
         };
         return item;
@@ -372,6 +370,21 @@ export default Vue.extend({
         syndication: "Register synchronisatie"
       };
       return (<string>(<any>names)[statusType]);
+    },
+    getRightTextInfo(currentPosition: number, desiredPosition: number) {
+        const percentage = currentPosition / desiredPosition * 100.0;
+        const percentageWith2Decimals = Number.parseFloat(percentage.toFixed(2));
+        let ret = {success: false, rightText: ""};
+        if(percentageWith2Decimals == 100.00) {
+          ret.success = true;
+          ret.rightText = "100%";
+        } else if(percentageWith2Decimals <= 94.99) {
+          ret.rightText = `${percentageWith2Decimals.toLocaleString("nl-BE")}%`;
+        } else if(percentageWith2Decimals > 94.99 && percentageWith2Decimals <= 99.99 ) {
+          var formatter  = new Intl.NumberFormat("nl-BE");
+          ret.rightText = `${formatter.format(currentPosition)} /  ${formatter.format(desiredPosition)}`;
+        }
+        return ret;
     }
   },
 });

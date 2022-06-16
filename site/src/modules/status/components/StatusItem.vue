@@ -62,8 +62,8 @@ export default Vue.extend({
       if(this.play)
         return "play";
       else if(this.paused) 
-        return "paused";
-      return "stopped"
+        return "pause";
+      return "stop"
     },
     appendIcon(): string {
       if(this.success){
