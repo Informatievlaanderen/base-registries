@@ -1,3 +1,10 @@
+## [2.1.17](https://github.com/informatievlaanderen/base-registries/compare/v2.1.16...v2.1.17) (2022-06-16)
+
+
+### Bug Fixes
+
+* status pagina icons visibility and color ([a828cfc](https://github.com/informatievlaanderen/base-registries/commit/a828cfce6ded16f8a801f3b00a0ab76ff061e333))
+
 ## [2.1.16](https://github.com/informatievlaanderen/base-registries/compare/v2.1.15...v2.1.16) (2022-06-16)
 
 
