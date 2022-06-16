@@ -1,3 +1,10 @@
+## [2.1.16](https://github.com/informatievlaanderen/base-registries/compare/v2.1.15...v2.1.16) (2022-06-16)
+
+
+### Bug Fixes
+
+* markdown: anchor tags should target self ([134da08](https://github.com/informatievlaanderen/base-registries/commit/134da0827e4419deb77fb1d4a608674b003a5335))
+
 ## [2.1.15](https://github.com/informatievlaanderen/base-registries/compare/v2.1.14...v2.1.15) (2022-06-16)
 
 
