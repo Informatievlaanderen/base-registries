@@ -72,7 +72,7 @@ export default Vue.extend({
       if (this.play || this.planed) {
         return "warning";
       }
-      return "alert-circle-filled"
+      return "question-mark"
     },
     appendIconColor() {
       if(this.success){
@@ -83,7 +83,7 @@ export default Vue.extend({
         return {color:"orange"};
       }
 
-      return {color:"red"};
+      return {color:"black"};
     },
     getError(): {title:string, text:string, inline: boolean} | undefined {
       return this.error as {title:string, text:string, inline: boolean} | undefined;
