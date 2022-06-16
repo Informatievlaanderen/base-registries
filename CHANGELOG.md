@@ -1,3 +1,10 @@
+## [2.1.14](https://github.com/informatievlaanderen/base-registries/compare/v2.1.13...v2.1.14) (2022-06-16)
+
+
+### Bug Fixes
+
+* remove console log ([be5d320](https://github.com/informatievlaanderen/base-registries/commit/be5d3200081938c656dba7176e85916f37ebd106))
+
 ## [2.1.13](https://github.com/informatievlaanderen/base-registries/compare/v2.1.12...v2.1.13) (2022-06-16)
 
 
