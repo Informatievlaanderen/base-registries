@@ -54,7 +54,7 @@ import { PublicApiClient } from "../../../services/public-api-client";
 
 export default Vue.extend({
   localeName: "status",
-  hasMarkdown: false,
+  hasMarkdown: true,
   components: {
     "vl-status-category": StatusCategory,
   },
@@ -314,7 +314,6 @@ export default Vue.extend({
       .filter(i => i.name.includes("Feed endpoint "))
       .map((i) => {
         const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
-        console.log(i.state == "stopped" || i.state == "crashed" || i.state == "unknown")
         const item: StatusItem = {
           planed: false,
           paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
