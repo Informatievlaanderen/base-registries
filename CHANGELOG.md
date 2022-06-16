@@ -1,3 +1,10 @@
+## [2.1.13](https://github.com/informatievlaanderen/base-registries/compare/v2.1.12...v2.1.13) (2022-06-16)
+
+
+### Bug Fixes
+
+* right text, icon status-item ([3670580](https://github.com/informatievlaanderen/base-registries/commit/3670580ff99b386cf720626301abea86d881b63c))
+
 ## [2.1.12](https://github.com/informatievlaanderen/base-registries/compare/v2.1.11...v2.1.12) (2022-06-16)
 
 
