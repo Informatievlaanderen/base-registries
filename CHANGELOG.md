@@ -1,3 +1,12 @@
+## [2.1.12](https://github.com/informatievlaanderen/base-registries/compare/v2.1.11...v2.1.12) (2022-06-16)
+
+
+### Bug Fixes
+
+* change red warning icon to black question mark ([eb50538](https://github.com/informatievlaanderen/base-registries/commit/eb50538bb421790e3eda49b18e55d9277948a92b))
+* remove console logs ([39d6c9f](https://github.com/informatievlaanderen/base-registries/commit/39d6c9fd24dd7abbd18b7c5e1d9fc89ef4f2173e))
+* status page translate titles to dutch ([e35e267](https://github.com/informatievlaanderen/base-registries/commit/e35e2677180d6898616138df33712cbc5debefdc))
+
 ## [2.1.11](https://github.com/informatievlaanderen/base-registries/compare/v2.1.10...v2.1.11) (2022-06-16)
 
 
