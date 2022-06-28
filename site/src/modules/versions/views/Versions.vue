@@ -84,7 +84,14 @@ export default Vue.extend({
   computed: {
     getComponents(): string[] {
       const components = Object.keys(this.versions && this.versions.components) as string[];
-      return components;
+      const mappedComponents = components.map(i => {
+        return {
+          key: i,
+          title: this.$l(`versions.${i}.title`),
+        };
+      });
+      
+      return mappedComponents.sort((a, b) => a.title.localeCompare(b.title)).map(i => i.key);
     },
   },
   methods: {
