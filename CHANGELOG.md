@@ -1,3 +1,10 @@
+## [2.1.20](https://github.com/informatievlaanderen/base-registries/compare/v2.1.19...v2.1.20) (2022-06-28)
+
+
+### Bug Fixes
+
+* version page sort cards ([b68b373](https://github.com/informatievlaanderen/base-registries/commit/b68b373994991f5a4d6bdf72cd8b385e210459c5))
+
 ## [2.1.19](https://github.com/informatievlaanderen/base-registries/compare/v2.1.18...v2.1.19) (2022-06-28)
 
 
