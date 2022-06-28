@@ -1,3 +1,10 @@
+## [2.1.19](https://github.com/informatievlaanderen/base-registries/compare/v2.1.18...v2.1.19) (2022-06-28)
+
+
+### Bug Fixes
+
+* status page feed percentage ([8100d5f](https://github.com/informatievlaanderen/base-registries/commit/8100d5faf4bd3552ccfeb0d89b55266e63799fbc))
+
 ## [2.1.18](https://github.com/informatievlaanderen/base-registries/compare/v2.1.17...v2.1.18) (2022-06-28)
 
 
