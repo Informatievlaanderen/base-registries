@@ -1,7 +1,27 @@
 <template>
   <div v-if="getError === undefined || getError.inline" class="status-item pa-2 px-3">
-    <div class="left"><vl-icon v-if="!hidePrepandIcon" :icon="prepandIcon" mod-small /></div>
-    <div class="mid pl-3"><vl-typography>{{text}}</vl-typography></div>
+    <div 
+      class="left --tooltip --tooltip-bottom" 
+      :data-content="prepandHoverText"
+    >
+      <vl-icon 
+        v-if="!hidePrepandIcon"
+        :icon="prepandIcon"
+        mod-small
+      />
+    </div>
+    <div class="mid pl-3">
+      <vl-typography>
+        <template v-if="disableHoverText">
+          <span>{{text}}</span>
+        </template>
+        <template v-else>
+          <span :data-content="hoverText || prepandHoverText" class="--tooltip --tooltip-bottom">
+            {{text}}
+          </span>
+        </template>
+      </vl-typography>
+    </div>
     <div class="right">
       <span class="vl-alert--error pa-2 mr-1 inline-error" v-if="getError">
         {{ getError.text }}
@@ -53,6 +73,14 @@ export default Vue.extend({
       type: String,
       default: "ABC"
     },
+    disableHoverText:{
+      type: Boolean,
+      default: false,
+    },
+    hoverText:{
+      type: String,
+      default: "ABC"
+    },
     rightText: {
       type: String,
       default: ""
@@ -76,6 +104,15 @@ export default Vue.extend({
       else if(this.paused) 
         return "pause";
       return "stop"
+    },
+    prepandHoverText(): string {
+      if(this.planed)
+        return "Gepland";
+      if(this.play)
+        return "Actief";
+      else if(this.paused) 
+        return "Gepauzeerd";
+      return "Stopped"
     },
     appendIcon(): string {
       if(this.success){
@@ -119,6 +156,7 @@ export default Vue.extend({
   
   .mid {
     flex-grow: 4;
+    text-transform: full-width;
   }
 
   .right {

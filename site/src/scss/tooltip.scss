@@ -1,13 +1,15 @@
 .--tooltip {
     position: relative;
+
 }
 
 .--tooltip::before {
     position: absolute;
     display: none;
     content: " ";
-    background-color: #ffe615;
-    color: #121212;
+    background-color: rgba(255,255,255,0.7);
+    color: #343434;
+    border: 1px solid #333;
     width: 1px;
     height: 1px;
     z-index: 999;
@@ -16,10 +18,10 @@
 .--tooltip::after {
     position: absolute;
     display: none;
-    background-color: #ffe615;
-    color: #121212;
+    background-color:white;
+    color: #343434;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     padding: 6px 18px;
     border-radius: 3px;
     z-index: 999;

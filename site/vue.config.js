@@ -61,10 +61,9 @@ const proxyLocale = {
     }
   },
 }
-
 const proxyApi = {
   "/basisregisters-api/v1/": {
-    target: "https://api.basisregisters.vlaanderen",
+    target: "https://api.basisregisters.dev-vlaanderen.be",
     ws: false,
     https: true,
     changeOrigin: true,
@@ -79,7 +78,7 @@ const proxyApi = {
 
 const proxyApiV2 = {
   "/basisregisters-api/v2/": {
-    target: "https://api.basisregisters.vlaanderen",
+    target: "https://api.basisregisters.dev-vlaanderen.be",
     ws: false,
     https: true,
     changeOrigin: true,

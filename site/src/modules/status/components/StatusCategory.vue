@@ -17,6 +17,8 @@
           :stopped="item.stopped"
           :hide-prepand-icon="item.hidePrepandIcon"
           :hide-append-icon="item.hideAppendIcon"
+          :disable-hover-text="item.disableHoverText"
+          :hover-text="item.hoverText"
           :success="item.success"
           :text="item.text"
           :right-text="item.rightText"
@@ -120,6 +122,9 @@ interface StatusItem {
   stopped: boolean;
   hideAppendIcon: boolean;
   hidePrepandIcon: boolean;
+  prependHoverText: string;
+  disableHoverText: boolean;
+  hoverText: string;
   text: string;
   rightText: string;
   success: boolean;

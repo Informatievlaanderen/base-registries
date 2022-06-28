@@ -30,7 +30,7 @@
                         $l(`status.registries.${registry}.${statusType.name}`)
                       "
                       :loading="!statusType.loaded"
-                      :title="getCategoryTitle(statusType.name)"
+                      :title="statusType.title"
                       :items="transformedStatusItems && transformedStatusItems[registry] && transformedStatusItems[registry] && transformedStatusItems[registry][statusType.name] || []"
                       class="ma-0 pa-0"
                       @refresh="refresh(statusType.name)"
@@ -64,27 +64,69 @@ export default Vue.extend({
       transformedStatusItems: {} as { [registry: string]: RegistryItem<StatusItem[]> },
       statusTypes: [
         {
+          name:"import",
+          title: "Import",
+          loaded:false 
+        },
+        {
           name:"projections",
+          title: "Projecties",
           loaded:false 
         },
         {
           name:"feed",
-          loaded:false 
-        },
-        {
-          name:"cache",
-          loaded:false 
-        },
-        {
-          name:"import",
+          title: "Feed",
           loaded:false 
         },
         {
           name:"syndication",
+          title: "Register synchronisatie",
+          loaded:false 
+        },
+        {
+          name:"cache",
+          title: "Cache",
           loaded:false 
         }
-      ] as Array<{name:StatusType, loaded: boolean}>,
-
+      ] as Array<{name:StatusType,title: string, loaded: boolean}>,
+      syndicationTranslations: [
+        {
+          key: "Municipality",
+          value: "Feed gemeenten"
+        },
+        {
+          key: "PostalInfo",
+          value: "Feed postinfo"
+        },
+        {
+          key: "StreetName",
+          value: "Feed straatnamen"
+        },
+        {
+          key: "Address",
+          value: "Feed adressen"
+        },
+        {
+          key: "Parcel",
+          value: "Feed percelen"
+        },
+        {
+          key: "BuildingUnit",
+          value: "Feed gebouwen"
+        },
+        {
+          key: "Address",
+          value: "Feed adressen t.b.v. extract adreskoppelingen"
+        },
+        {
+          key: "ParcelAddressLink",
+          value: "Feed percelen t.b.v. extract adreskoppelingen"
+        },
+        {
+          key: "BuildingUnitAddressLink",
+          value: "Feed gebouwen t.b.v. extract adreskoppelingen"
+        }
+      ] as Array<{key:string,value: string}>,
     };
   },
   async mounted() {
@@ -200,6 +242,7 @@ export default Vue.extend({
       .map((i) => {
         const registry = i.name.toLowerCase().replace("addresslink","").replace("unit", "").replace("postalinfo", "postal");
         const p = (projectionsResponse[registry] as any) as {projections: {streamPosition: number } | undefined | null };
+        const name = this.syndicationTranslations.find(y => y.key.toLowerCase() == i.name.toLocaleLowerCase())?.value || i.name;
         if (!p.projections) {
             return {
               planed: false,
@@ -207,7 +250,10 @@ export default Vue.extend({
               play: false,
               stopped: false,
               hidePrepandIcon: true,
-              text: i.name,
+              hoverText: "",
+              prependHoverText: "",
+              disableHoverText: true,
+              text: name,
               success: false,
               error: {title: "", text: "Er is iets fout gelopen tijdens het ophalen van de synchronisatie-bron status.", inline: true},
           }as StatusItem;
@@ -221,7 +267,10 @@ export default Vue.extend({
           stopped: false,
           hideAppendIcon: false,
           hidePrepandIcon: true,
-          text: i.name,
+          hoverText: "",
+          prependHoverText: "",
+          disableHoverText: true,
+          text: name,
           rightText: info.rightText,
           success: info.success,
           error: undefined,
@@ -254,6 +303,9 @@ export default Vue.extend({
           stopped: !success,
           hideAppendIcon: false,
           hidePrepandIcon: true,
+          disableHoverText: true,
+          hoverText: "",
+          prependHoverText: "",
           text: i.name,
           rightText,
           success,
@@ -268,6 +320,7 @@ export default Vue.extend({
         projections: Array<{
           key: string,
           name: string,
+          description: string,
           state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed",
           currentPosition: number,
         }>,
@@ -281,6 +334,7 @@ export default Vue.extend({
         };
       }
       
+      
       const items = projectionResponse?.projections
       .filter(i => !i.name.includes("Feed endpoint "))
       .map((i) => {
@@ -292,6 +346,9 @@ export default Vue.extend({
             stopped: i.state == "stopped",
             hideAppendIcon: false,
             hidePrepandIcon: false,
+            hoverText: i.description,
+            disableHoverText: false,
+            prependHoverText: i.state,
             text: i.name,
             rightText: info.rightText,
             success: info.success,
@@ -307,6 +364,7 @@ export default Vue.extend({
         projections: Array<{
           key: string,
           name: string,
+          description: string,
           state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed",
           currentPosition: number,
         }>,
@@ -332,6 +390,9 @@ export default Vue.extend({
           stopped: false,
           hideAppendIcon: false,
           hidePrepandIcon: false,
+          hoverText: i.description,
+          prependHoverText: i.state,
+          disableHoverText: false,
           text: i.name,
           rightText: info.rightText,
           success: info.success,
@@ -368,6 +429,9 @@ export default Vue.extend({
           stopped: false,
           hideAppendIcon: false,
           hidePrepandIcon: false,
+          hoverText: "",
+          prependHoverText: "",
+          disableHoverText: false,
           text: `CRAB import ${name.replace("importer", "")}`,
           rightText: `Laatste wijziging: ${datetime}`,
           success: true,
@@ -376,16 +440,6 @@ export default Vue.extend({
         return item;
       });
       return items;
-    },
-    getCategoryTitle(statusType: StatusType): string {
-      const names = {
-        projections: "Projecties",
-        feed: "Feed",
-        cache: "Cache",
-        import: "Import",
-        syndication: "Register synchronisatie"
-      };
-      return (<string>(<any>names)[statusType]);
     },
     getRightTextInfo(currentPosition: number, desiredPosition: number) {
         const percentage = currentPosition / desiredPosition * 100.0;
@@ -422,6 +476,9 @@ interface StatusItem {
   stopped: boolean;
   hideAppendIcon: boolean;
   hidePrepandIcon: boolean;
+  prependHoverText: string;
+  disableHoverText: boolean;
+  hoverText: string;
   text: string;
   rightText: string;
   success: boolean;
