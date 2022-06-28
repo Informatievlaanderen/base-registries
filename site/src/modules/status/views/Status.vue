@@ -259,7 +259,11 @@ export default Vue.extend({
           }as StatusItem;
         }
         let streamPosition = p.projections && p.projections.streamPosition;
-        const info = this.getRightTextInfo(i.currentPosition, (streamPosition || 0));
+        let currentPosition = i.currentPosition;
+        if(i.name == "municipality" || i.name == "postalInfo") {
+          currentPosition++;
+        }
+        const info = this.getRightTextInfo(currentPosition, (streamPosition || 0));
         const item: StatusItem = {
           planed: false,
           paused: false,
