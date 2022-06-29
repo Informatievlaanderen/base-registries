@@ -19,12 +19,15 @@
     position: absolute;
     display: none;
     background-color:white;
-    color: #343434;
-    font-size: 14px;
+    color: #232323;
     font-weight: 400;
     padding: 6px 18px;
     border-radius: 3px;
     z-index: 999;
+    overflow-wrap: break-word;
+    min-width: 100%;
+    font-size: 0.85em;
+    border: 1px solid #777;
 }
 
 .--tooltip:hover::after,
