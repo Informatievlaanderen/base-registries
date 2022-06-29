@@ -1,3 +1,10 @@
+## [2.1.21](https://github.com/informatievlaanderen/base-registries/compare/v2.1.20...v2.1.21) (2022-06-29)
+
+
+### Bug Fixes
+
+* status page tooltip min width ([334cb95](https://github.com/informatievlaanderen/base-registries/commit/334cb95ad31ebde3f31162efae296071b3232ee1))
+
 ## [2.1.20](https://github.com/informatievlaanderen/base-registries/compare/v2.1.19...v2.1.20) (2022-06-28)
 
 
