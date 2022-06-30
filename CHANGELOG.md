@@ -1,3 +1,10 @@
+## [2.1.24](https://github.com/informatievlaanderen/base-registries/compare/v2.1.23...v2.1.24) (2022-06-30)
+
+
+### Bug Fixes
+
+* hover header url ([8dc6a30](https://github.com/informatievlaanderen/base-registries/commit/8dc6a3076735544cc4f4483564319a4136a283ea))
+
 ## [2.1.23](https://github.com/informatievlaanderen/base-registries/compare/v2.1.22...v2.1.23) (2022-06-30)
 
 
