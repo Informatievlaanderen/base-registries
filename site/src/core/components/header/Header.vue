@@ -82,9 +82,10 @@
   text-transform: none;
   transition: color 0.2s;
 }
-
+#home-link:hover,
 #vlaanderen-link:hover {
-  color: #06c;
+    color: #0055CC !important;
+    text-decoration: underline !important;
 }
 
 #home-navigation {

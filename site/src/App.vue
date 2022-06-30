@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div v-show="loaded">
-      <vl-header :prefix="meta.prefix" :title="meta.title"/>
+      <vl-header :prefix="meta.prefix"/>
       <vl-my-content-header :is-home-page="meta.isHomePage" :title="meta.title" :prefix="meta.prefix" />
       <router-view @updateStatus="updateStatus" @pageLoaded="pageLoaded"/>
       <vl-footer/>
