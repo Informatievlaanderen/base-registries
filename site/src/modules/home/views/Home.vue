@@ -6,19 +6,19 @@
           <vl-grid mod-stacked>
             <vl-column :width="`${$data.sidebar.urls > 0 ? 8 : 12}`" width-s="12">
               <vl-grid mod-stacked v-if="$data.markdownLoaded">
-                <vl-column
-                  width="4"
-                  width-m="6"
-                  width-s="12"
-                  v-for="item in $data.spotlightItems"
-                  :key="item.url"
-                >
-                  <vl-spotlight :title="item.title" :subtitle="item.subtitle" :text="item.text" :to="item.url" target="_self" />
-                </vl-column>
                 <vl-column>
                   <vl-typography class="mt-12">
                     <y-markdown :src="$data.content" />
                   </vl-typography>
+                </vl-column>
+                <vl-column width="4" width-m="6" width-s="12" v-for="item in $data.spotlightItems" :key="item.url">
+                  <vl-spotlight
+                    :title="item.title"
+                    :subtitle="item.subtitle"
+                    :text="item.text"
+                    :to="item.url"
+                    target="_self"
+                  />
                 </vl-column>
               </vl-grid>
             </vl-column>
