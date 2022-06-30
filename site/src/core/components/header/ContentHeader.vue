@@ -20,8 +20,8 @@
       </picture>
       <vl-layout>
         <div class="vl-content-header__content">
-          <div class="vl-content-header__logo-wrapper">
-            <vl-content-header-entity :mod-small="false" :prefix="prefix" :title="title" />
+          <div class="vl-content-header__logo-wrapper pt-7">
+            <vl-content-header-entity :mod-small="false" :prefix="prefix" title="" />
           </div>
         </div>
       </vl-layout>
