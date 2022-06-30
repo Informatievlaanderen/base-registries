@@ -1,3 +1,10 @@
+## [2.1.23](https://github.com/informatievlaanderen/base-registries/compare/v2.1.22...v2.1.23) (2022-06-30)
+
+
+### Bug Fixes
+
+* home page ContentHeader ([819289f](https://github.com/informatievlaanderen/base-registries/commit/819289f58392b77af669318629ca047b30acf880))
+
 ## [2.1.22](https://github.com/informatievlaanderen/base-registries/compare/v2.1.21...v2.1.22) (2022-06-30)
 
 
