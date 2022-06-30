@@ -1,3 +1,10 @@
+## [2.1.22](https://github.com/informatievlaanderen/base-registries/compare/v2.1.21...v2.1.22) (2022-06-30)
+
+
+### Bug Fixes
+
+* move spotlight block under text ([3a06e6e](https://github.com/informatievlaanderen/base-registries/commit/3a06e6ee7721da5e6fcfe682f7327408ce7a4931))
+
 ## [2.1.21](https://github.com/informatievlaanderen/base-registries/compare/v2.1.20...v2.1.21) (2022-06-29)
 
 
