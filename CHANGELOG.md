@@ -1,3 +1,10 @@
+## [2.1.26](https://github.com/informatievlaanderen/base-registries/compare/v2.1.25...v2.1.26) (2022-07-06)
+
+
+### Bug Fixes
+
+* add top logo hover color ([3a1b129](https://github.com/informatievlaanderen/base-registries/commit/3a1b12927959ede8afe5ea871721e693a1db6432))
+
 ## [2.1.25](https://github.com/informatievlaanderen/base-registries/compare/v2.1.24...v2.1.25) (2022-07-06)
 
 
