@@ -1,3 +1,10 @@
+## [2.1.27](https://github.com/informatievlaanderen/base-registries/compare/v2.1.26...v2.1.27) (2022-07-06)
+
+
+### Bug Fixes
+
+* markdown renderer ([ad68c8f](https://github.com/informatievlaanderen/base-registries/commit/ad68c8f54fb760fcc8b00a93ed3f3937ea4d5bee))
+
 ## [2.1.26](https://github.com/informatievlaanderen/base-registries/compare/v2.1.25...v2.1.26) (2022-07-06)
 
 
