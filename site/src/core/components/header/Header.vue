@@ -1,8 +1,9 @@
 <template>
   <header id="vlaanderen-top">
     <div id="vlaanderen-navigation">
-      <a id="vlaanderen-link" :href="$l(`header.company.url`)" target="_self">
-        <div id="vlaanderen-top-logo"></div>
+      <a id="vlaanderen-link" :href="$l(`header.company.url`)" target="_self" @mouseover="onHover(true)" @mouseleave="onHover(false)">
+        <div id="vlaanderen-top-logo"/>
+        <div :class="vlaanderenTopLogoClass"/>
         <span v-l="`header.company.name`"></span>
       </a>
       <div id="home-navigation">
@@ -50,9 +51,15 @@ import Vue from "vue"
 export default Vue.extend({
   data() {
     return {
-      showContactPanel: false
+      showContactPanel: false,
+      vlaanderenTopLogoClass: "vlaanderen-top-logo-overlay"
     } 
-  }  
+  },
+  methods: {
+    onHover(state: boolean): void {
+      this.vlaanderenTopLogoClass = state ? "vlaanderen-top-logo-overlay vlaanderen-top-logo-overlay-yellow" : "vlaanderen-top-logo-overlay"
+    }
+  }
 })
 </script>
 
@@ -178,7 +185,7 @@ export default Vue.extend({
 #vlaanderen-top-logo {
   position: relative;
   width: 47px;
-  background-color: #fff;
+  background-color: transparent;
   overflow: hidden;
   transition: background-color 0.2s;
   float: left;
@@ -202,6 +209,21 @@ export default Vue.extend({
   transform: rotate(-20deg);
   transform-origin: top left;
   background-image: var(--logo-after);
+}
+
+.vlaanderen-top-logo-overlay {
+  background-color: #fff !important;
+  height: 68px;
+  overflow: hidden;
+  position: absolute;
+  width: 47px;
+  z-index: -1;
+  top: -11px;
+  left: -11px;
+  transform: rotate(-20deg);
+}
+.vlaanderen-top-logo-overlay-yellow {
+  background-color: #FFE615 !important;
 }
 
 .vlaanderen-actions {
