@@ -43,6 +43,35 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
   constructor(options: marked.MarkedOptions | marked.MarkedExtension) {
     super(options as marked.MarkedOptions);
   }
+  html(
+    this: marked.Renderer | marked.RendererThis, 
+    html: string
+  ): string | T {
+    
+    const { idAttr, classAttr, dataAttr, innerText, hrefAttr } = transformMarkdownExtensionData(html, html);
+    
+    if (!hrefAttr || hrefAttr.includes("http://data.") || hrefAttr.includes("https://data.")) {
+      return html;
+    }
+    
+    const path = window.location.pathname || '';
+    const whitelistedUrls= [
+      `http://basisregisters.dev-vlaanderen.be${path}`,
+      `http://basisregisters.staging-vlaanderen.be${path}`,
+      `http://basisregisters.vlaanderen.be${path}`,
+      `https://basisregisters.dev-vlaanderen.be${path}`,
+      `https://basisregisters.staging-vlaanderen.be${path}`,
+      `https://basisregisters.vlaanderen.be${path}`
+    ]
+
+    for (const urlIndex in whitelistedUrls) {
+      const url = whitelistedUrls[urlIndex];
+      if (html.includes(`href=\"${url}`)) {
+        html = html.replace(`href=\"${url}`, `href=\"`);
+      }
+    }
+    return html;
+  }
   link(
     this: marked.Renderer | marked.RendererThis,
     href: string | null,
@@ -71,13 +100,15 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
   }
 }
 
-  function getMarkdownExtensionData(raw: string): {classes: string[], data: {key:string, value: string}[], id: string | undefined, raws:string[] } {
-    const ret: {classes: string[], data: {key:string, value: string}[], id: string | undefined, raws:string[] } = {
+  function getMarkdownExtensionData(raw: string): {classes: string[], data: {key:string, value: string}[], href: string | undefined, id: string | undefined, raws:string[] } {
+    const ret: {classes: string[], data: {key:string, value: string}[], href: string | undefined, id: string | undefined, raws:string[] } = {
       classes: [],
       data: [],
+      href: undefined,
       id: undefined,
       raws: []
     }
+    const hrefPattern = /(\s+?href="(.+?)")/gi;
     const classPattern = /(\s+?{class=(([\w'-'.](\s)?)+?)})/gi;
     const dataPattern = /\s+?{data-(\w+?)=(.+?)}/g;
     const idPattern = /\s+?{#([\w-_]+?)}/g;
@@ -97,6 +128,12 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
       ret.classes = classes[2].trim().split(" ");
     }
     
+    const href = hrefPattern.exec(raw);
+    if(href) {
+      ret.raws.push(href[0]);
+      ret.href = href[2].trim();
+    }
+
     const id = idPattern.exec(raw);
     if(id) {
       ret.raws.push(id[0]);
@@ -110,6 +147,11 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
     let idAttr = "";
     if(extensionData.id) {
       idAttr += ` id="${extensionData.id}"`
+    }
+    
+    let hrefAttr = "";
+    if(extensionData.href) {
+      hrefAttr += ` href="${extensionData.href}"`
     }
 
     let classAttr = "";
@@ -134,7 +176,8 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
       idAttr,
       classAttr,
       dataAttr,
-      innerText
+      innerText,
+      hrefAttr
     }
   }
 </script>
