@@ -1,3 +1,10 @@
+## [2.1.25](https://github.com/informatievlaanderen/base-registries/compare/v2.1.24...v2.1.25) (2022-07-06)
+
+
+### Bug Fixes
+
+* add contact button ([0333fe6](https://github.com/informatievlaanderen/base-registries/commit/0333fe6e9340319119cb46a537a9404e071e88ac))
+
 ## [2.1.24](https://github.com/informatievlaanderen/base-registries/compare/v2.1.23...v2.1.24) (2022-06-30)
 
 
