@@ -11,9 +11,51 @@
         </vl-link>
       </div>
     </div>
-    <div class="vlaanderen-action"></div>
+    <div class="vlaanderen-actions">
+      <div class="vlaanderen-actions-contact" @click="showContactPanel=!showContactPanel">
+        <span>Hulp nodig</span>
+        <vl-icon
+          :style="{fontSize:'1.6em'}"
+          class="ml-2"
+          icon="question-mark"
+        />
+        <div v-if="showContactPanel" class="vlaanderen-actions-contact-expanded">
+          <div class="contact-header-panel">
+            <h1>Contacteer ons</h1>
+          </div>
+          <div class="contact-items">
+            <a href="mailto:digitaal.vlaanderen@vlaanderen.be" class="contact-item">
+              <div class="contact-item-icon">
+                <vl-icon icon="mail" />
+              </div>
+              <div class="contact-item-content">
+                <div class="contact-item-content-title">
+                  Stuur een mail naar
+                </div>
+                <div class="contact-item-content-text">
+                  digitaal.vlaanderen@vlaanderen.be
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
+
+<script lang="ts">
+import Vue from "vue"
+
+export default Vue.extend({
+  data() {
+    return {
+      showContactPanel: false
+    } 
+  }  
+})
+</script>
+
 
 <style lang="scss" scoped>
 @import url("./header.logos.css");
@@ -53,6 +95,7 @@
   top: 0;
   width: 100%;
   display: block;
+  overflow:hidden;
 
   min-width: 768px;
   background: #fff;
@@ -67,6 +110,8 @@
 
 #vlaanderen-navigation {
   white-space: nowrap;
+  width:70%;
+  float:left;
 }
 
 #vlaanderen-link {
@@ -157,6 +202,120 @@
   transform: rotate(-20deg);
   transform-origin: top left;
   background-image: var(--logo-after);
+}
+
+.vlaanderen-actions {
+  float:right;
+  width:20%;
+  height:44px;
+  margin: 0;
+  padding:0;
+}
+
+.vlaanderen-actions-contact {
+  position: relative;
+  font-size: 1em;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #333;
+  background: #FFE615;
+  width: 125px;
+  float: right;
+  padding: 5px;
+  cursor: pointer;
+}
+.vlaanderen-actions-contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -13px;
+  width: 0;
+  height: 0;
+  border-top: 0 solid transparent;
+  border-bottom: 43px solid transparent;
+  border-right: 13.5px solid #FFE615;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.vlaanderen-actions-contact:hover {
+  text-decoration-line: underline;
+}
+
+.vlaanderen-actions-contact-expanded {
+  cursor: default;
+}
+
+.vlaanderen-actions-contact-expanded {
+  position: fixed;
+  width:300px;
+  height:125px;
+  top:50px;
+  right:0px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+  background: white;
+
+  .contact-header-panel {
+    height: 56px;
+    background: #fff;
+    border-bottom: 1px #cbd2da solid;
+    padding: 18px 15px;
+    font-weight: 500;
+
+    h1 {
+      color: #333332;
+      font-size: 18px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .contact-items {
+    padding:15px;
+
+    .contact-item {
+      color: #0055CC;
+      display: flex;
+      text-decoration: none !important;
+
+      .contact-item-icon {
+        font-size:32px;
+        margin-right:10px;
+      }
+
+      .contact-item-content {
+        overflow:hidden;
+        
+        .contact-item-content-title {
+          font-size: 16px;
+          text-transform: none;
+          margin-bottom:3px;
+          text-decoration: none !important;
+        }
+        .contact-item-content-text {
+          font-size: 14px;
+          color: #333332;
+          font-weight: 400;
+          text-transform: none;
+          text-decoration: none !important;
+        }
+      }
+    }
+    .contact-item:hover {
+      .contact-item-content {
+        .contact-item-content-title {
+          text-decoration: underline !important;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 580px) {
