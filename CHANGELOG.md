@@ -1,3 +1,10 @@
+## [2.1.28](https://github.com/informatievlaanderen/base-registries/compare/v2.1.27...v2.1.28) (2022-07-07)
+
+
+### Bug Fixes
+
+* anchor ([bfbb628](https://github.com/informatievlaanderen/base-registries/commit/bfbb628e268fcc7434651814af7dcbab7df65723))
+
 ## [2.1.27](https://github.com/informatievlaanderen/base-registries/compare/v2.1.26...v2.1.27) (2022-07-06)
 
 
