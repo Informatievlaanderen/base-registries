@@ -29,9 +29,15 @@ export default Vue.extend({
     },
   },
   methods: {
-    onParseCallback(error: any, parseResult: string): void {
+    async onParseCallback(error: any, parseResult: string): Promise<void> {
       if (!error) {
         this.content = parseResult;
+        const anchor: string = window.location.hash || '';
+        const hasAnchor: boolean = anchor !== '';
+        await this.$nextTick();
+        if(hasAnchor) {
+          window.location.href = window.location.href;
+        }
       }
     },
   },
@@ -143,7 +149,7 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
   }
   function transformMarkdownExtensionData(text:string, raw:string) {
     const extensionData = getMarkdownExtensionData(raw);
-    
+
     let idAttr = "";
     if(extensionData.id) {
       idAttr += ` id="${extensionData.id}"`
