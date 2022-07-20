@@ -1,6 +1,10 @@
 # robotstxt.org
+
 User-agent: *
 Disallow: /status
+Disallow: /env.js
+Disallow: /css/
+Disallow: /js/
 Disallow: /assets/oslo/
 Disallow: /assets/locales/
 Disallow: /basisregisters-api/
