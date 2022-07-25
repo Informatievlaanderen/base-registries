@@ -1,3 +1,10 @@
+## [2.1.31](https://github.com/informatievlaanderen/base-registries/compare/v2.1.30...v2.1.31) (2022-07-25)
+
+
+### Bug Fixes
+
+* overlay of the header bar on anchors ([c80a830](https://github.com/informatievlaanderen/base-registries/commit/c80a830f7948c46fdc9d8974407a77d1627dc7b5))
+
 ## [2.1.30](https://github.com/informatievlaanderen/base-registries/compare/v2.1.29...v2.1.30) (2022-07-20)
 
 
