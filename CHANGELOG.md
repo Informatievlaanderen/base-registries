@@ -1,3 +1,10 @@
+## [2.1.33](https://github.com/informatievlaanderen/base-registries/compare/v2.1.32...v2.1.33) (2022-07-26)
+
+
+### Bug Fixes
+
+* status page last changed time format ([c343120](https://github.com/informatievlaanderen/base-registries/commit/c34312071b8080a0271b39b1d54dac45f63d8bcb))
+
 ## [2.1.32](https://github.com/informatievlaanderen/base-registries/compare/v2.1.31...v2.1.32) (2022-07-26)
 
 
