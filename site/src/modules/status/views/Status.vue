@@ -421,11 +421,14 @@ export default Vue.extend({
         };
       }
 
+      const twoDigit = (v: number) => String(v).padStart(2,'0'); 
+      const dateTimeToString = (d: Date) => `${twoDigit(d.getDate())}/${twoDigit(d.getMonth())}/${d.getFullYear()} ${twoDigit(d.getHours())}:${twoDigit(d.getMinutes())}:${twoDigit(d.getSeconds())}`;
+      
       const items = imports.map((i) => {
         const fullname = i.name.split(".");
         const name = fullname[fullname.length - 1];
         const d = new Date(i.lastCompletedImport.until);
-        const datetime = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}`;
+        const datetime = dateTimeToString(d);
         const item: StatusItem = {
           planed: true,
           paused: false,
