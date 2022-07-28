@@ -422,7 +422,7 @@ export default Vue.extend({
       }
 
       const twoDigit = (v: number) => String(v).padStart(2,'0'); 
-      const dateTimeToString = (d: Date) => `${twoDigit(d.getDate())}/${twoDigit(d.getMonth())}/${d.getFullYear()} ${twoDigit(d.getHours())}:${twoDigit(d.getMinutes())}:${twoDigit(d.getSeconds())}`;
+      const dateTimeToString = (d: Date) => `${twoDigit(d.getDate())}/${twoDigit(d.getMonth() + 1)}/${d.getFullYear()} ${twoDigit(d.getHours())}:${twoDigit(d.getMinutes())}:${twoDigit(d.getSeconds())}`;
       
       const items = imports.map((i) => {
         const fullname = i.name.split(".");
