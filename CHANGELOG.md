@@ -1,3 +1,10 @@
+## [2.1.34](https://github.com/informatievlaanderen/base-registries/compare/v2.1.33...v2.1.34) (2022-07-28)
+
+
+### Bug Fixes
+
+* import date to string ([8fcbcf0](https://github.com/informatievlaanderen/base-registries/commit/8fcbcf0951dde6f7997e261a3dccd9d2da81810a))
+
 ## [2.1.33](https://github.com/informatievlaanderen/base-registries/compare/v2.1.32...v2.1.33) (2022-07-26)
 
 
