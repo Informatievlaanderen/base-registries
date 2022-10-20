@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router, { RawLocation, Route, RouteConfig } from "vue-router";
 import { HomeRoutes } from "./modules/home/";
+import { DocumentationRoutes } from "./modules/documentation/";
 import { ImplementationModelRoutes } from "./modules/implementation-model/";
 import { InformationRoutes } from "./modules/information/";
 import { GeneralRoutes } from "./modules/general/";
@@ -18,6 +19,7 @@ Vue.use(Router);
 
 const routes: RouteConfig[] = [
     ...HomeRoutes,
+    ...DocumentationRoutes,
     ...ImplementationModelRoutes,
     ...InformationRoutes,
     ...GeneralRoutes,
