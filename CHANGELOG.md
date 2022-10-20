@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/informatievlaanderen/base-registries/compare/v2.1.34...v2.2.0) (2022-10-20)
+
+
+### Features
+
+* add markdown supported documentation pages ([3dcc8cb](https://github.com/informatievlaanderen/base-registries/commit/3dcc8cb247d98c8a2f52f6d660bb3f9a7ce7b228))
+
 ## [2.1.34](https://github.com/informatievlaanderen/base-registries/compare/v2.1.33...v2.1.34) (2022-07-28)
 
 
