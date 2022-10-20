@@ -39,6 +39,9 @@ Instead of that what we is to do these steps.
 
 
 ## Project setup
+
+Before executing below commands, replace the variable `${NPM_TOKEN}` in `#YOUR_PROJECT_PATH/base-registries/site/.npmrc` with the NPM auth token necessary to install all NPM packages.
+
 ``` bash
 cd #YOUR_PROJECT_PATH/base-registries/site
 nvm use
@@ -97,6 +100,10 @@ npm run lint
 
 
 [3]:https://github.com/Informatievlaanderen/public-api
+
+### Page contents
+
+If a view's options are marked with `hasMarkdown` to `true`, then its contents are determined by the `Markdown` files in https://github.com/Informatievlaanderen/base-registries-content.
 
 ### Docker Compose
 
