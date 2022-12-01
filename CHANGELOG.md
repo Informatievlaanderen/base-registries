@@ -1,3 +1,11 @@
+## [2.2.1](https://github.com/informatievlaanderen/base-registries/compare/v2.2.0...v2.2.1) (2022-12-01)
+
+
+### Bug Fixes
+
+* add roadregistry implementation model page ([19c1589](https://github.com/informatievlaanderen/base-registries/commit/19c1589efc50a4d705222c857c26ac40a4dc2c14))
+* add wegenregister to ImplementationModelType ([538bfc7](https://github.com/informatievlaanderen/base-registries/commit/538bfc71198f2a3d7609878710458ff63d0839a8))
+
 # [2.2.0](https://github.com/informatievlaanderen/base-registries/compare/v2.1.34...v2.2.0) (2022-10-20)
 
 
