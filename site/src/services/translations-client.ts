@@ -60,7 +60,7 @@ export const TranslationClient = {
 }
 export default TranslationClient;
 
-export type ImplementationModelType = "adressenregister" | "gebouwenregister";
+export type ImplementationModelType = "adressenregister" | "gebouwenregister" | "wegenregister";
 export type opensourceType = "application" | "component"
 export namespace Faq {
     export interface TableOfContents {
