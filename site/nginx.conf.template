@@ -110,16 +110,22 @@ server {
 
     # proxy passes (Path rewrites in sync with vue.config file)
 
+    location /foutmeldingen {
+        proxy_redirect off;
+        proxy_ssl_server_name on;
+        proxy_pass https://api.${REPLACE_ALIAS_ZONE_NAME}/basisregisters-api/foutmeldingen;
+    }
+    
     location /v1/foutmeldingen {
         proxy_redirect off;
         proxy_ssl_server_name on;
-        proxy_pass https://api.${REPLACE_ALIAS_ZONE_NAME}/basisregisters-api/v1/foutmeldingen;
+        proxy_pass https://api.${REPLACE_ALIAS_ZONE_NAME}/basisregisters-api/foutmeldingen;
     }
     
     location /v2/foutmeldingen {
         proxy_redirect off;
         proxy_ssl_server_name on;
-        proxy_pass https://api.${REPLACE_ALIAS_ZONE_NAME}/basisregisters-api/v2/foutmeldingen;
+        proxy_pass https://api.${REPLACE_ALIAS_ZONE_NAME}/basisregisters-api/foutmeldingen;
     }
 
     location /basisregisters-api/v1 {
