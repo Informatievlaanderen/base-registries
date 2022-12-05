@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/informatievlaanderen/base-registries/compare/v2.2.1...v2.2.2) (2022-12-05)
+
+
+### Bug Fixes
+
+* exclude /VERSION/foutmeldingen path ([f6a7af5](https://github.com/informatievlaanderen/base-registries/commit/f6a7af5709588b0370ce2f8c57e242ede03e5220))
+
 ## [2.2.1](https://github.com/informatievlaanderen/base-registries/compare/v2.2.0...v2.2.1) (2022-12-01)
 
 
