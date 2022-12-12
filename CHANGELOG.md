@@ -1,3 +1,10 @@
+## [2.2.5](https://github.com/informatievlaanderen/base-registries/compare/v2.2.4...v2.2.5) (2022-12-12)
+
+
+### Bug Fixes
+
+* status page & error page ([60b3f6e](https://github.com/informatievlaanderen/base-registries/commit/60b3f6e2606998b04bbd037ab62552351241f8ca))
+
 ## [2.2.4](https://github.com/informatievlaanderen/base-registries/compare/v2.2.3...v2.2.4) (2022-12-05)
 
 
