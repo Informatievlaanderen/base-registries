@@ -1,3 +1,10 @@
+## [2.2.7](https://github.com/informatievlaanderen/base-registries/compare/v2.2.6...v2.2.7) (2022-12-12)
+
+
+### Bug Fixes
+
+* version bump axios ([01865ca](https://github.com/informatievlaanderen/base-registries/commit/01865cac2c00fcb8a6b4a93ed4c335c43960c63e))
+
 ## [2.2.6](https://github.com/informatievlaanderen/base-registries/compare/v2.2.5...v2.2.6) (2022-12-12)
 
 
