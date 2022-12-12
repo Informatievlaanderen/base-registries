@@ -10,6 +10,7 @@ import { VisionRoutes } from "./modules/vision";
 import { RegistryRoutes } from "./modules/registries";
 import { StatusRoutes } from "./modules/status";
 import { ReleaseNotesRoutes } from "./modules/release-notes";
+import { ErrorDetailRoutes } from "./modules/error-detail";
 import { VersionRoutes } from "./modules/versions";
 import { FaqRoutes } from "./modules/faq";
 import { OpensourceApplicationsRoutes } from "./modules/opensource-applications";
@@ -26,6 +27,7 @@ const routes: RouteConfig[] = [
     ...MotiveRoutes,
     ...VisionRoutes,
     ...RegistryRoutes,
+    ...ErrorDetailRoutes,
     ...StatusRoutes,
     ...ReleaseNotesRoutes,
     ...VersionRoutes,

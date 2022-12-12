@@ -20,7 +20,7 @@ export const PublicApiClient= {
     getSyndicationStatus: async (): Promise<any> => {
         const path = `/basisregisters-api/v1/status/syndication`;
         return (await apiClient.get<any>(path)).data;
-    },
+    }
 }
 export default PublicApiClient;
 

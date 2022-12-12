@@ -62,24 +62,9 @@ const proxyLocale = {
   },
 }
 
-const proxyApiErrorsWithoutVersion = {
-  "/foutmeldingen/": {
-    target: "https://api.basisregisters.vlaanderen.be",
-    ws: false,
-    https: true,
-    changeOrigin: true,
-    Headers: {
-      'Cache-Control': 'no-store',
-    },
-    pathRewrite: {
-      "/foutmeldingen/": `/basisregisters-api/foutmeldingen/`
-    }
-  },
-}
-
 const proxyApiErrors = {
-  "/v1/foutmeldingen/": {
-    target: "https://api.basisregisters.vlaanderen.be",
+  "/basisregisters-api/foutmeldingen/": {
+    target: "https://api.basisregisters.dev-vlaanderen.be",
     ws: false,
     https: true,
     changeOrigin: true,
@@ -87,22 +72,7 @@ const proxyApiErrors = {
       'Cache-Control': 'no-store',
     },
     pathRewrite: {
-      "/v1/foutmeldingen/": `/basisregisters-api/foutmeldingen/`
-    }
-  },
-}
-
-const proxyApiV2Errors = {
-  "/v2/foutmeldingen/": {
-    target: "https://api.basisregisters.vlaanderen.be",
-    ws: false,
-    https: true,
-    changeOrigin: true,
-    Headers: {
-      'Cache-Control': 'no-store',
-    },
-    pathRewrite: {
-      "/v2/foutmeldingen/": `/basisregisters-api/foutmeldingen/`
+      "/basisregisters-api/foutmeldingen/": `/v1/foutmeldingen/`
     }
   },
 }
@@ -140,7 +110,7 @@ const proxyApiV2 = {
 
 const proxyDocs = {
   "/docs": {
-    target: "https://docs.basisregisters.vlaanderen.be",
+    target: "https://docs.basisregisters.dev-vlaanderen.be",
     https: true,
     changeOrigin: true,
     Headers: {
@@ -169,9 +139,7 @@ module.exports = defineConfig({
       ...proxyLocale,
       ...proxyApi,
       ...proxyApiV2,
-      ...proxyApiErrorsWithoutVersion,
       ...proxyApiErrors,
-      ...proxyApiV2Errors,
       ...proxyWiki,
       ...osloBlobProxy,
       ...proxyGithubApi,

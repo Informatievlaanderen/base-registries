@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import TranslationClient, { Faq, ImplementationModelType } from "./translations-client";
+import TranslationClient, { Faq, ErrorDetail, ImplementationModelType } from "./translations-client";
 import { DirectiveBinding } from "vue/types/options";
 import  Util from "./util";
 
@@ -8,7 +8,8 @@ Vue.use(VueI18n);
 
 const translations = Vue.observable({
     nl: {} as any,
-    faqTableOfContents: {} as Faq.TableOfContents 
+    faqTableOfContents: {} as Faq.TableOfContents,
+    errorDetailTableOfContents: {} as ErrorDetail.TableOfContents 
 });
 
 const i18n = {
@@ -42,9 +43,18 @@ const i18n = {
     },
     async refresh() {
         const result = await TranslationClient.getTranslations("nl");
-        const tableOfContents = (await TranslationClient.getFaqTableOfContents("nl"));
         translations.nl = { ...result } as any;
-        translations.faqTableOfContents = { ...tableOfContents };
+        const path = window.location.pathname; 
+        if (path.startsWith("/foutmeldingen")) {
+            const data = await TranslationClient.getErrorDetailTableOfContents("nl");
+            translations.errorDetailTableOfContents = { ...data };
+        }
+
+        if(path.startsWith("/veelgestelde-vragen")) {
+            const data = await TranslationClient.getFaqTableOfContents("nl");
+            translations.faqTableOfContents = { ...data };
+        }
+        
     }
 }
 const { init, refresh, directive, translate } = i18n;

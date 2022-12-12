@@ -22,3 +22,17 @@ html {
 @import './tooltip.scss';
 @import './spacing-margin.scss';
 @import './spacing-padding.scss';
+
+.vl-typography pre:not([class*=language]),
+code[class*=language-], 
+pre[class*=language-] {
+    background: rgb(17, 23, 26);
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.vl-typography pre:not([class*=language]){
+    overflow: hidden;
+}
