@@ -123,7 +123,7 @@
     "@govflanders/vl-ui-vue-components": "^16.0.8",
     "@govflanders/vl-ui-wizard": "^15.0.8",
     "@types/marked": "^4.0.8",
-    "axios": "^0.27.2",
+    "axios": "^1.2.1",
     "browserslist": "^4.21.4",
     "caniuse-lite": "^1.0.30001439",
     "core-js": "^3.26.1",
