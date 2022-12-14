@@ -1,3 +1,10 @@
+## [2.2.10](https://github.com/informatievlaanderen/base-registries/compare/v2.2.9...v2.2.10) (2022-12-14)
+
+
+### Bug Fixes
+
+* add integration-guideline page WIP ([2abefad](https://github.com/informatievlaanderen/base-registries/commit/2abefad2ad30f8fa64fc006a1582a8075e2b642e))
+
 ## [2.2.9](https://github.com/informatievlaanderen/base-registries/compare/v2.2.8...v2.2.9) (2022-12-14)
 
 
