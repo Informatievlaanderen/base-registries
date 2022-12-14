@@ -17,6 +17,20 @@ nvm install 16.15.0
 [1]:(https://github.com/coreybutler/nvm-windows)
 [2]:(https://github.com/nvm-sh/nvm/tree/master.1#installing-and-updating)
 
+## For windows users that use git bash instead wsl
+
+``` shell
+# Update npm shell 
+# Git bash (32 bit installation)
+npm config set script-shell "C:\\Program Files (x86)\\git\\bin\\bash.exe"
+
+# Git bash (64 bit installation)
+npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
+
+# In case you want to revert this. You can execute 
+npm config delete script-shell
+````
+
 ## Common mistakes and solutions
 
 ``` bash
