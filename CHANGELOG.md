@@ -1,3 +1,10 @@
+## [2.2.9](https://github.com/informatievlaanderen/base-registries/compare/v2.2.8...v2.2.9) (2022-12-14)
+
+
+### Bug Fixes
+
+* upgrade node 16 -> 18 ([93feee6](https://github.com/informatievlaanderen/base-registries/commit/93feee6f275dfc09ad87ec7f638d0f3d8ec9b6e2))
+
 ## [2.2.8](https://github.com/informatievlaanderen/base-registries/compare/v2.2.7...v2.2.8) (2022-12-14)
 
 
