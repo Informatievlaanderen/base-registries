@@ -1,3 +1,10 @@
+## [2.2.8](https://github.com/informatievlaanderen/base-registries/compare/v2.2.7...v2.2.8) (2022-12-14)
+
+
+### Bug Fixes
+
+* support page for unkown errors ([e494e37](https://github.com/informatievlaanderen/base-registries/commit/e494e370997f856d8b34ec57631438caf49c6c45))
+
 ## [2.2.7](https://github.com/informatievlaanderen/base-registries/compare/v2.2.6...v2.2.7) (2022-12-12)
 
 
