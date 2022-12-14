@@ -20,6 +20,16 @@ export const PublicApiClient= {
     getSyndicationStatus: async (): Promise<any> => {
         const path = `/basisregisters-api/v1/status/syndication`;
         return (await apiClient.get<any>(path)).data;
+    },
+    getErrorDetail: async (id: string): Promise<string> => {
+        const path = `/basisregisters-api/foutmeldingen/${id}`;
+        try {
+            await apiClient.get<ErrorDetailResponse>(path);
+        }catch (e: any) {
+            const response = e.response.data as ErrorDetailResponse;
+            return JSON.stringify(response, null, 2);
+        }
+        return "";
     }
 }
 export default PublicApiClient;
@@ -40,4 +50,12 @@ export interface ImportStatusRegistryItem {
         until: Date;
     };
     name: string;
+}
+
+export interface ErrorDetailResponse {
+    type:string;
+    title: string;
+    detail: string;
+    status: string;
+    instance: string;
 }

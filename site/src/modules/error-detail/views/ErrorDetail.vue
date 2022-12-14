@@ -56,9 +56,11 @@
 <script lang="ts">
 import Vue from "vue";
 import { TranslationClient, ErrorDetail } from "../../../services/translations-client";
+import { PublicApiClient } from "../../../services/public-api-client";
 import i18n from "@/services/i18n";
 
 export default Vue.extend({
+  localeName: "errorDetail",
   props: {
     id: {
       type: String,
@@ -97,7 +99,13 @@ export default Vue.extend({
 
       const error = this.tableOfContents.knownErrors.find((t) => this.encodeTextAsUri(t.id) == this.id);
 
-      if (!error) return false;
+      if (!error) {
+        // Unknown error
+        const errorDetail = JSON.parse(await PublicApiClient.getErrorDetail(this.id) || "")
+        this.$data.content = `## Error ${errorDetail.status}\n ### ${errorDetail.title}\n ${errorDetail.detail}\n`;
+        this.example = JSON.parse(await PublicApiClient.getErrorDetail(this.id) || "");
+        return false;
+      };
 
       this.$data.content = await TranslationClient.getErrorDetailKnownErrorMarkdown("nl", error.id) || "";
       this.example  = await TranslationClient.getErrorDetailKnownErrorExample("nl", error.id) || "";
