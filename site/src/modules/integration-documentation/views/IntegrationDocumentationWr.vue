@@ -5,7 +5,7 @@
         <vl-layout>
           <vl-grid mod-stacked>
             <vl-column width="9" width-s="12">
-              <vl-link :to="$l('backButtons.home.url')" mod-bold v-l="`backButtons.home.text`" />
+              <vl-link :to="$l('backButtons.integrationDocumentation.url')" mod-bold v-l="`backButtons.integrationDocumentation.text`" />
               <header>
                 <y-markdown v-if="$data.markdownLoaded" :src="$data.header" />
               </header>
@@ -51,7 +51,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  localeName: "integration-guideline",
+  localeName: "integrationDocumentationWr",
   hasMarkdown: true,
   created() {
   },

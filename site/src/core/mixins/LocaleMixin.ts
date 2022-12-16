@@ -17,13 +17,16 @@ interface LocalePropertyOptions {
   } | undefined,
   doormatItems: {
     title: string | undefined;
+    text: string | undefined;
     url: string | undefined;
+    hide: boolean | undefined;
   }[] | undefined;
   spotlightItems: {
     title: string | undefined;
     subtitle: string | undefined;
     text: string | undefined;
     url: string | LocaleData.EnvVars | undefined;
+    hide: boolean | undefined;
   }[] | undefined;
 }
 
@@ -140,7 +143,9 @@ Vue.mixin(Vue.extend({
             }
             item.url = url;
           }
-          this.spotlightItems.push(item);
+          if(item.hide !== true) {
+            this.spotlightItems.push(item);
+          }
         });
       }
     },
@@ -148,7 +153,7 @@ Vue.mixin(Vue.extend({
       const options = this.getDefaultLocaleOptions();
       if (options && options.doormatItems) {
         this.doormatItems.splice(0);
-        this.doormatItems.push(...options.doormatItems);
+        this.doormatItems.push(...options.doormatItems.filter(i => i.hide !== true));
       }
     },
     getSidebar() {
