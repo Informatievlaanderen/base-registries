@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/informatievlaanderen/base-registries/compare/v2.2.11...v2.3.0) (2022-12-21)
+
+
+### Features
+
+* use v2 public api endpoints ([0bbc52f](https://github.com/informatievlaanderen/base-registries/commit/0bbc52f4819101068d75aba256950cb25a509c30))
+
 ## [2.2.11](https://github.com/informatievlaanderen/base-registries/compare/v2.2.10...v2.2.11) (2022-12-16)
 
 
