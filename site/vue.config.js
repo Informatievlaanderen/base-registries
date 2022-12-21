@@ -72,7 +72,7 @@ const proxyApiErrors = {
       'Cache-Control': 'no-store',
     },
     pathRewrite: {
-      "/basisregisters-api/foutmeldingen/": `/v1/foutmeldingen/`
+      "/basisregisters-api/foutmeldingen/": `/v2/foutmeldingen/`
     }
   },
 }

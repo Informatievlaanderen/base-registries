@@ -2,23 +2,23 @@ import apiClient from "./api-client";
 
 export const PublicApiClient= {
     getVersionsOfRegistries: async() : Promise<any> => {
-        const path = `/basisregisters-api/v1/versions`;
+        const path = `/basisregisters-api/v2/versions`;
         return (await apiClient.get<any>(path)).data;
     },
     getImportStatus: async (): Promise<ImportStatusResponse> => {
-        const path = `/basisregisters-api/v1/status/import`;
+        const path = `/basisregisters-api/v2/status/import`;
         return (await apiClient.get<any>(path)).data;
     },
     getProjectionStatus: async (): Promise<any> => {
-        const path = `/basisregisters-api/v1/status/projection`;
+        const path = `/basisregisters-api/v2/status/projection`;
         return (await apiClient.get<any>(path)).data;
     },
     getCacheStatus: async (): Promise<any> => {
-        const path = `/basisregisters-api/v1/status/cache`;
+        const path = `/basisregisters-api/v2/status/cache`;
         return (await apiClient.get<any>(path)).data;
     },
     getSyndicationStatus: async (): Promise<any> => {
-        const path = `/basisregisters-api/v1/status/syndication`;
+        const path = `/basisregisters-api/v2/status/syndication`;
         return (await apiClient.get<any>(path)).data;
     },
     getErrorDetail: async (id: string): Promise<string> => {
