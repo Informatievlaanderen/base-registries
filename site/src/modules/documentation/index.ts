@@ -24,12 +24,7 @@ export const DocumentationRoutes = [
         path: "statusflowgrar",
         component: StatusFlowGrar,
         name: "statusflowgrar"
-      },
-      {
-        path: "apikey",
-        component: ApiKey,
-        name: "apikey"
-      },
+      }
     ],
   },
 ];
