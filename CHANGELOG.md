@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/informatievlaanderen/base-registries/compare/v2.3.0...v2.3.1) (2023-03-09)
+
+
+### Bug Fixes
+
+* add 2 new pages & version bump npm & packages ([82cfd23](https://github.com/informatievlaanderen/base-registries/commit/82cfd231d2bc7092a7561338adecefd6daa37584))
+
 # [2.3.0](https://github.com/informatievlaanderen/base-registries/compare/v2.2.11...v2.3.0) (2022-12-21)
 
 
