@@ -6,12 +6,12 @@
 
 NVM: ([Windows][1], [unix, macOS, windows WSL](2))
 
-Node: **v18.12.1** *(do this with nvm)*
+Node: **v18.15.0** *(do this with nvm)*
 
-NPM: **v8.19.2** *(nvm handles this too)*
+NPM: **v9.5.0** *(nvm handles this too)*
 
 ``` bash
-nvm install 18.12.1
+nvm install 18.15.0 
 ```
 
 [1]:(https://github.com/coreybutler/nvm-windows)
