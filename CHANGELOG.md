@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/informatievlaanderen/base-registries/compare/v2.3.1...v2.3.2) (2023-03-09)
+
+
+### Bug Fixes
+
+* apikey level 1 route ([b5e86d7](https://github.com/informatievlaanderen/base-registries/commit/b5e86d7faa9e53fcb74e78e1ed946ef5b241b2ea))
+
 ## [2.3.1](https://github.com/informatievlaanderen/base-registries/compare/v2.3.0...v2.3.1) (2023-03-09)
 
 
