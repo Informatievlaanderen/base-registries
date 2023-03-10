@@ -90,7 +90,7 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
     const attributes = !href.startsWith("/") && !href.startsWith("#") ? `target="_blank" rel="noopener noreferrer nofollow"` : "";
     const attributeTitle = title ? `title="${title}"` : "";
     const noProtocolUrl = href.replace("http:", "").replace("https:", "");
-    const out = `<a href="${encodeURI(noProtocolUrl, )}" ${attributeTitle} ${attributes} >${text}</a>`;
+    const out = `<a href="${encodeURI(decodeURI(noProtocolUrl), )}" ${attributeTitle} ${attributes} >${text}</a>`;
     return out;
   }
   heading(
