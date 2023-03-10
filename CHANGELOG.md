@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/informatievlaanderen/base-registries/compare/v2.3.2...v2.3.3) (2023-03-10)
+
+
+### Bug Fixes
+
+* uri encoding ([458b689](https://github.com/informatievlaanderen/base-registries/commit/458b689d399b561971a1f21131c71b5c1f3af7f8))
+
 ## [2.3.2](https://github.com/informatievlaanderen/base-registries/compare/v2.3.1...v2.3.2) (2023-03-09)
 
 
