@@ -1,3 +1,10 @@
+## [2.3.4](https://github.com/informatievlaanderen/base-registries/compare/v2.3.3...v2.3.4) (2023-03-14)
+
+
+### Bug Fixes
+
+* don't alllow encoding & decoding. ([99a682c](https://github.com/informatievlaanderen/base-registries/commit/99a682c334da3df852ea5b968c5f75e94697ae2f))
+
 ## [2.3.3](https://github.com/informatievlaanderen/base-registries/compare/v2.3.2...v2.3.3) (2023-03-10)
 
 
