@@ -5,7 +5,7 @@
         <vl-layout>
           <vl-grid mod-stacked>
             <vl-column width="9" width-s="12">
-              <vl-link :to="$l('backButtons.validations.url')" mod-bold v-l="`backButtons.validations.text`" />
+              <vl-link :to="$l('backButtons.editvalidations.url')" mod-bold v-l="`backButtons.editvalidations.text`" />
               <header>
                 <y-markdown v-if="$data.markdownLoaded" :src="$data.header" />
               </header>
