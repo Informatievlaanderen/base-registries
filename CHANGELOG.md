@@ -1,3 +1,10 @@
+## [2.3.8](https://github.com/informatievlaanderen/base-registries/compare/v2.3.7...v2.3.8) (2023-03-28)
+
+
+### Bug Fixes
+
+* build trigger ([5940367](https://github.com/informatievlaanderen/base-registries/commit/594036759cb3b01fb4e3fdc49047976beaa29892))
+
 ## [2.3.7](https://github.com/informatievlaanderen/base-registries/compare/v2.3.6...v2.3.7) (2023-03-28)
 
 
