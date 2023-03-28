@@ -50,7 +50,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  localeName: "validations",
+  localeName: "editvalidations",
   hasMarkdown: true,
 });
 </script>
