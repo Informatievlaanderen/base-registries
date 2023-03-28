@@ -1,3 +1,10 @@
+## [2.3.6](https://github.com/informatievlaanderen/base-registries/compare/v2.3.5...v2.3.6) (2023-03-28)
+
+
+### Bug Fixes
+
+* rename validations localname ([3d2edab](https://github.com/informatievlaanderen/base-registries/commit/3d2edab44088a8b31684cbed4c940eff5e60e59d))
+
 ## [2.3.5](https://github.com/informatievlaanderen/base-registries/compare/v2.3.4...v2.3.5) (2023-03-28)
 
 
