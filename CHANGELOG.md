@@ -1,3 +1,10 @@
+## [2.3.5](https://github.com/informatievlaanderen/base-registries/compare/v2.3.4...v2.3.5) (2023-03-28)
+
+
+### Bug Fixes
+
+* add new validations endpoint ([3a1b982](https://github.com/informatievlaanderen/base-registries/commit/3a1b98247cdbdb88cc4a29672fc21f2a88dce741))
+
 ## [2.3.4](https://github.com/informatievlaanderen/base-registries/compare/v2.3.3...v2.3.4) (2023-03-14)
 
 
