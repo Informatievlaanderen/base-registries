@@ -17,6 +17,7 @@ import { FaqRoutes } from "./modules/faq";
 import { OpensourceApplicationsRoutes } from "./modules/opensource-applications";
 import { OpensourceComponentsRoutes } from "./modules/opensource-components";
 import { IntegrationDocumentationRoutes } from "./modules/integration-documentation" ; 
+import { ProductsRoutes } from "./modules/products" ; 
 
 Vue.use(Router);
 
@@ -37,7 +38,8 @@ const routes: RouteConfig[] = [
     ...IntegrationDocumentationRoutes,
     ...FaqRoutes,
     ...OpensourceApplicationsRoutes,
-    ...OpensourceComponentsRoutes
+    ...OpensourceComponentsRoutes,
+    ...ProductsRoutes
 ];
 
 function ensureRouteMetaValue(route: Route, predicate: (meta: any) => boolean) {
