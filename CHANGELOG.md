@@ -1,3 +1,10 @@
+## [2.3.9](https://github.com/informatievlaanderen/base-registries/compare/v2.3.8...v2.3.9) (2023-05-03)
+
+
+### Bug Fixes
+
+* add producten page ([8a1e4e5](https://github.com/informatievlaanderen/base-registries/commit/8a1e4e5b7d2715b234650b8d2eaab612089a55c6))
+
 ## [2.3.8](https://github.com/informatievlaanderen/base-registries/compare/v2.3.7...v2.3.8) (2023-03-28)
 
 
