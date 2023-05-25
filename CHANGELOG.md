@@ -1,3 +1,15 @@
+# [2.4.0](https://github.com/informatievlaanderen/base-registries/compare/v2.3.9...v2.4.0) (2023-05-25)
+
+
+### Bug Fixes
+
+* style to trigger build ([eead789](https://github.com/informatievlaanderen/base-registries/commit/eead789479ab7056a67920ceb3ba02db37cb541e))
+
+
+### Features
+
+* add grar & wr product views ([7bc807c](https://github.com/informatievlaanderen/base-registries/commit/7bc807c42a141a8092859aaa62303f1a7393a7b2))
+
 ## [2.3.9](https://github.com/informatievlaanderen/base-registries/compare/v2.3.8...v2.3.9) (2023-05-03)
 
 
