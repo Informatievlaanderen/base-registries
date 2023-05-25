@@ -51,7 +51,6 @@ Instead of that what we is to do these steps.
 3. Exec `nvm use`
 4. Exec `npm i`
 
-
 ## Project setup
 
 Before executing below commands, replace the variable `${NPM_TOKEN}` in `#YOUR_PROJECT_PATH/base-registries/site/.npmrc` with the NPM auth token necessary to install all NPM packages.
