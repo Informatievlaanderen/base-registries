@@ -9,6 +9,8 @@ import { StatusRoutes } from "./modules/status";
 import { ReleaseNotesRoutes } from "./modules/release-notes";
 import { ErrorDetailRoutes } from "./modules/error-detail";
 import { VersionRoutes } from "./modules/versions";
+import { FaqRoutes } from "./modules/faq";
+import { GlossaryRoutes } from "./modules/glossary";
 import { OpensourceApplicationsRoutes } from "./modules/opensource-applications";
 import { OpensourceComponentsRoutes } from "./modules/opensource-components";
 import { IntegrationDocumentationRoutes } from "./modules/integration-documentation" ; 
@@ -27,6 +29,8 @@ const routes: RouteConfig[] = [
     ...ReleaseNotesRoutes,
     ...VersionRoutes,
     ...IntegrationDocumentationRoutes,
+    ...FaqRoutes,
+    ...GlossaryRoutes,
     ...OpensourceApplicationsRoutes,
     ...OpensourceComponentsRoutes,
     ...ProductsRoutes
