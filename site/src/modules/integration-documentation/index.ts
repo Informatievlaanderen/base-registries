@@ -12,17 +12,17 @@ export const IntegrationDocumentationRoutes = [
             {
                 path: "",
                 component: IntegrationDocumentation,
-                name: "integration-documentatie"
+                name: "integratie-documentatie"
             },
             {
                 path: "grar",
                 component: IntegrationDocumentationGrar,
-                name: "integration-documentatie-grar"
+                name: "integratie-documentatie-grar"
             },
             {
                 path: "wr",
                 component: IntegrationDocumentationWr,
-                name: "integration-documentatie-wr"
+                name: "integratie-documentatie-wr"
             },
         ],
     },
