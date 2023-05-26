@@ -1,3 +1,15 @@
+# [2.5.0](https://github.com/informatievlaanderen/base-registries/compare/v2.4.0...v2.5.0) (2023-05-26)
+
+
+### Bug Fixes
+
+* path names for integratie-documentatie pages ([a46b770](https://github.com/informatievlaanderen/base-registries/commit/a46b770c802a269b33ceded02470e353f94599fb))
+
+
+### Features
+
+* remove faq, general, motive, information, vision ([6bb53db](https://github.com/informatievlaanderen/base-registries/commit/6bb53db8370bdb28c5e6e9c7534ca97e22fccfa5))
+
 # [2.4.0](https://github.com/informatievlaanderen/base-registries/compare/v2.3.9...v2.4.0) (2023-05-25)
 
 
