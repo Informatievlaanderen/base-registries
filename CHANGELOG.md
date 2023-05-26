@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/informatievlaanderen/base-registries/compare/v2.5.0...v2.6.0) (2023-05-26)
+
+
+### Features
+
+* add faq & glossary modules + routes ([67cf0d1](https://github.com/informatievlaanderen/base-registries/commit/67cf0d1b47777c13ac4a51df7f8dc16248c0d055))
+
 # [2.5.0](https://github.com/informatievlaanderen/base-registries/compare/v2.4.0...v2.5.0) (2023-05-26)
 
 
