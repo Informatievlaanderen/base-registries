@@ -1,5 +1,5 @@
 import Root from "./views/Root.vue";
-import Faq from "./views/Faq.vue";
+import Faq from "./views/Faq.vue"
 
 export const FaqRoutes = [
     {
@@ -8,17 +8,11 @@ export const FaqRoutes = [
         meta: {},
         children: [
             {
-                path: "/veelgestelde-vragen/:topic",
-                component: Faq,
-                props: true
-
+              path: "",
+              component: Faq,
+              name: "faq"
             },
-            {
-                path: "/veelgestelde-vragen/:topic/:question",
-                component: Faq,
-                props: true
-            }
-        ],
+        ]
     },
 ];
 

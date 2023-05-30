@@ -50,7 +50,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  localeName: "error-detail",
+  localeName: "glossary",
   hasMarkdown: true
 });
 </script>

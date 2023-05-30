@@ -11,12 +11,7 @@ export const ErrorDetailRoutes = [
                 path: "/foutmeldingen",
                 component: ErrorDetail,
                 props:false
-            },
-            {
-                path: "/foutmeldingen/:id",
-                component: ErrorDetail,
-                props:true
-            },
+            }
         ],
     },
 ];
