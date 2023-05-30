@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/informatievlaanderen/base-registries/compare/v2.6.0...v2.6.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* style to trigger build ([f71e018](https://github.com/informatievlaanderen/base-registries/commit/f71e018c1d2f5f520b7bbb404177144a3f05a76f))
+
 # [2.6.0](https://github.com/informatievlaanderen/base-registries/compare/v2.5.0...v2.6.0) (2023-05-30)
 
 
