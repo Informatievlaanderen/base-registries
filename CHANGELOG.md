@@ -1,3 +1,15 @@
+# [2.6.0](https://github.com/informatievlaanderen/base-registries/compare/v2.5.0...v2.6.0) (2023-05-30)
+
+
+### Bug Fixes
+
+* gawr 4911 4865 1892 4893 4912 ([ffa2f06](https://github.com/informatievlaanderen/base-registries/commit/ffa2f0659f11d70862e5a6b5d9de16480a1e6a1f))
+
+
+### Features
+
+* add faq & glossary modules + routes ([67cf0d1](https://github.com/informatievlaanderen/base-registries/commit/67cf0d1b47777c13ac4a51df7f8dc16248c0d055))
+
 # [2.6.0](https://github.com/informatievlaanderen/base-registries/compare/v2.5.0...v2.6.0) (2023-05-26)
 
 
