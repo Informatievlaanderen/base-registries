@@ -44,7 +44,11 @@ const i18n = {
     async refresh() {
         const result = await TranslationClient.getTranslations("nl");
         translations.nl = { ...result } as any;
-        const path = window.location.pathname;       
+        const path = window.location.pathname; 
+        if (path.startsWith("/foutmeldingen/")) {
+            const data = await TranslationClient.getErrorDetailTableOfContents("nl");
+            translations.errorDetailTableOfContents = { ...data };
+        }
     }
 }
 const { init, refresh, directive, translate } = i18n;

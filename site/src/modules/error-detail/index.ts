@@ -1,5 +1,6 @@
 import Root from "./views/Root.vue";
 import ErrorDetail from "./views/ErrorDetail.vue";
+import Error from "./views/Error.vue";
 
 export const ErrorDetailRoutes = [
     {
@@ -9,9 +10,13 @@ export const ErrorDetailRoutes = [
         children: [
             {
                 path: "/foutmeldingen",
-                component: ErrorDetail,
+                component: Error,
                 props:false
-            }
+            },{
+                path: "/foutmeldingen/:id",
+                component: ErrorDetail,
+                props:true
+            },
         ],
     },
 ];
