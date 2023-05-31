@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/informatievlaanderen/base-registries/compare/v2.6.1...v2.6.2) (2023-05-31)
+
+
+### Bug Fixes
+
+* foutmeldingen gawr-4914 ([e8213ed](https://github.com/informatievlaanderen/base-registries/commit/e8213ed07f59236bd5aca22d7d9d51447f2aa684))
+
 ## [2.6.1](https://github.com/informatievlaanderen/base-registries/compare/v2.6.0...v2.6.1) (2023-05-30)
 
 
