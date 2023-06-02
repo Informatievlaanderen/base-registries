@@ -13,6 +13,10 @@ export const PublicApiClient= {
         const path = `/basisregisters-api/v2/status/projection`;
         return (await apiClient.get<any>(path)).data;
     },
+    getProducerStatus: async (): Promise<any> => {
+        const path = `/basisregisters-api/v2/status/producer`;
+        return (await apiClient.get<any>(path)).data;
+    },
     getCacheStatus: async (): Promise<any> => {
         const path = `/basisregisters-api/v2/status/cache`;
         return (await apiClient.get<any>(path)).data;

@@ -73,6 +73,11 @@ export default Vue.extend({
           title: "Projecties",
           loaded:false 
         },
+         {
+          name:"producer",
+          title: "Producer",
+          loaded:false 
+        },
         {
           name:"feed",
           title: "Feed",
@@ -141,6 +146,7 @@ export default Vue.extend({
   methods: {
     async init() {
       await this.refresh("projections");
+      await this.refresh("producer");
       await this.refresh("feed");
       await this.refresh("import");
       await this.refresh("cache");
@@ -154,6 +160,9 @@ export default Vue.extend({
         case "projections":
         case "feed":
           data = await PublicApiClient.getProjectionStatus();
+          break;
+        case "producer":
+          data = await PublicApiClient.getProducerStatus();
           break;
         case "cache":
           data = await PublicApiClient.getCacheStatus();
@@ -198,6 +207,13 @@ export default Vue.extend({
       if (statusType === "projections") {
         try {
           ret.push(...this.getProjectionItems(statusType, data));
+        } catch(e) {
+          ret.push({ success:false, error: e } as StatusItem);
+        }
+      }
+      if (statusType === "producer") {
+        try {
+          ret.push(...this.getProducerItems(statusType, data));
         } catch(e) {
           ret.push({ success:false, error: e } as StatusItem);
         }
@@ -362,6 +378,49 @@ export default Vue.extend({
         });
       return items;
     },
+    getProducerItems(statusType: StatusType, data: any) {
+      const ProducerResponse = (data[statusType]) as {
+        projections: Array<{
+          key: string,
+          name: string,
+          description: string,
+          state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed",
+          currentPosition: number,
+        }>,
+        streamPosition: number,
+      } | null | undefined;
+      if (ProducerResponse === null || ProducerResponse === undefined) {
+        throw {
+          title: "Producers status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de producers. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
+      
+      
+      const items = ProducerResponse?.projections
+      .filter(i => !i.name.includes("Feed endpoint "))
+      .map((i) => {
+          const info = this.getRightTextInfo(i.currentPosition, ProducerResponse.streamPosition);
+          const item: StatusItem = {
+            planed: false,
+            paused: i.state == "crashed" || i.state == "unknown",
+            play: i.state == "catchingUp" || i.state == "subscribed",
+            stopped: i.state == "stopped",
+            hideAppendIcon: false,
+            hidePrepandIcon: false,
+            hoverText: i.description,
+            disableHoverText: false,
+            prependHoverText: i.state,
+            text: i.name,
+            rightText: info.rightText,
+            success: info.success,
+          error: undefined,
+          };
+          return item;
+        });
+      return items;
+    },
     getFeedItems(statusType: StatusType, data: any) {
       const projectionResponse = (data[statusType]) as (
       {
@@ -466,10 +525,11 @@ export default Vue.extend({
   },
 });
 
-type StatusType = "projections" | "feed" | "cache" | "import" | "syndication";
+type StatusType = "projections" | "producer" | "feed" | "cache" | "import" | "syndication";
 
 interface RegistryItem<T> {
   projections: T;
+  producer: T;
   feed: T;
   cache: T;
   import: T;
