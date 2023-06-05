@@ -1,3 +1,10 @@
+## [2.6.3](https://github.com/informatievlaanderen/base-registries/compare/v2.6.2...v2.6.3) (2023-06-05)
+
+
+### Bug Fixes
+
+* naming editvalidations ([e7c3897](https://github.com/informatievlaanderen/base-registries/commit/e7c3897bd30ce9088c5fdbbe7108ed19343dc271))
+
 ## [2.6.2](https://github.com/informatievlaanderen/base-registries/compare/v2.6.1...v2.6.2) (2023-05-31)
 
 
