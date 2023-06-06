@@ -3,6 +3,9 @@ import Documentation from "./views/Documentation.vue";
 import EditEndPointsGrar from "./views/EditEndPointsGrar.vue";
 import EditEndPointsValidatiesGrar from "./views/EditEndPointsValidatiesGrar.vue";
 import StatusFlowGrar from "./views/StatusFlowGrar.vue";
+import EditEndPointsWr from "./views/EditEndPointsWr.vue";
+import EditEndPointsValidatiesWr from "./views/EditEndPointsValidatiesWr.vue";
+import StatusFlowWr from "./views/StatusFlowWr.vue";
 import ApiKey from "./views/ApiKey.vue";
 
 export const DocumentationRoutes = [
@@ -30,6 +33,21 @@ export const DocumentationRoutes = [
         path: "statusflowgrar",
         component: StatusFlowGrar,
         name: "statusflowgrar"
+      },
+      {
+        path: "editendpointswr",
+        component: EditEndPointsWr,
+        name: "editendpointswr",
+      },
+      {
+        path: "editendpointswr/validaties",
+        component: EditEndPointsValidatiesWr,
+        name: "validations"
+      },
+      {
+        path: "statusflowwr",
+        component: StatusFlowWr,
+        name: "statusflowwr"
       }
     ],
   },

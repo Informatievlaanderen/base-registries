@@ -1,11 +1,11 @@
 <template>
-  <vl-page class="edit-endpoints-grar">
+  <vl-page class="edit-endpoints-wr">
     <vl-main>
       <vl-region>
         <vl-layout>
           <vl-grid mod-stacked>
             <vl-column width="9" width-s="12">
-              <vl-link :to="$l('backButtons.editendpointsgrar.url')" mod-bold v-l="`backButtons.editendpointsgrar.text`" />
+              <vl-link :to="$l('backButtons.documentation.url')" mod-bold v-l="`backButtons.documentation.text`" />
               <header>
                 <y-markdown v-if="$data.markdownLoaded" :src="$data.header" />
               </header>
@@ -50,13 +50,13 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  localeName: "editvalidationsgrar",
+  localeName: "statusflowwr",
   hasMarkdown: true,
 });
 </script>
 
 <style lang="scss">
-div.edit-endpoints-grar {
+div.edit-endpoints-wr {
   h2, h3, h4, h5, h6, a, p {
     scroll-margin: 80px;
   }
