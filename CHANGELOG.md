@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/informatievlaanderen/base-registries/compare/v2.6.3...v2.7.0) (2023-06-06)
+
+
+### Features
+
+* add views EditEndPointsWr EditEndPointsValidatiesWr StatusFlowWr ([af1f13d](https://github.com/informatievlaanderen/base-registries/commit/af1f13db87a949124ae43de1f7c4d5957b302c22))
+
 ## [2.6.3](https://github.com/informatievlaanderen/base-registries/compare/v2.6.2...v2.6.3) (2023-06-05)
 
 
