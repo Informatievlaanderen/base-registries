@@ -20,18 +20,29 @@
                 </vl-typography>
               </div>
               <div class="ma-0 pa-0">
-                <div v-for="registry in getRegistryIds" :key="registry" class="ma-0 pa-0">
+                <div
+                  v-for="registry in registries"
+                  :key="registry.key"
+                  :id="registry.title"
+                  class="ma-0 pa-0"
+                >
                   <h3 class="vl-title vl-title--h3 ma-0 py-4" :style="{ color: '#05c' }">
-                    {{ $l(`status.registries.${registry}.title`) }}
+                    <a :href="`#${registry.title}`">{{
+                      registry.title
+                    }}</a>
                   </h3>
                   <div v-for="statusType in statusTypes" :key="statusType.name">
                     <vl-status-category
-                      v-if="
-                        $l(`status.registries.${registry}.${statusType.name}`)
-                      "
+                      v-if="$l(`status.registries.${registry.key}.${statusType.name}`)"
                       :loading="!statusType.loaded"
                       :title="statusType.title"
-                      :items="transformedStatusItems && transformedStatusItems[registry] && transformedStatusItems[registry] && transformedStatusItems[registry][statusType.name] || []"
+                      :items="
+                        (transformedStatusItems &&
+                          transformedStatusItems[registry.key] &&
+                          transformedStatusItems[registry.key] &&
+                          transformedStatusItems[registry.key][statusType.name]) ||
+                        []
+                      "
                       class="ma-0 pa-0"
                       @refresh="refresh(statusType.name)"
                     />
@@ -45,7 +56,6 @@
     </vl-main>
   </vl-page>
 </template>
-
 
 <script lang="ts">
 import Vue from "vue";
@@ -64,84 +74,89 @@ export default Vue.extend({
       transformedStatusItems: {} as { [registry: string]: RegistryItem<StatusItem[]> },
       statusTypes: [
         {
-          name:"import",
+          name: "import",
           title: "Import",
-          loaded:false 
+          loaded: false,
         },
         {
-          name:"projections",
+          name: "projections",
           title: "Projecties",
-          loaded:false 
+          loaded: false,
         },
-         {
-          name:"producer",
+        {
+          name: "producer",
           title: "Producer",
-          loaded:false 
+          loaded: false,
         },
         {
-          name:"feed",
+          name: "feed",
           title: "Feed",
-          loaded:false 
+          loaded: false,
         },
         {
-          name:"syndication",
+          name: "syndication",
           title: "Register synchronisatie",
-          loaded:false 
+          loaded: false,
         },
         {
-          name:"cache",
+          name: "cache",
           title: "Cache",
-          loaded:false 
-        }
-      ] as Array<{name:StatusType,title: string, loaded: boolean}>,
+          loaded: false,
+        },
+      ] as Array<{ name: StatusType; title: string; loaded: boolean }>,
       syndicationTranslations: [
         {
           key: "Municipality",
-          value: "Feed gemeenten"
+          value: "Feed gemeenten",
         },
         {
           key: "PostalInfo",
-          value: "Feed postinfo"
+          value: "Feed postinfo",
         },
         {
           key: "StreetName",
-          value: "Feed straatnamen"
+          value: "Feed straatnamen",
         },
         {
           key: "Address",
-          value: "Feed adressen"
+          value: "Feed adressen",
         },
         {
           key: "Parcel",
-          value: "Feed percelen"
+          value: "Feed percelen",
         },
         {
           key: "BuildingUnit",
-          value: "Feed gebouwen"
+          value: "Feed gebouwen",
         },
         {
           key: "Address",
-          value: "Feed adressen t.b.v. extract adreskoppelingen"
+          value: "Feed adressen t.b.v. extract adreskoppelingen",
         },
         {
           key: "ParcelAddressLink",
-          value: "Feed percelen t.b.v. extract adreskoppelingen"
+          value: "Feed percelen t.b.v. extract adreskoppelingen",
         },
         {
           key: "BuildingUnitAddressLink",
-          value: "Feed gebouwen t.b.v. extract adreskoppelingen"
-        }
-      ] as Array<{key:string,value: string}>,
+          value: "Feed gebouwen t.b.v. extract adreskoppelingen",
+        },
+      ] as Array<{ key: string; value: string }>,
     };
   },
   async mounted() {
     this.init();
   },
   computed: {
-    getRegistryIds() {
+    registries() {
       const status = this.$l("status.registries");
-      return Object.keys(status);
-    }
+      return Object.keys(status).map((registry) => {
+        return {
+          key: registry,
+          title: this.$l(`status.registries.${registry}.title`),
+        };
+      });
+    },
   },
   methods: {
     async init() {
@@ -153,7 +168,7 @@ export default Vue.extend({
       await this.refresh("syndication");
     },
     async refresh(statusType: StatusType) {
-      const type = this.statusTypes.find((i: {name:StatusType, loaded: boolean}) => i.name == statusType);
+      const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
       type!.loaded = false;
       let data = {} as any;
       switch (statusType) {
@@ -193,73 +208,85 @@ export default Vue.extend({
       if (statusType === "feed") {
         try {
           ret.push(...this.getFeedItems(statusType, data));
-        } catch(e) {
-          ret.push({ success:false, error: e } as StatusItem);
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
         }
       }
       if (statusType === "import") {
         try {
           ret.push(...this.getImportItems(statusType, data));
-        } catch(e) {
-          ret.push({ success:false, error: e } as StatusItem);
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
         }
       }
       if (statusType === "projections") {
         try {
           ret.push(...this.getProjectionItems(statusType, data));
-        } catch(e) {
-          ret.push({ success:false, error: e } as StatusItem);
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
         }
       }
       if (statusType === "producer") {
         try {
           ret.push(...this.getProducerItems(statusType, data));
-        } catch(e) {
-          ret.push({ success:false, error: e } as StatusItem);
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
         }
       }
       if (statusType === "cache") {
         try {
           ret.push(...this.getCacheItems(statusType, data));
-        } catch(e) {
-          ret.push({ success:false, error: e } as StatusItem);
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
         }
       }
       if (statusType === "syndication") {
         try {
           const syndication = this.getSyndicationItems(statusType, data);
-          if(syndication) {
+          if (syndication) {
             ret.push(...syndication);
           }
-        } catch(e) {
-          ret.push({ success:false, error: e } as StatusItem);
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
         }
       }
       return ret;
     },
     getSyndicationItems(statusType: StatusType, data: any) {
-      const syndicationResponse = (data[statusType]) as {
-        syndications: Array<{
-          name: string,
-          currentPosition: number,
-        }>
-      } | null | undefined;
+      const syndicationResponse = data[statusType] as
+        | {
+            syndications: Array<{
+              name: string;
+              currentPosition: number;
+            }>;
+          }
+        | null
+        | undefined;
 
       if (!syndicationResponse) {
         throw {
-          title:"Register synchronisatie status ophalen is mislukt",
-          text:"Er is iets fout gelopen tijdens het ophalen van de status van de register synchronisatie. Probeer het later opnieuw.",
+          title: "Register synchronisatie status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de register synchronisatie. Probeer het later opnieuw.",
           inline: false,
         };
       }
 
       const projectionsResponse = this.statusItems;
-      const items = syndicationResponse && syndicationResponse.syndications
-      .map((i) => {
-        const registry = i.name.toLowerCase().replace("addresslink","").replace("unit", "").replace("postalinfo", "postal");
-        const p = (projectionsResponse[registry] as any) as {projections: {streamPosition: number } | undefined | null };
-        const name = this.syndicationTranslations.find(y => y.key.toLowerCase() == i.name.toLocaleLowerCase())?.value || i.name;
-        if (!p.projections) {
+      const items =
+        syndicationResponse &&
+        syndicationResponse.syndications.map((i) => {
+          const registry = i.name
+            .toLowerCase()
+            .replace("addresslink", "")
+            .replace("unit", "")
+            .replace("postalinfo", "postal");
+          const p = projectionsResponse[registry] as any as {
+            projections: { streamPosition: number } | undefined | null;
+          };
+          const name =
+            this.syndicationTranslations.find((y) => y.key.toLowerCase() == i.name.toLocaleLowerCase())?.value ||
+            i.name;
+          if (!p.projections) {
             return {
               planed: false,
               paused: false,
@@ -271,51 +298,57 @@ export default Vue.extend({
               disableHoverText: true,
               text: name,
               success: false,
-              error: {title: "", text: "Er is iets fout gelopen tijdens het ophalen van de synchronisatie-bron status.", inline: true},
-          }as StatusItem;
-        }
-        let streamPosition = p.projections && p.projections.streamPosition;
-        let currentPosition = i.currentPosition;
-        if(i.name == "municipality" || i.name == "postalInfo") {
-          currentPosition++;
-        }
-        const info = this.getRightTextInfo(currentPosition, (streamPosition || 0));
-        const item: StatusItem = {
-          planed: false,
-          paused: false,
-          play: true,
-          stopped: false,
-          hideAppendIcon: false,
-          hidePrepandIcon: true,
-          hoverText: "",
-          prependHoverText: "",
-          disableHoverText: true,
-          text: name,
-          rightText: info.rightText,
-          success: info.success,
-          error: undefined,
-        };
-        return item;
-      });
+              error: {
+                title: "",
+                text: "Er is iets fout gelopen tijdens het ophalen van de synchronisatie-bron status.",
+                inline: true,
+              },
+            } as StatusItem;
+          }
+          let streamPosition = p.projections && p.projections.streamPosition;
+          let currentPosition = i.currentPosition;
+          if (i.name == "municipality" || i.name == "postalInfo") {
+            currentPosition++;
+          }
+          const info = this.getRightTextInfo(currentPosition, streamPosition || 0);
+          const item: StatusItem = {
+            planed: false,
+            paused: false,
+            play: true,
+            stopped: false,
+            hideAppendIcon: false,
+            hidePrepandIcon: true,
+            hoverText: "",
+            prependHoverText: "",
+            disableHoverText: true,
+            text: name,
+            rightText: info.rightText,
+            success: info.success,
+            error: undefined,
+          };
+          return item;
+        });
       return items;
     },
     getCacheItems(statusType: StatusType, data: any) {
-      const cacheResponse = (data[statusType]) as Array<{
-          name: string,
-          numberOfRecordsToProcess: number,
-        }> | null | undefined;
+      const cacheResponse = data[statusType] as
+        | Array<{
+            name: string;
+            numberOfRecordsToProcess: number;
+          }>
+        | null
+        | undefined;
 
       if (!cacheResponse) {
         throw {
           title: "Cache status ophalen is mislukt",
           text: "Er is iets fout gelopen tijdens het ophalen van de status van de cache. Probeer het later opnieuw.",
           inline: false,
-        }
+        };
       }
-      const items = cacheResponse
-      .map((i) => {
+      const items = cacheResponse.map((i) => {
         const success = i.numberOfRecordsToProcess == 0;
-        const rightText = success ? "" : `Aantal niet gecachte objecten: ${i.numberOfRecordsToProcess}`
+        const rightText = success ? "" : `Aantal niet gecachte objecten: ${i.numberOfRecordsToProcess}`;
         const item: StatusItem = {
           planed: false,
           paused: false,
@@ -336,16 +369,19 @@ export default Vue.extend({
       return items;
     },
     getProjectionItems(statusType: StatusType, data: any) {
-      const projectionResponse = (data[statusType]) as {
-        projections: Array<{
-          key: string,
-          name: string,
-          description: string,
-          state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed",
-          currentPosition: number,
-        }>,
-        streamPosition: number,
-      } | null | undefined;
+      const projectionResponse = data[statusType] as
+        | {
+            projections: Array<{
+              key: string;
+              name: string;
+              description: string;
+              state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed";
+              currentPosition: number;
+            }>;
+            streamPosition: number;
+          }
+        | null
+        | undefined;
       if (projectionResponse === null || projectionResponse === undefined) {
         throw {
           title: "Projecties status ophalen is mislukt",
@@ -353,11 +389,10 @@ export default Vue.extend({
           inline: false,
         };
       }
-      
-      
+
       const items = projectionResponse?.projections
-      .filter(i => !i.name.includes("Feed endpoint "))
-      .map((i) => {
+        .filter((i) => !i.name.includes("Feed endpoint "))
+        .map((i) => {
           const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
           const item: StatusItem = {
             planed: false,
@@ -372,23 +407,26 @@ export default Vue.extend({
             text: i.name,
             rightText: info.rightText,
             success: info.success,
-          error: undefined,
+            error: undefined,
           };
           return item;
         });
       return items;
     },
     getProducerItems(statusType: StatusType, data: any) {
-      const ProducerResponse = (data[statusType]) as {
-        projections: Array<{
-          key: string,
-          name: string,
-          description: string,
-          state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed",
-          currentPosition: number,
-        }>,
-        streamPosition: number,
-      } | null | undefined;
+      const ProducerResponse = data[statusType] as
+        | {
+            projections: Array<{
+              key: string;
+              name: string;
+              description: string;
+              state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed";
+              currentPosition: number;
+            }>;
+            streamPosition: number;
+          }
+        | null
+        | undefined;
       if (ProducerResponse === null || ProducerResponse === undefined) {
         throw {
           title: "Producers status ophalen is mislukt",
@@ -396,11 +434,10 @@ export default Vue.extend({
           inline: false,
         };
       }
-      
-      
+
       const items = ProducerResponse?.projections
-      .filter(i => !i.name.includes("Feed endpoint "))
-      .map((i) => {
+        .filter((i) => !i.name.includes("Feed endpoint "))
+        .map((i) => {
           const info = this.getRightTextInfo(i.currentPosition, ProducerResponse.streamPosition);
           const item: StatusItem = {
             planed: false,
@@ -415,24 +452,26 @@ export default Vue.extend({
             text: i.name,
             rightText: info.rightText,
             success: info.success,
-          error: undefined,
+            error: undefined,
           };
           return item;
         });
       return items;
     },
     getFeedItems(statusType: StatusType, data: any) {
-      const projectionResponse = (data[statusType]) as (
-      {
-        projections: Array<{
-          key: string,
-          name: string,
-          description: string,
-          state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed",
-          currentPosition: number,
-        }>,
-        streamPosition: number,
-      } | null | undefined );
+      const projectionResponse = data[statusType] as
+        | {
+            projections: Array<{
+              key: string;
+              name: string;
+              description: string;
+              state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed";
+              currentPosition: number;
+            }>;
+            streamPosition: number;
+          }
+        | null
+        | undefined;
 
       if (!projectionResponse) {
         throw {
@@ -443,46 +482,52 @@ export default Vue.extend({
       }
 
       const items = projectionResponse.projections
-      .filter(i => i.name.includes("Feed endpoint "))
-      .map((i) => {
-        const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
-        const item: StatusItem = {
-          planed: false,
-          paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
-          play: i.state == "catchingUp" || i.state == "subscribed",
-          stopped: false,
-          hideAppendIcon: false,
-          hidePrepandIcon: false,
-          hoverText: i.description,
-          prependHoverText: i.state,
-          disableHoverText: false,
-          text: i.name,
-          rightText: info.rightText,
-          success: info.success,
-          error: undefined,
-        };
-        return item;
-      });
+        .filter((i) => i.name.includes("Feed endpoint "))
+        .map((i) => {
+          const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
+          const item: StatusItem = {
+            planed: false,
+            paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
+            play: i.state == "catchingUp" || i.state == "subscribed",
+            stopped: false,
+            hideAppendIcon: false,
+            hidePrepandIcon: false,
+            hoverText: i.description,
+            prependHoverText: i.state,
+            disableHoverText: false,
+            text: i.name,
+            rightText: info.rightText,
+            success: info.success,
+            error: undefined,
+          };
+          return item;
+        });
       return items;
     },
     getImportItems(statusType: StatusType, data: any) {
-      const imports = (data[statusType]) as Array<{
-        currentImport: any;
-        name: string;
-        lastCompletedImport: { from: Date; until: string };
-      }> | null |  undefined;
+      const imports = data[statusType] as
+        | Array<{
+            currentImport: any;
+            name: string;
+            lastCompletedImport: { from: Date; until: string };
+          }>
+        | null
+        | undefined;
 
       if (!imports) {
         throw {
-          title:"Import status ophalen is mislukt",
+          title: "Import status ophalen is mislukt",
           text: "Er is iets fout gelopen tijdens het ophalen van de status van de import. Probeer het later opnieuw.",
           inline: false,
         };
       }
 
-      const twoDigit = (v: number) => String(v).padStart(2,'0'); 
-      const dateTimeToString = (d: Date) => `${twoDigit(d.getDate())}/${twoDigit(d.getMonth() + 1)}/${d.getFullYear()} ${twoDigit(d.getHours())}:${twoDigit(d.getMinutes())}:${twoDigit(d.getSeconds())}`;
-      
+      const twoDigit = (v: number) => String(v).padStart(2, "0");
+      const dateTimeToString = (d: Date) =>
+        `${twoDigit(d.getDate())}/${twoDigit(d.getMonth() + 1)}/${d.getFullYear()} ${twoDigit(d.getHours())}:${twoDigit(
+          d.getMinutes()
+        )}:${twoDigit(d.getSeconds())}`;
+
       const items = imports.map((i) => {
         const fullname = i.name.split(".");
         const name = fullname[fullname.length - 1];
@@ -508,20 +553,20 @@ export default Vue.extend({
       return items;
     },
     getRightTextInfo(currentPosition: number, desiredPosition: number) {
-        const percentage = currentPosition / desiredPosition * 100.0;
-        const percentageWith2Decimals = Number.parseFloat(percentage.toFixed(2));
-        let ret = {success: false, rightText: ""};
-        if(percentageWith2Decimals == 100.00) {
-          ret.success = true;
-          ret.rightText = "100%";
-        } else if(percentageWith2Decimals <= 94.99) {
-          ret.rightText = `${percentageWith2Decimals.toLocaleString("nl-BE")}%`;
-        } else if(percentageWith2Decimals > 94.99 && percentageWith2Decimals <= 99.99 ) {
-          var formatter  = new Intl.NumberFormat("nl-BE");
-          ret.rightText = `${formatter.format(currentPosition)} /  ${formatter.format(desiredPosition)}`;
-        }
-        return ret;
-    }
+      const percentage = (currentPosition / desiredPosition) * 100.0;
+      const percentageWith2Decimals = Number.parseFloat(percentage.toFixed(2));
+      let ret = { success: false, rightText: "" };
+      if (percentageWith2Decimals == 100.0) {
+        ret.success = true;
+        ret.rightText = "100%";
+      } else if (percentageWith2Decimals <= 94.99) {
+        ret.rightText = `${percentageWith2Decimals.toLocaleString("nl-BE")}%`;
+      } else if (percentageWith2Decimals > 94.99 && percentageWith2Decimals <= 99.99) {
+        var formatter = new Intl.NumberFormat("nl-BE");
+        ret.rightText = `${formatter.format(currentPosition)} /  ${formatter.format(desiredPosition)}`;
+      }
+      return ret;
+    },
   },
 });
 
@@ -549,6 +594,6 @@ interface StatusItem {
   text: string;
   rightText: string;
   success: boolean;
-  error: { title:string, text:string, inline: boolean } | undefined;
+  error: { title: string; text: string; inline: boolean } | undefined;
 }
 </script>
