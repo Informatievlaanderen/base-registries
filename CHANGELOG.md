@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/informatievlaanderen/base-registries/compare/v2.7.0...v2.7.1) (2023-06-07)
+
+
+### Bug Fixes
+
+* not waiting on each status to finish ([418708b](https://github.com/informatievlaanderen/base-registries/commit/418708beeafb99f575b636e0f0eb74f8f081cb44))
+
 # [2.7.0](https://github.com/informatievlaanderen/base-registries/compare/v2.6.3...v2.7.0) (2023-06-06)
 
 
