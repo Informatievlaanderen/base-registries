@@ -135,7 +135,7 @@ export default Vue.extend({
     };
   },
   async mounted() {
-    this.init();
+    await this.init();
   },
   computed: {
     getRegistryIds() {
@@ -145,12 +145,12 @@ export default Vue.extend({
   },
   methods: {
     async init() {
-      await this.refresh("projections");
-      await this.refresh("producer");
-      await this.refresh("feed");
-      await this.refresh("import");
-      await this.refresh("cache");
-      await this.refresh("syndication");
+      this.refresh("projections");
+      this.refresh("producer");
+      this.refresh("feed");
+      this.refresh("import");
+      this.refresh("cache");
+      this.refresh("syndication");
     },
     async refresh(statusType: StatusType) {
       const type = this.statusTypes.find((i: {name:StatusType, loaded: boolean}) => i.name == statusType);
