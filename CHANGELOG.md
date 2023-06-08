@@ -1,3 +1,10 @@
+## [2.8.1](https://github.com/informatievlaanderen/base-registries/compare/v2.8.0...v2.8.1) (2023-06-08)
+
+
+### Bug Fixes
+
+* add releasenotes backbutton in technicalgrar ([65a1278](https://github.com/informatievlaanderen/base-registries/commit/65a12781860c7efec2c76437acd8f8b3f045adb1))
+
 # [2.8.0](https://github.com/informatievlaanderen/base-registries/compare/v2.7.2...v2.8.0) (2023-06-08)
 
 
