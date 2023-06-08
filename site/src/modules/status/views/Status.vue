@@ -171,23 +171,34 @@ export default Vue.extend({
       const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
       type!.loaded = false;
       let data = {} as any;
-      switch (statusType) {
-        case "projections":
-        case "feed":
-          data = await PublicApiClient.getProjectionStatus();
-          break;
-        case "producer":
+      try{
+        switch (statusType) {
+          case "projections":
+          case "feed":
+            data = await PublicApiClient.getProjectionStatus();
+            break;
+          case "producer":
           data = await PublicApiClient.getProducerStatus();
-          break;
-        case "cache":
-          data = await PublicApiClient.getCacheStatus();
-          break;
-        case "import":
-          data = await PublicApiClient.getImportStatus();
-          break;
-        case "syndication":
-          data = await PublicApiClient.getSyndicationStatus();
-          break;
+            break;
+          case "cache":
+            data = await PublicApiClient.getCacheStatus();
+            break;
+          case "import":
+            data = await PublicApiClient.getImportStatus();
+            break;
+          case "syndication":
+            data = await PublicApiClient.getSyndicationStatus();
+            break;
+        }
+      }
+      catch{
+        data = {
+          "addressRegistry": null,
+          "buildingRegistry": null,
+          "municipalityRegistry": null,
+          "parcelRegistry": null,
+          "streetNameRegistry": null
+        }
       }
       Object.keys(data).forEach((r: string) => {
         const registryId = r.replace("Registry", "").toLowerCase();
