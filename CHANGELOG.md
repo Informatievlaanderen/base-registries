@@ -1,3 +1,15 @@
+# [2.8.0](https://github.com/informatievlaanderen/base-registries/compare/v2.7.2...v2.8.0) (2023-06-08)
+
+
+### Bug Fixes
+
+* show errormessage when status call not okk ([2d2d37a](https://github.com/informatievlaanderen/base-registries/commit/2d2d37a95eebb624d07357c97a110d37de438fce))
+
+
+### Features
+
+* add release-notes technical grar page ([a10b78d](https://github.com/informatievlaanderen/base-registries/commit/a10b78db8e385122b39ef037b8bd3f90ade967c6))
+
 ## [2.7.2](https://github.com/informatievlaanderen/base-registries/compare/v2.7.1...v2.7.2) (2023-06-08)
 
 
