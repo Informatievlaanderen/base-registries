@@ -5,7 +5,7 @@
         <vl-layout>
           <vl-grid mod-stacked>
             <vl-column width="9" width-s="12">
-              <vl-link :to="$l('backButtons.products.url')" mod-bold v-l="`backButtons.products.text`" />
+              <vl-link :to="$l('backButtons.home.url')" mod-bold v-l="`backButtons.home.text`" />
               <header>
                 <y-markdown v-if="$data.markdownLoaded" :src="$data.header" />
               </header>
@@ -17,17 +17,19 @@
                   <vl-grid mod-stacked>
                     <vl-column>
                       <vl-typography>
-                        <y-markdown v-if="$data.markdownLoaded" :src="$data.content" />
+                        <y-markdown v-if="loaded" :src="$data.content" />
                       </vl-typography>
                     </vl-column>
-                    <vl-column v-for="item in $data.doormatItems" :key="item.url" width="6" width-s="12">
-                      <vl-doormat :title="item.title" :href="item.url" mod-alt />
+                    <vl-column>
+                      <vl-typography>
+                        <y-markdown v-if="loaded" :src="githubMarkdown" />
+                      </vl-typography>
                     </vl-column>
                   </vl-grid>
                 </vl-column>
                 <vl-column v-if="$data.sidebar.urls > 0" width="3" push="1" push-m="reset" width-s="12">
                   <aside v-vl-sticky="{ top: '120px', left: '0' }">
-                    <vl-side-navigation :title="$l(`${$options.localeName}.sidebar.title`)">
+                    <vl-side-navigation :title="$l(`releaseNotes.sidebar.title`)">
                       <vl-side-navigation-list>
                         <template v-for="item in $data.sidebar.urls">
                           <vl-side-navigation-item :key="item.url" :href="item.url" :text="item.title" />
@@ -51,7 +53,7 @@ import Vue from "vue";
 import { TranslationClient } from "../../../services/translations-client";
 
 export default Vue.extend({
-  localeName: "releaseNotes",
+  localeName: "technischereleasenotesgrar",
   hasMarkdown: false,
   async mounted() {
     this.loaded = false;
