@@ -1,3 +1,10 @@
+## [2.7.2](https://github.com/informatievlaanderen/base-registries/compare/v2.7.1...v2.7.2) (2023-06-08)
+
+
+### Bug Fixes
+
+* add href to status registry headers ([44cd6ab](https://github.com/informatievlaanderen/base-registries/commit/44cd6ab81b56ce63754fe07b5d132cfa95e848ad))
+
 ## [2.7.1](https://github.com/informatievlaanderen/base-registries/compare/v2.7.0...v2.7.1) (2023-06-07)
 
 
