@@ -1,3 +1,10 @@
+## [2.8.4](https://github.com/informatievlaanderen/base-registries/compare/v2.8.3...v2.8.4) (2023-06-08)
+
+
+### Bug Fixes
+
+* backbutton in ErrorDetail.vue ([0d0e782](https://github.com/informatievlaanderen/base-registries/commit/0d0e782d84d27c1e4873e456aab94071e64ab09f))
+
 ## [2.8.3](https://github.com/informatievlaanderen/base-registries/compare/v2.8.2...v2.8.3) (2023-06-08)
 
 
