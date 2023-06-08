@@ -17,7 +17,7 @@
                   <vl-grid mod-stacked>
                     <vl-column>
                       <vl-typography>
-                        <y-markdown v-if="loaded" :src="$data.content" />
+                        <y-markdown v-if="$data.markdownLoaded" :src="$data.content" />
                       </vl-typography>
                     </vl-column>
                     <vl-column>
@@ -54,7 +54,7 @@ import { TranslationClient } from "../../../services/translations-client";
 
 export default Vue.extend({
   localeName: "technischereleasenotesgrar",
-  hasMarkdown: false,
+  hasMarkdown: true,
   async mounted() {
     this.loaded = false;
     this.githubMarkdown = await TranslationClient.getMarkdownReleaseNotes();
