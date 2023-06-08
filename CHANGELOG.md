@@ -1,3 +1,10 @@
+## [2.8.3](https://github.com/informatievlaanderen/base-registries/compare/v2.8.2...v2.8.3) (2023-06-08)
+
+
+### Bug Fixes
+
+* add functioneelgrar/wr views ([a14683d](https://github.com/informatievlaanderen/base-registries/commit/a14683de438c7af78fd33635faaa8499199acbf0))
+
 ## [2.8.2](https://github.com/informatievlaanderen/base-registries/compare/v2.8.1...v2.8.2) (2023-06-08)
 
 
