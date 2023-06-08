@@ -52,7 +52,7 @@ import { TranslationClient } from "../../../services/translations-client";
 
 export default Vue.extend({
   localeName: "releaseNotes",
-  hasMarkdown: false,
+  hasMarkdown: true,
   async mounted() {
     this.loaded = false;
     this.githubMarkdown = await TranslationClient.getMarkdownReleaseNotes();

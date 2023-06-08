@@ -1,6 +1,8 @@
 import Root from "./views/Root.vue";
 import ReleaseNotes from "./views/ReleaseNotes.vue";
 import ReleaseNotesTechnicalGrar from "./views/ReleaseNotesTechnicalGrar.vue";
+import ReleaseNotesBusinessGrar from "./views/ReleaseNotesBusinessGrar.vue";
+import ReleaseNotesBusinessWr from "./views/ReleaseNotesBusinessWr.vue";
 
 export const ReleaseNotesRoutes = [
     {
@@ -17,6 +19,16 @@ export const ReleaseNotesRoutes = [
                   path: "technischgrar",
                   component: ReleaseNotesTechnicalGrar,
                   name: "release-notes-technisch-grar"
+              },
+              {
+                  path: "functioneelgrar",
+                  component: ReleaseNotesBusinessGrar,
+                  name: "release-notes-business-grar"
+              },
+              {
+                  path: "functioneelwr",
+                  component: ReleaseNotesBusinessWr,
+                  name: "release-notes-business-wr"
               }
         ],
     },
