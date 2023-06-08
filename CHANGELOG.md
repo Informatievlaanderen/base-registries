@@ -1,3 +1,10 @@
+## [2.8.2](https://github.com/informatievlaanderen/base-registries/compare/v2.8.1...v2.8.2) (2023-06-08)
+
+
+### Bug Fixes
+
+* set hasMarkDown true on ReleaseNotesTechnicalGrar.vue ([437fb4f](https://github.com/informatievlaanderen/base-registries/commit/437fb4ffd8af58a623da515f51b5599eeafa8c83))
+
 ## [2.8.1](https://github.com/informatievlaanderen/base-registries/compare/v2.8.0...v2.8.1) (2023-06-08)
 
 
