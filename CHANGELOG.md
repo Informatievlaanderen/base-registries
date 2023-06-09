@@ -1,3 +1,10 @@
+## [2.8.7](https://github.com/informatievlaanderen/base-registries/compare/v2.8.6...v2.8.7) (2023-06-09)
+
+
+### Bug Fixes
+
+* add accordion to Faq.vue ([5517851](https://github.com/informatievlaanderen/base-registries/commit/5517851aa5b1940c9d023b730875d02b2651288b))
+
 ## [2.8.6](https://github.com/informatievlaanderen/base-registries/compare/v2.8.5...v2.8.6) (2023-06-09)
 
 
