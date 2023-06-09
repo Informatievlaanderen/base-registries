@@ -27,6 +27,11 @@ interface LocalePropertyOptions {
     text: string | undefined;
     url: string | LocaleData.EnvVars | undefined;
     hide: boolean | undefined;
+  }[] | undefined,
+  accordion: {
+    question: string | undefined;
+    answer: string | undefined;
+    hide: boolean | undefined;
   }[] | undefined;
 }
 
@@ -61,6 +66,11 @@ export namespace LocaleData {
     title: string | undefined;
     urls: { title: string; url: string; }[];
   }
+
+  export interface AccordionItem {
+    question: string | undefined;
+    answer: string | undefined;
+  }
 }
 
 Vue.mixin(Vue.extend({
@@ -70,6 +80,7 @@ Vue.mixin(Vue.extend({
       this.redirect();
       this.getSpotlightItems();
       this.getDoormatItems();
+      this.getFaqAccordionItems();
       this.getSidebar();
       await this.getImplementationModelMarkdown();
       await this.getMarkdown();
@@ -92,6 +103,7 @@ Vue.mixin(Vue.extend({
       markdownLoaded: false as boolean,
       spotlightItems: [] as LocaleData.SpotlightItem[],
       doormatItems: [] as LocaleData.DoormatItem[],
+      faqAccordionItems: [] as LocaleData.AccordionItem[],
       sidebar: {} as LocaleData.Sidebar
     }
   },
@@ -101,6 +113,15 @@ Vue.mixin(Vue.extend({
     },
   },
   methods: {
+    getFaqAccordionItems() {
+      const options = this.getDefaultLocaleOptions();
+      if (options && options.accordion) {
+        this.faqAccordionItems.splice(0);
+        this.faqAccordionItems.push(...options.accordion.filter(i => i.hide !== true));
+      }
+
+      console.log(this.$data)
+    },
     async getMarkdown() {
       if (this.$options.localeName && this.$options.hasMarkdown === true) {
         TranslationClient.getPageMarkdownHeader("nl", this.$options.localeName)

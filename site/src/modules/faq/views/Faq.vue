@@ -15,11 +15,21 @@
               <vl-grid mod-stacked>
                 <vl-column :width="`${$data.sidebar.urls > 0 ? 8 : 12}`" width-s="12">
                   <vl-grid mod-stacked>
-                    <vl-column>
-                      <vl-typography>
-                        <y-markdown v-if="$data.markdownLoaded" :src="$data.content" />
-                      </vl-typography>
-                    </vl-column>
+                    <vl-grid mod-stacked-small>
+                      <vl-column v-for="item in $data.faqAccordionItems" :key="item.question" >
+                        <vl-accordion :title="item.question" id="accordion-1">
+                          <vl-grid mod-stacked>
+                            <vl-column>
+                              <div>
+                               {{item.answer}}
+                              </div>
+                            </vl-column>
+                          </vl-grid>
+                        </vl-accordion>
+                      </vl-column>
+                      <vl-column>
+                      </vl-column>
+                    </vl-grid>
                     <vl-column v-for="item in $data.doormatItems" :key="item.url" width="6" width-s="12">
                       <vl-doormat :title="item.title" :href="item.url" mod-alt />
                     </vl-column>
@@ -51,13 +61,19 @@ import Vue from "vue";
 
 export default Vue.extend({
   localeName: "faq",
-  hasMarkdown: true
+  hasMarkdown: true,
 });
 </script>
 
 <style lang="scss">
 div.functional-documentation {
-  h2, h3, h4, h5, h6, a, p {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  p {
     scroll-margin: 80px;
   }
 }
