@@ -119,8 +119,6 @@ Vue.mixin(Vue.extend({
         this.faqAccordionItems.splice(0);
         this.faqAccordionItems.push(...options.accordion.filter(i => i.hide !== true));
       }
-
-      console.log(this.$data)
     },
     async getMarkdown() {
       if (this.$options.localeName && this.$options.hasMarkdown === true) {
