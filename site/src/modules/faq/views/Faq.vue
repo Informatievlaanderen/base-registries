@@ -15,21 +15,17 @@
               <vl-grid mod-stacked>
                 <vl-column :width="`${$data.sidebar.urls > 0 ? 8 : 12}`" width-s="12">
                   <vl-grid mod-stacked>
-                    <vl-grid mod-stacked-small>
-                      <vl-column v-for="item in $data.faqAccordionItems" :key="item.question" >
-                        <vl-accordion :title="item.question" id="accordion-1">
-                          <vl-grid mod-stacked>
-                            <vl-column>
-                              <div>
-                               {{item.answer}}
-                              </div>
-                            </vl-column>
-                          </vl-grid>
-                        </vl-accordion>
-                      </vl-column>
-                      <vl-column>
-                      </vl-column>
-                    </vl-grid>
+
+                    <vl-column>
+                      <vl-accordion-list mod-bordered v-for="(item, index) in $data.faqAccordionItems" :key="item.question">
+                        <vl-accordion-list-item>
+                          <vl-accordion :title="item.question" :id="`accordion-${index}`">
+                            {{ item.answer }}
+                          </vl-accordion>
+                        </vl-accordion-list-item>
+                      </vl-accordion-list>
+                    </vl-column>
+
                     <vl-column v-for="item in $data.doormatItems" :key="item.url" width="6" width-s="12">
                       <vl-doormat :title="item.title" :href="item.url" mod-alt />
                     </vl-column>
