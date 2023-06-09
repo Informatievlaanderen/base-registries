@@ -51,7 +51,7 @@ import Vue from "vue";
 import { TranslationClient } from "../../../services/translations-client";
 
 export default Vue.extend({
-  localeName: "releaseNotes",
+  localeName: "release-notes",
   hasMarkdown: true,
   async mounted() {
     this.loaded = false;
