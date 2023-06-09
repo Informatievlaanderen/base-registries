@@ -1,3 +1,10 @@
+## [2.8.9](https://github.com/informatievlaanderen/base-registries/compare/v2.8.8...v2.8.9) (2023-06-09)
+
+
+### Bug Fixes
+
+* remove log line ([0bfa671](https://github.com/informatievlaanderen/base-registries/commit/0bfa671aa8bb70eabb92707a74ac961f336b5bfd))
+
 ## [2.8.8](https://github.com/informatievlaanderen/base-registries/compare/v2.8.7...v2.8.8) (2023-06-09)
 
 
