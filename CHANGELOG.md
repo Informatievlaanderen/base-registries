@@ -1,3 +1,10 @@
+## [2.8.8](https://github.com/informatievlaanderen/base-registries/compare/v2.8.7...v2.8.8) (2023-06-09)
+
+
+### Bug Fixes
+
+* use different style accordion for faq ([1808825](https://github.com/informatievlaanderen/base-registries/commit/180882542cb295f489c6293c27e98889de5ad002))
+
 ## [2.8.7](https://github.com/informatievlaanderen/base-registries/compare/v2.8.6...v2.8.7) (2023-06-09)
 
 
