@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/informatievlaanderen/base-registries/compare/v2.8.9...v2.9.0) (2023-06-12)
+
+
+### Features
+
+* add consumer status ([e23ece0](https://github.com/informatievlaanderen/base-registries/commit/e23ece06918772811ce7ed778040d72b031246b2))
+
 ## [2.8.9](https://github.com/informatievlaanderen/base-registries/compare/v2.8.8...v2.8.9) (2023-06-09)
 
 
