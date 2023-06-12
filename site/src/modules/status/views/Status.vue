@@ -61,6 +61,8 @@
 import Vue from "vue";
 import StatusCategory from "../components/StatusCategory.vue";
 import { PublicApiClient } from "../../../services/public-api-client";
+import { DateTimeFormat } from "vue-i18n";
+import moment from "moment";
 
 export default Vue.extend({
   localeName: "status",
@@ -86,6 +88,11 @@ export default Vue.extend({
         {
           name: "producer",
           title: "Producer",
+          loaded: false,
+        },
+        {
+          name: "consumer",
+          title: "Consumer",
           loaded: false,
         },
         {
@@ -162,6 +169,7 @@ export default Vue.extend({
     async init() {
       this.refresh("projections");
       this.refresh("producer");
+      this.refresh("consumer");
       this.refresh("feed");
       this.refresh("import");
       this.refresh("cache");
@@ -179,6 +187,9 @@ export default Vue.extend({
             break;
           case "producer":
           data = await PublicApiClient.getProducerStatus();
+            break;
+          case "consumer":
+          data = await PublicApiClient.getConsumerStatus();
             break;
           case "cache":
             data = await PublicApiClient.getCacheStatus();
@@ -240,6 +251,13 @@ export default Vue.extend({
       if (statusType === "producer") {
         try {
           ret.push(...this.getProducerItems(statusType, data));
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
+        }
+      }
+      if (statusType === "consumer") {
+        try {
+          ret.push(...this.getConsumerItems(statusType, data));
         } catch (e) {
           ret.push({ success: false, error: e } as StatusItem);
         }
@@ -469,6 +487,47 @@ export default Vue.extend({
         });
       return items;
     },
+    getConsumerItems(statusType: StatusType, data: any) {
+      const ConsumerResponse = data[statusType] as
+        | {
+            consumers: Array<{
+              name: string;
+              dateProcessed: DateTimeFormat;
+            }>;
+          }
+        | null
+        | undefined;
+      if (ConsumerResponse === null || ConsumerResponse === undefined) {
+        throw {
+          title: "Consumer status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de consumers. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
+
+      const items = ConsumerResponse?.consumers
+        .filter((i) => !i.name.includes("Feed endpoint "))
+        .map((i) => {
+          var deltaInHours = moment().diff(moment(i.dateProcessed, 'YYYY-MM-DD hh:mm:ss'), 'hours');
+          const item: StatusItem = {
+            planed: false,
+            paused: false,
+            play: false,
+            stopped: false,
+            hideAppendIcon: false,
+            hidePrepandIcon: false,
+            disableHoverText: false,
+            hoverText: "",
+            prependHoverText: "",
+            text: i.name,
+            rightText: "TODO",
+            success: deltaInHours < 24,
+            error: undefined,
+          };
+          return item;
+        });
+      return items;
+    },
     getFeedItems(statusType: StatusType, data: any) {
       const projectionResponse = data[statusType] as
         | {
@@ -581,11 +640,12 @@ export default Vue.extend({
   },
 });
 
-type StatusType = "projections" | "producer" | "feed" | "cache" | "import" | "syndication";
+type StatusType = "projections" | "producer" | "consumer" | "feed" | "cache" | "import" | "syndication";
 
 interface RegistryItem<T> {
   projections: T;
   producer: T;
+  consumer: T;
   feed: T;
   cache: T;
   import: T;
