@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/informatievlaanderen/base-registries/compare/v2.9.0...v2.10.0) (2023-06-13)
+
+
+### Features
+
+* load syndication after all statuses complete ([82d98ff](https://github.com/informatievlaanderen/base-registries/commit/82d98ff109694ef61a99489a3fbe4929817a8a88))
+
 # [2.9.0](https://github.com/informatievlaanderen/base-registries/compare/v2.8.9...v2.9.0) (2023-06-12)
 
 
