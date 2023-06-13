@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { TranslationClient, Faq } from "@/services/translations-client";
+import { TranslationClient, Faq, ImplementationModelType } from "@/services/translations-client";
 import * as i18n from "@/services/i18n";
 import * as env from "@/environment";
 
@@ -77,6 +77,7 @@ Vue.mixin(Vue.extend({
       this.getDoormatItems();
       this.getFaqAccordionItems();
       this.getSidebar();
+      await this.getMarkdown();
       await this.getImplementationModelMarkdown();
 
       this.$emit("updateStatus", true);
