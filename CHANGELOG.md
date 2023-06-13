@@ -1,3 +1,11 @@
+## [2.11.1](https://github.com/informatievlaanderen/base-registries/compare/v2.11.0...v2.11.1) (2023-06-13)
+
+
+### Bug Fixes
+
+* re-add getMarkdown in LocaleMixin ([42c1594](https://github.com/informatievlaanderen/base-registries/commit/42c1594354dcd1da48d1c2adeeaf6b33467dc5de))
+* style to trigger build ([0282711](https://github.com/informatievlaanderen/base-registries/commit/0282711036ed8518e2b8953058f80f8a659e874c))
+
 # [2.11.0](https://github.com/informatievlaanderen/base-registries/compare/v2.10.0...v2.11.0) (2023-06-13)
 
 
