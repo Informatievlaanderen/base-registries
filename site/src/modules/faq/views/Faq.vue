@@ -57,7 +57,7 @@ import Vue from "vue";
 
 export default Vue.extend({
   localeName: "faq",
-  hasMarkdown: true,
+  hasMarkdown: false,
 });
 </script>
 

@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { TranslationClient, ImplementationModelType } from "@/services/translations-client";
+import { TranslationClient, Faq } from "@/services/translations-client";
 import * as i18n from "@/services/i18n";
 import * as env from "@/environment";
 
@@ -26,11 +26,6 @@ interface LocalePropertyOptions {
     subtitle: string | undefined;
     text: string | undefined;
     url: string | LocaleData.EnvVars | undefined;
-    hide: boolean | undefined;
-  }[] | undefined,
-  accordion: {
-    question: string | undefined;
-    answer: string | undefined;
     hide: boolean | undefined;
   }[] | undefined;
 }
@@ -83,7 +78,7 @@ Vue.mixin(Vue.extend({
       this.getFaqAccordionItems();
       this.getSidebar();
       await this.getImplementationModelMarkdown();
-      await this.getMarkdown();
+
       this.$emit("updateStatus", true);
 
       const options = this.getDefaultLocaleOptions();
@@ -103,22 +98,26 @@ Vue.mixin(Vue.extend({
       markdownLoaded: false as boolean,
       spotlightItems: [] as LocaleData.SpotlightItem[],
       doormatItems: [] as LocaleData.DoormatItem[],
-      faqAccordionItems: [] as LocaleData.AccordionItem[],
+      faqAccordionItems: [] as Faq.AccordionItem[],
       sidebar: {} as LocaleData.Sidebar
     }
   },
   computed: {
     nl() {
       return i18n.default.translations.nl;
-    },
+    }
   },
   methods: {
     getFaqAccordionItems() {
-      const options = this.getDefaultLocaleOptions();
-      if (options && options.accordion) {
+
+      const accordionItems = i18n.default.translations.faqAccordionItems["accordion"] as Faq.AccordionItem[];
+
+      if (accordionItems) {
         this.faqAccordionItems.splice(0);
-        this.faqAccordionItems.push(...options.accordion.filter(i => i.hide !== true));
-      }
+        accordionItems.forEach(item => {
+          this.faqAccordionItems.push(item);
+        });
+      }      
     },
     async getMarkdown() {
       if (this.$options.localeName && this.$options.hasMarkdown === true) {

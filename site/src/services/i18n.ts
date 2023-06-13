@@ -9,7 +9,8 @@ Vue.use(VueI18n);
 const translations = Vue.observable({
     nl: {} as any,
     faqTableOfContents: {} as Faq.TableOfContents,
-    errorDetailTableOfContents: {} as ErrorDetail.TableOfContents 
+    faqAccordionItems: {} as Faq.Accordion,
+    errorDetailTableOfContents: {} as ErrorDetail.TableOfContents
 });
 
 const i18n = {
@@ -48,6 +49,10 @@ const i18n = {
         if (path.startsWith("/foutmeldingen/")) {
             const data = await TranslationClient.getErrorDetailTableOfContents("nl");
             translations.errorDetailTableOfContents = { ...data };
+        }
+        if (path.startsWith("/veelgestelde-vragen")){
+            const data = await TranslationClient.getAccordion("nl", "faq");
+            translations.faqAccordionItems = { ...data };
         }
     }
 }

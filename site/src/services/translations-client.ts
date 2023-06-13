@@ -23,9 +23,9 @@ export const TranslationClient = {
         const path = `/assets/locales/${lang}/faq/table-of-contents.json`;
         return (await apiClient.get<Faq.TableOfContents>(path, undefined, { 'Cache-Control': 'no-store' })).data;
     },
-    getFaqQuestionMarkdown: async (lang: string, file: string): Promise<string> => {
-        const path = `/assets/locales/${lang}/faq/topics/${file}.md`;
-        return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
+    getAccordion: async (lang: string, folder: string): Promise<Faq.Accordion> => {
+        const path = `/assets/locales/${lang}/${folder}/accordion.json`;
+        return (await apiClient.get<Faq.Accordion>(path, undefined, { 'Cache-Control': 'no-store' })).data;
     },
     getErrorDetailTableOfContents: async (lang: string): Promise<ErrorDetail.TableOfContents> => {
         const path = `/assets/locales/${lang}/error-detail/table-of-contents.json`;
@@ -78,6 +78,15 @@ export namespace Faq {
     export interface TableOfContents {
         topics: Array<Topic>;
     }
+
+    export interface Accordion {
+        accordion: Array<AccordionItem>;
+    }
+
+    export interface AccordionItem {
+        question: string | undefined;
+        answer: string | undefined;
+      }
 
     export interface Topic {
         title: string;
