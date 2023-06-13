@@ -1,6 +1,18 @@
 # [2.11.0](https://github.com/informatievlaanderen/base-registries/compare/v2.10.0...v2.11.0) (2023-06-13)
 
 
+### Bug Fixes
+
+* load syndication after all statuses complete ([ff8c370](https://github.com/informatievlaanderen/base-registries/commit/ff8c3708798389e7b237f061c7b4a5a2b8ce609b))
+
+
+### Features
+
+* change faq accordion to use different path as data source ([d226f98](https://github.com/informatievlaanderen/base-registries/commit/d226f98bc15b35ea46d25a9c442aefc7fd9e9a95))
+
+# [2.11.0](https://github.com/informatievlaanderen/base-registries/compare/v2.10.0...v2.11.0) (2023-06-13)
+
+
 ### Features
 
 * change faq accordion to use different path as data source ([d226f98](https://github.com/informatievlaanderen/base-registries/commit/d226f98bc15b35ea46d25a9c442aefc7fd9e9a95))
