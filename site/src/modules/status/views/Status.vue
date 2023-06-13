@@ -153,6 +153,7 @@ export default Vue.extend({
   },
   async mounted() {
     await this.init();
+    await this.refresh("syndication");
   },
   computed: {
     registries() {
@@ -173,7 +174,6 @@ export default Vue.extend({
       this.refresh("feed");
       this.refresh("import");
       this.refresh("cache");
-      this.refresh("syndication");
     },
     async refresh(statusType: StatusType) {
       const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
