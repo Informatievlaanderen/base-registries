@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/informatievlaanderen/base-registries/compare/v2.10.0...v2.11.0) (2023-06-13)
+
+
+### Features
+
+* change faq accordion to use different path as data source ([d226f98](https://github.com/informatievlaanderen/base-registries/commit/d226f98bc15b35ea46d25a9c442aefc7fd9e9a95))
+
 # [2.10.0](https://github.com/informatievlaanderen/base-registries/compare/v2.9.0...v2.10.0) (2023-06-13)
 
 
