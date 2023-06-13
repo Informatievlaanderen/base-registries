@@ -153,7 +153,6 @@ export default Vue.extend({
   },
   async mounted() {
     await this.init();
-    await this.refresh("syndication");
   },
   computed: {
     registries() {
@@ -168,14 +167,16 @@ export default Vue.extend({
   },
   methods: {
     async init() {
-      this.refresh("projections");
-      this.refresh("producer");
-      this.refresh("consumer");
-      this.refresh("feed");
-      this.refresh("import");
-      this.refresh("cache");
+        this.refresh("projections", () => this.refresh("syndication"));
+        this.refresh("producer");
+        this.refresh("consumer");
+        this.refresh("feed");
+        this.refresh("import");
+        this.refresh("cache");
+    
     },
-    async refresh(statusType: StatusType) {
+    async refresh(statusType: StatusType, callback: any = undefined) {
+     
       const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
       type!.loaded = false;
       let data = {} as any;
@@ -220,6 +221,10 @@ export default Vue.extend({
         });
       });
       type!.loaded = true;
+
+      if(callback){
+        callback();
+      }
     },
     getItems(statusType: StatusType, data: any): StatusItem[] {
       const ret = [] as StatusItem[];
