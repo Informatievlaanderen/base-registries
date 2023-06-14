@@ -173,10 +173,8 @@ export default Vue.extend({
         this.refresh("feed");
         this.refresh("import");
         this.refresh("cache");
-    
     },
     async refresh(statusType: StatusType, callback: any = undefined) {
-     
       const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
       type!.loaded = false;
       let data = {} as any;
@@ -497,12 +495,12 @@ export default Vue.extend({
         | {
             consumers: Array<{
               name: string;
-              dateProcessed: DateTimeFormat;
+              dateProcessed: Date;
             }>;
           }
         | null
         | undefined;
-      if (ConsumerResponse === null || ConsumerResponse === undefined) {
+      if (!ConsumerResponse) {
         throw {
           title: "Consumer status ophalen is mislukt",
           text: "Er is iets fout gelopen tijdens het ophalen van de status van de consumers. Probeer het later opnieuw.",
@@ -519,17 +517,17 @@ export default Vue.extend({
           d.getMinutes())}:${twoDigit(d.getSeconds())}`;
           var deltaInHours = moment().diff(moment(i.dateProcessed, 'YYYY-MM-DD hh:mm:ss'), 'hours');
           const item: StatusItem = {
-            planed: true,
+            planed: false,
             paused: false,
-            play: false,
-            stopped: false,
+            play: deltaInHours < 24,
+            stopped: deltaInHours >= 24,
             hideAppendIcon: false,
             hidePrepandIcon: false,
             disableHoverText: false,
             hoverText: "",
             prependHoverText: "",
             text: i.name,
-            rightText: `Laatste wijziging: ${i.dateProcessed}`,
+            rightText: `Laatste wijziging: ${dateTimeToString(new Date(i.dateProcessed))}`,
             success: deltaInHours < 24,
             error: undefined,
           };
