@@ -1,3 +1,10 @@
+## [2.11.2](https://github.com/informatievlaanderen/base-registries/compare/v2.11.1...v2.11.2) (2023-06-14)
+
+
+### Bug Fixes
+
+* text consumer status ([12e1844](https://github.com/informatievlaanderen/base-registries/commit/12e1844ec79394d427e293310c4e1a48338ba1f5))
+
 ## [2.11.1](https://github.com/informatievlaanderen/base-registries/compare/v2.11.0...v2.11.1) (2023-06-13)
 
 
