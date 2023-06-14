@@ -513,9 +513,13 @@ export default Vue.extend({
       const items = ConsumerResponse?.consumers
         .filter((i) => !i.name.includes("Feed endpoint "))
         .map((i) => {
+          const twoDigit = (v: number) => String(v).padStart(2, "0");
+          const dateTimeToString = (d: Date) =>
+          `${twoDigit(d.getDate())}/${twoDigit(d.getMonth() + 1)}/${d.getFullYear()} ${twoDigit(d.getHours())}:${twoDigit(
+          d.getMinutes())}:${twoDigit(d.getSeconds())}`;
           var deltaInHours = moment().diff(moment(i.dateProcessed, 'YYYY-MM-DD hh:mm:ss'), 'hours');
           const item: StatusItem = {
-            planed: false,
+            planed: true,
             paused: false,
             play: false,
             stopped: false,
@@ -525,7 +529,7 @@ export default Vue.extend({
             hoverText: "",
             prependHoverText: "",
             text: i.name,
-            rightText: "TODO",
+            rightText: `Laatste wijziging: ${i.dateProcessed}`,
             success: deltaInHours < 24,
             error: undefined,
           };
