@@ -127,7 +127,7 @@
     "browserslist": "^4.21.5",
     "caniuse-lite": "^1.0.30001464",
     "core-js": "^3.29.0",
-    "marked": "^5.1.0",
+    "marked": "^4.2.12",
     "vue": "^2.7.14",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",

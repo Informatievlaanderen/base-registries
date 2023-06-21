@@ -189,7 +189,4 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
 </script>
 
 <style lang="scss" scoped>
-details > summary {
-  display: list-item;
-}
 </style>
