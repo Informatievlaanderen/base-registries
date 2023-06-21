@@ -17,13 +17,9 @@
                   <vl-grid mod-stacked>
 
                     <vl-column>
-                      <vl-accordion-list mod-bordered v-for="(item, index) in $data.faqAccordionItems" :key="item.question">
-                        <vl-accordion-list-item>
-                          <vl-accordion :title="item.question" :id="`accordion-${index}`">
-                            {{ item.answer }}
-                          </vl-accordion>
-                        </vl-accordion-list-item>
-                      </vl-accordion-list>
+                      <vl-typography>
+                        <y-markdown v-if="$data.markdownLoaded" :src="$data.content" />
+                      </vl-typography>
                     </vl-column>
 
                     <vl-column v-for="item in $data.doormatItems" :key="item.url" width="6" width-s="12">
@@ -57,7 +53,7 @@ import Vue from "vue";
 
 export default Vue.extend({
   localeName: "faq",
-  hasMarkdown: false,
+  hasMarkdown: true,
 });
 </script>
 
@@ -72,5 +68,13 @@ div.functional-documentation {
   p {
     scroll-margin: 80px;
   }
+}
+details > summary {
+  display: list-item;
+  font-size: 3.2rem;
+  font-family: "Flanders Art Sans", sans-serif;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  line-height: 1.24;
 }
 </style>
