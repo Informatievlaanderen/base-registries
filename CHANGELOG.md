@@ -1,3 +1,10 @@
+## [2.11.5](https://github.com/informatievlaanderen/base-registries/compare/v2.11.4...v2.11.5) (2023-06-22)
+
+
+### Bug Fixes
+
+* ci/cd new prd to trigger build ([0f69c1e](https://github.com/informatievlaanderen/base-registries/commit/0f69c1e76938750804f4a22cbb5396423a592fef))
+
 ## [2.11.4](https://github.com/informatievlaanderen/base-registries/compare/v2.11.3...v2.11.4) (2023-06-21)
 
 
