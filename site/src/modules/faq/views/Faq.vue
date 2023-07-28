@@ -71,10 +71,14 @@ div.functional-documentation {
 }
 details > summary {
   display: list-item;
-  font-size: 3.2rem;
   font-family: "Flanders Art Sans", sans-serif;
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1.3rem;
   line-height: 1.24;
+}
+details > h4 {
+  font-size: 1.6rem !important;
+  margin-top: 0px !important;
 }
 </style>
