@@ -29,6 +29,10 @@ export const PublicApiClient= {
         const path = `/basisregisters-api/v2/status/syndication`;
         return (await apiClient.get<any>(path)).data;
     },
+    getImporterGrbStatus: async (): Promise<ImportStatusResponse> => {
+        const path = `/basisregisters-api/v2/status/importergrb`;
+        return (await apiClient.get<any>(path)).data;
+    },
     getErrorDetail: async (id: string): Promise<string> => {
         const path = `/basisregisters-api/foutmeldingen/${id}`;
         try {
