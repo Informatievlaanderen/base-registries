@@ -110,6 +110,11 @@ export default Vue.extend({
           title: "Cache",
           loaded: false,
         },
+        {
+          name: "importerGrb",
+          title: "Importer GRB",
+          loaded: false,
+        },
       ] as Array<{ name: StatusType; title: string; loaded: boolean }>,
       syndicationTranslations: [
         {
@@ -173,6 +178,7 @@ export default Vue.extend({
         this.refresh("feed");
         this.refresh("import");
         this.refresh("cache");
+        this.refresh("importerGrb");
     },
     async refresh(statusType: StatusType, callback: any = undefined) {
       const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
@@ -198,6 +204,9 @@ export default Vue.extend({
             break;
           case "syndication":
             data = await PublicApiClient.getSyndicationStatus();
+            break;
+          case "importerGrb":
+            data = await PublicApiClient.getImporterGrbStatus();
             break;
         }
       }
@@ -278,6 +287,13 @@ export default Vue.extend({
           if (syndication) {
             ret.push(...syndication);
           }
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
+        }
+      }
+      if (statusType === "importerGrb") {
+        try {
+          ret.push(...this.getImporterGrbItems(statusType, data));
         } catch (e) {
           ret.push({ success: false, error: e } as StatusItem);
         }
@@ -629,6 +645,54 @@ export default Vue.extend({
       });
       return items;
     },
+    getImporterGrbItems(statusType: StatusType, data: any) {
+      const imports = data[statusType] as
+        | Array<{
+            currentImport: any;
+            name: string;
+            lastCompletedImport: { from: Date; until: string };
+          }>
+        | null
+        | undefined;
+
+      if (!imports) {
+        throw {
+          title: "Import grb status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de import grb. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
+
+      const twoDigit = (v: number) => String(v).padStart(2, "0");
+      const dateTimeToString = (d: Date) =>
+        `${twoDigit(d.getDate())}/${twoDigit(d.getMonth() + 1)}/${d.getFullYear()} ${twoDigit(d.getHours())}:${twoDigit(
+          d.getMinutes()
+        )}:${twoDigit(d.getSeconds())}`;
+
+      const items = imports.map((i) => {
+        const fullname = i.name.split(".");
+        const name = fullname[fullname.length - 1];
+        const d = new Date(i.lastCompletedImport.until);
+        const datetime = dateTimeToString(d);
+        const item: StatusItem = {
+          planed: true,
+          paused: false,
+          play: false,
+          stopped: false,
+          hideAppendIcon: false,
+          hidePrepandIcon: false,
+          hoverText: "",
+          prependHoverText: "",
+          disableHoverText: false,
+          text: `GRB import ${name.replace("importer", "")}`,
+          rightText: `Laatste wijziging: ${datetime}`,
+          success: true,
+          error: undefined,
+        };
+        return item;
+      });
+      return items;
+    },
     getRightTextInfo(currentPosition: number, desiredPosition: number) {
       const percentage = (currentPosition / desiredPosition) * 100.0;
       const percentageWith2Decimals = Number.parseFloat(percentage.toFixed(2));
@@ -643,11 +707,11 @@ export default Vue.extend({
         ret.rightText = `${formatter.format(currentPosition)} /  ${formatter.format(desiredPosition)}`;
       }
       return ret;
-    },
+    }
   },
 });
 
-type StatusType = "projections" | "producer" | "consumer" | "feed" | "cache" | "import" | "syndication";
+type StatusType = "projections" | "producer" | "consumer" | "feed" | "cache" | "import" | "syndication" | "importerGrb";
 
 interface RegistryItem<T> {
   projections: T;
@@ -657,6 +721,7 @@ interface RegistryItem<T> {
   cache: T;
   import: T;
   syndication: T;
+  importerGrb: T;
 }
 
 interface StatusItem {
