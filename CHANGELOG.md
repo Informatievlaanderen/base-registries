@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/informatievlaanderen/base-registries/compare/v2.11.6...v2.12.0) (2023-08-11)
+
+
+### Features
+
+* add importer grb to status page ([4e3490b](https://github.com/informatievlaanderen/base-registries/commit/4e3490b6d573b98e6f53963d47b070fbc21cedf8))
+
 ## [2.11.6](https://github.com/informatievlaanderen/base-registries/compare/v2.11.5...v2.11.6) (2023-07-28)
 
 
