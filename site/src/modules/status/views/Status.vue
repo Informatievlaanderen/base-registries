@@ -81,6 +81,11 @@ export default Vue.extend({
           loaded: false,
         },
         {
+          name: "importerGrb",
+          title: "Import",
+          loaded: false,
+        },
+        {
           name: "projections",
           title: "Projecties",
           loaded: false,
@@ -110,11 +115,7 @@ export default Vue.extend({
           title: "Cache",
           loaded: false,
         },
-        {
-          name: "importerGrb",
-          title: "Importer GRB",
-          loaded: false,
-        },
+        
       ] as Array<{ name: StatusType; title: string; loaded: boolean }>,
       syndicationTranslations: [
         {
@@ -216,7 +217,8 @@ export default Vue.extend({
           "buildingRegistry": null,
           "municipalityRegistry": null,
           "parcelRegistry": null,
-          "streetNameRegistry": null
+          "streetNameRegistry": null,
+          "postalRegistry": null
         }
       }
       Object.keys(data).forEach((r: string) => {
@@ -242,6 +244,13 @@ export default Vue.extend({
       if (statusType === "feed") {
         try {
           ret.push(...this.getFeedItems(statusType, data));
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
+        }
+      }
+      if (statusType === "importerGrb") {
+        try {
+          ret.push(...this.getImporterGrbItems(statusType, data));
         } catch (e) {
           ret.push({ success: false, error: e } as StatusItem);
         }
@@ -291,13 +300,7 @@ export default Vue.extend({
           ret.push({ success: false, error: e } as StatusItem);
         }
       }
-      if (statusType === "importerGrb") {
-        try {
-          ret.push(...this.getImporterGrbItems(statusType, data));
-        } catch (e) {
-          ret.push({ success: false, error: e } as StatusItem);
-        }
-      }
+    
       return ret;
     },
     getSyndicationItems(statusType: StatusType, data: any) {
@@ -684,7 +687,7 @@ export default Vue.extend({
           hoverText: "",
           prependHoverText: "",
           disableHoverText: false,
-          text: `GRB import ${name.replace("importer", "")}`,
+          text: name,
           rightText: `Laatste wijziging: ${datetime}`,
           success: true,
           error: undefined,
