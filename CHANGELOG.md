@@ -1,3 +1,10 @@
+## [2.12.3](https://github.com/informatievlaanderen/base-registries/compare/v2.12.2...v2.12.3) (2023-09-05)
+
+
+### Bug Fixes
+
+* nginx status page ([f1b0132](https://github.com/informatievlaanderen/base-registries/commit/f1b01325bb65eb302b83f4e921880053e4e469da))
+
 ## [2.12.2](https://github.com/informatievlaanderen/base-registries/compare/v2.12.1...v2.12.2) (2023-09-05)
 
 
