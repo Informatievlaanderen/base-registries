@@ -114,42 +114,53 @@ server {
         proxy_redirect off;
         proxy_ssl_server_name on;
         proxy_pass https://api.${REPLACE_ALIAS_ZONE_NAME}/foutmeldingen;
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
 
     location /basisregisters-api/v1 {
         proxy_redirect off;
         proxy_ssl_server_name on;
         proxy_pass https://api.${REPLACE_ALIAS_ZONE_NAME}/v1;
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
     
     location /basisregisters-api/v2 {
         proxy_redirect off;
         proxy_ssl_server_name on;
         proxy_pass https://api.${REPLACE_ALIAS_ZONE_NAME}/v2;
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
 
     location ^~ /assets/oslo {
         proxy_redirect off;
         proxy_ssl_server_name on;
         proxy_pass https://raw.githubusercontent.com/Informatievlaanderen/data.vlaanderen.be-generated/dev;
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
 
     location /assets/locales {
         proxy_redirect off;
         proxy_ssl_server_name on;
         proxy_pass https://raw.githubusercontent.com/Informatievlaanderen/base-registries-content/${REPLACE_ALIAS_BRANCH_CONTENT}/locales;
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
 
     location /wiki {
         proxy_redirect off;
         proxy_ssl_server_name on;
         proxy_pass https://raw.githubusercontent.com/wiki;
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
 
     location /github {
         proxy_redirect off;
         proxy_ssl_server_name on;
         proxy_pass https://api.github.com/orgs/Informatievlaanderen;
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
+    }
+
+    location /status {
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
 
     location ~ /\.git {
