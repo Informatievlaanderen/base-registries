@@ -159,8 +159,8 @@ server {
         proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
 
-    location /status {
-        proxy_set_header X-Robots-Tag "noindex, nofollow";
+    location = /status {
+        add_header X-Robots-Tag "noindex, nofollow";
     }
 
     location ~ /\.git {
