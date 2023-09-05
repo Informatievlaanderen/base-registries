@@ -65,6 +65,35 @@ import { DateTimeFormat } from "vue-i18n";
 import moment from "moment";
 
 export default Vue.extend({
+  beforeRouteEnter(to, from, next) {
+    // Update the document's head with the meta tag
+    const metaRobots = document.createElement('meta');
+    metaRobots.name = 'robots';
+    metaRobots.content = 'noindex, nofollow';
+    document.head.appendChild(metaRobots);
+
+    const metaGoogleBot = document.createElement('meta');
+    metaGoogleBot.name = 'googlebot';
+    metaGoogleBot.content = 'noindex';
+    document.head.appendChild(metaGoogleBot);
+
+    next();
+  },
+
+  beforeRouteLeave(to, from, next) {
+    // Remove the meta tag when leaving the route
+    const metaRobots = document.querySelector('meta[name="robots"]');
+    const metaGoogleBot = document.querySelector('meta[name="googlebot"]');
+    if (metaRobots) {
+      document.head.removeChild(metaRobots);
+    }
+    if (metaGoogleBot) {
+      document.head.removeChild(metaGoogleBot);
+    }
+
+    next();
+  },
+
   localeName: "status",
   hasMarkdown: true,
   components: {
