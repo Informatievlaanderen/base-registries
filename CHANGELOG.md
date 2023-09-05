@@ -1,3 +1,10 @@
+## [2.12.1](https://github.com/informatievlaanderen/base-registries/compare/v2.12.0...v2.12.1) (2023-09-05)
+
+
+### Bug Fixes
+
+* statuspage for import grb ([75d6ec8](https://github.com/informatievlaanderen/base-registries/commit/75d6ec81b7f0f595a4d36e183c5aaa0326e268e0))
+
 # [2.12.0](https://github.com/informatievlaanderen/base-registries/compare/v2.11.6...v2.12.0) (2023-08-11)
 
 
