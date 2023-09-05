@@ -1,3 +1,10 @@
+## [2.12.2](https://github.com/informatievlaanderen/base-registries/compare/v2.12.1...v2.12.2) (2023-09-05)
+
+
+### Bug Fixes
+
+* hide internal page on google ([368eff2](https://github.com/informatievlaanderen/base-registries/commit/368eff221b0ae16fad0725cba359ff4a1e3e3d85))
+
 ## [2.12.1](https://github.com/informatievlaanderen/base-registries/compare/v2.12.0...v2.12.1) (2023-09-05)
 
 
