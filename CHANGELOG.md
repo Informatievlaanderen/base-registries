@@ -1,3 +1,15 @@
+# [2.13.0](https://github.com/informatievlaanderen/base-registries/compare/v2.12.3...v2.13.0) (2023-09-05)
+
+
+### Bug Fixes
+
+* remove nginx status ([6eba44c](https://github.com/informatievlaanderen/base-registries/commit/6eba44c0dd4a9b69b89bd970e111560f844d4e07))
+
+
+### Features
+
+* ignore statuspage on google ([e9fb21a](https://github.com/informatievlaanderen/base-registries/commit/e9fb21af595463ef8ef7cbfa9301249d61a2c160))
+
 ## [2.12.3](https://github.com/informatievlaanderen/base-registries/compare/v2.12.2...v2.12.3) (2023-09-05)
 
 
