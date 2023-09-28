@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/informatievlaanderen/base-registries/compare/v2.13.0...v2.14.0) (2023-09-28)
+
+
+### Features
+
+* add notifications baseregistries to documentationpage ([cf286ef](https://github.com/informatievlaanderen/base-registries/commit/cf286ef521be3fc90d009cbe5dbdcdf839fa7acf))
+
 # [2.13.0](https://github.com/informatievlaanderen/base-registries/compare/v2.12.3...v2.13.0) (2023-09-05)
 
 
