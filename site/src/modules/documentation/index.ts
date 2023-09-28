@@ -6,6 +6,7 @@ import StatusFlowGrar from "./views/StatusFlowGrar.vue";
 import EditEndPointsWr from "./views/EditEndPointsWr.vue";
 import EditEndPointsValidatiesWr from "./views/EditEndPointsValidatiesWr.vue";
 import StatusFlowWr from "./views/StatusFlowWr.vue";
+import NotificationsBaseRegistries from "./views/NotificationsBaseRegisties.vue";
 import ApiKey from "./views/ApiKey.vue";
 
 export const DocumentationRoutes = [
@@ -48,6 +49,11 @@ export const DocumentationRoutes = [
         path: "statusflowwr",
         component: StatusFlowWr,
         name: "statusflowwr"
+      },
+      {
+        path: "meldingenbasisregisters",
+        component: NotificationsBaseRegistries,
+        name: "notificationsbaseregistries"
       }
     ],
   },
