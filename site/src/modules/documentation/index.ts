@@ -53,7 +53,7 @@ export const DocumentationRoutes = [
       {
         path: "meldingenbasisregisters",
         component: NotificationsBaseRegistries,
-        name: "notificationsbaseregistries"
+        name: "notificationsbasisregisters"
       }
     ],
   },
