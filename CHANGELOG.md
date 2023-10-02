@@ -1,3 +1,10 @@
+## [2.14.1](https://github.com/informatievlaanderen/base-registries/compare/v2.14.0...v2.14.1) (2023-10-02)
+
+
+### Bug Fixes
+
+* notificationsbasisregisters ([9cf22c6](https://github.com/informatievlaanderen/base-registries/commit/9cf22c66b69b452a9d6f413ffe9b65e79cdb4b6e))
+
 # [2.14.0](https://github.com/informatievlaanderen/base-registries/compare/v2.13.0...v2.14.0) (2023-09-28)
 
 
