@@ -729,7 +729,7 @@ export default Vue.extend({
       const percentage = (currentPosition / desiredPosition) * 100.0;
       const percentageWith2Decimals = Number.parseFloat(percentage.toFixed(2));
       let ret = { success: false, rightText: "" };
-      if (percentageWith2Decimals == 100.0) {
+      if (currentPosition == desiredPosition) {
         ret.success = true;
         ret.rightText = "100%";
       } else if (percentageWith2Decimals <= 94.99) {
