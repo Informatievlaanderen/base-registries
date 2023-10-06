@@ -1,3 +1,10 @@
+## [2.14.3](https://github.com/informatievlaanderen/base-registries/compare/v2.14.2...v2.14.3) (2023-10-06)
+
+
+### Bug Fixes
+
+* snapshot status issue ([f28ae4f](https://github.com/informatievlaanderen/base-registries/commit/f28ae4ff19af129ac98fd47050203fc22c71649f))
+
 ## [2.14.2](https://github.com/informatievlaanderen/base-registries/compare/v2.14.1...v2.14.2) (2023-10-03)
 
 
