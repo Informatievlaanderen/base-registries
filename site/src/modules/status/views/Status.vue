@@ -734,7 +734,7 @@ export default Vue.extend({
         ret.rightText = "100%";
       } else if (percentageWith2Decimals <= 94.99) {
         ret.rightText = `${percentageWith2Decimals.toLocaleString("nl-BE")}%`;
-      } else if (percentageWith2Decimals > 94.99 && percentageWith2Decimals <= 99.99) {
+      } else if (percentageWith2Decimals > 94.99) {
         var formatter = new Intl.NumberFormat("nl-BE");
         ret.rightText = `${formatter.format(currentPosition)} /  ${formatter.format(desiredPosition)}`;
       }
