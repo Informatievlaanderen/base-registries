@@ -8,7 +8,6 @@ nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 6.0.5 //"
 
 open System
 open System.IO
-
 open Fake.Core
 open Fake.Core.TargetOperators
 open Fake.DotNet

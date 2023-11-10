@@ -1,3 +1,17 @@
+## [2.14.3](https://github.com/informatievlaanderen/base-registries/compare/v2.14.2...v2.14.3) (2023-10-06)
+
+
+### Bug Fixes
+
+* snapshot status issue ([f28ae4f](https://github.com/informatievlaanderen/base-registries/commit/f28ae4ff19af129ac98fd47050203fc22c71649f))
+
+## [2.14.2](https://github.com/informatievlaanderen/base-registries/compare/v2.14.1...v2.14.2) (2023-10-03)
+
+
+### Bug Fixes
+
+* style to trigger build ([648eeef](https://github.com/informatievlaanderen/base-registries/commit/648eeefbbfa1373ebd972e35ebfda6b49fe0e4a8))
+
 ## [2.14.1](https://github.com/informatievlaanderen/base-registries/compare/v2.14.0...v2.14.1) (2023-10-02)
 
 
