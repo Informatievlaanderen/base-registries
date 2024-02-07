@@ -33,6 +33,10 @@ export const PublicApiClient= {
         const path = `/basisregisters-api/v2/status/importergrb`;
         return (await apiClient.get<any>(path)).data;
     },
+    getBackOfficeProjectionsStatus: async (): Promise<ImportStatusResponse> => {
+        const path = `/basisregisters-api/v2/status/backoffice`;
+        return (await apiClient.get<any>(path)).data;
+    },
     getErrorDetail: async (id: string): Promise<string> => {
         const path = `/basisregisters-api/foutmeldingen/${id}`;
         try {

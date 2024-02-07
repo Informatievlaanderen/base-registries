@@ -120,6 +120,11 @@ export default Vue.extend({
           loaded: false,
         },
         {
+          name: "backOfficeProjections",
+          title: "BackOffice Projecties",
+          loaded: false,
+        },
+        {
           name: "producer",
           title: "Producer",
           loaded: false,
@@ -209,6 +214,7 @@ export default Vue.extend({
         this.refresh("import");
         this.refresh("cache");
         this.refresh("importerGrb");
+        this.refresh("backOfficeProjections");
     },
     async refresh(statusType: StatusType, callback: any = undefined) {
       const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
@@ -237,6 +243,9 @@ export default Vue.extend({
             break;
           case "importerGrb":
             data = await PublicApiClient.getImporterGrbStatus();
+            break;
+          case "backOfficeProjections":
+            data = await PublicApiClient.getBackOfficeProjectionsStatus();
             break;
         }
       }
@@ -294,6 +303,13 @@ export default Vue.extend({
       if (statusType === "projections") {
         try {
           ret.push(...this.getProjectionItems(statusType, data));
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
+        }
+      }
+      if (statusType === "backOfficeProjections") {
+        try {
+          ret.push(...this.getBackOfficeProjectionsItems(statusType, data));
         } catch (e) {
           ret.push({ success: false, error: e } as StatusItem);
         }
@@ -386,6 +402,65 @@ export default Vue.extend({
             } as StatusItem;
           }
           let streamPosition = p.projections && p.projections.streamPosition;
+          let currentPosition = i.currentPosition;
+          if (i.name == "municipality" || i.name == "postalInfo") {
+            currentPosition++;
+          }
+          const info = this.getRightTextInfo(currentPosition, streamPosition || 0);
+          const item: StatusItem = {
+            planed: false,
+            paused: false,
+            play: true,
+            stopped: false,
+            hideAppendIcon: false,
+            hidePrepandIcon: true,
+            hoverText: "",
+            prependHoverText: "",
+            disableHoverText: true,
+            text: name,
+            rightText: info.rightText,
+            success: info.success,
+            error: undefined,
+          };
+          return item;
+        });
+      return items;
+    },
+    getBackOfficeProjectionsItems(statusType: StatusType, data: any) {
+      const backOfficeProjectionsResponse = data[statusType] as
+        | {
+            projections: Array<{
+              name: string;
+              currentPosition: number;
+              maxPosition: number;
+            }>;
+          }
+        | null
+        | undefined;
+
+      if (!backOfficeProjectionsResponse) {
+        throw {
+          title: "BackOffice projecties status ophalen is mislukt.",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de backoffice projecties. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
+
+      const projectionsResponse = this.statusItems;
+      const items =
+        backOfficeProjectionsResponse &&
+        backOfficeProjectionsResponse.projections.map((i) => {
+          const registry = i.name
+            .toLowerCase()
+            .replace("addresslink", "")
+            .replace("unit", "")
+            .replace("postalinfo", "postal");
+          
+          const name =
+            this.syndicationTranslations.find((y) => y.key.toLowerCase() == i.name.toLocaleLowerCase())?.value ||
+            i.name;
+          
+          let streamPosition = i.maxPosition;
           let currentPosition = i.currentPosition;
           if (i.name == "municipality" || i.name == "postalInfo") {
             currentPosition++;
@@ -743,7 +818,7 @@ export default Vue.extend({
   },
 });
 
-type StatusType = "projections" | "producer" | "consumer" | "feed" | "cache" | "import" | "syndication" | "importerGrb";
+type StatusType = "projections" | "producer" | "consumer" | "feed" | "cache" | "import" | "syndication" | "importerGrb" | "backOfficeProjections";
 
 interface RegistryItem<T> {
   projections: T;
@@ -754,6 +829,7 @@ interface RegistryItem<T> {
   import: T;
   syndication: T;
   importerGrb: T;
+  backOfficeProjections: T;
 }
 
 interface StatusItem {
