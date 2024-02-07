@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/informatievlaanderen/base-registries/compare/v2.14.3...v2.15.0) (2024-02-07)
+
+
+### Features
+
+* add backoffice projections status ([f3be6dd](https://github.com/informatievlaanderen/base-registries/commit/f3be6ddab949a60846d3886a8f297e5c2b39a5d6))
+
 ## [2.14.3](https://github.com/informatievlaanderen/base-registries/compare/v2.14.2...v2.14.3) (2023-10-06)
 
 
