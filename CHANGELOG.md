@@ -1,3 +1,10 @@
+## [2.15.1](https://github.com/informatievlaanderen/base-registries/compare/v2.15.0...v2.15.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* **bump:** use new pipeline ([e44fd9b](https://github.com/informatievlaanderen/base-registries/commit/e44fd9bb1df91c539d66c9c00b598c504da91575))
+
 # [2.15.0](https://github.com/informatievlaanderen/base-registries/compare/v2.14.3...v2.15.0) (2024-02-07)
 
 
