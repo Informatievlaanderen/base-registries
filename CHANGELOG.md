@@ -1,3 +1,10 @@
+## [2.15.3](https://github.com/informatievlaanderen/base-registries/compare/v2.15.2...v2.15.3) (2024-04-02)
+
+
+### Bug Fixes
+
+* style to trigger build ([14822a4](https://github.com/informatievlaanderen/base-registries/commit/14822a498cd631cbbf39f92152b42794bceee608))
+
 ## [2.15.2](https://github.com/informatievlaanderen/base-registries/compare/v2.15.1...v2.15.2) (2024-04-02)
 
 
