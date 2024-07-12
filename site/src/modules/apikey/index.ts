@@ -1,5 +1,6 @@
 import Root from "./views/Root.vue";
 import ApiKey from "./views/ApiKey.vue";
+import ApiKeyLimits from "./views/Limits.vue";
 
 export const ApiKeyRoutes = [
   {
@@ -12,6 +13,11 @@ export const ApiKeyRoutes = [
         component: ApiKey,
         name: "apikey"
       },
+      {
+        path: "limits",
+        component: ApiKeyLimits,
+        name: "apikeylimits"
+      }
     ],
   },
 ];
