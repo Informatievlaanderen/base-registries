@@ -1,3 +1,10 @@
+## [2.16.3](https://github.com/informatievlaanderen/base-registries/compare/v2.16.2...v2.16.3) (2024-07-12)
+
+
+### Bug Fixes
+
+* undo routing + fix breadcrumb apikeylimits ([f88a944](https://github.com/informatievlaanderen/base-registries/commit/f88a944a9cf1b62c4265e2b4dfb9aca13e60b082))
+
 ## [2.16.2](https://github.com/informatievlaanderen/base-registries/compare/v2.16.1...v2.16.2) (2024-07-12)
 
 
