@@ -87,7 +87,7 @@ class MyRenderer<T = never> extends marked.Renderer<T> {
     if (href === null) {
       return text;
     }
-    const attributes = !href.startsWith("/") && !href.startsWith("../") && !href.startsWith("#") ? `target="_blank" rel="noopener noreferrer nofollow"` : "";
+    const attributes = !href.startsWith("/") && !href.startsWith("#") ? `target="_blank" rel="noopener noreferrer nofollow"` : "";
     const attributeTitle = title ? `title="${title}"` : "";
     const noProtocolUrl = href.replace("http:", "").replace("https:", "");
     const out = `<a href="${noProtocolUrl}" ${attributeTitle} ${attributes} >${text}</a>`;
