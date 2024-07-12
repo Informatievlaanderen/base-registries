@@ -1,3 +1,10 @@
+## [2.16.1](https://github.com/informatievlaanderen/base-registries/compare/v2.16.0...v2.16.1) (2024-07-12)
+
+
+### Bug Fixes
+
+* apikeylimieten route ([d8aa085](https://github.com/informatievlaanderen/base-registries/commit/d8aa0855ff836e5af00445cb024e86527f50fc0d))
+
 # [2.16.0](https://github.com/informatievlaanderen/base-registries/compare/v2.15.3...v2.16.0) (2024-07-12)
 
 
