@@ -1,3 +1,10 @@
+# [2.16.0](https://github.com/informatievlaanderen/base-registries/compare/v2.15.3...v2.16.0) (2024-07-12)
+
+
+### Features
+
+* add api limits ([85c3908](https://github.com/informatievlaanderen/base-registries/commit/85c3908bd063af64af641edaae80b710bbc141ab))
+
 ## [2.15.3](https://github.com/informatievlaanderen/base-registries/compare/v2.15.2...v2.15.3) (2024-04-02)
 
 
