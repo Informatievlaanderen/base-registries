@@ -14,7 +14,7 @@ export const ApiKeyRoutes = [
         name: "apikey"
       },
       {
-        path: "limits",
+        path: "limieten",
         component: ApiKeyLimits,
         name: "apikeylimits"
       }
