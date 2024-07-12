@@ -1,3 +1,10 @@
+## [2.16.2](https://github.com/informatievlaanderen/base-registries/compare/v2.16.1...v2.16.2) (2024-07-12)
+
+
+### Bug Fixes
+
+* open page in same window for recursive routes ([7235361](https://github.com/informatievlaanderen/base-registries/commit/723536188943fc3a100bf318ea0639e291d353bd))
+
 ## [2.16.1](https://github.com/informatievlaanderen/base-registries/compare/v2.16.0...v2.16.1) (2024-07-12)
 
 
