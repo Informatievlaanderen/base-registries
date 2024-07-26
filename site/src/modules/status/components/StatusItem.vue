@@ -65,7 +65,7 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    planed: {
+    planned: {
       type: Boolean,
       default: false,
     },
@@ -97,7 +97,7 @@ export default Vue.extend({
   },
   computed: {
     prepandIcon(): string {
-      if(this.planed)
+      if(this.planned)
         return "synchronize-timeout";
       if(this.play)
         return "play";
@@ -106,7 +106,7 @@ export default Vue.extend({
       return "stop"
     },
     prepandHoverText(): string {
-      if(this.planed)
+      if(this.planned)
         return "Gepland";
       if(this.play)
         return "Actief";
@@ -118,7 +118,7 @@ export default Vue.extend({
       if(this.success){
         return "calendar_check";
       }
-      if (this.play || this.planed || this.stopped) {
+      if (this.play || this.planned || this.stopped) {
         return "warning";
       }
       return "question-mark"
@@ -128,7 +128,7 @@ export default Vue.extend({
         return {color:"green"};
       }
       
-      if (this.play || this.planed || this.stopped) {
+      if (this.play || this.planned || this.stopped) {
         return {color:"orange"};
       }
 

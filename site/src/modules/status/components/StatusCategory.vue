@@ -12,7 +12,7 @@
           v-for="(item, key) in getItems"
           :key="key"
           :play="item.play"
-          :planed="item.planed"
+          :planned="item.planned"
           :paused="item.paused"
           :stopped="item.stopped"
           :hide-prepand-icon="item.hidePrepandIcon"
@@ -118,7 +118,7 @@ export default Vue.extend({
 interface StatusItem {
   play: boolean;
   paused: boolean;
-  planed: boolean;
+  planned: boolean;
   stopped: boolean;
   hideAppendIcon: boolean;
   hidePrepandIcon: boolean;

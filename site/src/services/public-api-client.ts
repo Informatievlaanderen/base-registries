@@ -37,6 +37,10 @@ export const PublicApiClient= {
         const path = `/basisregisters-api/v2/status/backoffice`;
         return (await apiClient.get<any>(path)).data;
     },
+    getSnapshotStatus: async (): Promise<any> => {
+        const path = `/basisregisters-api/v2/status/snapshot`;
+        return (await apiClient.get<any>(path)).data;
+    },
     getErrorDetail: async (id: string): Promise<string> => {
         const path = `/basisregisters-api/foutmeldingen/${id}`;
         try {
