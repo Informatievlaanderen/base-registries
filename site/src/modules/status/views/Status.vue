@@ -149,6 +149,11 @@ export default Vue.extend({
           title: "Cache",
           loaded: false,
         },
+        {
+          name: "snapshot",
+          title: "Snapshot",
+          loaded: false,
+        },
         
       ] as Array<{ name: StatusType; title: string; loaded: boolean }>,
       syndicationTranslations: [
@@ -207,30 +212,31 @@ export default Vue.extend({
   },
   methods: {
     async init() {
-        this.refresh("projections", () => this.refresh("syndication"));
-        this.refresh("producer");
-        this.refresh("consumer");
-        this.refresh("feed");
-        this.refresh("import");
-        this.refresh("cache");
-        this.refresh("importerGrb");
-        this.refresh("backOfficeProjections");
+      this.refresh("projections", () => this.refresh("syndication"));
+      this.refresh("producer");
+      this.refresh("consumer");
+      this.refresh("feed");
+      this.refresh("import");
+      this.refresh("cache");
+      this.refresh("importerGrb");
+      this.refresh("backOfficeProjections");
+      this.refresh("snapshot");
     },
     async refresh(statusType: StatusType, callback: any = undefined) {
       const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
       type!.loaded = false;
       let data = {} as any;
-      try{
+      try {
         switch (statusType) {
           case "projections":
           case "feed":
             data = await PublicApiClient.getProjectionStatus();
             break;
           case "producer":
-          data = await PublicApiClient.getProducerStatus();
+            data = await PublicApiClient.getProducerStatus();
             break;
           case "consumer":
-          data = await PublicApiClient.getConsumerStatus();
+            data = await PublicApiClient.getConsumerStatus();
             break;
           case "cache":
             data = await PublicApiClient.getCacheStatus();
@@ -247,18 +253,17 @@ export default Vue.extend({
           case "backOfficeProjections":
             data = await PublicApiClient.getBackOfficeProjectionsStatus();
             break;
+          case "snapshot":
+            data = await PublicApiClient.getSnapshotStatus();
+            break;
         }
+      } catch {
+        data = {};
+        this.registries.forEach(registry => {
+          data[`${registry}Registry`] = null;
+        });
       }
-      catch{
-        data = {
-          "addressRegistry": null,
-          "buildingRegistry": null,
-          "municipalityRegistry": null,
-          "parcelRegistry": null,
-          "streetNameRegistry": null,
-          "postalRegistry": null
-        }
-      }
+
       Object.keys(data).forEach((r: string) => {
         const registryId = r.replace("Registry", "").toLowerCase();
         this.statusItems[registryId] = Object.assign(this.statusItems[registryId] || {}, { [statusType]: data[r] });
@@ -345,6 +350,13 @@ export default Vue.extend({
           ret.push({ success: false, error: e } as StatusItem);
         }
       }
+      if (statusType === "snapshot") {
+        try {
+          ret.push(...this.getSnapshotItems(statusType, data));
+        } catch (e) {
+          ret.push({ success: false, error: e } as StatusItem);
+        }
+      }
     
       return ret;
     },
@@ -384,7 +396,7 @@ export default Vue.extend({
             i.name;
           if (!p.projections) {
             return {
-              planed: false,
+              planned: false,
               paused: false,
               play: false,
               stopped: false,
@@ -408,7 +420,7 @@ export default Vue.extend({
           }
           const info = this.getRightTextInfo(currentPosition, streamPosition || 0);
           const item: StatusItem = {
-            planed: false,
+            planned: false,
             paused: false,
             play: true,
             stopped: false,
@@ -446,7 +458,6 @@ export default Vue.extend({
         };
       }
 
-      const projectionsResponse = this.statusItems;
       const items =
         backOfficeProjectionsResponse &&
         backOfficeProjectionsResponse.projections.map((i) => {
@@ -467,7 +478,7 @@ export default Vue.extend({
           }
           const info = this.getRightTextInfo(currentPosition, streamPosition || 0);
           const item: StatusItem = {
-            planed: false,
+            planned: false,
             paused: false,
             play: true,
             stopped: false,
@@ -505,7 +516,7 @@ export default Vue.extend({
         const success = i.numberOfRecordsToProcess == 0;
         const rightText = success ? "" : `Aantal niet gecachte objecten: ${i.numberOfRecordsToProcess}`;
         const item: StatusItem = {
-          planed: false,
+          planned: false,
           paused: false,
           play: false,
           stopped: !success,
@@ -550,7 +561,7 @@ export default Vue.extend({
         .map((i) => {
           const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
           const item: StatusItem = {
-            planed: false,
+            planned: false,
             paused: i.state == "crashed" || i.state == "unknown",
             play: i.state == "catchingUp" || i.state == "subscribed",
             stopped: i.state == "stopped",
@@ -595,7 +606,7 @@ export default Vue.extend({
         .map((i) => {
           const info = this.getRightTextInfo(i.currentPosition, ProducerResponse.streamPosition);
           const item: StatusItem = {
-            planed: false,
+            planned: false,
             paused: i.state == "crashed" || i.state == "unknown",
             play: i.state == "catchingUp" || i.state == "subscribed",
             stopped: i.state == "stopped",
@@ -640,7 +651,7 @@ export default Vue.extend({
           d.getMinutes())}:${twoDigit(d.getSeconds())}`;
           var deltaInHours = moment().diff(moment(i.dateProcessed, 'YYYY-MM-DD hh:mm:ss'), 'hours');
           const item: StatusItem = {
-            planed: false,
+            planned: false,
             paused: false,
             play: deltaInHours < 24,
             stopped: deltaInHours >= 24,
@@ -657,6 +668,42 @@ export default Vue.extend({
           return item;
         });
       return items;
+    },
+    getSnapshotItems(statusType: StatusType, data: any) {
+      const snapshotResponse = data[statusType] as
+        | {
+            name: String;
+            failedSnapshotsCount: number;
+            differenceInDaysOfLastVerification: number;
+          }
+        | null
+        | undefined;
+      if (!snapshotResponse) {
+        throw {
+          title: "Snapshot status ophalen is mislukt",
+          text: "Er is iets fout gelopen tijdens het ophalen van de status van de snapshot. Probeer het later opnieuw.",
+          inline: false,
+        };
+      }
+
+      var isError = snapshotResponse.failedSnapshotsCount > 0 || snapshotResponse.differenceInDaysOfLastVerification > 1;
+
+      const item: StatusItem = {
+        planned: false,
+        paused: false,
+        play: !isError,
+        stopped: isError,
+        hideAppendIcon: false,
+        hidePrepandIcon: false,
+        disableHoverText: false,
+        hoverText: `${snapshotResponse.failedSnapshotsCount} foutieve snapshot(s)`,
+        prependHoverText: "",
+        text: 'Snapshot verificatie',
+        rightText: `Laatste wijziging: ${snapshotResponse.differenceInDaysOfLastVerification == 1 ? '1 dag' : `${snapshotResponse.differenceInDaysOfLastVerification} dagen`} geleden`,
+        success: !isError,
+        error: undefined,
+      };
+      return [item];
     },
     getFeedItems(statusType: StatusType, data: any) {
       const projectionResponse = data[statusType] as
@@ -686,7 +733,7 @@ export default Vue.extend({
         .map((i) => {
           const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
           const item: StatusItem = {
-            planed: false,
+            planned: false,
             paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
             play: i.state == "catchingUp" || i.state == "subscribed",
             stopped: false,
@@ -734,7 +781,7 @@ export default Vue.extend({
         const d = new Date(i.lastCompletedImport.until);
         const datetime = dateTimeToString(d);
         const item: StatusItem = {
-          planed: true,
+          planned: true,
           paused: false,
           play: false,
           stopped: false,
@@ -782,7 +829,7 @@ export default Vue.extend({
         const d = new Date(i.lastCompletedImport.until);
         const datetime = dateTimeToString(d);
         const item: StatusItem = {
-          planed: true,
+          planned: true,
           paused: false,
           play: false,
           stopped: false,
@@ -818,7 +865,7 @@ export default Vue.extend({
   },
 });
 
-type StatusType = "projections" | "producer" | "consumer" | "feed" | "cache" | "import" | "syndication" | "importerGrb" | "backOfficeProjections";
+type StatusType = "projections" | "producer" | "consumer" | "feed" | "cache" | "import" | "syndication" | "importerGrb" | "backOfficeProjections" | "snapshot";
 
 interface RegistryItem<T> {
   projections: T;
@@ -830,12 +877,13 @@ interface RegistryItem<T> {
   syndication: T;
   importerGrb: T;
   backOfficeProjections: T;
+  snapshot: T;
 }
 
 interface StatusItem {
   play: boolean;
   paused: boolean;
-  planed: boolean;
+  planned: boolean;
   stopped: boolean;
   hideAppendIcon: boolean;
   hidePrepandIcon: boolean;
