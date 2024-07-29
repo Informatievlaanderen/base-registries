@@ -1,3 +1,10 @@
+# [2.17.0](https://github.com/informatievlaanderen/base-registries/compare/v2.16.3...v2.17.0) (2024-07-29)
+
+
+### Features
+
+* add snapshot verification ([c816f72](https://github.com/informatievlaanderen/base-registries/commit/c816f7262a98064fee5d5da9bd69c872fc009d24))
+
 ## [2.16.3](https://github.com/informatievlaanderen/base-registries/compare/v2.16.2...v2.16.3) (2024-07-12)
 
 
