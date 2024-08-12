@@ -50,3 +50,4 @@ structurizr-*.json
 
 .env.local
 .env.*.local
+/site/public/assets/locales-dev.json
