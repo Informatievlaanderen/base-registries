@@ -7,6 +7,10 @@ export const TranslationClient = {
         const path = `/assets/locales/${lang}.json`;
         return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
     },
+    getDevTranslations: async (): Promise<any> => {
+        const path = `/assets/locales-dev.json`;
+        return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
+    },
     getPageMarkdownContent: async (lang: string, page: string): Promise<string> => {
         const path = `/assets/locales/${lang}/${page}/content.md`;
         return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
@@ -17,6 +21,10 @@ export const TranslationClient = {
     },
     getMarkdownReleaseNotes: async (): Promise<string> => {
         const path = `/wiki/Informatievlaanderen/registry-documentation/Release-Notes.md`;
+        return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
+    },
+    getRoadRegistryChangeLog: async (): Promise<string> => {
+        const path = `https://raw.githubusercontent.com/Informatievlaanderen/road-registry/main/CHANGELOG.md`;
         return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
     },
     getFaqTableOfContents: async (lang: string): Promise<Faq.TableOfContents> => {

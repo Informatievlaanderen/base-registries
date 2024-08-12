@@ -48,20 +48,17 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { TranslationClient } from "../../../services/translations-client";
 
 export default Vue.extend({
   localeName: "release-notes",
   hasMarkdown: true,
   async mounted() {
     this.loaded = false;
-    this.githubMarkdown = await TranslationClient.getMarkdownReleaseNotes();
     this.loaded = true;
   },
   data() {
     return {
-      loaded: false as boolean,
-      githubMarkdown: "" as string
+      loaded: false as boolean
     };
   },
 });
