@@ -62,6 +62,21 @@ const proxyLocale = {
   },
 }
 
+const proxyChangeLogRoadRegistry = {
+  "/changelogs/road-registry": {
+    target: "https://raw.githubusercontent.com",
+    ws: false,
+    https: true,
+    changeOrigin: true,
+    Headers: {
+      'Cache-Control': 'no-store',
+    },
+    pathRewrite: {
+      "/changelogs/road-registry": `/Informatievlaanderen/road-registry/main/CHANGELOG.md`
+    }
+  },
+}
+
 const proxyApiErrors = {
   "/basisregisters-api/foutmeldingen/": {
     target: "https://api.basisregisters.dev-vlaanderen.be",
@@ -137,6 +152,7 @@ module.exports = defineConfig({
     port: 8080,
     proxy: {
       ...proxyLocale,
+      ...proxyChangeLogRoadRegistry,
       ...proxyApi,
       ...proxyApiV2,
       ...proxyApiErrors,
