@@ -1,3 +1,11 @@
+# [2.18.0](https://github.com/informatievlaanderen/base-registries/compare/v2.17.0...v2.18.0) (2024-08-12)
+
+
+### Features
+
+* add WR technical release notes ([abc1049](https://github.com/informatievlaanderen/base-registries/commit/abc10491d5b3970f4e3442f4908518675f17e065))
+* add WR technical release notes ([82d01d8](https://github.com/informatievlaanderen/base-registries/commit/82d01d8d4a844f72ef37cb13bc84082904c4c3d9))
+
 # [2.17.0](https://github.com/informatievlaanderen/base-registries/compare/v2.16.3...v2.17.0) (2024-07-29)
 
 
