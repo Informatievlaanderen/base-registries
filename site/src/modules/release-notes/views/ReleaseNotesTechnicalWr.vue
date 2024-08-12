@@ -20,14 +20,16 @@
                         <y-markdown v-if="$data.markdownLoaded" :src="$data.content" />
                       </vl-typography>
                     </vl-column>
-                    <vl-column v-for="item in $data.doormatItems" :key="item.url" width="6" width-s="12">
-                      <vl-doormat :title="item.title" :href="item.url" mod-alt />
+                    <vl-column>
+                      <vl-typography>
+                        <y-markdown v-if="loaded" :src="githubMarkdown" />
+                      </vl-typography>
                     </vl-column>
                   </vl-grid>
                 </vl-column>
                 <vl-column v-if="$data.sidebar.urls > 0" width="3" push="1" push-m="reset" width-s="12">
                   <aside v-vl-sticky="{ top: '120px', left: '0' }">
-                    <vl-side-navigation :title="$l(`${$options.localeName}.sidebar.title`)">
+                    <vl-side-navigation :title="$l(`releaseNotes.sidebar.title`)">
                       <vl-side-navigation-list>
                         <template v-for="item in $data.sidebar.urls">
                           <vl-side-navigation-item :key="item.url" :href="item.url" :text="item.title" />
@@ -48,17 +50,20 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { TranslationClient } from "../../../services/translations-client";
 
 export default Vue.extend({
-  localeName: "release-notes/business-wr",
+  localeName: "release-notes/technisch-wr",
   hasMarkdown: true,
   async mounted() {
     this.loaded = false;
+    this.githubMarkdown = await TranslationClient.getRoadRegistryChangeLog();
     this.loaded = true;
   },
   data() {
     return {
-      loaded: false as boolean
+      loaded: false as boolean,
+      githubMarkdown: "" as string
     };
   },
 });

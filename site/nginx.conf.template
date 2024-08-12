@@ -146,6 +146,13 @@ server {
         proxy_set_header X-Robots-Tag "noindex, nofollow";
     }
 
+    location /changelogs/road-registry {
+        proxy_redirect off;
+        proxy_ssl_server_name on;
+        proxy_pass https://raw.githubusercontent.com/Informatievlaanderen/road-registry/main/CHANGELOG.md;
+        proxy_set_header X-Robots-Tag "noindex, nofollow";
+    }
+
     location /wiki {
         proxy_redirect off;
         proxy_ssl_server_name on;
