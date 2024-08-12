@@ -47,23 +47,31 @@
   </vl-page>
 </template>
 
-
 <script lang="ts">
 import Vue from "vue";
 import { TranslationClient } from "../../../services/translations-client";
+
+const markdownConvertHeading1To2 = (markdown: string): string => {
+  return markdown.split('\n').map(line => {
+    if(line.indexOf('# ') === 0){
+      return `#${line}`;
+    }
+    return line;
+  }).join('\n');
+};
 
 export default Vue.extend({
   localeName: "release-notes/technisch-wr",
   hasMarkdown: true,
   async mounted() {
     this.loaded = false;
-    this.githubMarkdown = await TranslationClient.getRoadRegistryChangeLog();
+    this.githubMarkdown = markdownConvertHeading1To2(await TranslationClient.getRoadRegistryChangeLog());
     this.loaded = true;
   },
   data() {
     return {
       loaded: false as boolean,
-      githubMarkdown: "" as string
+      githubMarkdown: "" as string,
     };
   },
 });
