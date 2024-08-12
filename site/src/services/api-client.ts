@@ -1,6 +1,5 @@
 import Vue from "vue";
-import axios, { AxiosInstance, AxiosRequestConfig, Method } from "axios";
-import {API_KEY} from "../environment";
+import axios, { AxiosInstance, Method } from "axios";
 
 export interface IApiClient {
   get<T = any>(

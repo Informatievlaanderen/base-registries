@@ -47,8 +47,12 @@ const i18n = {
     translations.nl = { ...result } as any;
 
     if (process.env.NODE_ENV === "development") {
-      const devTranslations = await TranslationClient.getDevTranslations();
-      translations.nl = { ...translations.nl, ...devTranslations } as any;
+      try {
+        const devTranslations = await TranslationClient.getDevTranslations();
+        translations.nl = { ...translations.nl, ...devTranslations } as any;
+      } catch (err) {
+        console.error('Failed to load dev locales json', err);
+      }
     }
 
     const path = window.location.pathname;

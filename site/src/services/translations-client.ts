@@ -24,7 +24,7 @@ export const TranslationClient = {
         return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
     },
     getRoadRegistryChangeLog: async (): Promise<string> => {
-        const path = `https://raw.githubusercontent.com/Informatievlaanderen/road-registry/main/CHANGELOG.md`;
+        const path = `/changelogs/road-registry`;
         return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
     },
     getFaqTableOfContents: async (lang: string): Promise<Faq.TableOfContents> => {
