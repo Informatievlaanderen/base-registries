@@ -1,3 +1,11 @@
+## [2.18.2](https://github.com/informatievlaanderen/base-registries/compare/v2.18.1...v2.18.2) (2024-08-12)
+
+
+### Bug Fixes
+
+* convert heading 1 to 2 in road changelog.md ([7bc28d4](https://github.com/informatievlaanderen/base-registries/commit/7bc28d4ec13a85502e45b3600d7fbd4e7e956d48))
+* convert heading 1 to 2 in road changelog.md ([c879caa](https://github.com/informatievlaanderen/base-registries/commit/c879caa090c1242b1e47fd2617ee03f5b7646fc5))
+
 ## [2.18.1](https://github.com/informatievlaanderen/base-registries/compare/v2.18.0...v2.18.1) (2024-08-12)
 
 
