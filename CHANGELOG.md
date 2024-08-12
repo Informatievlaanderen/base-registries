@@ -1,3 +1,11 @@
+## [2.18.1](https://github.com/informatievlaanderen/base-registries/compare/v2.18.0...v2.18.1) (2024-08-12)
+
+
+### Bug Fixes
+
+* add road-registry changelog proxy ([8cee69f](https://github.com/informatievlaanderen/base-registries/commit/8cee69f064779463e2f46d192a028551bf9727f5))
+* add road-registry changelog proxy ([eb28341](https://github.com/informatievlaanderen/base-registries/commit/eb2834160763d6d6fa842dabe06d4701505d4d86))
+
 # [2.18.0](https://github.com/informatievlaanderen/base-registries/compare/v2.17.0...v2.18.0) (2024-08-12)
 
 
