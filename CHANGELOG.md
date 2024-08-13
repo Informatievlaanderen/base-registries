@@ -1,3 +1,10 @@
+## [2.18.4](https://github.com/informatievlaanderen/base-registries/compare/v2.18.3...v2.18.4) (2024-08-13)
+
+
+### Bug Fixes
+
+* version bump ([a0c87f9](https://github.com/informatievlaanderen/base-registries/commit/a0c87f94942c29df234fcda4e470399f9d068e8d))
+
 ## [2.18.3](https://github.com/informatievlaanderen/base-registries/compare/v2.18.2...v2.18.3) (2024-08-12)
 
 
