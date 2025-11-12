@@ -1,3 +1,10 @@
+# [2.19.0](https://github.com/informatievlaanderen/base-registries/compare/v2.18.4...v2.19.0) (2025-11-12)
+
+
+### Features
+
+* add redirect for validations and flow urls ([c88a80c](https://github.com/informatievlaanderen/base-registries/commit/c88a80c5f02f5b9a4be88f9f48d5941cedfbd2fb))
+
 ## [2.18.4](https://github.com/informatievlaanderen/base-registries/compare/v2.18.3...v2.18.4) (2024-08-13)
 
 
