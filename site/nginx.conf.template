@@ -97,6 +97,18 @@ server {
       return 301 https://docs.${REPLACE_ALIAS_ZONE_NAME}/;
     }
 
+    if (${DOLLAR}request_uri ~* "^(.*/)documentatie/statusflowgrar") {
+      return 302 https://vlaamseoverheid.atlassian.net/wiki/spaces/AGB/pages/7668138177/Gebruik+van+de+edit-API+s+GRAR;
+    }
+
+    if (${DOLLAR}request_uri ~* "^(.*/)documentatie/editendpointsgrar/validaties") {
+      return 302 https://vlaamseoverheid.atlassian.net/wiki/spaces/AGB/pages/7668138177/Gebruik+van+de+edit-API+s+GRAR;
+    }
+
+    if (${DOLLAR}request_uri ~* "^(.*/)documentatie/editendpointswr/validaties") {
+      return 302 https://vlaamseoverheid.atlassian.net/wiki/spaces/AGB/pages/7675641879/Gebruik+van+de+edit-API+s+WR;
+    }
+
     # This is the most stupidest thing I've ever seen
     # Enforce all lowercase
     # if (${DOLLAR}request_uri ~ "[A-Z]") {
