@@ -77,7 +77,7 @@ jobs:
       shell: bash
       run: npm install
       env:
-        NPM_TOKEN: ${{ secrets.VBR_WEBCOMP_NPM_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_WEBCOMP_TOKEN }}
 
     - name: Install Python dependencies
       shell: bash
