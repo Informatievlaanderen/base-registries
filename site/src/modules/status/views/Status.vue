@@ -265,7 +265,7 @@ export default Vue.extend({
       }
 
       Object.keys(data).forEach((r: string) => {
-        const registryId = r.replace("Registry", "").toLowerCase();
+        const registryId = r.replace("RegistryV2", "").Replace("Registry", "").toLowerCase();
         this.statusItems[registryId] = Object.assign(this.statusItems[registryId] || {}, { [statusType]: data[r] });
         const d = this.getItems(statusType, this.statusItems[registryId]);
         this.transformedStatusItems[registryId] = Object.assign(this.transformedStatusItems[registryId] || {}, {
