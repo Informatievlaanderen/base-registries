@@ -1,3 +1,11 @@
+## [2.19.1](https://github.com/informatievlaanderen/base-registries/compare/v2.19.0...v2.19.1) (2025-12-19)
+
+
+### Bug Fixes
+
+* typo in replace method for registryId ([75a2463](https://github.com/informatievlaanderen/base-registries/commit/75a246380d345c5a2fa4fa9a32abe2e6fa26ee4b))
+* update registryId parsing to handle RegistryV2 ([40ccee6](https://github.com/informatievlaanderen/base-registries/commit/40ccee6c18425e9cc326b1576ab0e6ee9320d48a))
+
 # [2.19.0](https://github.com/informatievlaanderen/base-registries/compare/v2.18.4...v2.19.0) (2025-11-12)
 
 
