@@ -1,3 +1,10 @@
+# [2.20.0](https://github.com/informatievlaanderen/base-registries/compare/v2.19.1...v2.20.0) (2026-01-19)
+
+
+### Features
+
+* add support for handling storePosition in projection status item ([44bbfcc](https://github.com/informatievlaanderen/base-registries/commit/44bbfcce7cd745f7caf0eeeab8515f6f85d1fc43))
+
 ## [2.19.1](https://github.com/informatievlaanderen/base-registries/compare/v2.19.0...v2.19.1) (2025-12-19)
 
 
