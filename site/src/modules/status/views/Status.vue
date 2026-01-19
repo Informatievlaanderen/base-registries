@@ -20,16 +20,9 @@
                 </vl-typography>
               </div>
               <div class="ma-0 pa-0">
-                <div
-                  v-for="registry in registries"
-                  :key="registry.key"
-                  :id="registry.title"
-                  class="ma-0 pa-0"
-                >
+                <div v-for="registry in registries" :key="registry.key" :id="registry.title" class="ma-0 pa-0">
                   <h3 class="vl-title vl-title--h3 ma-0 py-4" :style="{ color: '#05c' }">
-                    <a :href="`#${registry.title}`">{{
-                      registry.title
-                    }}</a>
+                    <a :href="`#${registry.title}`">{{ registry.title }}</a>
                   </h3>
                   <div v-for="statusType in statusTypes" :key="statusType.name">
                     <vl-status-category
@@ -61,20 +54,19 @@
 import Vue from "vue";
 import StatusCategory from "../components/StatusCategory.vue";
 import { PublicApiClient } from "../../../services/public-api-client";
-import { DateTimeFormat } from "vue-i18n";
 import moment from "moment";
 
 export default Vue.extend({
   beforeRouteEnter(to, from, next) {
     // Update the document's head with the meta tag
-    const metaRobots = document.createElement('meta');
-    metaRobots.name = 'robots';
-    metaRobots.content = 'noindex, nofollow';
+    const metaRobots = document.createElement("meta");
+    metaRobots.name = "robots";
+    metaRobots.content = "noindex, nofollow";
     document.head.appendChild(metaRobots);
 
-    const metaGoogleBot = document.createElement('meta');
-    metaGoogleBot.name = 'googlebot';
-    metaGoogleBot.content = 'noindex';
+    const metaGoogleBot = document.createElement("meta");
+    metaGoogleBot.name = "googlebot";
+    metaGoogleBot.content = "noindex";
     document.head.appendChild(metaGoogleBot);
 
     next();
@@ -154,7 +146,6 @@ export default Vue.extend({
           title: "Snapshot",
           loaded: false,
         },
-        
       ] as Array<{ name: StatusType; title: string; loaded: boolean }>,
       syndicationTranslations: [
         {
@@ -259,7 +250,7 @@ export default Vue.extend({
         }
       } catch {
         data = {};
-        this.registries.forEach(registry => {
+        this.registries.forEach((registry) => {
           data[`${registry}Registry`] = null;
         });
       }
@@ -274,7 +265,7 @@ export default Vue.extend({
       });
       type!.loaded = true;
 
-      if(callback){
+      if (callback) {
         callback();
       }
     },
@@ -357,7 +348,7 @@ export default Vue.extend({
           ret.push({ success: false, error: e } as StatusItem);
         }
       }
-    
+
       return ret;
     },
     getSyndicationItems(statusType: StatusType, data: any) {
@@ -466,11 +457,11 @@ export default Vue.extend({
             .replace("addresslink", "")
             .replace("unit", "")
             .replace("postalinfo", "postal");
-          
+
           const name =
             this.syndicationTranslations.find((y) => y.key.toLowerCase() == i.name.toLocaleLowerCase())?.value ||
             i.name;
-          
+
           let streamPosition = i.maxPosition;
           let currentPosition = i.currentPosition;
           if (i.name == "municipality" || i.name == "postalInfo") {
@@ -543,6 +534,7 @@ export default Vue.extend({
               description: string;
               state: "unknown" | "subscribed" | "catchingUp" | "stopped" | "crashed";
               currentPosition: number;
+              storePosition: number;
             }>;
             streamPosition: number;
           }
@@ -559,7 +551,7 @@ export default Vue.extend({
       const items = projectionResponse?.projections
         .filter((i) => !i.name.includes("Feed endpoint "))
         .map((i) => {
-          const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
+          const info = this.getRightTextInfo(i.currentPosition, i.storePosition ?? projectionResponse.streamPosition);
           const item: StatusItem = {
             planned: false,
             paused: i.state == "crashed" || i.state == "unknown",
@@ -647,9 +639,10 @@ export default Vue.extend({
         .map((i) => {
           const twoDigit = (v: number) => String(v).padStart(2, "0");
           const dateTimeToString = (d: Date) =>
-          `${twoDigit(d.getDate())}/${twoDigit(d.getMonth() + 1)}/${d.getFullYear()} ${twoDigit(d.getHours())}:${twoDigit(
-          d.getMinutes())}:${twoDigit(d.getSeconds())}`;
-          var deltaInHours = moment().diff(moment(i.dateProcessed, 'YYYY-MM-DD hh:mm:ss'), 'hours');
+            `${twoDigit(d.getDate())}/${twoDigit(d.getMonth() + 1)}/${d.getFullYear()} ${twoDigit(
+              d.getHours()
+            )}:${twoDigit(d.getMinutes())}:${twoDigit(d.getSeconds())}`;
+          var deltaInHours = moment().diff(moment(i.dateProcessed, "YYYY-MM-DD hh:mm:ss"), "hours");
           const item: StatusItem = {
             planned: false,
             paused: false,
@@ -686,7 +679,8 @@ export default Vue.extend({
         };
       }
 
-      var isError = snapshotResponse.failedSnapshotsCount > 0 || snapshotResponse.differenceInDaysOfLastVerification > 1;
+      var isError =
+        snapshotResponse.failedSnapshotsCount > 0 || snapshotResponse.differenceInDaysOfLastVerification > 1;
 
       const item: StatusItem = {
         planned: false,
@@ -698,8 +692,12 @@ export default Vue.extend({
         disableHoverText: false,
         hoverText: `${snapshotResponse.failedSnapshotsCount} foutieve snapshot(s)`,
         prependHoverText: "",
-        text: 'Snapshot verificatie',
-        rightText: `Laatste wijziging: ${snapshotResponse.differenceInDaysOfLastVerification == 1 ? '1 dag' : `${snapshotResponse.differenceInDaysOfLastVerification} dagen`} geleden`,
+        text: "Snapshot verificatie",
+        rightText: `Laatste wijziging: ${
+          snapshotResponse.differenceInDaysOfLastVerification == 1
+            ? "1 dag"
+            : `${snapshotResponse.differenceInDaysOfLastVerification} dagen`
+        } geleden`,
         success: !isError,
         error: undefined,
       };
@@ -861,11 +859,21 @@ export default Vue.extend({
         ret.rightText = `${formatter.format(currentPosition)} /  ${formatter.format(desiredPosition)}`;
       }
       return ret;
-    }
+    },
   },
 });
 
-type StatusType = "projections" | "producer" | "consumer" | "feed" | "cache" | "import" | "syndication" | "importerGrb" | "backOfficeProjections" | "snapshot";
+type StatusType =
+  | "projections"
+  | "producer"
+  | "consumer"
+  | "feed"
+  | "cache"
+  | "import"
+  | "syndication"
+  | "importerGrb"
+  | "backOfficeProjections"
+  | "snapshot";
 
 interface RegistryItem<T> {
   projections: T;
