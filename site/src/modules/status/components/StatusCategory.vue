@@ -7,7 +7,7 @@
       <div class="status-header-actions"><vl-button icon="synchronize" mod-icon @click="$emit('refresh')" /></div>
     </div>
     <div class="items px-3 py-4">
-      <template v-if="!contentLoading && content">
+      <template v-if="content && content.items.length">
         <vl-status-item
           v-for="(item, key) in getItems"
           :key="key"
@@ -24,8 +24,11 @@
           :right-text="item.rightText"
           :error="item.error"
         />
+        <div v-if="contentLoading" class="items-overlay">
+          <vl-loader message="Even geduld." />
+        </div>
       </template>
-      <template v-else>
+      <template v-else-if="contentLoading">
         <div class="status-item px-3 py-4 px-3">
           <div>
             <div v-vl-align:center>
@@ -136,6 +139,22 @@ interface StatusItem {
 <style lang="scss" scoped>
 .status {
   border:1px solid #cbd2da;
+}
+
+.items {
+  position: relative;
+
+  .items-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.7);
+  }
 }
 
 .status-header {
