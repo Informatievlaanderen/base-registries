@@ -19,23 +19,27 @@
                   <y-markdown v-if="$data.markdownLoaded" :src="$data.content" />
                 </vl-typography>
               </div>
+              <div class="ma-0 pa-0 mt-4 status-filters">
+                <vl-input-field v-model="filterText" placeholder="Filter op naam" @keyup.esc.native="filterText = ''" />
+                <vl-checkbox v-model="filterStaleOnly">Enkel &lt; 100%</vl-checkbox>
+              </div>
               <div class="ma-0 pa-0">
-                <div v-for="registry in registries" :key="registry.key" :id="registry.title" class="ma-0 pa-0">
+                <div
+                  v-for="registry in registries"
+                  v-show="isRegistryVisible(registry.key)"
+                  :key="registry.key"
+                  :id="registry.title"
+                  class="ma-0 pa-0"
+                >
                   <h3 class="vl-title vl-title--h3 ma-0 py-4" :style="{ color: '#05c' }">
                     <a :href="`#${registry.title}`">{{ registry.title }}</a>
                   </h3>
                   <div v-for="statusType in statusTypes" :key="statusType.name">
                     <vl-status-category
-                      v-if="$l(`status.registries.${registry.key}.${statusType.name}`)"
+                      v-if="isGroupVisible(registry.key, statusType)"
                       :loading="!statusType.loaded"
                       :title="statusType.title"
-                      :items="
-                        (transformedStatusItems &&
-                          transformedStatusItems[registry.key] &&
-                          transformedStatusItems[registry.key] &&
-                          transformedStatusItems[registry.key][statusType.name]) ||
-                        []
-                      "
+                      :items="getVisibleItems(registry.key, statusType.name)"
                       class="ma-0 pa-0"
                       @refresh="refresh(statusType.name)"
                     />
@@ -95,6 +99,8 @@ export default Vue.extend({
     return {
       statusItems: {} as { [registry: string]: RegistryItem<any> },
       transformedStatusItems: {} as { [registry: string]: RegistryItem<StatusItem[]> },
+      filterStaleOnly: false,
+      filterText: "",
       statusTypes: [
         {
           name: "import",
@@ -188,6 +194,11 @@ export default Vue.extend({
     };
   },
   async mounted() {
+    const queryFilter = this.$route.query.filter;
+    const initialFilter = Array.isArray(queryFilter) ? queryFilter[0] : queryFilter;
+    if (initialFilter) {
+      this.filterText = initialFilter;
+    }
     await this.init();
   },
   computed: {
@@ -251,7 +262,7 @@ export default Vue.extend({
       } catch {
         data = {};
         this.registries.forEach((registry) => {
-          data[`${registry}Registry`] = null;
+          data[`${registry.key}Registry`] = null;
         });
       }
 
@@ -553,6 +564,7 @@ export default Vue.extend({
         .map((i) => {
           const info = this.getRightTextInfo(i.currentPosition, i.storePosition ?? projectionResponse.streamPosition);
           const item: StatusItem = {
+            key: i.key,
             planned: false,
             paused: i.state == "crashed" || i.state == "unknown",
             play: i.state == "catchingUp" || i.state == "subscribed",
@@ -598,6 +610,7 @@ export default Vue.extend({
         .map((i) => {
           const info = this.getRightTextInfo(i.currentPosition, ProducerResponse.streamPosition);
           const item: StatusItem = {
+            key: i.key,
             planned: false,
             paused: i.state == "crashed" || i.state == "unknown",
             play: i.state == "catchingUp" || i.state == "subscribed",
@@ -731,6 +744,7 @@ export default Vue.extend({
         .map((i) => {
           const info = this.getRightTextInfo(i.currentPosition, projectionResponse.streamPosition);
           const item: StatusItem = {
+            key: i.key,
             planned: false,
             paused: i.state == "stopped" || i.state == "crashed" || i.state == "unknown",
             play: i.state == "catchingUp" || i.state == "subscribed",
@@ -845,6 +859,41 @@ export default Vue.extend({
       });
       return items;
     },
+    getVisibleItems(registryKey: string, statusTypeName: StatusType): StatusItem[] {
+      const items =
+        (this.transformedStatusItems[registryKey] && this.transformedStatusItems[registryKey][statusTypeName]) || [];
+      const registryTitle = this.$l(`status.registries.${registryKey}.title`) || "";
+      const statusType = this.statusTypes.find((t) => t.name == statusTypeName);
+      const groupTitle = (statusType && statusType.title) || "";
+      return items.filter((i) => this.matchesFilters(i, registryTitle, groupTitle));
+    },
+    matchesFilters(item: StatusItem, registryTitle: string, groupTitle: string): boolean {
+      if (this.filterStaleOnly && item.success) {
+        return false;
+      }
+      const terms = this.filterText.trim().toLowerCase().split(/\s+/).filter((t) => t);
+      if (!terms.length) {
+        return true;
+      }
+      const haystack = [item.key || "", item.text || "", registryTitle, groupTitle].join(" ").toLowerCase();
+      return terms.every((term) => haystack.includes(term));
+    },
+    isGroupVisible(registryKey: string, statusType: { name: StatusType; loaded: boolean }): boolean {
+      if (!this.$l(`status.registries.${registryKey}.${statusType.name}`)) {
+        return false;
+      }
+      const registryData = this.transformedStatusItems[registryKey];
+      const hasData = registryData && registryData[statusType.name] !== undefined;
+      if (!statusType.loaded && !hasData) {
+        // Initial load: show the loader. During a refresh data is still present,
+        // so visibility keeps following the active filters below.
+        return true;
+      }
+      return this.getVisibleItems(registryKey, statusType.name).length > 0;
+    },
+    isRegistryVisible(registryKey: string): boolean {
+      return this.statusTypes.some((statusType) => this.isGroupVisible(registryKey, statusType));
+    },
     getRightTextInfo(currentPosition: number, desiredPosition: number) {
       const percentage = (currentPosition / desiredPosition) * 100.0;
       const percentageWith2Decimals = Number.parseFloat(percentage.toFixed(2));
@@ -889,6 +938,7 @@ interface RegistryItem<T> {
 }
 
 interface StatusItem {
+  key?: string;
   play: boolean;
   paused: boolean;
   planned: boolean;
@@ -904,3 +954,16 @@ interface StatusItem {
   error: { title: string; text: string; inline: boolean } | undefined;
 }
 </script>
+
+<style lang="scss" scoped>
+.status-filters {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  .vl-input-field {
+    max-width: 30rem;
+  }
+}
+</style>
