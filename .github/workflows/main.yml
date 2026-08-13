@@ -130,8 +130,11 @@ jobs:
         SEMVER: ${{ env.RELEASE_VERSION }}
         WORKSPACE: ${{ github.workspace }}
 
+    # Mirrors the changelog to Confluence. The v1 content REST API this uses answers 404, so the step fails; the
+    # release itself is already done by the time it runs, so it may not take the build down with it.
     - name: Publish to Confluence
       if: env.RELEASE_VERSION != 'none'
+      continue-on-error: true
       shell: bash
       run: ./packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-confluence.sh
       env:
