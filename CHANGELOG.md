@@ -1,3 +1,15 @@
+# [2.21.0](https://github.com/informatievlaanderen/base-registries/compare/v2.20.0...v2.21.0) (2026-08-13)
+
+
+### Bug Fixes
+
+* build by pinning dependency ([0536031](https://github.com/informatievlaanderen/base-registries/commit/0536031d6404c893eda243025671284ab31e837b))
+
+
+### Features
+
+* add filtering + overlay when refreshing ([22715ee](https://github.com/informatievlaanderen/base-registries/commit/22715ee3ac1bb97931d9a7adbd5e9dd08db38296))
+
 # [2.20.0](https://github.com/informatievlaanderen/base-registries/compare/v2.19.1...v2.20.0) (2026-01-19)
 
 
