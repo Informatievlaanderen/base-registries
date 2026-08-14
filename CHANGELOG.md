@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/informatievlaanderen/base-registries/compare/v2.21.0...v2.22.0) (2026-08-14)
+
+
+### Features
+
+* status page - global refresh button + resilient error state on failed refresh ([#135](https://github.com/informatievlaanderen/base-registries/issues/135)) ([e7fa4bf](https://github.com/informatievlaanderen/base-registries/commit/e7fa4bfc97c15ef609a99c4e589bc5a0f12c3f2d))
+
 # [2.21.0](https://github.com/informatievlaanderen/base-registries/compare/v2.20.0...v2.21.0) (2026-08-13)
 
 
