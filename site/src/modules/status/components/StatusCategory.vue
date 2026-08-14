@@ -20,6 +20,7 @@
           :disable-hover-text="item.disableHoverText"
           :hover-text="item.hoverText"
           :success="item.success"
+          :refresh-failed="item.refreshFailed"
           :text="item.text"
           :right-text="item.rightText"
           :error="item.error"
@@ -78,11 +79,11 @@ export default Vue.extend({
   },
   computed: {
     prepandIcon(): string {
-      const hasIssues = this.content.items.map((i: any) => i.success).includes(false);
+      const hasIssues = this.content.items.map((i: any) => i.success && !i.refreshFailed).includes(false);
       return hasIssues ? "warning" : "calendar_check";
     },
     prepandIconColor() {
-      const hasErrors = this.content.items.map((i: StatusItem) => i.error !== undefined && i.error.inline == false).includes(true);
+      const hasErrors = this.content.items.map((i: StatusItem) => (i.error !== undefined && i.error.inline == false) || i.refreshFailed === true).includes(true);
       const hasWarnings = this.content.items.map((i: any) => i.success).includes(false);
       if(hasErrors) {
         return {color:"#aa2729"};
@@ -131,6 +132,7 @@ interface StatusItem {
   text: string;
   rightText: string;
   success: boolean;
+  refreshFailed?: boolean;
   error: { title:string, text:string, inline: boolean } | undefined;
 }
 

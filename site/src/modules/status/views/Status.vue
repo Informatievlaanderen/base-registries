@@ -22,6 +22,7 @@
               <div class="ma-0 pa-0 mt-4 status-filters">
                 <vl-input-field v-model="filterText" placeholder="Filter op naam" @keyup.esc.native="filterText = ''" />
                 <vl-checkbox v-model="filterStaleOnly">Enkel &lt; 100%</vl-checkbox>
+                <vl-button class="status-filters-refresh" icon="synchronize" mod-icon @click="init" />
               </div>
               <div class="ma-0 pa-0">
                 <div
@@ -228,6 +229,7 @@ export default Vue.extend({
       const type = this.statusTypes.find((i: { name: StatusType; loaded: boolean }) => i.name == statusType);
       type!.loaded = false;
       let data = {} as any;
+      let succeeded = true;
       try {
         switch (statusType) {
           case "projections":
@@ -260,12 +262,54 @@ export default Vue.extend({
             break;
         }
       } catch {
+        succeeded = false;
         data = {};
-        this.registries.forEach((registry) => {
-          data[`${registry.key}Registry`] = null;
-        });
+        this.markRefreshFailed(statusType, data);
       }
 
+      if (succeeded) {
+        this.clearMissingRegistries(statusType, data);
+      }
+      this.applyStatusData(statusType, data);
+      type!.loaded = true;
+
+      if (callback) {
+        callback();
+      }
+    },
+    markRefreshFailed(statusType: StatusType, data: any) {
+      this.registries.forEach((registry) => {
+        const existing = this.transformedStatusItems[registry.key] && this.transformedStatusItems[registry.key][statusType];
+        if (existing && existing.length && !existing.some((i) => i.error && !i.error.inline)) {
+          // Keep the records from the previous refresh, but flag them so the
+          // rows render in an error state instead of disappearing.
+          this.transformedStatusItems[registry.key] = Object.assign(this.transformedStatusItems[registry.key] || {}, {
+            [statusType]: existing.map((i) => ({ ...i, refreshFailed: true })),
+          });
+        } else {
+          data[`${registry.key}Registry`] = null;
+        }
+      });
+    },
+    clearMissingRegistries(statusType: StatusType, data: any) {
+      // A successful call only overwrites registries present in the response.
+      // Reset the absent ones so stale items (e.g. an old error alert from a
+      // failed refresh) don't linger. Must never run on failure: there we keep
+      // the previous records on purpose.
+      const responseKeys = Object.keys(data).map((r) =>
+        r.replace("RegistryV2", "").replace("Registry", "").toLowerCase()
+      );
+      this.registries.forEach((registry) => {
+        const existing = this.transformedStatusItems[registry.key];
+        if (!responseKeys.includes(registry.key) && existing && existing[statusType] && existing[statusType].length) {
+          this.statusItems[registry.key] = Object.assign(this.statusItems[registry.key] || {}, {
+            [statusType]: undefined,
+          });
+          this.transformedStatusItems[registry.key] = Object.assign(existing, { [statusType]: [] });
+        }
+      });
+    },
+    applyStatusData(statusType: StatusType, data: any) {
       Object.keys(data).forEach((r: string) => {
         const registryId = r.replace("RegistryV2", "").replace("Registry", "").toLowerCase();
         this.statusItems[registryId] = Object.assign(this.statusItems[registryId] || {}, { [statusType]: data[r] });
@@ -274,11 +318,6 @@ export default Vue.extend({
           [statusType]: d,
         });
       });
-      type!.loaded = true;
-
-      if (callback) {
-        callback();
-      }
     },
     getItems(statusType: StatusType, data: any): StatusItem[] {
       const ret = [] as StatusItem[];
@@ -868,7 +907,7 @@ export default Vue.extend({
       return items.filter((i) => this.matchesFilters(i, registryTitle, groupTitle));
     },
     matchesFilters(item: StatusItem, registryTitle: string, groupTitle: string): boolean {
-      if (this.filterStaleOnly && item.success) {
+      if (this.filterStaleOnly && item.success && !item.refreshFailed) {
         return false;
       }
       const terms = this.filterText.trim().toLowerCase().split(/\s+/).filter((t) => t);
@@ -951,6 +990,7 @@ interface StatusItem {
   text: string;
   rightText: string;
   success: boolean;
+  refreshFailed?: boolean;
   error: { title: string; text: string; inline: boolean } | undefined;
 }
 </script>
@@ -964,6 +1004,10 @@ interface StatusItem {
 
   .vl-input-field {
     max-width: 30rem;
+  }
+
+  .status-filters-refresh {
+    margin-left: auto;
   }
 }
 </style>

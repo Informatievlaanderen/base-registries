@@ -79,7 +79,7 @@ const proxyChangeLogRoadRegistry = {
 
 const proxyApiErrors = {
   "/basisregisters-api/foutmeldingen/": {
-    target: "https://api.basisregisters.dev-vlaanderen.be",
+    target: "https://api.basisregisters.test-vlaanderen.be",
     ws: false,
     https: true,
     changeOrigin: true,
@@ -95,7 +95,7 @@ const proxyApiErrors = {
 
 const proxyApi = {
   "/basisregisters-api/v1/": {
-    target: "https://api.basisregisters.dev-vlaanderen.be",
+    target: "https://api.basisregisters.test-vlaanderen.be",
     ws: false,
     https: true,
     changeOrigin: true,
@@ -110,7 +110,7 @@ const proxyApi = {
 
 const proxyApiV2 = {
   "/basisregisters-api/v2/": {
-    target: "https://api.basisregisters.dev-vlaanderen.be",
+    target: "https://api.basisregisters.test-vlaanderen.be",
     ws: false,
     https: true,
     changeOrigin: true,
@@ -125,7 +125,7 @@ const proxyApiV2 = {
 
 const proxyDocs = {
   "/docs": {
-    target: "https://docs.basisregisters.dev-vlaanderen.be",
+    target: "https://docs.basisregisters.test-vlaanderen.be",
     https: true,
     changeOrigin: true,
     Headers: {
