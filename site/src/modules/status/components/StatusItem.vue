@@ -4,13 +4,14 @@
       class="left --tooltip --tooltip-bottom" 
       :data-content="prepandHoverText"
     >
-      <vl-icon 
+      <vl-icon
         v-if="!hidePrepandIcon"
         :icon="prepandIcon"
+        :style="prepandIconColor"
         mod-small
       />
     </div>
-    <div class="mid pl-3">
+    <div class="mid pl-3" :class="{ 'refresh-failed': refreshFailed }">
       <vl-typography>
         <template v-if="disableHoverText">
           <span>{{text}}</span>
@@ -111,6 +112,9 @@ export default Vue.extend({
       else if(this.paused) 
         return "pause";
       return "stop"
+    },
+    prepandIconColor() {
+      return this.refreshFailed ? { color: "#aa2729" } : {};
     },
     prepandHoverText(): string {
       if(this.planned)
