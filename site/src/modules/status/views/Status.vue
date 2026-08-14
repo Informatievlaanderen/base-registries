@@ -22,6 +22,7 @@
               <div class="ma-0 pa-0 mt-4 status-filters">
                 <vl-input-field v-model="filterText" placeholder="Filter op naam" @keyup.esc.native="filterText = ''" />
                 <vl-checkbox v-model="filterStaleOnly">Enkel &lt; 100%</vl-checkbox>
+                <vl-button class="status-filters-refresh" icon="synchronize" mod-icon @click="init" />
               </div>
               <div class="ma-0 pa-0">
                 <div
@@ -262,7 +263,16 @@ export default Vue.extend({
       } catch {
         data = {};
         this.registries.forEach((registry) => {
-          data[`${registry.key}Registry`] = null;
+          const existing = this.transformedStatusItems[registry.key] && this.transformedStatusItems[registry.key][statusType];
+          if (existing && existing.length && !existing.some((i) => i.error && !i.error.inline)) {
+            // Keep the records from the previous refresh, but flag them so the
+            // rows render in an error state instead of disappearing.
+            this.transformedStatusItems[registry.key] = Object.assign(this.transformedStatusItems[registry.key] || {}, {
+              [statusType]: existing.map((i) => ({ ...i, refreshFailed: true })),
+            });
+          } else {
+            data[`${registry.key}Registry`] = null;
+          }
         });
       }
 
@@ -868,7 +878,7 @@ export default Vue.extend({
       return items.filter((i) => this.matchesFilters(i, registryTitle, groupTitle));
     },
     matchesFilters(item: StatusItem, registryTitle: string, groupTitle: string): boolean {
-      if (this.filterStaleOnly && item.success) {
+      if (this.filterStaleOnly && item.success && !item.refreshFailed) {
         return false;
       }
       const terms = this.filterText.trim().toLowerCase().split(/\s+/).filter((t) => t);
@@ -951,6 +961,7 @@ interface StatusItem {
   text: string;
   rightText: string;
   success: boolean;
+  refreshFailed?: boolean;
   error: { title: string; text: string; inline: boolean } | undefined;
 }
 </script>
@@ -964,6 +975,10 @@ interface StatusItem {
 
   .vl-input-field {
     max-width: 30rem;
+  }
+
+  .status-filters-refresh {
+    margin-left: auto;
   }
 }
 </style>

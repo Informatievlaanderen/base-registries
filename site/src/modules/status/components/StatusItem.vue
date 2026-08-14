@@ -26,7 +26,10 @@
       <span class="vl-alert--error pa-2 mr-1 inline-error" v-if="getError">
         {{ getError.text }}
       </span>
-      <span>{{rightText}} <vl-icon v-if="!hideAppendIcon" :style="appendIconColor" :icon="appendIcon" mod-large/></span>
+      <span
+        :class="{ 'refresh-failed --tooltip --tooltip-bottom': refreshFailed }"
+        :data-content="refreshFailed ? 'Status vernieuwen is mislukt, deze gegevens zijn mogelijk verouderd.' : undefined"
+      >{{rightText}} <vl-icon v-if="!hideAppendIcon" :style="appendIconColor" :icon="appendIcon" mod-large/></span>
     </div>
   </div>
   <div v-else>
@@ -89,6 +92,10 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    refreshFailed: {
+      type: Boolean,
+      default: false,
+    },
     error: {
       type: Object,
       default: undefined,
@@ -115,6 +122,9 @@ export default Vue.extend({
       return "Stopped"
     },
     appendIcon(): string {
+      if(this.refreshFailed){
+        return "warning";
+      }
       if(this.success){
         return "calendar_check";
       }
@@ -124,10 +134,13 @@ export default Vue.extend({
       return "question-mark"
     },
     appendIconColor() {
+      if(this.refreshFailed){
+        return {color:"#aa2729"};
+      }
       if(this.success){
         return {color:"green"};
       }
-      
+
       if (this.play || this.planned || this.stopped) {
         return {color:"orange"};
       }
@@ -166,6 +179,10 @@ export default Vue.extend({
 
   .inline-error {
     border: 1px solid #edafb1;
+  }
+
+  .refresh-failed {
+    color: #aa2729;
   }
 }
 
