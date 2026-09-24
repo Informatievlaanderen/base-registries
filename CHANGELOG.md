@@ -1,3 +1,10 @@
+# [2.23.0](https://github.com/informatievlaanderen/base-registries/compare/v2.22.0...v2.23.0) (2026-09-24)
+
+
+### Features
+
+* archive pages + redirect GAWR-7518 GAWR-7519 ([19af7c5](https://github.com/informatievlaanderen/base-registries/commit/19af7c5cf927487126c258b1074e15ae1478e4e5))
+
 # [2.22.0](https://github.com/informatievlaanderen/base-registries/compare/v2.21.0...v2.22.0) (2026-08-14)
 
 
