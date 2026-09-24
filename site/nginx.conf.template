@@ -134,6 +134,11 @@ server {
       return 302 https://${DOLLAR}host/;
     }
 
+    # Archived pages: redirect /apikey (incl. /apikey/limieten) to Confluence
+    if (${DOLLAR}request_uri ~* "^/api-?key([/?].*)?$") {
+      return 302 https://vlaamseoverheid.atlassian.net/wiki/x/wwAR8AE;
+    }
+
     # This is the most stupidest thing I've ever seen
     # Enforce all lowercase
     # if (${DOLLAR}request_uri ~ "[A-Z]") {

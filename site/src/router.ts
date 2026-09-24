@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Router, { RawLocation, Route, RouteConfig } from "vue-router";
 import { HomeRoutes } from "./modules/home/";
-import { ApiKeyRoutes } from "./modules/apikey/";
 import { ImplementationModelRoutes } from "./modules/implementation-model/";
 import { RegistryRoutes } from "./modules/registries";
 import { StatusRoutes } from "./modules/status";
@@ -17,7 +16,6 @@ Vue.use(Router);
 
 const routes: RouteConfig[] = [
     ...HomeRoutes,
-    ...ApiKeyRoutes,
     ...ImplementationModelRoutes,
     ...RegistryRoutes,
     ...ErrorDetailRoutes,
