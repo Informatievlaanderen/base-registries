@@ -1,3 +1,10 @@
+## [2.23.2](https://github.com/informatievlaanderen/base-registries/compare/v2.23.1...v2.23.2) (2026-09-24)
+
+
+### Bug Fixes
+
+* cleanup foutmelding + redirect ([a326686](https://github.com/informatievlaanderen/base-registries/commit/a3266867026292ebcf79bb21cadddd8d397fbbb2))
+
 ## [2.23.1](https://github.com/informatievlaanderen/base-registries/compare/v2.23.0...v2.23.1) (2026-09-24)
 
 
