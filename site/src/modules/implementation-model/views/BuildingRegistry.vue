@@ -8,9 +8,9 @@
               <vl-grid mod-stacked>
                 <vl-column>
                   <vl-link
-                    :to="$l('backButtons.implementationmodel.url')"
+                    :to="$l('backButtons.home.url')"
                     mod-bold
-                    v-l="`backButtons.implementationmodel.text`"
+                    v-l="`backButtons.home.text`"
                   />
                   <vl-typography>
                     <y-markdown v-if="$data.markdownLoaded" :src="$data.implementationModelContent" />

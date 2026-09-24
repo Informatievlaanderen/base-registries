@@ -1,5 +1,4 @@
 import Root from "./views/Root.vue";
-import ReleaseNotes from "./views/ReleaseNotes.vue";
 import ReleaseNotesTechnicalGrar from "./views/ReleaseNotesTechnicalGrar.vue";
 import ReleaseNotesTechnicalWr from "./views/ReleaseNotesTechnicalWr.vue";
 import ReleaseNotesBusinessGrar from "./views/ReleaseNotesBusinessGrar.vue";
@@ -13,8 +12,7 @@ export const ReleaseNotesRoutes = [
         children: [
             {
                 path: "",
-                component: ReleaseNotes,
-                name: "release-notes"
+                redirect: "/"
               },
               {
                   path: "technischgrar",

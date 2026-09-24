@@ -109,6 +109,31 @@ server {
       return 302 https://vlaamseoverheid.atlassian.net/wiki/spaces/AGB/pages/7675641879/Gebruik+van+de+edit-API+s+WR;
     }
 
+    # Archived pages: redirect /producten (incl. /producten/grar and /producten/wr) to the homepage
+    if (${DOLLAR}request_uri ~* "^/producten([/?].*)?$") {
+      return 302 https://${DOLLAR}host/;
+    }
+
+    # Archived pages: redirect /documentatie and its remaining subpaths to the homepage
+    if (${DOLLAR}request_uri ~* "^/documentatie([/?].*)?$") {
+      return 302 https://${DOLLAR}host/;
+    }
+
+    # Archived page: redirect the /implementatiemodel overview to the homepage (its register subpages stay available)
+    if (${DOLLAR}request_uri ~* "^/implementatiemodel/?(\?.*)?$") {
+      return 302 https://${DOLLAR}host/;
+    }
+
+    # Archived page: redirect the /release-notes overview to the homepage (its subpages stay available)
+    if (${DOLLAR}request_uri ~* "^/release-notes/?(\?.*)?$") {
+      return 302 https://${DOLLAR}host/;
+    }
+
+    # Archived page: redirect /verklarende-woordenlijst to the homepage
+    if (${DOLLAR}request_uri ~* "^/verklarende-woordenlijst([/?].*)?$") {
+      return 302 https://${DOLLAR}host/;
+    }
+
     # This is the most stupidest thing I've ever seen
     # Enforce all lowercase
     # if (${DOLLAR}request_uri ~ "[A-Z]") {
