@@ -35,18 +35,6 @@ export const TranslationClient = {
         const path = `/assets/locales/${lang}/${folder}/accordion.json`;
         return (await apiClient.get<Faq.Accordion>(path, undefined, { 'Cache-Control': 'no-store' })).data;
     },
-    getErrorDetailTableOfContents: async (lang: string): Promise<ErrorDetail.TableOfContents> => {
-        const path = `/assets/locales/${lang}/error-detail/table-of-contents.json`;
-        return (await apiClient.get<ErrorDetail.TableOfContents>(path, undefined, { 'Cache-Control': 'no-store' })).data;
-    },
-    getErrorDetailKnownErrorMarkdown: async (lang: string, knownErrorId: string): Promise<string> => {
-        const path = `/assets/locales/${lang}/error-detail/known-errors/${knownErrorId}.md`;
-        return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
-    },
-    getErrorDetailKnownErrorExample: async (lang: string, knownErrorId: string): Promise<string> => {
-        const path = `/assets/locales/${lang}/error-detail/known-errors/${knownErrorId}.json`;
-        return (await apiClient.get<string>(path, undefined, { 'Cache-Control': 'no-store' })).data;
-    },
     getImplementationModelMarkdown: async (register: ImplementationModelType, versionDate: String) => {
         const path = `/assets/oslo/doc/implementatiemodel/${register}/ontwerpstandaard/${versionDate}/index_nl.html`;
         return (await apiClient.get<string>(path, undefined, { "Content-Type": "text/markdown", "Cache-Control": "no-store" })).data;
@@ -104,15 +92,5 @@ export namespace Faq {
     export interface Question {
         title: string;
         file: string;
-    }
-}
-export namespace ErrorDetail {
-    export interface TableOfContents {
-        knownErrors: Array<KnownError>;
-    }
-
-    export interface KnownError {
-        id: string;
-        title: string;
     }
 }

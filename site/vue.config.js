@@ -77,22 +77,6 @@ const proxyChangeLogRoadRegistry = {
   },
 }
 
-const proxyApiErrors = {
-  "/basisregisters-api/foutmeldingen/": {
-    target: "https://api.basisregisters.test-vlaanderen.be",
-    ws: false,
-    https: true,
-    changeOrigin: true,
-    Headers: {
-      'Cache-Control': 'no-store',
-    },
-    pathRewrite: {
-      "/basisregisters-api/foutmeldingen/": `/v2/foutmeldingen/`
-    }
-  },
-}
-
-
 const proxyApi = {
   "/basisregisters-api/v1/": {
     target: "https://api.basisregisters.test-vlaanderen.be",
@@ -155,7 +139,6 @@ module.exports = defineConfig({
       ...proxyChangeLogRoadRegistry,
       ...proxyApi,
       ...proxyApiV2,
-      ...proxyApiErrors,
       ...proxyWiki,
       ...osloBlobProxy,
       ...proxyGithubApi,

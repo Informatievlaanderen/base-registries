@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import TranslationClient, { Faq, ErrorDetail, ImplementationModelType } from "./translations-client";
+import TranslationClient, { Faq, ImplementationModelType } from "./translations-client";
 import { DirectiveBinding } from "vue/types/options";
 import Util from "./util";
 
@@ -10,7 +10,6 @@ const translations = Vue.observable({
   nl: {} as any,
   faqTableOfContents: {} as Faq.TableOfContents,
   faqAccordionItems: {} as Faq.Accordion,
-  errorDetailTableOfContents: {} as ErrorDetail.TableOfContents,
 });
 
 const i18n = {
@@ -56,10 +55,6 @@ const i18n = {
     }
 
     const path = window.location.pathname;
-    if (path.startsWith("/foutmeldingen/")) {
-      const data = await TranslationClient.getErrorDetailTableOfContents("nl");
-      translations.errorDetailTableOfContents = { ...data };
-    }
     if (path.startsWith("/veelgestelde-vragen")) {
       const data = await TranslationClient.getAccordion("nl", "faq");
       translations.faqAccordionItems = { ...data };
