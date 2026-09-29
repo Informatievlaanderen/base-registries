@@ -1,3 +1,10 @@
+## [2.23.3](https://github.com/informatievlaanderen/base-registries/compare/v2.23.2...v2.23.3) (2026-09-29)
+
+
+### Bug Fixes
+
+* redirect root url to confluence site ([027b378](https://github.com/informatievlaanderen/base-registries/commit/027b3780566758c0c266d3f573b07ebd1149d5ef))
+
 ## [2.23.2](https://github.com/informatievlaanderen/base-registries/compare/v2.23.1...v2.23.2) (2026-09-24)
 
 
