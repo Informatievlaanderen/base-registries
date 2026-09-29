@@ -144,6 +144,11 @@ server {
       return 302 https://vlaamseoverheid.atlassian.net/wiki/x/xwCW0wE;
     }
 
+    # Redirect the root (homepage) to Confluence; subpaths keep being served
+    if (${DOLLAR}request_uri ~* "^/(\?.*)?$") {
+      return 302 https://vlaamseoverheid.atlassian.net/wiki/x/d4RyRw;
+    }
+
     # This is the most stupidest thing I've ever seen
     # Enforce all lowercase
     # if (${DOLLAR}request_uri ~ "[A-Z]") {
